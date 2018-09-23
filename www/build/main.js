@@ -106,10 +106,10 @@ var ProfilePage = /** @class */ (function () {
           }, (err) => { });*/
         var _this = this;
         var actionSheet = this.actionSheetCtrl.create({
-            title: 'Modify your album',
+            title: 'Modifier votre album',
             buttons: [
                 {
-                    text: 'Take Photo',
+                    text: 'Choisir une photo',
                     role: 'destructive',
                     handler: function () {
                         console.log('Destructive clicked');
@@ -129,7 +129,7 @@ var ProfilePage = /** @class */ (function () {
                     }
                 },
                 {
-                    text: 'Choose Photo',
+                    text: 'Prendre une photo',
                     handler: function () {
                         console.log('Archive clicked');
                         var options = {
@@ -144,6 +144,17 @@ var ProfilePage = /** @class */ (function () {
                             // If it's base64 (DATA_URL):
                             var base64Image = 'data:image/jpeg;base64,' + imageData;
                             _this.profileImages[index].image = base64Image;
+                            // Test insert BACK
+                            _this.api.post('addPopy', _this.user.id)
+                                .subscribe(function (base64Image) {
+                                var body;
+                                console.log(body);
+                            }, function (err) {
+                                console.log(err);
+                            }, function () {
+                                //this.goToHome();
+                            });
+                            // Test insert BACK
                         }, function (err) {
                             // Handle error
                         });
