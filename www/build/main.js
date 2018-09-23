@@ -104,6 +104,7 @@ var ProfilePage = /** @class */ (function () {
     
     
           }, (err) => { });*/
+        var _this = this;
         var actionSheet = this.actionSheetCtrl.create({
             title: 'Modify your album',
             buttons: [
@@ -112,12 +113,40 @@ var ProfilePage = /** @class */ (function () {
                     role: 'destructive',
                     handler: function () {
                         console.log('Destructive clicked');
+                        var options = {
+                            sourceType: 0,
+                            quality: 100,
+                            destinationType: _this.camera.DestinationType.DATA_URL,
+                            encodingType: _this.camera.EncodingType.JPEG,
+                            mediaType: _this.camera.MediaType.PICTURE
+                        };
+                        _this.camera.getPicture(options).then(function (imageData) {
+                            var base64Image = 'data:image/jpeg;base64,' + imageData;
+                            _this.profileImages[index].image = base64Image;
+                        }, function (err) {
+                            // Handle error
+                        });
                     }
                 },
                 {
                     text: 'Choose Photo',
                     handler: function () {
                         console.log('Archive clicked');
+                        var options = {
+                            sourceType: 1,
+                            quality: 100,
+                            destinationType: _this.camera.DestinationType.DATA_URL,
+                            encodingType: _this.camera.EncodingType.JPEG,
+                            mediaType: _this.camera.MediaType.PICTURE
+                        };
+                        _this.camera.getPicture(options).then(function (imageData) {
+                            // imageData is either a base64 encoded string or a file URI
+                            // If it's base64 (DATA_URL):
+                            var base64Image = 'data:image/jpeg;base64,' + imageData;
+                            _this.profileImages[index].image = base64Image;
+                        }, function (err) {
+                            // Handle error
+                        });
                     }
                 },
                 {
@@ -130,27 +159,6 @@ var ProfilePage = /** @class */ (function () {
             ]
         });
         actionSheet.present();
-        alert.show({
-            buttons: [
-                { text: 'Take Photo' },
-                { text: 'Choose Photo' },
-            ],
-            cancelText: 'Cancel',
-            titleText: 'Take or Choose a Photo',
-            buttonClicked: buttonClicked,
-        });
-        var options = {
-            sourceType: 0,
-            quality: 100,
-            destinationType: this.camera.DestinationType.DATA_URL,
-            encodingType: this.camera.EncodingType.JPEG,
-            mediaType: this.camera.MediaType.PICTURE
-        };
-        this.camera.getPicture(options).then(function (imageData) {
-            var base64Image = 'data:image/jpeg;base64,' + imageData;
-        }, function (err) {
-            // Handle error
-        });
     };
     ProfilePage.prototype.removeImage = function (index) {
         var _this = this;
