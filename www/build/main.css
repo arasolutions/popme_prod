@@ -61810,6 +61810,80 @@ html [segment], html segment {
   min-width: 0;
 }
 
+.profile-image {
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  background-image: url(http://www.popme.test/assets/images/unknown.png);
+  background-size: 80px;
+  margin: 20px auto 0 auto;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.first-step-1-change-photo {
+  margin: 0 auto 20px auto;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+page-first-step2 .profile-images-edit {
+  padding: 5px;
+}
+
+page-first-step2 .profile-images-edit .div-img {
+  padding-bottom: 99%;
+  background-color: #e0dfe5;
+}
+
+page-first-step2 .profile-image {
+  position: relative;
+  width: calc(100% / 2 - 10px);
+  margin: 5px auto;
+  height: calc(100% / 2 - 10px);
+}
+
+page-first-step2 .profile-image .btn-edit {
+  position: absolute;
+  right: -8px;
+  bottom: -8px;
+  background-color: #f0eff5;
+  font-size: 12px;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  border-radius: 999em;
+}
+
+page-first-step2 .profile-image .popy-label {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background-color: #34495e;
+  padding: 2px 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 0.8em;
+}
+
+page-first-step2 .big-thumb {
+  width: 128px;
+  display: inline-block;
+}
+
+@media screen and (max-width: 320px) {
+  page-first-step2 .big-thumb {
+    width: 128px;
+  }
+}
+
+@media screen and (min-width: 321px) {
+  page-first-step2 .big-thumb {
+    width: 160px;
+    margin-top: 36px;
+  }
+}
+
 page-log .button-muted {
   border-radius: 999em;
   font-size: 14px;
@@ -62113,6 +62187,7 @@ page-profile .profile-images-edit .div-img {
 page-profile .profile-image {
   position: relative;
   width: calc(100% / 2 - 10px);
+  height: calc(100% / 2 - 10px);
   margin: 5px;
   float: left;
 }
