@@ -1684,7 +1684,7 @@ var ProfilePage = /** @class */ (function () {
                             data.popy = base64Image;
                             var loading = _this.loadingCtrl.create({
                                 spinner: 'crescent',
-                                content: 'Etape 2 ...',
+                                content: 'Chargement ...',
                                 dismissOnPageChange: true
                             });
                             loading.present();
@@ -1729,17 +1729,34 @@ var ProfilePage = /** @class */ (function () {
                             // If it's base64 (DATA_URL):
                             var base64Image = 'data:image/jpeg;base64,' + imageData;
                             _this.profileImages[index].image = base64Image;
-                            // Test insert BACK
-                            _this.api.post('addPopy', _this.userId)
-                                .subscribe(function (base64Image) {
+                            var data;
+                            data = {};
+                            data.popy = base64Image;
+                            var loading = _this.loadingCtrl.create({
+                                spinner: 'crescent',
+                                content: 'Chargement ...',
+                                dismissOnPageChange: true
+                            });
+                            loading.present();
+                            _this.api.post('addPopy/' + _this.userId, data)
+                                .subscribe(function (data) {
                                 var body;
-                                console.log(body);
+                                body = JSON.parse(data.text());
+                                if (body.error) {
+                                    loading.dismiss();
+                                    _this.doAlert(body.message);
+                                }
+                                else {
+                                    loading.dismiss();
+                                    _this.doAlert(body.message);
+                                }
                             }, function (err) {
-                                console.log(err);
+                                loading.dismiss();
+                                _this.doAlert(err.message);
+                                //this.navCtrl.setRoot(this.navCtrl.getActive().component);
                             }, function () {
                                 //this.goToHome();
                             });
-                            // Test insert BACK
                         }, function (err) {
                             // Handle error
                         });
