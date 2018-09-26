@@ -31,11 +31,11 @@ var map = {
 		224
 	],
 	"../pages/log/log.module": [
-		717,
+		718,
 		3
 	],
 	"../pages/login/login.module": [
-		718,
+		717,
 		4
 	],
 	"../pages/play/play.module": [
@@ -45,15 +45,15 @@ var map = {
 		323
 	],
 	"../pages/register/register.module": [
-		721,
+		719,
 		2
 	],
 	"../pages/settings/settings.module": [
-		719,
+		720,
 		1
 	],
 	"../pages/trend/trend.module": [
-		720,
+		721,
 		0
 	]
 };
@@ -221,12 +221,14 @@ var FirstStep2Page = /** @class */ (function () {
                             quality: 100,
                             destinationType: _this.camera.DestinationType.DATA_URL,
                             encodingType: _this.camera.EncodingType.JPEG,
-                            mediaType: _this.camera.MediaType.PICTURE
+                            mediaType: _this.camera.MediaType.PICTURE,
+                            targetWidth: 2000
                         };
                         _this.camera.getPicture(options).then(function (imageData) {
                             var base64Image = 'data:image/jpeg;base64,' + imageData;
                             //this.profileImages[index].image = base64Image;
                             _this.popy = base64Image;
+                            _this.popyUrl = 'url(' + base64Image + ')';
                         }, function (err) {
                             // Handle error
                         });
@@ -240,7 +242,8 @@ var FirstStep2Page = /** @class */ (function () {
                             quality: 100,
                             destinationType: _this.camera.DestinationType.DATA_URL,
                             encodingType: _this.camera.EncodingType.JPEG,
-                            mediaType: _this.camera.MediaType.PICTURE
+                            mediaType: _this.camera.MediaType.PICTURE,
+                            targetWidth: 2000
                         };
                         _this.camera.getPicture(options).then(function (imageData) {
                             // imageData is either a base64 encoded string or a file URI
@@ -248,6 +251,7 @@ var FirstStep2Page = /** @class */ (function () {
                             var base64Image = 'data:image/jpeg;base64,' + imageData;
                             //this.profileImages[index].image = base64Image;
                             _this.popy = base64Image;
+                            _this.popyUrl = 'url(' + base64Image + ')';
                             // Test insert BACK
                             /*this.api.post('addPopy', this.user.id)
                                 .subscribe(
@@ -290,7 +294,7 @@ var FirstStep2Page = /** @class */ (function () {
     };
     FirstStep2Page = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-first-step2',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\firstStep2\firstStep2.html"*/'<!--\n\n  Generated template for the RegisterPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-content padding text-center>\n\n  <div>\n\n    <p>Maintenant, mets ta première photo</p>\n\n  </div>\n\n  <div class="profile-images-edit">\n\n    <div class="profile-image" (click)="openPhotoPicker(i)">\n\n      <div class="div-img img-square r-3x"></div>\n\n      <button ion-button icon-only clear class="btn-edit">\n\n        <ion-icon name="md-add-circle" color="danger"></ion-icon>\n\n      </button>\n\n    </div>\n\n  </div>\n\n  <button ion-button full round (click)="validProfileStep2()">Valider</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\firstStep2\firstStep2.html"*/,
+            selector: 'page-first-step2',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\firstStep2\firstStep2.html"*/'<!--\n\n  Generated template for the RegisterPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-content padding text-center>\n\n  <div>\n\n    <p>Maintenant, mets ta première photo</p>\n\n  </div>\n\n  <div class="profile-images-edit">\n\n    <div class="profile-image" (click)="openPhotoPicker(i)" [style.background-image]="popyUrl">\n\n      <div class="div-img img-square r-3x"></div>\n\n      <button ion-button icon-only clear class="btn-edit">\n\n        <ion-icon name="md-add-circle" color="danger"></ion-icon>\n\n      </button>\n\n    </div>\n\n  </div>\n\n  <button ion-button full round (click)="validProfileStep2()">Valider</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\firstStep2\firstStep2.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
@@ -793,8 +797,8 @@ var FirstStep1Page = /** @class */ (function () {
                             encodingType: _this.camera.EncodingType.JPEG,
                             mediaType: _this.camera.MediaType.PICTURE,
                             correctOrientation: true,
-                            targetWidth: 200,
-                            targetHeight: 200
+                            targetWidth: 500,
+                            targetHeight: 500
                         };
                         _this.camera.getPicture(options).then(function (imageData) {
                             var base64Image = 'data:image/jpeg;base64,' + imageData;
@@ -811,13 +815,13 @@ var FirstStep1Page = /** @class */ (function () {
                     handler: function () {
                         var options = {
                             sourceType: 1,
-                            quality: 50,
+                            quality: 100,
                             destinationType: _this.camera.DestinationType.DATA_URL,
                             encodingType: _this.camera.EncodingType.JPEG,
                             mediaType: _this.camera.MediaType.PICTURE,
                             correctOrientation: true,
-                            targetWidth: 200,
-                            targetHeight: 200
+                            targetWidth: 500,
+                            targetHeight: 500
                         };
                         _this.camera.getPicture(options).then(function (imageData) {
                             // imageData is either a base64 encoded string or a file URI
@@ -961,13 +965,13 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/firstStep1/firstStep1.module#FirstStep1PageModule', name: 'FirstStep1Page', segment: 'firstStep1', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/firstStep2/firstStep2.module#FirstStep2PageModule', name: 'FirstStep2Page', segment: 'firstStep2', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/firstStep3/firstStep3.module#FirstStep3PageModule', name: 'FirstStep3Page', segment: 'firstStep3', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/log/log.module#LogPageModule', name: 'LogPage', segment: 'log', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/log/log.module#LogPageModule', name: 'LogPage', segment: 'log', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/play/play.module#PlayPageModule', name: 'PlayPage', segment: 'play', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/trend/trend.module#TrendPageModule', name: 'TrendPage', segment: 'trend', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* HttpModule */],
