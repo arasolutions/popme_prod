@@ -45,15 +45,15 @@ var map = {
 		323
 	],
 	"../pages/register/register.module": [
-		719,
+		721,
 		2
 	],
 	"../pages/settings/settings.module": [
-		720,
+		719,
 		1
 	],
 	"../pages/trend/trend.module": [
-		721,
+		720,
 		0
 	]
 };
@@ -180,23 +180,25 @@ var FirstStep2Page = /** @class */ (function () {
                 var data = void 0;
                 data = {};
                 data.popy = _this.popy;
-                var loading = _this.loadingCtrl.create({
+                var loading_1 = _this.loadingCtrl.create({
                     spinner: 'crescent',
                     content: 'Etape 2 ...',
                     dismissOnPageChange: true
                 });
-                loading.present();
+                loading_1.present();
                 _this.api.post('addPopy/' + val.id, data)
                     .subscribe(function (data) {
                     var body;
                     body = JSON.parse(data.text());
                     if (body.error) {
+                        loading_1.dismiss();
                         _this.doAlert(body.message);
                     }
                     else {
                         _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__firstStep3_firstStep3__["a" /* FirstStep3Page */]);
                     }
                 }, function (err) {
+                    loading_1.dismiss();
                     _this.doAlert(err.message);
                     //this.navCtrl.setRoot(this.navCtrl.getActive().component);
                 }, function () {
@@ -745,17 +747,18 @@ var FirstStep1Page = /** @class */ (function () {
                 data = {};
                 data.description = _this.description;
                 data.accountImage = _this.accountImage;
-                var loading = _this.loadingCtrl.create({
+                var loading_1 = _this.loadingCtrl.create({
                     spinner: 'crescent',
                     content: 'Etape 1 ...',
                     dismissOnPageChange: true
                 });
-                loading.present();
+                loading_1.present();
                 _this.api.post('updateStep1/' + val.id, data)
                     .subscribe(function (data) {
                     var body;
                     body = JSON.parse(data.text());
                     if (body.error) {
+                        loading_1.dismiss();
                         _this.doAlert(body.message);
                     }
                     else {
@@ -765,6 +768,7 @@ var FirstStep1Page = /** @class */ (function () {
                         _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__firstStep2_firstStep2__["a" /* FirstStep2Page */]);
                     }
                 }, function (err) {
+                    loading_1.dismiss();
                     _this.doAlert(err.message);
                     //this.navCtrl.setRoot(this.navCtrl.getActive().component);
                 }, function () {
@@ -784,16 +788,19 @@ var FirstStep1Page = /** @class */ (function () {
                     handler: function () {
                         var options = {
                             sourceType: 0,
-                            quality: 50,
+                            quality: 100,
                             destinationType: _this.camera.DestinationType.DATA_URL,
                             encodingType: _this.camera.EncodingType.JPEG,
                             mediaType: _this.camera.MediaType.PICTURE,
-                            correctOrientation: true
+                            correctOrientation: true,
+                            targetWidth: 200,
+                            targetHeight: 200
                         };
                         _this.camera.getPicture(options).then(function (imageData) {
                             var base64Image = 'data:image/jpeg;base64,' + imageData;
                             //this.profileImages[index].image = base64Image;
                             _this.accountImage = base64Image;
+                            _this.accountImageUrl = 'url(' + base64Image + ')';
                         }, function (err) {
                             // Handle error
                         });
@@ -808,7 +815,9 @@ var FirstStep1Page = /** @class */ (function () {
                             destinationType: _this.camera.DestinationType.DATA_URL,
                             encodingType: _this.camera.EncodingType.JPEG,
                             mediaType: _this.camera.MediaType.PICTURE,
-                            correctOrientation: true
+                            correctOrientation: true,
+                            targetWidth: 200,
+                            targetHeight: 200
                         };
                         _this.camera.getPicture(options).then(function (imageData) {
                             // imageData is either a base64 encoded string or a file URI
@@ -816,21 +825,7 @@ var FirstStep1Page = /** @class */ (function () {
                             var base64Image = 'data:image/jpeg;base64,' + imageData;
                             //this.profileImages[index].image = base64Image;
                             _this.accountImage = base64Image;
-                            // Test insert BACK
-                            /*this.api.post('addPopy', this.user.id)
-                                .subscribe(
-                                    (base64Image) => {
-                                        let body: any;
-                                        console.log(body);
-                                    },
-                                    (err) => {
-                                        console.log(err);
-  
-                                    },
-                                    () => {
-                                        //this.goToHome();
-                                    }
-                                    );*/
+                            _this.accountImageUrl = 'url(' + base64Image + ')';
                             // Test insert BACK
                         }, function (err) {
                             // Handle error
@@ -858,7 +853,7 @@ var FirstStep1Page = /** @class */ (function () {
     };
     FirstStep1Page = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-first',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\firstStep1\firstStep1.html"*/'<!--\n\n  Generated template for the RegisterPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-content padding text-center>\n\n  <div>\n\n    <p>Avant de commencer, il faut remplir les infos suivantes</p>\n\n  </div>\n\n  <ion-list class="w-full">\n\n    <div (click)="openPhotoPicker()">\n\n     <div class=" rounded profile-image" [style.background-image]="accountImage">\n\n     </div>\n\n     <div class="first-step-1-change-photo">\n\n      Mets ta photo de profil\n\n    </div>\n\n  </div>\n\n  <ion-item>\n\n    <ion-input type="text" placeholder="Ta description" [(ngModel)]="description"></ion-input>\n\n  </ion-item>\n\n</ion-list>\n\n<button ion-button full round (click)="validProfileStep1()">Valider</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\firstStep1\firstStep1.html"*/,
+            selector: 'page-first',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\firstStep1\firstStep1.html"*/'<!--\n\n  Generated template for the RegisterPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-content padding text-center>\n\n  <div>\n\n    <p>Avant de commencer, il faut remplir les infos suivantes</p>\n\n  </div>\n\n  <ion-list class="w-full">\n\n    <div (click)="openPhotoPicker()">\n\n     <div class=" rounded profile-image" [style.background-image]="accountImageUrl">\n\n     </div>\n\n     <div class="first-step-1-change-photo">\n\n      Mets ta photo de profil\n\n    </div>\n\n  </div>\n\n  <ion-item>\n\n    <ion-input type="text" placeholder="Ta description" [(ngModel)]="description"></ion-input>\n\n  </ion-item>\n\n</ion-list>\n\n<button ion-button full round (click)="validProfileStep1()">Valider</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\firstStep1\firstStep1.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */],
@@ -969,10 +964,10 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/log/log.module#LogPageModule', name: 'LogPage', segment: 'log', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/play/play.module#PlayPageModule', name: 'PlayPage', segment: 'play', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/trend/trend.module#TrendPageModule', name: 'TrendPage', segment: 'trend', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/trend/trend.module#TrendPageModule', name: 'TrendPage', segment: 'trend', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* HttpModule */],
@@ -1655,36 +1650,6 @@ var ProfilePage = /** @class */ (function () {
         this.viewCtrl.dismiss();
     };
     ProfilePage.prototype.openPhotoPicker = function (index) {
-        /*console.log(this.imagePicker);
-        this.imagePicker.getPictures({ maximumImagesCount: 1 })
-          .then((results) => {
-            this.profileImages[index].image = results[0];
-    
-    
-                  let data: any;
-                  data = {};
-                  data.user = this.user;
-    
-                  this.api.post('addPopy', data.user)
-                      .subscribe(
-                          (data) => {
-                              let body: any;
-                              body = JSON.parse(data.text());
-    
-                              console.log(body);
-                          },
-                          (err) => {
-                              console.log(err);
-    
-                          },
-                          () => {
-                              //this.goToHome();
-                          }
-                      );
-    
-    
-    
-                    }, (err) => { });*/
         var _this = this;
         var actionSheet = this.actionSheetCtrl.create({
             title: 'Modifier votre album',
