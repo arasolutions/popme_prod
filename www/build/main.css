@@ -62220,17 +62220,14 @@ page-profile .big-thumb {
   display: inline-block;
 }
 
-@media screen and (max-width: 320px) {
-  page-profile .big-thumb {
-    width: 128px;
-  }
+page-profile .profile-picture {
+  width: 40%;
+  float: left;
 }
 
-@media screen and (min-width: 321px) {
-  page-profile .big-thumb {
-    width: 160px;
-    margin-top: 36px;
-  }
+page-profile .profile-info {
+  width: 60%;
+  float: right;
 }
 
 page-register .login {
