@@ -47,10 +47,6 @@
 		<splash qualifier="port-xhdpi" src="res/screens/android/drawable-port-xhdpi-screen.png" />
 		<splash qualifier="port-xxhdpi" src="res/screens/android/drawable-port-xxhdpi-screen.png" />
 		<splash qualifier="port-xxxhdpi" src="res/screens/android/drawable-port-xxxhdpi-screen.png" />
-		<config-file parent="/resources" target="./res/values/strings.xml">
-            <string name="fb_app_id">504120356667672</string>
-            <string name="fb_app_name">Popme</string>
-        </config-file>
 	</platform>
 	<platform name="ios">
 		<icon height="57" platform="ios" src="res/icons/ios/icon.png" width="57" />
@@ -95,9 +91,4 @@
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="your usage message" />
     </plugin>
     <plugin name="cordova-plugin-camera" spec="^4.0.3" />
-    <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
-    <plugin name="cordova-plugin-facebook4" spec="^3.0.0">
-        <variable name="APP_ID" value="504120356667672" />
-        <variable name="APP_NAME" value="Popme" />
-    </plugin>
 </widget>
