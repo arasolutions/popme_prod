@@ -47,7 +47,7 @@
 		<splash qualifier="port-xhdpi" src="res/screens/android/drawable-port-xhdpi-screen.png" />
 		<splash qualifier="port-xxhdpi" src="res/screens/android/drawable-port-xxhdpi-screen.png" />
 		<splash qualifier="port-xxxhdpi" src="res/screens/android/drawable-port-xxxhdpi-screen.png" />
-		<config-file parent="/resources" target="./res/values/strings.xml">
+		<config-file parent="/resources" target="/app/src/main/res/values/strings.xml">
     <string name="fb_app_id">504120356667672</string>
     <string name="fb_app_name">Popme</string>
 </config-file>
