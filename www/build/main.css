@@ -61964,6 +61964,43 @@ page-play .swipe-container {
   padding-bottom: 84px;
 }
 
+.poper-card-image {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  border: solid 3px white;
+  background-position: center;
+  background-size: 70px;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+.poper-card-text {
+  padding-left: 80px;
+  line-height: 70px;
+  height: 70px;
+  background-color: white;
+  color: black;
+  margin-left: -70px;
+  z-index: 1;
+  border-radius: 100vw;
+  padding-right: 10px;
+  width: 65vw;
+}
+
+.poper-card-text .poper-card-usualname {
+  line-height: 40px;
+}
+
+.poper-card-text .poper-card-button {
+  line-height: 20px;
+  background-color: transparent;
+  color: #CCC;
+  font-size: initial;
+  font-weight: normal;
+}
+
 .card-stack {
   height: 100%;
   position: relative;
@@ -62186,6 +62223,88 @@ page-play .swipe-container {
     -webkit-transform: scale3d(5, 5, 1);
     transform: scale3d(5, 5, 1);
   }
+}
+
+page-poperprofile .profile-images-edit {
+  padding: 5px;
+}
+
+page-poperprofile .profile-images-edit .div-img {
+  padding-bottom: 99%;
+  background-color: #e0dfe5;
+}
+
+page-poperprofile .profile-image {
+  position: relative;
+  width: calc(100% / 2 - 10px);
+  height: calc(100% / 2 - 10px);
+  margin: 5px;
+  float: left;
+}
+
+page-poperprofile .profile-image .btn-edit {
+  position: absolute;
+  right: -8px;
+  bottom: -8px;
+  background-color: #f0eff5;
+  font-size: 12px;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  border-radius: 999em;
+}
+
+page-poperprofile .profile-image .popy-label {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background-color: #34495e;
+  padding: 2px 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 0.8em;
+}
+
+page-poperprofile .big-thumb {
+  width: 128px;
+  display: inline-block;
+}
+
+page-poperprofile .profile-picture {
+  width: 40%;
+  float: left;
+}
+
+page-poperprofile .profile-info {
+  width: 60%;
+  float: right;
+}
+
+page-poperprofile .stamp {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  font-size: 10px;
+  color: #fd5068;
+  border: 3px solid #fd5068;
+  border-radius: 4px;
+  padding: 0px 4px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-transform: rotate(15deg);
+  transform: rotate(15deg);
+  opacity: 1;
+}
+
+page-poperprofile .stamp.stamp-like {
+  right: initial;
+  left: 5px;
+  color: #22e4a8;
+  border-color: #22e4a8;
+  -webkit-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  letter-spacing: 3px;
 }
 
 page-profile .profile-images-edit {
