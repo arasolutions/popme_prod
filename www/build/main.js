@@ -1838,7 +1838,7 @@ var LoginPage = /** @class */ (function () {
         this.fb.login(['public_profile', 'user_friends', 'email'])
             .then(function (res) { return console.log('Logged into Facebook!', res); })
             .catch(function (e) { return console.log('Error logging into Facebook', e); });
-        this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
+        //this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
     };
     LoginPage = LoginPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
