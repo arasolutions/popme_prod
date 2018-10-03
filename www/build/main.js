@@ -1742,15 +1742,20 @@ var LoginPage = /** @class */ (function () {
         var _this = this;
         var data;
         data = {};
+        alert('coucou');
         this.fb.login(['public_profile', 'email'])
             .then(function (res) {
             if (res.status === "connected") {
+                alert('Point 1');
                 data.id = res.authResponse.userID;
-                _this.api.post('getConfiguration', data)
+                alert('Point 2');
+                _this.api.post('connectFacebookUser', data)
                     .subscribe(function (data) {
+                    alert('Point 3');
                     var body;
                     body = JSON.parse(data.text());
                     _this.storage.set('configurations', body);
+                    alert('Point 4');
                     // On redirige l'utilisateur vers sa page si il est authentifié
                     _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__profile_profile__["a" /* ProfilePage */]);
                 }, function (err) {
