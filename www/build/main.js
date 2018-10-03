@@ -1785,6 +1785,7 @@ var LoginPage = /** @class */ (function () {
         alert('Point 7');
         this.fb.getLoginStatus()
             .then(function (res) {
+            alert(res.status);
             console.log(res.status);
             if (res.status === "connect") {
                 alert('Point 8');
