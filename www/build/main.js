@@ -1738,6 +1738,40 @@ var LoginPage = /** @class */ (function () {
         });
         alert.present();
     };
+    LoginPage.prototype.loginAction = function () {
+        var _this = this;
+        // Login with permissions
+        this.fb.login(['public_profile', 'user_photos', 'email', 'user_birthday'])
+            .then(function (res) {
+            alert('debut login');
+            // The connection was successful
+            if (res.status == "connected") {
+                // Get user ID and Token
+                var fb_id = res.authResponse.userID;
+                var fb_token = res.authResponse.accessToken;
+                // Get user infos from the API
+                _this.fb.api("/me?fields=name,gender,birthday,email", []).then(function (user) {
+                    // Get the connected user details
+                    var gender = user.gender;
+                    var birthday = user.birthday;
+                    var name = user.name;
+                    var email = user.email;
+                    alert("=== USER INFOS ===");
+                    console.log("Gender : " + gender);
+                    console.log("Birthday : " + birthday);
+                    console.log("Name : " + name);
+                    console.log("Email : " + email);
+                    // => Open user session and redirect to the next page
+                });
+            }
+            else {
+                alert("An error occurred...");
+            }
+        })
+            .catch(function (e) {
+            alert('Error logging into Facebook');
+        });
+    };
     LoginPage.prototype.loginFB = function () {
         var _this = this;
         var data;
@@ -1813,7 +1847,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = LoginPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\login\login.html"*/'<ion-content padding>\n\n  <div layout vertical center>\n\n    <div class="title">POPME</div>\n\n    <ion-list class="w-full login">\n\n      <ion-item>\n\n        <ion-input [(ngModel)]="user" type="text" placeholder="Adresse Email"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-input [(ngModel)]="password" type="password" placeholder="Mot de passe"></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n    <button ion-button full round (click)="checkLogin()">Se connecter</button>\n\n    <div class="logo">\n\n        <img src="/assets/img/logo.png">\n\n    </div>\n\n    <div>\n\n      <button ion-button round small color="muted" outline (click)="goTo(\'RegisterPage\')">Créer un compte</button>\n\n    </div>\n\n    <div class="text-center">\n\n      <div>\n\n        <button ion-button round class="btn-tinder-login m-b-sm" (click)="loginFB()">Se connecter avec FACEBOOK</button>\n\n      </div>\n\n      <div>\n\n        <button ion-button round class="btn-tinder-login-instagram m-b-sm" (click)="checkLoginFb()">Se connecter avec INSTAGRAM</button>\n\n      </div>\n\n      <div class="wrapper text-muted">\n\n        <p>Bienvenue sur POPME\n\n          <br> Version 1.0\n\n          <br> ARA Solutions\n\n        </p>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\login\login.html"*/'<ion-content padding>\n\n  <div layout vertical center>\n\n    <div class="title">POPME</div>\n\n    <ion-list class="w-full login">\n\n      <ion-item>\n\n        <ion-input [(ngModel)]="user" type="text" placeholder="Adresse Email"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-input [(ngModel)]="password" type="password" placeholder="Mot de passe"></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n    <button ion-button full round (click)="checkLogin()">Se connecter</button>\n\n    <div class="logo">\n\n        <img src="/assets/img/logo.png">\n\n    </div>\n\n    <div>\n\n      <button ion-button round small color="muted" outline (click)="goTo(\'RegisterPage\')">Créer un compte</button>\n\n    </div>\n\n    <div class="text-center">\n\n      <div>\n\n        <button ion-button round class="btn-tinder-login m-b-sm" (click)="loginFB()">Se connecter avec FACEBOOK</button>\n\n      </div>\n\n      <div>\n\n        <button ion-button round class="btn-tinder-login-instagram m-b-sm" (click)="loginAction()">Se connecter avec INSTAGRAM</button>\n\n      </div>\n\n      <div class="wrapper text-muted">\n\n        <p>Bienvenue sur POPME\n\n          <br> Version 1.0\n\n          <br> ARA Solutions\n\n        </p>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__["a" /* Facebook */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__["a" /* Facebook */]) === "function" && _g || Object])
     ], LoginPage);
