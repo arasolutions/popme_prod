@@ -1777,6 +1777,7 @@ var LoginPage = /** @class */ (function () {
             }
         })
             .catch(function (e) { return console.log('Error logging into Facebook', e); });
+        alert('Point 6');
     };
     LoginPage.prototype.checkLoginFb = function () {
         var _this = this;
