@@ -1778,16 +1778,22 @@ var LoginPage = /** @class */ (function () {
         })
             .catch(function (e) { return console.log('Error logging into Facebook', e); });
         alert('Point 6');
+        this.checkLoginFb();
     };
     LoginPage.prototype.checkLoginFb = function () {
         var _this = this;
+        alert('Point 7');
         this.fb.getLoginStatus()
             .then(function (res) {
             console.log(res.status);
             if (res.status === "connect") {
+                alert('Point 8');
                 _this.isLoggedIn = true;
+                // On redirige l'utilisateur vers sa page si il est authentifié
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__profile_profile__["a" /* ProfilePage */]);
             }
             else {
+                alert('Point 9');
                 _this.isLoggedIn = false;
             }
         })
