@@ -1741,7 +1741,7 @@ var LoginPage = /** @class */ (function () {
     LoginPage.prototype.loginAction = function () {
         var _this = this;
         // Login with permissions
-        this.fb.login(['public_profile', 'user_photos', 'email', 'user_birthday'])
+        this.fb.login(['public_profile', 'email'])
             .then(function (res) {
             alert('debut login');
             // The connection was successful
@@ -1753,12 +1753,10 @@ var LoginPage = /** @class */ (function () {
                 _this.fb.api("/me?fields=name,gender,birthday,email", []).then(function (user) {
                     // Get the connected user details
                     var gender = user.gender;
-                    var birthday = user.birthday;
                     var name = user.name;
                     var email = user.email;
                     alert("=== USER INFOS ===");
                     console.log("Gender : " + gender);
-                    console.log("Birthday : " + birthday);
                     console.log("Name : " + name);
                     console.log("Email : " + email);
                     // => Open user session and redirect to the next page
