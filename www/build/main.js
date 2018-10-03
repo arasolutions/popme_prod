@@ -1770,6 +1770,7 @@ var LoginPage = /** @class */ (function () {
             .catch(function (e) {
             alert('Error logging into Facebook');
         });
+        this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
     };
     LoginPage.prototype.loginFB = function () {
         var _this = this;
@@ -1780,6 +1781,8 @@ var LoginPage = /** @class */ (function () {
             .then(function (res) {
             alert('Point 0');
             alert(res);
+            alert(res.authResponse);
+            alert(res.authResponse.userID);
             if (res.status === "connected") {
                 alert('Point 1');
                 data.id = res.authResponse.userID;
