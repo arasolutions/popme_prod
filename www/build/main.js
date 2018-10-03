@@ -1751,6 +1751,7 @@ var LoginPage = /** @class */ (function () {
                 var fb_token = res.authResponse.accessToken;
                 // Get user infos from the API
                 _this.fb.api("/me?fields=name,gender,birthday,email", []).then(function (user) {
+                    alert('debut auth');
                     // Get the connected user details
                     var gender = user.gender;
                     var name = user.name;
