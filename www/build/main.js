@@ -32,10 +32,13 @@ var map = {
 	],
 	"../pages/loading/loading.module": [
 		724,
-		9
+		3
 	],
 	"../pages/log/log.module": [
 		329
+	],
+	"../pages/login/login.module": [
+		227
 	],
 	"../pages/play/play.module": [
 		228
@@ -48,15 +51,15 @@ var map = {
 	],
 	"../pages/register/register.module": [
 		725,
-		8
+		0
 	],
 	"../pages/settings/settings.module": [
 		726,
-		7
+		2
 	],
 	"../pages/trend/trend.module": [
 		727,
-		6
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -498,7 +501,8 @@ var FirstStep2PageModule = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPageModule; });
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(43);
@@ -1329,7 +1333,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_14__pages_firstStep1_firstStep1_module__["FirstStep1PageModule"],
                 __WEBPACK_IMPORTED_MODULE_15__pages_firstStep2_firstStep2_module__["FirstStep2PageModule"],
                 __WEBPACK_IMPORTED_MODULE_16__pages_firstStep3_firstStep3_module__["FirstStep3PageModule"],
-                __WEBPACK_IMPORTED_MODULE_17__pages_login_login_module__["a" /* LoginPageModule */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_login_login_module__["LoginPageModule"],
                 __WEBPACK_IMPORTED_MODULE_19__pages_log_log_module__["LogPageModule"],
                 __WEBPACK_IMPORTED_MODULE_18__pages_poperprofile_poperprofile_module__["PoperProfilePageModule"]
             ],
@@ -1657,6 +1661,7 @@ var LoginPage = /** @class */ (function () {
         this.alertCtrl = alertCtrl;
         this.fb = fb;
         this.profilePage = __WEBPACK_IMPORTED_MODULE_4__profile_profile__["a" /* ProfilePage */];
+        this.isLoggedIn = false;
         this.loaded = false;
         var loading = this.loadingCtrl.create({
             content: 'Chargement...'
@@ -1734,19 +1739,71 @@ var LoginPage = /** @class */ (function () {
         alert.present();
     };
     LoginPage.prototype.loginFB = function () {
+        var _this = this;
+        var data;
+        data = {};
         this.fb.login(['public_profile', 'email'])
-            .then(function (res) { return console.log('Logged into Facebook!', res); })
+            .then(function (res) {
+            if (res.status === "connected") {
+                data.id = res.authResponse.userID;
+                _this.api.post('getConfiguration', data)
+                    .subscribe(function (data) {
+                    var body;
+                    body = JSON.parse(data.text());
+                    _this.storage.set('configurations', body);
+                    // On redirige l'utilisateur vers sa page si il est authentifié
+                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__profile_profile__["a" /* ProfilePage */]);
+                }, function (err) {
+                    _this.storage.remove('configurations');
+                    _this.storage.remove('user');
+                    _this.storage.remove('isConnected');
+                    _this.storage.remove('fromLoading');
+                    _this.navCtrl.setRoot(LoginPage_1);
+                }, function () {
+                    //this.goToHome();
+                });
+                //this.isLoggedIn = true;
+                //this.getUserDetail(res.authResponse.userID);
+            }
+            else {
+                _this.isLoggedIn = false;
+            }
+        })
             .catch(function (e) { return console.log('Error logging into Facebook', e); });
-        //this.fb.logEvent(this.fb.EVENTS.EVENT_NAME_ADDED_TO_CART);
+    };
+    LoginPage.prototype.checkLoginFb = function () {
+        var _this = this;
+        this.fb.getLoginStatus()
+            .then(function (res) {
+            console.log(res.status);
+            if (res.status === "connect") {
+                _this.isLoggedIn = true;
+            }
+            else {
+                _this.isLoggedIn = false;
+            }
+        })
+            .catch(function (e) { return console.log(e); });
+    };
+    LoginPage.prototype.getUserDetail = function (userid) {
+        var _this = this;
+        this.fb.api("/" + userid + "/?fields=id,email,name,picture,gender", ["public_profile"])
+            .then(function (res) {
+            console.log(res);
+            _this.usersFb = res;
+        })
+            .catch(function (e) {
+            console.log(e);
+        });
     };
     LoginPage = LoginPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-login',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\login\login.html"*/'<ion-content padding>\n\n  <div layout vertical center>\n\n    <div class="title">POPME</div>\n\n    <ion-list class="w-full login">\n\n      <ion-item>\n\n        <ion-input [(ngModel)]="user" type="text" placeholder="Adresse Email"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-input [(ngModel)]="password" type="password" placeholder="Mot de passe"></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n    <button ion-button full round (click)="checkLogin()">Se connecter</button>\n\n    <div class="logo">\n\n        <img src="/assets/img/logo.png">\n\n    </div>\n\n    <div>\n\n      <button ion-button round small color="muted" outline (click)="goTo(\'RegisterPage\')">Créer un compte</button>\n\n    </div>\n\n    <div class="text-center">\n\n      <div>\n\n        <button ion-button round class="btn-tinder-login m-b-sm" (click)="loginFB()">Se connecter avec FACEBOOK</button>\n\n      </div>\n\n      <div>\n\n        <button ion-button round class="btn-tinder-login-instagram m-b-sm" (click)="goTo(\'ProfilePage\')">Se connecter avec INSTAGRAM</button>\n\n      </div>\n\n      <div class="wrapper text-muted">\n\n        <p>Bienvenue sur POPME\n\n          <br> Version 1.0\n\n          <br> ARA Solutions\n\n        </p>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */], __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__["a" /* Facebook */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__["a" /* Facebook */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__["a" /* Facebook */]) === "function" && _g || Object])
     ], LoginPage);
     return LoginPage;
-    var LoginPage_1;
+    var LoginPage_1, _a, _b, _c, _d, _e, _f, _g;
 }());
 
 //# sourceMappingURL=login.js.map
