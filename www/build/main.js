@@ -1745,6 +1745,8 @@ var LoginPage = /** @class */ (function () {
         alert('coucou');
         this.fb.login(['public_profile', 'email'])
             .then(function (res) {
+            alert('Point 0');
+            alert('res.status');
             if (res.status === "connected") {
                 alert('Point 1');
                 data.id = res.authResponse.userID;
