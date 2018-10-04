@@ -1820,6 +1820,9 @@ var LoginPage = /** @class */ (function () {
         console.log("click facebook login");
         this.fb.getLoginStatus()
             .then(function (response) {
+            alert('c est parti');
+            alert(response.status);
+            alert(response);
             if (response.status == "connected") {
                 alert('connecte');
                 return;
