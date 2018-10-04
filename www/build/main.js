@@ -1820,7 +1820,7 @@ var LoginPage = /** @class */ (function () {
         var _this = this;
         this.fb.getLoginStatus()
             .then(function (res) {
-            console.log(res.status);
+            alert(res.status);
             if (res.status === "connect") {
                 _this.isLoggedIn = true;
             }
