@@ -1,6 +1,100 @@
 webpackJsonp([4],{
 
-/***/ 173:
+/***/ 122:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PoperProfilePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__ = __webpack_require__(51);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var PoperProfilePage = /** @class */ (function () {
+    function PoperProfilePage(navCtrl, navParams, viewCtrl, imagePicker, app, api, storage, alertCtrl, camera, actionSheetCtrl, loadingCtrl) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.viewCtrl = viewCtrl;
+        this.imagePicker = imagePicker;
+        this.app = app;
+        this.api = api;
+        this.storage = storage;
+        this.alertCtrl = alertCtrl;
+        this.camera = camera;
+        this.actionSheetCtrl = actionSheetCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.userProfile = {};
+        this.popies = [];
+        this.userProfile = this.navParams.get("userProfile");
+    }
+    PoperProfilePage.prototype.back = function () {
+        this.viewCtrl.dismiss(this.popies);
+    };
+    PoperProfilePage.prototype.closeModal = function () {
+        console.log("close");
+    };
+    PoperProfilePage.prototype.like = function (index) {
+        var _this = this;
+        if (!this.userProfile.popies[index].popped) {
+            this.storage.get('user').then(function (user) {
+                var pop;
+                pop = {};
+                _this.api.post('pop/' + user.id + '/' + _this.userProfile.popies[index].id, pop)
+                    .subscribe(function (pop) {
+                    var body;
+                    body = JSON.parse(pop.text());
+                    _this.userProfile.popies[index].popped = true;
+                    _this.popies.push(_this.userProfile.popies[index].id);
+                }, function (err) {
+                    console.log(err);
+                    alert("ko");
+                    //this.navCtrl.setRoot(this.navCtrl.getActive().component);
+                }, function () {
+                    //this.goToHome();
+                });
+            });
+        }
+    };
+    PoperProfilePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-poperprofile',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\poperprofile\poperprofile.html"*/'<ion-header>\n\n	<div class="bg-white" layout horizontal justified>\n\n		<button left ion-button color="muted" clear icon-only (click)="back()">\n\n			<ion-icon name=\'arrow-dropleft-circle\'></ion-icon>\n\n		</button>\n\n	</div>\n\n</ion-header>\n\n<ion-content class="bg-custom">\n\n	<div layout vertical>\n\n		<div flex class="bg-white">\n\n			<div class="wrapper">\n\n				<div class="profile-picture">\n\n					<div class="text-center">\n\n						<div class="big-thumb float-left">\n\n							<img [src]="userProfile.account_image" class="rounded box-shadow" alt="">\n\n						</div>\n\n					</div>\n\n				</div>\n\n				<div class="profile-info">\n\n					<div class="text-center">\n\n						<div class="big-thumb">\n\n							<div class="text-2x">{{ userProfile.usual_name }}</div>\n\n							<div class="">{{ userProfile.description }}</div>\n\n						</div>\n\n						<div layout vertical>\n\n							<div flex class="bg-white ranking">\n\n								<div class="wrapper">\n\n									<img src="./assets/img/logo.png"><span class="ranking-text">18</span>\n\n								</div>\n\n							</div>\n\n						</div>\n\n					</div>\n\n				</div>\n\n			</div>\n\n		</div>\n\n	</div>\n\n	<div class="profile-images-edit">\n\n		<div class="profile-image" *ngFor="let image of userProfile.popies; let i = index">\n\n			<div [style.display]="userProfile.popies[i].popped ? \'block\' : \'none\'" class="stamp stamp-like">J\'ai popé</div>\n\n			<div [style.backgroundImage]="\'url(\' + userProfile.popies[i].image + \')\'" class="div-img img-square r-3x" (click)="like(i)"></div>\n\n		</div>\n\n	</div>\n\n</ion-content>'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\poperprofile\poperprofile.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__["a" /* Camera */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]])
+    ], PoperProfilePage);
+    return PoperProfilePage;
+}());
+
+//# sourceMappingURL=poperprofile.js.map
+
+/***/ }),
+
+/***/ 174:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -13,41 +107,41 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 173;
+webpackEmptyAsyncContext.id = 174;
 
 /***/ }),
 
-/***/ 218:
+/***/ 219:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/firstStep1/firstStep1.module": [
-		329
+		220
 	],
 	"../pages/firstStep2/firstStep2.module": [
-		219
+		227
 	],
 	"../pages/firstStep3/firstStep3.module": [
-		226
+		329
 	],
 	"../pages/loading/loading.module": [
 		725,
 		3
 	],
 	"../pages/log/log.module": [
-		227
+		229
 	],
 	"../pages/login/login.module": [
 		228
 	],
 	"../pages/play/play.module": [
-		229
+		230
 	],
 	"../pages/poperprofile/poperprofile.module": [
-		328
+		330
 	],
 	"../pages/profile/profile.module": [
-		330
+		328
 	],
 	"../pages/register/register.module": [
 		726,
@@ -73,20 +167,20 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 218;
+webpackAsyncContext.id = 219;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 219:
+/***/ 220:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirstStep2PageModule", function() { return FirstStep2PageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirstStep1PageModule", function() { return FirstStep1PageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__firstStep2__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__firstStep1__ = __webpack_require__(374);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -96,27 +190,45 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var FirstStep2PageModule = /** @class */ (function () {
-    function FirstStep2PageModule() {
+var FirstStep1PageModule = /** @class */ (function () {
+    function FirstStep1PageModule() {
     }
-    FirstStep2PageModule = __decorate([
+    FirstStep1PageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__firstStep2__["a" /* FirstStep2Page */]
+                __WEBPACK_IMPORTED_MODULE_2__firstStep1__["a" /* FirstStep1Page */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__firstStep2__["a" /* FirstStep2Page */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__firstStep1__["a" /* FirstStep1Page */]),
             ],
         })
-    ], FirstStep2PageModule);
-    return FirstStep2PageModule;
+    ], FirstStep1PageModule);
+    return FirstStep1PageModule;
 }());
 
-//# sourceMappingURL=firstStep2.module.js.map
+//# sourceMappingURL=firstStep1.module.js.map
 
 /***/ }),
 
-/***/ 220:
+/***/ 221:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return appSettings; });
+var appSettings = {
+    PRODUCTION: false,
+    API_ENDPOINT: 'https://www.escapegamecity.com/api/',
+    SERVER_URL: 'https://www.escapegamecity.com/',
+    API_TOKEN: '66CA3297B61DC38B-9925DC75FDE8EC3AFC2B6E5974228-CD625CB234A5FEDC',
+    API_URL: 'https://www.popme.app/api',
+    DEBUG: false,
+    BLOCK_ADD_POPY_DURATION: 24 * 60 * 60
+};
+//# sourceMappingURL=app-settings.js.map
+
+/***/ }),
+
+/***/ 225:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -127,7 +239,7 @@ var FirstStep2PageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__firstStep3_firstStep3__ = __webpack_require__(225);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__firstStep3_firstStep3__ = __webpack_require__(226);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__ = __webpack_require__(51);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -306,25 +418,7 @@ var FirstStep2Page = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 221:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return appSettings; });
-var appSettings = {
-    PRODUCTION: false,
-    API_ENDPOINT: 'https://www.escapegamecity.com/api/',
-    SERVER_URL: 'https://www.escapegamecity.com/',
-    API_TOKEN: '66CA3297B61DC38B-9925DC75FDE8EC3AFC2B6E5974228-CD625CB234A5FEDC',
-    API_URL: 'https://www.popme.app/api',
-    DEBUG: false,
-    BLOCK_ADD_POPY_DURATION: 24 * 60 * 60
-};
-//# sourceMappingURL=app-settings.js.map
-
-/***/ }),
-
-/***/ 225:
+/***/ 226:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -421,53 +515,15 @@ var FirstStep3Page = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 226:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirstStep3PageModule", function() { return FirstStep3PageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__firstStep3__ = __webpack_require__(225);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var FirstStep3PageModule = /** @class */ (function () {
-    function FirstStep3PageModule() {
-    }
-    FirstStep3PageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__firstStep3__["a" /* FirstStep3Page */]
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__firstStep3__["a" /* FirstStep3Page */]),
-            ],
-        })
-    ], FirstStep3PageModule);
-    return FirstStep3PageModule;
-}());
-
-//# sourceMappingURL=firstStep3.module.js.map
-
-/***/ }),
-
 /***/ 227:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogPageModule", function() { return LogPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirstStep2PageModule", function() { return FirstStep2PageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__log__ = __webpack_require__(409);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__firstStep2__ = __webpack_require__(225);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -477,23 +533,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LogPageModule = /** @class */ (function () {
-    function LogPageModule() {
+var FirstStep2PageModule = /** @class */ (function () {
+    function FirstStep2PageModule() {
     }
-    LogPageModule = __decorate([
+    FirstStep2PageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__log__["a" /* LogPage */],
+                __WEBPACK_IMPORTED_MODULE_2__firstStep2__["a" /* FirstStep2Page */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__log__["a" /* LogPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__firstStep2__["a" /* FirstStep2Page */]),
             ],
         })
-    ], LogPageModule);
-    return LogPageModule;
+    ], FirstStep2PageModule);
+    return FirstStep2PageModule;
 }());
 
-//# sourceMappingURL=log.module.js.map
+//# sourceMappingURL=firstStep2.module.js.map
 
 /***/ }),
 
@@ -540,11 +596,49 @@ var LoginPageModule = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LogPageModule", function() { return LogPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__log__ = __webpack_require__(409);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var LogPageModule = /** @class */ (function () {
+    function LogPageModule() {
+    }
+    LogPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__log__["a" /* LogPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__log__["a" /* LogPage */]),
+            ],
+        })
+    ], LogPageModule);
+    return LogPageModule;
+}());
+
+//# sourceMappingURL=log.module.js.map
+
+/***/ }),
+
+/***/ 230:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PlayPageModule", function() { return PlayPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__play__ = __webpack_require__(410);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_swing__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_swing__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_angular2_swing___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_angular2_swing__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -580,107 +674,13 @@ var PlayPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 230:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PoperProfilePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__ = __webpack_require__(51);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-
-
-var PoperProfilePage = /** @class */ (function () {
-    function PoperProfilePage(navCtrl, navParams, viewCtrl, imagePicker, app, api, storage, alertCtrl, camera, actionSheetCtrl, loadingCtrl) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.viewCtrl = viewCtrl;
-        this.imagePicker = imagePicker;
-        this.app = app;
-        this.api = api;
-        this.storage = storage;
-        this.alertCtrl = alertCtrl;
-        this.camera = camera;
-        this.actionSheetCtrl = actionSheetCtrl;
-        this.loadingCtrl = loadingCtrl;
-        this.userProfile = {};
-        this.popies = [];
-        this.userProfile = this.navParams.get("userProfile");
-    }
-    PoperProfilePage.prototype.back = function () {
-        this.viewCtrl.dismiss(this.popies);
-    };
-    PoperProfilePage.prototype.closeModal = function () {
-        console.log("close");
-    };
-    PoperProfilePage.prototype.like = function (index) {
-        var _this = this;
-        if (!this.userProfile.popies[index].popped) {
-            this.storage.get('user').then(function (user) {
-                var pop;
-                pop = {};
-                _this.api.post('pop/' + user.id + '/' + _this.userProfile.popies[index].id, pop)
-                    .subscribe(function (pop) {
-                    var body;
-                    body = JSON.parse(pop.text());
-                    _this.userProfile.popies[index].popped = true;
-                    _this.popies.push(_this.userProfile.popies[index].id);
-                }, function (err) {
-                    console.log(err);
-                    alert("ko");
-                    //this.navCtrl.setRoot(this.navCtrl.getActive().component);
-                }, function () {
-                    //this.goToHome();
-                });
-            });
-        }
-    };
-    PoperProfilePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-poperprofile',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\poperprofile\poperprofile.html"*/'<ion-header>\n\n	<div class="bg-white" layout horizontal justified>\n\n		<button left ion-button color="muted" clear icon-only (click)="back()">\n\n			<ion-icon name=\'arrow-dropleft-circle\'></ion-icon>\n\n		</button>\n\n	</div>\n\n</ion-header>\n\n<ion-content class="bg-custom">\n\n	<div layout vertical>\n\n		<div flex class="bg-white">\n\n			<div class="wrapper">\n\n				<div class="profile-picture">\n\n					<div class="text-center">\n\n						<div class="big-thumb float-left">\n\n							<img [src]="userProfile.account_image" class="rounded box-shadow" alt="">\n\n						</div>\n\n					</div>\n\n				</div>\n\n				<div class="profile-info">\n\n					<div class="text-center">\n\n						<div class="big-thumb">\n\n							<div class="text-2x">{{ userProfile.usual_name }}</div>\n\n							<div class="">{{ userProfile.description }}</div>\n\n						</div>\n\n						<div layout vertical>\n\n							<div flex class="bg-white ranking">\n\n								<div class="wrapper">\n\n									<img src="./assets/img/logo.png"><span class="ranking-text">18</span>\n\n								</div>\n\n							</div>\n\n						</div>\n\n					</div>\n\n				</div>\n\n			</div>\n\n		</div>\n\n	</div>\n\n	<div class="profile-images-edit">\n\n		<div class="profile-image" *ngFor="let image of userProfile.popies; let i = index">\n\n			<div [style.display]="userProfile.popies[i].popped ? \'block\' : \'none\'" class="stamp stamp-like">J\'ai popé</div>\n\n			<div [style.backgroundImage]="\'url(\' + userProfile.popies[i].image + \')\'" class="div-img img-square r-3x" (click)="like(i)"></div>\n\n		</div>\n\n	</div>\n\n</ion-content>'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\poperprofile\poperprofile.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]])
-    ], PoperProfilePage);
-    return PoperProfilePage;
-}());
-
-//# sourceMappingURL=poperprofile.js.map
-
-/***/ }),
-
 /***/ 27:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Api; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_settings__ = __webpack_require__(221);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -736,82 +736,6 @@ var Api = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoperProfilePageModule", function() { return PoperProfilePageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__poperprofile__ = __webpack_require__(230);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var PoperProfilePageModule = /** @class */ (function () {
-    function PoperProfilePageModule() {
-    }
-    PoperProfilePageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__poperprofile__["a" /* PoperProfilePage */]
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__poperprofile__["a" /* PoperProfilePage */]),
-            ],
-        })
-    ], PoperProfilePageModule);
-    return PoperProfilePageModule;
-}());
-
-//# sourceMappingURL=poperprofile.module.js.map
-
-/***/ }),
-
-/***/ 329:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirstStep1PageModule", function() { return FirstStep1PageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__firstStep1__ = __webpack_require__(375);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var FirstStep1PageModule = /** @class */ (function () {
-    function FirstStep1PageModule() {
-    }
-    FirstStep1PageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__firstStep1__["a" /* FirstStep1Page */]
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__firstStep1__["a" /* FirstStep1Page */]),
-            ],
-        })
-    ], FirstStep1PageModule);
-    return FirstStep1PageModule;
-}());
-
-//# sourceMappingURL=firstStep1.module.js.map
-
-/***/ }),
-
-/***/ 330:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePageModule", function() { return ProfilePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
@@ -845,6 +769,82 @@ var ProfilePageModule = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=profile.module.js.map
+
+/***/ }),
+
+/***/ 329:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "FirstStep3PageModule", function() { return FirstStep3PageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__firstStep3__ = __webpack_require__(226);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var FirstStep3PageModule = /** @class */ (function () {
+    function FirstStep3PageModule() {
+    }
+    FirstStep3PageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__firstStep3__["a" /* FirstStep3Page */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__firstStep3__["a" /* FirstStep3Page */]),
+            ],
+        })
+    ], FirstStep3PageModule);
+    return FirstStep3PageModule;
+}());
+
+//# sourceMappingURL=firstStep3.module.js.map
+
+/***/ }),
+
+/***/ 330:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoperProfilePageModule", function() { return PoperProfilePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__poperprofile__ = __webpack_require__(122);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var PoperProfilePageModule = /** @class */ (function () {
+    function PoperProfilePageModule() {
+    }
+    PoperProfilePageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__poperprofile__["a" /* PoperProfilePage */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__poperprofile__["a" /* PoperProfilePage */]),
+            ],
+        })
+    ], PoperProfilePageModule);
+    return PoperProfilePageModule;
+}());
+
+//# sourceMappingURL=poperprofile.module.js.map
 
 /***/ }),
 
@@ -941,71 +941,6 @@ var Settings = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Users; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_app_settings__ = __webpack_require__(221);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(23);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var Users = /** @class */ (function () {
-    function Users(api, storage) {
-        this.api = api;
-        this.storage = storage;
-        this.url = __WEBPACK_IMPORTED_MODULE_1__app_app_settings__["a" /* appSettings */].API_URL;
-        this.apiToken = __WEBPACK_IMPORTED_MODULE_1__app_app_settings__["a" /* appSettings */].API_TOKEN;
-    }
-    Users.prototype.loadUser = function () {
-        var _this = this;
-        var result = {};
-        this.storage.get('user').then(function (user) {
-            var data;
-            data = {};
-            _this.api.post('getUser/' + user.id, data)
-                .subscribe(function (data) {
-                var body;
-                body = JSON.parse(data.text());
-                _this.storage.set('user', body);
-                _this.storage.set('fromLoading', true);
-                _this.user = body;
-                console.log(_this.user);
-            }, function (err) {
-                _this.storage.remove('configurations');
-                _this.storage.remove('user');
-                _this.storage.remove('isConnected');
-                _this.storage.remove('fromLoading');
-            }, function () {
-                //this.goToHome();
-            });
-        });
-    };
-    Users = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]])
-    ], Users);
-    return Users;
-}());
-
-//# sourceMappingURL=users.js.map
-
-/***/ }),
-
-/***/ 375:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FirstStep1Page; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
@@ -1013,7 +948,7 @@ var Users = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(43);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__firstStep2_firstStep2__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__firstStep2_firstStep2__ = __webpack_require__(225);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__ = __webpack_require__(51);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1217,6 +1152,71 @@ var FirstStep1Page = /** @class */ (function () {
 
 /***/ }),
 
+/***/ 375:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Users; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_app_settings__ = __webpack_require__(221);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__api_api__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(23);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var Users = /** @class */ (function () {
+    function Users(api, storage) {
+        this.api = api;
+        this.storage = storage;
+        this.url = __WEBPACK_IMPORTED_MODULE_1__app_app_settings__["a" /* appSettings */].API_URL;
+        this.apiToken = __WEBPACK_IMPORTED_MODULE_1__app_app_settings__["a" /* appSettings */].API_TOKEN;
+    }
+    Users.prototype.loadUser = function () {
+        var _this = this;
+        var result = {};
+        this.storage.get('user').then(function (user) {
+            var data;
+            data = {};
+            _this.api.post('getUser/' + user.id, data)
+                .subscribe(function (data) {
+                var body;
+                body = JSON.parse(data.text());
+                _this.storage.set('user', body);
+                _this.storage.set('fromLoading', true);
+                _this.user = body;
+                console.log(_this.user);
+            }, function (err) {
+                _this.storage.remove('configurations');
+                _this.storage.remove('user');
+                _this.storage.remove('isConnected');
+                _this.storage.remove('fromLoading');
+            }, function () {
+                //this.goToHome();
+            });
+        });
+    };
+    Users = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* Api */],
+            __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]])
+    ], Users);
+    return Users;
+}());
+
+//# sourceMappingURL=users.js.map
+
+/***/ }),
+
 /***/ 376:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1238,7 +1238,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* unused harmony export provideSettings */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(45);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(174);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(175);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(14);
@@ -1246,20 +1246,20 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_status_bar__ = __webpack_require__(371);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_keyboard__ = __webpack_require__(372);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_image_picker__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_angular2_swing__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_angular2_swing__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_angular2_swing___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_angular2_swing__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__(717);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_providers__ = __webpack_require__(719);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_profile_profile_module__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_play_play_module__ = __webpack_require__(229);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_firstStep1_firstStep1_module__ = __webpack_require__(329);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_firstStep2_firstStep2_module__ = __webpack_require__(219);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_firstStep3_firstStep3_module__ = __webpack_require__(226);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_profile_profile_module__ = __webpack_require__(328);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_play_play_module__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_firstStep1_firstStep1_module__ = __webpack_require__(220);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_firstStep2_firstStep2_module__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_firstStep3_firstStep3_module__ = __webpack_require__(329);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_login_login_module__ = __webpack_require__(228);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_poperprofile_poperprofile_module__ = __webpack_require__(328);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_log_log_module__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_poperprofile_poperprofile_module__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_log_log_module__ = __webpack_require__(229);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_camera__ = __webpack_require__(51);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_facebook__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_facebook__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_globalization__ = __webpack_require__(224);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1311,18 +1311,18 @@ var AppModule = /** @class */ (function () {
                     backButtonText: '',
                 }, {
                     links: [
-                        { loadChildren: '../pages/firstStep2/firstStep2.module#FirstStep2PageModule', name: 'FirstStep2Page', segment: 'firstStep2', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/firstStep3/firstStep3.module#FirstStep3PageModule', name: 'FirstStep3Page', segment: 'firstStep3', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/log/log.module#LogPageModule', name: 'LogPage', segment: 'log', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/loading/loading.module#LoadingPageModule', name: 'LoadingPage', segment: 'loading', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/play/play.module#PlayPageModule', name: 'PlayPage', segment: 'play', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/poperprofile/poperprofile.module#PoperProfilePageModule', name: 'PoperProfilePage', segment: 'poperprofile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/firstStep1/firstStep1.module#FirstStep1PageModule', name: 'FirstStep1Page', segment: 'firstStep1', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/firstStep2/firstStep2.module#FirstStep2PageModule', name: 'FirstStep2Page', segment: 'firstStep2', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/loading/loading.module#LoadingPageModule', name: 'LoadingPage', segment: 'loading', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/log/log.module#LogPageModule', name: 'LogPage', segment: 'log', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/play/play.module#PlayPageModule', name: 'PlayPage', segment: 'play', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/trend/trend.module#TrendPageModule', name: 'TrendPage', segment: 'trend', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/firstStep3/firstStep3.module#FirstStep3PageModule', name: 'FirstStep3Page', segment: 'firstStep3', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/poperprofile/poperprofile.module#PoperProfilePageModule', name: 'PoperProfilePage', segment: 'poperprofile', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* HttpModule */],
@@ -1375,6 +1375,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__login_login__ = __webpack_require__(43);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__poperprofile_poperprofile__ = __webpack_require__(122);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1389,6 +1390,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the LogPage page.
  *
@@ -1396,13 +1398,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var LogPage = /** @class */ (function () {
-    function LogPage(navCtrl, navParams, loadingCtrl, storage, api) {
+    function LogPage(navCtrl, navParams, loadingCtrl, storage, modalCtrl, api) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.loadingCtrl = loadingCtrl;
         this.storage = storage;
+        this.modalCtrl = modalCtrl;
         this.api = api;
+        this.searchResult = [];
         this.storage.get('isConnected').then(function (val) {
             if (!val) {
                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__login_login__["a" /* LoginPage */]);
@@ -1420,6 +1424,7 @@ var LogPage = /** @class */ (function () {
             data.range = +configurations.ACTIVITY_RANGE_DAY.value;
         });
         this.storage.get('user').then(function (user) {
+            _this.user = user;
             _this.api.post('getLastPops/' + user.id, data)
                 .subscribe(function (data) {
                 _this.pops = [];
@@ -1443,6 +1448,58 @@ var LogPage = /** @class */ (function () {
     LogPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad LogPage');
     };
+    LogPage.prototype.filterUsers = function (event) {
+        var _this = this;
+        if (this.search.length >= 3) {
+            var data = void 0;
+            data = {};
+            data.search = this.search;
+            this.api.post('searchUsers', data)
+                .subscribe(function (data) {
+                var body;
+                body = JSON.parse(data.text());
+                _this.searchResult = body;
+            }, function (err) {
+                _this.storage.remove('user');
+                _this.storage.remove('isConnected');
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__login_login__["a" /* LoginPage */]);
+            }, function () {
+                //this.goToHome();
+            });
+        }
+        else {
+            this.searchResult = [];
+        }
+    };
+    LogPage.prototype.goToHisProfile = function (userId) {
+        var _this = this;
+        var data;
+        data = {};
+        var loading = this.loadingCtrl.create({
+            spinner: 'crescent',
+            content: 'Chargement de données ...',
+            dismissOnPageChange: true
+        });
+        loading.present();
+        this.api.post('getUserWithPop/' + userId + '/' + this.user.id, data)
+            .subscribe(function (data) {
+            var body;
+            body = JSON.parse(data.text());
+            _this.prepareModal(body);
+            loading.dismiss();
+        }, function (err) {
+            _this.storage.remove('user');
+            _this.storage.remove('isConnected');
+            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_4__login_login__["a" /* LoginPage */]);
+            loading.dismiss();
+        }, function () {
+            //this.goToHome();
+        });
+    };
+    LogPage.prototype.prepareModal = function (user) {
+        var profileModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_5__poperprofile_poperprofile__["a" /* PoperProfilePage */], { userProfile: user });
+        profileModal.present();
+    };
     LogPage.prototype.goTo = function (page, direction) {
         this.navCtrl.push(page, {}, {
             direction: direction
@@ -1450,12 +1507,13 @@ var LogPage = /** @class */ (function () {
     };
     LogPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-log',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\log\log.html"*/'<ion-header>\n\n  <div class="bg-white" layout horizontal justified>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'ProfilePage\',\'back\')">\n\n      <ion-icon name=\'contact\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'PlayPage\',\'back\')">\n\n      <ion-icon name=\'images\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="danger" clear icon-only>\n\n      <ion-icon name=\'eye\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'TrendPage\',\'forward\')">\n\n      <ion-icon name=\'apps\'></ion-icon>\n\n    </button>\n\n  </div>\n\n</ion-header>\n\n<ion-content padding>\n\n  <div layout vertical>\n\n    <div flex three class="bg-white">\n\n      <div>\n\n        <ion-grid>\n\n          <ion-row>\n\n            <ion-col col-6 class="text-center b-r b-light">\n\n              <button ion-button icon-only color="light" [class]="searchOpen?\'button-muted\':\'button-primary\'" (click)="searchOpen=false">\n\n                <ion-icon name="md-list"></ion-icon>\n\n              </button>\n\n              <div class="text-muted text-xs l-s-1x m-t-xs">Activité</div>\n\n            </ion-col>\n\n            <ion-col col-6 class="text-center">\n\n              <button ion-button icon-only color="light" [class]="searchOpen?\'button-primary\':\'button-muted\'" (click)="searchOpen=true">\n\n                <ion-icon name="md-search"></ion-icon>\n\n              </button>\n\n              <div class="text-muted text-xs l-s-1x m-t-xs">Recherche</div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-grid>\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div [hidden]="searchOpen">\n\n    <div class="wrapper-xs padder">\n\n      <div ion-text color="danger" class="font-bold">\n\n        Activité ({{ pops?.length }})\n\n      </div>\n\n    </div>\n\n    <div class="wrapper-xs padder-sm">\n\n      <div *ngIf="pops?.length == 0">\n\n        <ion-row align-items-center>\n\n          <ion-col col-auto>\n\n            <img class="rounded thumb-md" src="assets/img/mike.png">\n\n          </ion-col>\n\n          <ion-col>\n\n            <div>\n\n              <div class="text-lg">Dommage</div>\n\n              <div class="text-muted">Personne n\'a encore popé</div>\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </div>\n\n      <div *ngIf="pops?.length > 0">\n\n        <ion-row align-items-center *ngFor="let pop of pops; let i = index">\n\n          <ion-col col-auto>\n\n            <img class="rounded thumb-md" src="{{pops[i].poperAccountImage}}">\n\n          </ion-col>\n\n          <ion-col>\n\n            <div *ngIf="pops[i].usualName != \'\'">\n\n              <div class="text-muted">{{pops[i].date}}</div>\n\n              <div class="text-lg">{{pops[i].usualName}}</div>\n\n              <div class="text-muted">Vous a popé</div>\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div [hidden]="!searchOpen">\n\n    <ion-searchbar [(ngModel)]="myInput" showCancelButton="false">\n\n    </ion-searchbar>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\log\log.html"*/,
+            selector: 'page-log',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\log\log.html"*/'<ion-header>\n\n  <div class="bg-white" layout horizontal justified>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'ProfilePage\',\'back\')">\n\n      <ion-icon name=\'contact\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'PlayPage\',\'back\')">\n\n      <ion-icon name=\'images\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="danger" clear icon-only>\n\n      <ion-icon name=\'eye\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'TrendPage\',\'forward\')">\n\n      <ion-icon name=\'apps\'></ion-icon>\n\n    </button>\n\n  </div>\n\n</ion-header>\n\n<ion-content padding>\n\n  <div layout vertical>\n\n    <div flex three class="bg-white">\n\n      <div>\n\n        <ion-grid>\n\n          <ion-row>\n\n            <ion-col col-6 class="text-center b-r b-light">\n\n              <button ion-button icon-only color="light" [class]="searchOpen?\'button-muted\':\'button-primary\'" (click)="searchOpen=false">\n\n                <ion-icon name="md-list"></ion-icon>\n\n              </button>\n\n              <div class="text-muted text-xs l-s-1x m-t-xs">Activité</div>\n\n            </ion-col>\n\n            <ion-col col-6 class="text-center">\n\n              <button ion-button icon-only color="light" [class]="searchOpen?\'button-primary\':\'button-muted\'" (click)="searchOpen=true">\n\n                <ion-icon name="md-search"></ion-icon>\n\n              </button>\n\n              <div class="text-muted text-xs l-s-1x m-t-xs">Recherche</div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-grid>\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div [hidden]="searchOpen">\n\n    <div class="wrapper-xs padder">\n\n      <div ion-text color="danger" class="font-bold">\n\n        Activité ({{ pops?.length }})\n\n      </div>\n\n    </div>\n\n    <div class="wrapper-xs padder-sm">\n\n      <div *ngIf="pops?.length == 0">\n\n        <ion-row align-items-center>\n\n          <ion-col col-auto>\n\n            <img class="rounded thumb-md" src="assets/img/mike.png">\n\n          </ion-col>\n\n          <ion-col>\n\n            <div>\n\n              <div class="text-lg">Dommage</div>\n\n              <div class="text-muted">Personne n\'a encore popé</div>\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </div>\n\n      <div *ngIf="pops?.length > 0">\n\n        <ion-row align-items-center *ngFor="let pop of pops; let i = index">\n\n          <ion-col col-auto>\n\n            <img class="rounded thumb-md" src="{{pops[i].poperAccountImage}}">\n\n          </ion-col>\n\n          <ion-col>\n\n            <div *ngIf="pops[i].usualName != \'\'">\n\n              <div class="text-muted">{{pops[i].date}}</div>\n\n              <div class="text-lg">{{pops[i].usualName}}</div>\n\n              <div class="text-muted">Vous a popé</div>\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </div>\n\n    </div>\n\n  </div>\n\n  <div [hidden]="!searchOpen">\n\n    <ion-searchbar [(ngModel)]="search" showCancelButton="false" placeholder="Nom d\'utilisateur" (ionInput)="filterUsers($event)">\n\n    </ion-searchbar>\n\n    <div *ngIf="searchResult?.length > 0">\n\n      <ion-row align-items-center *ngFor="let result of searchResult; let i = index" (click)="goToHisProfile(searchResult[i].id)">\n\n        <ion-col col-auto>\n\n          <img class="rounded thumb-md" src="{{searchResult[i].accountImage}}">\n\n        </ion-col>\n\n        <ion-col>\n\n          <div *ngIf="searchResult[i].usualName != \'\'">\n\n            <div class="text-muted">{{searchResult[i].usualName}}</div>\n\n          </div>\n\n        </ion-col>\n\n      </ion-row>\n\n    </div>\n\n    <div *ngIf="searchResult?.length == 0 && search?.length > 0">\n\n      Pas de résultat\n\n    </div>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\log\log.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
             __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
             __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */]])
     ], LogPage);
     return LogPage;
@@ -1474,11 +1532,11 @@ var LogPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__poperprofile_poperprofile__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__poperprofile_poperprofile__ = __webpack_require__(122);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_Rx__ = __webpack_require__(411);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_Rx___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_Rx__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_swing__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_swing__ = __webpack_require__(139);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_angular2_swing___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_angular2_swing__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1736,7 +1794,7 @@ var PlayPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__profile_profile__ = __webpack_require__(91);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_facebook__ = __webpack_require__(163);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1994,7 +2052,7 @@ var LoadingPage = 'LoadingPage';
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__settings_settings__ = __webpack_require__(373);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__pub_pub__ = __webpack_require__(720);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ga_ga__ = __webpack_require__(723);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__users_users__ = __webpack_require__(374);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__users_users__ = __webpack_require__(375);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__api_api__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__settings_settings__["a"]; });
 /* unused harmony reexport Pub */
@@ -2487,7 +2545,7 @@ var ProfilePage = /** @class */ (function () {
     };
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-profile',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\profile\profile.html"*/'<ion-header style="background-color:#f0c30e;">\n\n  <div class="bg-white" layout horizontal justified>\n\n  	<button ion-button color="danger" clear icon-only>\n\n      <ion-icon name=\'contact\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'PlayPage\',\'forward\')">\n\n      <ion-icon name=\'images\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'LogPage\',\'forward\')">\n\n      <ion-icon name=\'eye\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'TrendPage\',\'forward\')">\n\n      <ion-icon name=\'apps\'></ion-icon>\n\n    </button>\n\n  </div>\n\n</ion-header>\n\n<ion-content class="bg-custom">\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n\n    <ion-refresher-content\n\n    pullingIcon="arrow-dropdown"\n\n    refreshingSpinner="crescent">\n\n  </ion-refresher-content>\n\n</ion-refresher>\n\n<div layout vertical>\n\n  <div flex class="bg-white">\n\n    <div class="wrapper">\n\n      <div class="profile-picture">\n\n        <div class="text-center">\n\n          <div class="big-thumb float-left">\n\n            <img [src]="user.account_image" class="rounded box-shadow" alt="">\n\n          </div>\n\n        </div>\n\n        <!-- MES SCORES -->\n\n        <div layout vertical>\n\n          <div flex class="bg-white">\n\n            <div class="wrapper text-center">\n\n              Score cumulé : {{ user.actual_score }}\n\n            </div>\n\n            <div class="wrapper" *ngIf="!hidevalue">\n\n              Prochain pop dans : {{ remainingTime }}\n\n            </div>\n\n          </div>\n\n        </div>\n\n      </div>\n\n      <div class="profile-info">\n\n        <div class="text-center">\n\n          <div class="big-thumb">\n\n            <div class="text-2x">{{ user.usual_name }}</div>\n\n            <div class="">{{ user.description }}</div>\n\n            <div text-center>\n\n              <button ion-button icon-start round small color="muted" outline (click)="goTo(\'SettingsPage\',\'forward\')"><ion-icon name="settings"></ion-icon>Paramètres</button>\n\n              <button ion-button icon-start round small color="muted" outline (click)="getPreferredLanguage()"><ion-icon name="settings"></ion-icon>PreferredLanguage ?</button>\n\n              <button ion-button icon-start round small color="muted" outline (click)="getLocaleName()"><ion-icon name="settings"></ion-icon>LocaleName ?</button>\n\n            </div>\n\n          </div>\n\n          <div layout vertical>\n\n            <div flex class="bg-white ranking">\n\n              <div class="wrapper">\n\n                <img src="./assets/img/logo.png"><span class="ranking-text">18</span>\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</div>\n\n\n\n\n\n\n\n\n\n\n\n<div class="profile-images-edit">\n\n  <div class="profile-image" *ngFor="let image of user.popies; let i = index">\n\n    <div class="popy-label" *ngIf="user.popies[i].image != \'\'">{{user.popies[i].pop_count}}</div>\n\n    <div [style.backgroundImage]="\'url(\' + user.popies[i].image + \')\'" class="div-img img-square r-3x"></div>\n\n    <button ion-button icon-only clear class="btn-edit" (click)="removeImage(i)" *ngIf="user.popies[i].image != \'\'">\n\n      <ion-icon name="md-close" color="danger"></ion-icon>\n\n    </button>\n\n    <button ion-button icon-only clear class="btn-edit" *ngIf="maxTime <= 0 && user.popies[i].image == \'\'" (click)="openPhotoPicker(i)">\n\n      <ion-icon name="md-add-circle" color="danger"></ion-icon>\n\n    </button>\n\n  </div>\n\n</div>\n\n\n\n<!--<ion-list no-lines>\n\n  <ion-list-header>\n\n    ABOUT ME\n\n  </ion-list-header>\n\n  <ion-item class="text-muted" text-wrap>\n\n    <ion-textarea placeholder="Enter a description" value="A UX/UI lover who has a hobby of making UI clones"></ion-textarea>\n\n  </ion-item>\n\n  <ion-item>\n\n    <ion-note item-end>\n\n      <span class="text-xs">435</span>\n\n    </ion-note>\n\n  </ion-item>\n\n</ion-list>-->\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\profile\profile.html"*/,
+            selector: 'page-profile',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\profile\profile.html"*/'<ion-header style="background-color:#f0c30e;">\n\n  <div class="bg-white" layout horizontal justified>\n\n  	<button ion-button color="danger" clear icon-only>\n\n      <ion-icon name=\'contact\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'PlayPage\',\'forward\')">\n\n      <ion-icon name=\'images\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'LogPage\',\'forward\')">\n\n      <ion-icon name=\'eye\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'TrendPage\',\'forward\')">\n\n      <ion-icon name=\'apps\'></ion-icon>\n\n    </button>\n\n  </div>\n\n</ion-header>\n\n<ion-content class="bg-custom">\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n\n    <ion-refresher-content\n\n    pullingIcon="arrow-dropdown"\n\n    refreshingSpinner="crescent">\n\n  </ion-refresher-content>\n\n</ion-refresher>\n\n<div layout vertical>\n\n  <div flex class="bg-white">\n\n    <div class="wrapper">\n\n      <div class="profile-picture">\n\n        <div class="text-center">\n\n          <div class="big-thumb float-left">\n\n            <img [src]="user.account_image" class="rounded box-shadow" alt="">\n\n          </div>\n\n        </div>\n\n        <!-- MES SCORES -->\n\n        <div layout vertical>\n\n          <div flex class="bg-white">\n\n            <div class="wrapper text-center">\n\n              Score cumulé : {{ user.actual_score }}\n\n            </div>\n\n            <div class="wrapper" *ngIf="!hidevalue">\n\n              Prochain pop dans : {{ remainingTime }}\n\n            </div>\n\n          </div>\n\n        </div>\n\n      </div>\n\n      <div class="profile-info">\n\n        <div class="text-center">\n\n          <div class="big-thumb">\n\n            <div class="text-2x">{{ user.usual_name }}</div>\n\n            <div class="">{{ user.description }}</div>\n\n            <div text-center>\n\n              <button ion-button icon-start round small color="muted" outline (click)="goTo(\'SettingsPage\',\'forward\')"><ion-icon name="settings"></ion-icon>Paramètres</button>\n\n            </div>\n\n          </div>\n\n          <div layout vertical>\n\n            <div flex class="bg-white ranking">\n\n              <div class="wrapper">\n\n                <img src="./assets/img/logo.png"><span class="ranking-text">18</span>\n\n              </div>\n\n            </div>\n\n          </div>\n\n        </div>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</div>\n\n\n\n\n\n\n\n\n\n\n\n<div class="profile-images-edit">\n\n  <div class="profile-image" *ngFor="let image of user.popies; let i = index">\n\n    <div class="popy-label" *ngIf="user.popies[i].image != \'\'">{{user.popies[i].pop_count}}</div>\n\n    <div [style.backgroundImage]="\'url(\' + user.popies[i].image + \')\'" class="div-img img-square r-3x"></div>\n\n    <button ion-button icon-only clear class="btn-edit" (click)="removeImage(i)" *ngIf="user.popies[i].image != \'\'">\n\n      <ion-icon name="md-close" color="danger"></ion-icon>\n\n    </button>\n\n    <button ion-button icon-only clear class="btn-edit" *ngIf="maxTime <= 0 && user.popies[i].image == \'\'" (click)="openPhotoPicker(i)">\n\n      <ion-icon name="md-add-circle" color="danger"></ion-icon>\n\n    </button>\n\n  </div>\n\n</div>\n\n\n\n<!--<ion-list no-lines>\n\n  <ion-list-header>\n\n    ABOUT ME\n\n  </ion-list-header>\n\n  <ion-item class="text-muted" text-wrap>\n\n    <ion-textarea placeholder="Enter a description" value="A UX/UI lover who has a hobby of making UI clones"></ion-textarea>\n\n  </ion-item>\n\n  <ion-item>\n\n    <ion-note item-end>\n\n      <span class="text-xs">435</span>\n\n    </ion-note>\n\n  </ion-item>\n\n</ion-list>-->\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\profile\profile.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
