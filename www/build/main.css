@@ -62337,8 +62337,11 @@ page-poperprofile .stamp.stamp-like {
 }
 
 page-poperprofile .ranking-text {
-  font-size: 3em;
-  margin-left: 2%;
+  font-size: 2em;
+}
+
+page-poperprofile .ranking-number {
+  font-size: 2em;
 }
 
 page-poperprofile .ranking img {
@@ -62401,8 +62404,11 @@ page-profile .profile-info {
 }
 
 page-profile .ranking-text {
-  font-size: 3em;
-  margin-left: 2%;
+  font-size: 2em;
+}
+
+page-profile .ranking-number {
+  font-size: 2em;
 }
 
 page-profile .ranking img {
