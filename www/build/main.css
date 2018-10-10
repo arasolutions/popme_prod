@@ -62348,6 +62348,11 @@ page-poperprofile .ranking img {
   width: 20%;
 }
 
+.popover {
+  background-color: #f1c40f;
+  padding: 10px;
+}
+
 page-profile .profile-images-edit {
   padding: 5px;
 }
@@ -62413,6 +62418,58 @@ page-profile .ranking-number {
 
 page-profile .ranking img {
   width: 20%;
+}
+
+page-profile .profile-header {
+  height: 40px;
+  background-color: #F1C40F;
+}
+
+page-profile .profile-header .score {
+  width: 33%;
+  line-height: 40px;
+  background-color: black;
+  padding: 2px 10px;
+  color: white;
+  float: left;
+}
+
+page-profile .profile-header .score .text {
+  font-size: 20px;
+}
+
+page-profile .profile-header .rank {
+  width: 34%;
+  line-height: 40px;
+  padding: 2px 10px;
+  color: white;
+  float: left;
+  font-size: 20px;
+}
+
+page-profile .profile-header .rank .text {
+  font-size: 20px;
+}
+
+page-profile .profile-header .next-add {
+  width: 33%;
+  line-height: 40px;
+  padding: 2px 10px;
+  color: white;
+  float: right;
+  background-color: black;
+}
+
+page-profile .profile-header .next-add .text {
+  font-size: 15px;
+}
+
+page-profile .profile-header .next-add ion-icon {
+  color: #F1C40F;
+}
+
+page-profile .profile-header img {
+  width: 20px;
 }
 
 page-register .login {
