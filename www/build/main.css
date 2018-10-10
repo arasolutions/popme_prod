@@ -61987,6 +61987,49 @@ page-login .btn-tinder-login-instagram {
   background: linear-gradient(260deg, #8a3ab9, #e95950);
 }
 
+page-login-classic button[small] {
+  padding: 16px 2.6em;
+}
+
+page-login-classic .title {
+  padding-bottom: 16px;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+page-login-classic .logo {
+  position: absolute;
+  bottom: 3%;
+  margin-right: 10%;
+  text-align: right;
+}
+
+page-login-classic .logo img {
+  width: 35%;
+}
+
+page-login-classic .version {
+  position: absolute;
+  bottom: 0%;
+  left: 10%;
+}
+
+page-login-classic .login {
+  margin-top: 10%;
+}
+
+page-login-classic .btn-tinder-login {
+  padding: 16px 3em;
+  font-weight: 700;
+  background: linear-gradient(260deg, #337eb9, #384499);
+}
+
+page-login-classic .btn-tinder-login-instagram {
+  padding: 16px 3em;
+  font-weight: 700;
+  background: linear-gradient(260deg, #8a3ab9, #e95950);
+}
+
 page-play .swipe-bg {
   background: #fff;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f6f7fb));
