@@ -60581,6 +60581,11 @@ ion-header ion-icon.back-button-icon.icon {
   background-size: cover;
 }
 
+.bg-popme {
+  background-color: #2C2C2C;
+  color: white;
+}
+
 /* CSS Helper ver 1.1.1 */
 /* FLEX from Google Polymer 0.5.2 */
 html [layout][horizontal], html [layout][vertical] {
@@ -62349,8 +62354,18 @@ page-poperprofile .ranking img {
 }
 
 .popover {
-  background-color: #f1c40f;
+  background-color: #2C2C2C;
+}
+
+.popover .content {
+  border: solid 2px #f1c40f;
+  border-radius: 10px;
   padding: 10px;
+  color: white;
+}
+
+.popover .content button {
+  text-align: center;
 }
 
 page-profile .profile-images-edit {
@@ -62427,41 +62442,41 @@ page-profile .profile-header {
 
 page-profile .profile-header .score {
   width: 33%;
-  line-height: 40px;
-  background-color: black;
+  line-height: 34px;
+  background-color: #2C2C2C;
   padding: 2px 10px;
   color: white;
   float: left;
 }
 
 page-profile .profile-header .score .text {
-  font-size: 20px;
+  font-size: 1.2em;
 }
 
 page-profile .profile-header .rank {
   width: 34%;
-  line-height: 40px;
+  line-height: 34px;
   padding: 2px 10px;
   color: white;
   float: left;
-  font-size: 20px;
+  font-size: 1.2em;
 }
 
 page-profile .profile-header .rank .text {
-  font-size: 20px;
+  font-size: 1.2em;
 }
 
 page-profile .profile-header .next-add {
   width: 33%;
-  line-height: 40px;
+  line-height: 34px;
   padding: 2px 10px;
   color: white;
   float: right;
-  background-color: black;
+  background-color: #2C2C2C;
 }
 
 page-profile .profile-header .next-add .text {
-  font-size: 15px;
+  font-size: 1.2em;
 }
 
 page-profile .profile-header .next-add ion-icon {
