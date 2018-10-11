@@ -208,10 +208,10 @@ var map = {
 		238
 	],
 	"../pages/poperprofile/poperprofile.module": [
-		336
+		338
 	],
 	"../pages/profile/popover.module": [
-		338
+		336
 	],
 	"../pages/profile/profile.module": [
 		337
@@ -505,6 +505,7 @@ var LoginClassicPage = /** @class */ (function () {
         });
     }
     LoginClassicPage.prototype.ionViewDidLoad = function () {
+        console.log(this.mailInput);
     };
     LoginClassicPage.prototype.back = function () {
         this.viewCtrl.dismiss();
@@ -553,9 +554,13 @@ var LoginClassicPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('slides'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Slides */])
     ], LoginClassicPage.prototype, "slides", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('mailInput'),
+        __metadata("design:type", Object)
+    ], LoginClassicPage.prototype, "mailInput", void 0);
     LoginClassicPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-login-classic',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\login\loginClassic.html"*/'<ion-content padding class="bg-popme">\n\n  <div layout vertical center>\n\n    <div class="title" (click)="back()">Fermer</div>\n\n    <div class="title">Popme</div>\n\n    <ion-list class="w-full login">\n\n      <ion-item>\n\n        <ion-input [(ngModel)]="user" type="text" placeholder="Adresse Email"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-input [(ngModel)]="password" type="password" placeholder="Mot de passe"></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n    <button ion-button round (click)="checkLogin()">Se connecter</button>\n\n    <div class="mt10">\n\n      <button ion-button round small color="muted" outline (click)="goTo(\'RegisterPage\')">Créer un compte</button>\n\n    </div>\n\n    <div class="text-muted version">\n\n      Version 1.0\n\n    </div>\n\n    <div class="logo">\n\n      <img src="./assets/img/logo.png">\n\n    </div>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\login\loginClassic.html"*/,
+            selector: 'page-login-classic',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\login\loginClassic.html"*/'<ion-content padding class="bg-popme">\n\n  <div layout vertical center>\n\n    <div class="close-buttons" (click)="back()">\n\n      <ion-icon name="close"></ion-icon>\n\n    </div>\n\n    <div class="logo-title">\n\n      <img src="./assets/img/logo_title.png">\n\n    </div>\n\n    <ion-list class="w-full login">\n\n      <ion-label>VOS IDENTIFIANTS</ion-label>\n\n      <ion-item>\n\n        <ion-input [(ngModel)]="user" type="text" placeholder="Adresse Email"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-input [(ngModel)]="password" type="password" placeholder="Mot de passe"></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n    <button ion-button round (click)="checkLogin()">Se connecter</button>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\login\loginClassic.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */],
@@ -744,7 +749,7 @@ var FirstStep2Page = /** @class */ (function () {
     };
     FirstStep2Page = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-first-step2',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\firstStep2\firstStep2.html"*/'<!--\n\n  Generated template for the RegisterPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-content padding text-center class="defaultBg">\n\n  <div>\n\n    <p>Maintenant, mets ta première photo</p>\n\n  </div>\n\n  <div class="profile-images-edit">\n\n    <div class="profile-image" (click)="openPhotoPicker(i)">\n\n      <div class="div-img img-square r-3x" [style.background-image]="popyUrl"></div>\n\n      <button ion-button icon-only clear class="btn-edit">\n\n        <ion-icon name="md-add-circle" color="danger"></ion-icon>\n\n      </button>\n\n    </div>\n\n  </div>\n\n  <button ion-button full round (click)="validProfileStep2()">Valider</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\firstStep2\firstStep2.html"*/,
+            selector: 'page-first-step2',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\firstStep2\firstStep2.html"*/'<!--\n\n  Generated template for the RegisterPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-content padding text-center class="bg-popme">\n\n  <div>\n\n    <p>Maintenant, mets ta première photo</p>\n\n  </div>\n\n  <div class="profile-images-edit">\n\n    <div class="profile-image" (click)="openPhotoPicker(i)">\n\n      <div class="div-img img-square r-3x" [style.background-image]="popyUrl"></div>\n\n      <button ion-button icon-only clear class="btn-edit">\n\n        <ion-icon name="md-add-circle" color="danger"></ion-icon>\n\n      </button>\n\n    </div>\n\n  </div>\n\n  <button ion-button full round (click)="validProfileStep2()">Valider</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\firstStep2\firstStep2.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -843,7 +848,7 @@ var FirstStep3Page = /** @class */ (function () {
     };
     FirstStep3Page = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-first-step3',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\firstStep3\firstStep3.html"*/'<!--\n\n  Generated template for the RegisterPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-content padding text-center class="defaultBg">\n\n  <div>\n\n    <p>Parfait, merci</p>\n\n  </div>\n\n  <button ion-button full round (click)="validProfileStep3()">Valider</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\firstStep3\firstStep3.html"*/,
+            selector: 'page-first-step3',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\firstStep3\firstStep3.html"*/'<!--\n\n  Generated template for the RegisterPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-content padding text-center class="bg-popme">\n\n  <div>\n\n    <p>Parfait, merci</p>\n\n  </div>\n\n  <button ion-button full round (click)="validProfileStep3()">Valider</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\firstStep3\firstStep3.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -1102,10 +1107,10 @@ var PlayPageModule = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoperProfilePageModule", function() { return PoperProfilePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopoverPageModule", function() { return PopoverPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__poperprofile__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__popover__ = __webpack_require__(227);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1115,23 +1120,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PoperProfilePageModule = /** @class */ (function () {
-    function PoperProfilePageModule() {
+var PopoverPageModule = /** @class */ (function () {
+    function PopoverPageModule() {
     }
-    PoperProfilePageModule = __decorate([
+    PopoverPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__poperprofile__["a" /* PoperProfilePage */]
+                __WEBPACK_IMPORTED_MODULE_2__popover__["a" /* PopoverPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__poperprofile__["a" /* PoperProfilePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__popover__["a" /* PopoverPage */]),
             ],
+            entryComponents: [
+                __WEBPACK_IMPORTED_MODULE_2__popover__["a" /* PopoverPage */],
+            ]
         })
-    ], PoperProfilePageModule);
-    return PoperProfilePageModule;
+    ], PopoverPageModule);
+    return PopoverPageModule;
 }());
 
-//# sourceMappingURL=poperprofile.module.js.map
+//# sourceMappingURL=popover.module.js.map
 
 /***/ }),
 
@@ -1181,10 +1189,10 @@ var ProfilePageModule = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopoverPageModule", function() { return PopoverPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoperProfilePageModule", function() { return PoperProfilePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__popover__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__poperprofile__ = __webpack_require__(94);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1194,26 +1202,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var PopoverPageModule = /** @class */ (function () {
-    function PopoverPageModule() {
+var PoperProfilePageModule = /** @class */ (function () {
+    function PoperProfilePageModule() {
     }
-    PopoverPageModule = __decorate([
+    PoperProfilePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__popover__["a" /* PopoverPage */],
+                __WEBPACK_IMPORTED_MODULE_2__poperprofile__["a" /* PoperProfilePage */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__popover__["a" /* PopoverPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__poperprofile__["a" /* PoperProfilePage */]),
             ],
-            entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_2__popover__["a" /* PopoverPage */],
-            ]
         })
-    ], PopoverPageModule);
-    return PopoverPageModule;
+    ], PoperProfilePageModule);
+    return PoperProfilePageModule;
 }());
 
-//# sourceMappingURL=popover.module.js.map
+//# sourceMappingURL=poperprofile.module.js.map
 
 /***/ }),
 
@@ -1266,7 +1271,7 @@ var LoginPage = /** @class */ (function () {
         this.isLoggedIn = false;
         this.introSlides = [
             {
-                title: 'Discover new and interesting <br> people nearby',
+                title: '<br/>',
                 image: 'assets/img/intro/intro_1.png'
             },
             {
@@ -1418,7 +1423,7 @@ var LoginPage = /** @class */ (function () {
     ], LoginPage.prototype, "slides", void 0);
     LoginPage = LoginPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-login',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\login\login.html"*/'<ion-content padding class="bg-popme">\n\n  <div layout vertical center>\n\n    <ion-slides #slides pager flex>\n\n      <ion-slide *ngFor="let slide of introSlides">\n\n        <h3 class="font-thin" [innerHTML]="slide.title"></h3>\n\n        <img [src]="slide.image">\n\n      </ion-slide>\n\n    </ion-slides>\n\n\n\n    <div class="text-center">\n\n      <div>\n\n        <button ion-button round class="btn-tinder-login m-b-sm" (click)="goToSwipe()">LOG IN WITH FACEBOOK</button>\n\n      </div>\n\n      <div>\n\n        <button ion-button round small color="muted" outline (click)="prepareModal()">LOG CLASSIC</button>\n\n      </div>\n\n\n\n      <div class="wrapper text-muted">\n\n        <p>We don\'t post anything to Facebook.\n\n          <br>\n\n          By signing in, you agree to our <span class="text-u-l">Terms of Service</span> and <span class="text-u-l">Privacy Policy</span>\n\n        </p>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</ion-content>\n\n\n\n<!--<ion-content padding class="defaultBg">\n\n  <div layout vertical center>\n\n    <div class="title">Popme</div>\n\n    <ion-list class="w-full login">\n\n      <ion-item>\n\n        <ion-input [(ngModel)]="user" type="text" placeholder="Adresse Email"></ion-input>\n\n      </ion-item>\n\n      <ion-item>\n\n        <ion-input [(ngModel)]="password" type="password" placeholder="Mot de passe"></ion-input>\n\n      </ion-item>\n\n    </ion-list>\n\n    <button ion-button round (click)="checkLogin()">Se connecter</button>\n\n    <div class="mt10">\n\n      <button ion-button round small color="muted" outline (click)="goTo(\'RegisterPage\')">Créer un compte</button>\n\n    </div>\n\n    <div class="text-center mt5">\n\n      <div>\n\n        <button ion-button round class="btn-tinder-login m-b-sm" (click)="loginFB()">Se connecter avec FACEBOOK</button>\n\n      </div>\n\n      <div>\n\n        <button ion-button round class="btn-tinder-login-instagram m-b-sm" (click)="LoginFacebook()">Se connecter avec INSTAGRAM</button>\n\n      </div>\n\n\n\n    </div>\n\n    <div class="text-muted version">\n\n      Version 1.0\n\n    </div>\n\n    <div class="logo">\n\n      <img src="./assets/img/logo.png">\n\n    </div>\n\n  </div>\n\n</ion-content>\n\n-->'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\login\login.html"*/'<ion-content padding class="bg-popme">\n\n  <div layout vertical center>\n\n    <ion-slides #slides pager flex>\n\n      <ion-slide *ngFor="let slide of introSlides">\n\n        <h3 class="font-thin" [innerHTML]="slide.title"></h3>\n\n        <img [src]="slide.image">\n\n      </ion-slide>\n\n    </ion-slides>\n\n\n\n    <div class="text-center login-buttons">\n\n      <div>\n\n        <button ion-button round class="btn-tinder-login m-b-sm" (click)="goToSwipe()">CONNEXION PAR FACEBOOK</button>\n\n      </div>\n\n      <div>\n\n        <button ion-button round small color="muted" outline (click)="prepareModal()">CONNEXION CLASSIQUE</button>\n\n      </div>\n\n      <div>\n\n        <button small class="button-blank" outline (click)="goTo(\'RegisterPage\')">INSCRIS-TOI</button>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */],
@@ -1721,7 +1726,7 @@ var FirstStep1Page = /** @class */ (function () {
     };
     FirstStep1Page = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-first',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\firstStep1\firstStep1.html"*/'<!--\n\n  Generated template for the RegisterPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-content padding text-center class="defaultBg">\n\n  <div>\n\n    <p>Avant de commencer, il faut remplir les infos suivantes</p>\n\n  </div>\n\n  <ion-list class="w-full">\n\n    <div (click)="openPhotoPicker()">\n\n     <div class=" rounded profile-image" [style.background-image]="accountImageUrl">\n\n     </div>\n\n     <div class="first-step-1-change-photo">\n\n      Mets ta photo de profil\n\n    </div>\n\n  </div>\n\n  <ion-item>\n\n    <ion-input type="text" placeholder="Ta description" [(ngModel)]="description"></ion-input>\n\n  </ion-item>\n\n</ion-list>\n\n<button ion-button full round (click)="validProfileStep1()">Valider</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\firstStep1\firstStep1.html"*/,
+            selector: 'page-first',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\firstStep1\firstStep1.html"*/'<!--\n\n  Generated template for the RegisterPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-content padding text-center class="bg-popme">\n\n  <div>\n\n    <p>Avant de commencer, il faut remplir les infos suivantes</p>\n\n  </div>\n\n  <ion-list class="w-full">\n\n    <div (click)="openPhotoPicker()">\n\n     <div class=" rounded profile-image" [style.background-image]="accountImageUrl">\n\n     </div>\n\n     <div class="first-step-1-change-photo">\n\n      Mets ta photo de profil\n\n    </div>\n\n  </div>\n\n  <ion-item>\n\n    <ion-input type="text" placeholder="Ta description" [(ngModel)]="description"></ion-input>\n\n  </ion-item>\n\n</ion-list>\n\n<button ion-button full round (click)="validProfileStep1()">Valider</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\firstStep1\firstStep1.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
@@ -1776,14 +1781,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__app_component__ = __webpack_require__(724);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_providers__ = __webpack_require__(726);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_profile_profile_module__ = __webpack_require__(337);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_profile_popover_module__ = __webpack_require__(338);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_profile_popover_module__ = __webpack_require__(336);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_play_play_module__ = __webpack_require__(238);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_firstStep1_firstStep1_module__ = __webpack_require__(223);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_firstStep2_firstStep2_module__ = __webpack_require__(233);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_firstStep3_firstStep3_module__ = __webpack_require__(234);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_login_login_module__ = __webpack_require__(236);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__pages_login_loginClassic_module__ = __webpack_require__(237);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_poperprofile_poperprofile_module__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__pages_poperprofile_poperprofile_module__ = __webpack_require__(338);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__pages_log_log_module__ = __webpack_require__(235);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_camera__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_native_facebook__ = __webpack_require__(93);
@@ -1845,14 +1850,14 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/firstStep1/firstStep1.module#FirstStep1PageModule', name: 'FirstStep1Page', segment: 'firstStep1', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/firstStep2/firstStep2.module#FirstStep2PageModule', name: 'FirstStep2Page', segment: 'firstStep2', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/firstStep3/firstStep3.module#FirstStep3PageModule', name: 'FirstStep3Page', segment: 'firstStep3', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/loading/loading.module#LoadingPageModule', name: 'LoadingPage', segment: 'loading', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/log/log.module#LogPageModule', name: 'LogPage', segment: 'log', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/loginClassic.module#LoginClassicPageModule', name: 'LoginClassicPage', segment: 'loginClassic', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/loading/loading.module#LoadingPageModule', name: 'LoadingPage', segment: 'loading', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/play/play.module#PlayPageModule', name: 'PlayPage', segment: 'play', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/poperprofile/poperprofile.module#PoperProfilePageModule', name: 'PoperProfilePage', segment: 'poperprofile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/popover.module#PopoverPageModule', name: 'PopoverPage', segment: 'popover', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/poperprofile/poperprofile.module#PoperProfilePageModule', name: 'PoperProfilePage', segment: 'poperprofile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/trend/trend.module#TrendPageModule', name: 'TrendPage', segment: 'trend', priority: 'low', defaultHistory: [] }

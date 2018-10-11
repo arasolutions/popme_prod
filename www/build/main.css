@@ -61987,6 +61987,16 @@ page-login .btn-tinder-login-instagram {
   background: linear-gradient(260deg, #8a3ab9, #e95950);
 }
 
+page-login .button-blank {
+  background-color: transparent;
+  color: white;
+}
+
+page-login .login-buttons {
+  position: absolute;
+  bottom: 5vw;
+}
+
 page-login-classic button[small] {
   padding: 16px 2.6em;
 }
@@ -62028,6 +62038,18 @@ page-login-classic .btn-tinder-login-instagram {
   padding: 16px 3em;
   font-weight: 700;
   background: linear-gradient(260deg, #8a3ab9, #e95950);
+}
+
+page-login-classic .close-buttons {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 30px;
+}
+
+page-login-classic .logo-title {
+  width: 25vw;
+  margin-top: 10vw;
 }
 
 page-play .swipe-bg {
