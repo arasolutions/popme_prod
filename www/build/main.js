@@ -1575,11 +1575,13 @@ var LoginPage = /** @class */ (function () {
                 data.password = 'facebook';
                 alert('Point 2');
                 // Get user infos from the API
-                _this.fb.api("/me?fields=name,email", []).then(function (user) {
+                _this.fb.api("/me?fields=name,email", []).then(function (userFB) {
                     // Get the connected user details
                     alert('Point 3');
-                    data.usualName = user.name;
-                    data.email = user.email;
+                    alert(userFB.name);
+                    alert(userFB.email);
+                    data.usualName = 'antho';
+                    data.email = 'aa@gmail.com';
                 });
                 alert(data.id);
                 alert(data.password);
