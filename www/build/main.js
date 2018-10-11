@@ -1586,7 +1586,7 @@ var LoginPage = /** @class */ (function () {
                     alert(data.password);
                     alert(data.usualName);
                     alert(data.email);
-                    _this.api.post('connectUser', data)
+                    _this.api.post('connectFacebookUser', data)
                         .subscribe(function (data) {
                         alert('Point 4');
                         var body;
