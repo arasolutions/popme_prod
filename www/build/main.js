@@ -1596,9 +1596,12 @@ var LoginPage = /** @class */ (function () {
                         // On redirige l'utilisateur vers sa page si il est authentifié
                         _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__profile_profile__["a" /* ProfilePage */]);
                     }, function (err) {
+                        alert('6');
+                        alert(err);
                         _this.storageProvider.clearConnexionStorage();
                         _this.navCtrl.setRoot(LoginPage_1);
                     }, function () {
+                        alert('7');
                         //this.goToHome();
                     });
                 });
