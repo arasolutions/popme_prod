@@ -61944,6 +61944,10 @@ page-log .button-primary {
   color: #aecbff;
 }
 
+page-log .log-popy {
+  border-radius: 5px;
+}
+
 page-login button[small] {
   padding: 16px 2.6em;
 }
@@ -62331,6 +62335,8 @@ page-poperprofile .profile-images-edit {
 page-poperprofile .profile-images-edit .div-img {
   padding-bottom: 99%;
   background-color: #e0dfe5;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 page-poperprofile .profile-image {
@@ -62371,11 +62377,13 @@ page-poperprofile .big-thumb {
 
 page-poperprofile .profile-picture {
   width: 40%;
+  padding: 15px 0 15px 15px;
   float: left;
 }
 
 page-poperprofile .profile-info {
   width: 60%;
+  padding: 15px 15px 15px 0;
   float: right;
 }
 
@@ -62418,6 +62426,14 @@ page-poperprofile .ranking img {
   width: 20%;
 }
 
+page-poperprofile .profile-card {
+  border-radius: 4px;
+  margin: 10px 10px 0 10px;
+  box-shadow: black aliceblue;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
 .popover {
   background-color: #2C2C2C;
 }
@@ -62440,6 +62456,8 @@ page-profile .profile-images-edit {
 page-profile .profile-images-edit .div-img {
   padding-bottom: 99%;
   background-color: #e0dfe5;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 page-profile .profile-image {
@@ -62466,7 +62484,7 @@ page-profile .profile-image .popy-label {
   position: absolute;
   bottom: 5px;
   left: 5px;
-  background-color: #34495e;
+  background-color: #2C2C2C;
   padding: 2px 10px;
   border-radius: 10px;
   color: white;
@@ -62480,11 +62498,13 @@ page-profile .big-thumb {
 
 page-profile .profile-picture {
   width: 40%;
+  padding: 15px 0 15px 15px;
   float: left;
 }
 
 page-profile .profile-info {
   width: 60%;
+  padding: 15px 15px 15px 0;
   float: right;
 }
 
@@ -62508,7 +62528,7 @@ page-profile .profile-header {
 page-profile .profile-header .score {
   width: 33%;
   line-height: 34px;
-  background-color: #2C2C2C;
+  background-color: #656565;
   padding: 2px 10px;
   color: white;
   float: left;
@@ -62537,7 +62557,7 @@ page-profile .profile-header .next-add {
   padding: 2px 10px;
   color: white;
   float: right;
-  background-color: #2C2C2C;
+  background-color: #656565;
 }
 
 page-profile .profile-header .next-add .text {
@@ -62550,6 +62570,14 @@ page-profile .profile-header .next-add ion-icon {
 
 page-profile .profile-header img {
   width: 20px;
+}
+
+page-profile .profile-card {
+  border-radius: 4px;
+  margin: 10px 10px 0 10px;
+  box-shadow: black aliceblue;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 page-register .login {
