@@ -60498,6 +60498,76 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+image-viewer.ion-page {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%;
+  opacity: 1;
+}
+
+image-viewer.ion-page ion-navbar.toolbar .toolbar-background {
+  background-color: transparent;
+}
+
+image-viewer.ion-page ion-navbar.toolbar.toolbar-ios {
+  padding-top: calc(20px + 4px);
+}
+
+image-viewer.ion-page ion-navbar .bar-button-default {
+  color: white;
+}
+
+image-viewer.ion-page .backdrop {
+  will-change: opacity;
+}
+
+image-viewer.ion-page .image-wrapper {
+  position: relative;
+  z-index: 10;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  margin-top: 56px;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+image-viewer.ion-page .image {
+  will-change: transform;
+}
+
+image-viewer.ion-page img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0 auto;
+}
+
 .btn-default {
   padding: 16px 3em;
   font-weight: 700;
@@ -61830,20 +61900,30 @@ html [segment], html segment {
 }
 
 .profile-image {
-  width: 80px;
-  height: 80px;
+  width: 128px;
+  height: 128px;
   text-align: center;
+  background-color: white;
   background-image: url(https://www.popme.app/assets/images/unknown.png);
-  background-size: 80px;
+  background-size: 160px;
   margin: 20px auto 0 auto;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top;
 }
 
 .first-step-1-change-photo {
-  margin: 0 auto 20px auto;
+  margin: 10px auto 20px auto;
   font-weight: bold;
   font-size: 1.2rem;
+}
+
+.description-example {
+  text-align: left;
+  margin-top: 4px;
+}
+
+.description-example ul {
+  margin-top: 5px;
 }
 
 page-first-step2 .profile-images-edit {
@@ -62532,6 +62612,7 @@ page-profile .profile-header .score {
   padding: 2px 10px;
   color: white;
   float: left;
+  height: 40px;
 }
 
 page-profile .profile-header .score .text {
@@ -62545,6 +62626,7 @@ page-profile .profile-header .rank {
   color: white;
   float: left;
   font-size: 1.2em;
+  height: 40px;
 }
 
 page-profile .profile-header .rank .text {
@@ -62558,6 +62640,7 @@ page-profile .profile-header .next-add {
   color: white;
   float: right;
   background-color: #656565;
+  height: 40px;
 }
 
 page-profile .profile-header .next-add .text {
