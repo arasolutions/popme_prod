@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 745:
+/***/ 746:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(748);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(749);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var RegisterPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 748:
+/***/ 749:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -95,7 +95,6 @@ var RegisterPage = /** @class */ (function () {
     RegisterPage.prototype.ionViewDidLoad = function () {
     };
     RegisterPage.prototype.goToProfile = function () {
-        var _this = this;
         var data;
         data = {};
         data.email = this.email;
@@ -110,30 +109,35 @@ var RegisterPage = /** @class */ (function () {
             dismissOnPageChange: true
         });
         loading.present();
-        this.api.post('createUser', data)
-            .subscribe(function (data) {
-            var body;
+        /*this.api.post('createUser', data)
+        .subscribe(
+          (data) => {
+            let body: any;
             body = JSON.parse(data.text());
+    
             console.log(body);
-            if (body.error) {
-                loading.dismiss();
-                _this.doAlert(body.message);
+            if(body.error){
+              loading.dismiss();
+              this.doAlert(body.message);
+            }else{
+              this.storage.set('isConnected',true);
+              this.storage.set('user', body);
+    
+              // On redirige l'utilisateur vers sa page si il est authentifié
+              this.storage.set('firstConnexion', true);
+              this.storage.set('tutoriel', true);
+              this.navCtrl.setRoot(FirstStep1Page);
             }
-            else {
-                _this.storage.set('isConnected', true);
-                _this.storage.set('user', body);
-                // On redirige l'utilisateur vers sa page si il est authentifié
-                _this.storage.set('firstConnexion', true);
-                _this.storage.set('tutoriel', true);
-                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__firstStep1_firstStep1__["a" /* FirstStep1Page */]);
-            }
-        }, function (err) {
+          },
+          (err) => {
             loading.dismiss();
-            _this.doAlert(err.message);
-            //this.navCtrl.setRoot(this.navCtrl.getActive().component);
-        }, function () {
-            //this.goToHome();
-        });
+            this.doAlert(err.message);
+          //this.navCtrl.setRoot(this.navCtrl.getActive().component);
+        },
+        () => {
+          //this.goToHome();
+        }
+        );*/
     };
     RegisterPage.prototype.doAlert = function (message) {
         var alert = this.alertCtrl.create({
@@ -147,14 +151,10 @@ var RegisterPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-register',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\register\register.html"*/'<!--\n\n  Generated template for the RegisterPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-content padding text-center class="bg-popme">\n\n  <div>\n\n    <p>Bienvenue sur PopMe, avec seulement 4 photos, devient plus pop que tes amis.\n\n      Pour créer ton profil, il te suffit de renseigner les informations suivantes :</p>\n\n  </div>\n\n  <ion-list class="w-full login">\n\n    <ion-item>\n\n      <ion-input type="text" placeholder="Adresse Email" [(ngModel)]="email"></ion-input>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-input type="password" placeholder="Mot de passe" [(ngModel)]="password"></ion-input>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-input type="text" placeholder="Pseudo" [(ngModel)]="usualName"></ion-input>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>Date de naissance</ion-label>\n\n      <ion-datetime displayFormat="DD/MM/YYYY" cancelText="Annuler" doneText="OK" [(ngModel)]="birthday"></ion-datetime>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>Sexe</ion-label>\n\n      <ion-select [(ngModel)]="gender">\n\n        <ion-option value="f">Femme</ion-option>\n\n        <ion-option value="h">Homme</ion-option>\n\n        <ion-option value="a">Autre</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n    <!--<ion-item>\n\n      <ion-input type="text" placeholder="Lieu" [(ngModel)]="city"></ion-input>\n\n    </ion-item>-->\n\n  </ion-list>\n\n  <button ion-button full round (click)="goToProfile()">Créer mon compte</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\register\register.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* App */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* LoadingController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* App */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* LoadingController */]) === "function" && _f || Object])
     ], RegisterPage);
     return RegisterPage;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=register.js.map
