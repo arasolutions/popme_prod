@@ -1469,7 +1469,7 @@ var LoginPage = /** @class */ (function () {
         data.id = 123;
         alert('Point 3');
         this.api.post('test', data, {})
-            .then(function (data) {
+            .then(function (top) {
             alert('Point 4');
         })
             .catch(function (error) {
