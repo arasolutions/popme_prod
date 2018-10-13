@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 747:
+/***/ 745:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RegisterPageModule", function() { return RegisterPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(751);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register__ = __webpack_require__(748);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,17 +38,17 @@ var RegisterPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 751:
+/***/ 748:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__profile_profile__ = __webpack_require__(69);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__firstStep1_firstStep1__ = __webpack_require__(386);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_storage__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__profile_profile__ = __webpack_require__(52);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__firstStep1_firstStep1__ = __webpack_require__(391);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -95,6 +95,7 @@ var RegisterPage = /** @class */ (function () {
     RegisterPage.prototype.ionViewDidLoad = function () {
     };
     RegisterPage.prototype.goToProfile = function () {
+        var _this = this;
         var data;
         data = {};
         data.email = this.email;
@@ -109,35 +110,30 @@ var RegisterPage = /** @class */ (function () {
             dismissOnPageChange: true
         });
         loading.present();
-        /*this.api.post('createUser', data)
-        .subscribe(
-          (data) => {
-            let body: any;
+        this.api.post('createUser', data)
+            .subscribe(function (data) {
+            var body;
             body = JSON.parse(data.text());
-    
             console.log(body);
-            if(body.error){
-              loading.dismiss();
-              this.doAlert(body.message);
-            }else{
-              this.storage.set('isConnected',true);
-              this.storage.set('user', body);
-    
-              // On redirige l'utilisateur vers sa page si il est authentifié
-              this.storage.set('firstConnexion', true);
-              this.storage.set('tutoriel', true);
-              this.navCtrl.setRoot(FirstStep1Page);
+            if (body.error) {
+                loading.dismiss();
+                _this.doAlert(body.message);
             }
-          },
-          (err) => {
+            else {
+                _this.storage.set('isConnected', true);
+                _this.storage.set('user', body);
+                // On redirige l'utilisateur vers sa page si il est authentifié
+                _this.storage.set('firstConnexion', true);
+                _this.storage.set('tutoriel', true);
+                _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__firstStep1_firstStep1__["a" /* FirstStep1Page */]);
+            }
+        }, function (err) {
             loading.dismiss();
-            this.doAlert(err.message);
-          //this.navCtrl.setRoot(this.navCtrl.getActive().component);
-        },
-        () => {
-          //this.goToHome();
-        }
-        );*/
+            _this.doAlert(err.message);
+            //this.navCtrl.setRoot(this.navCtrl.getActive().component);
+        }, function () {
+            //this.goToHome();
+        });
     };
     RegisterPage.prototype.doAlert = function (message) {
         var alert = this.alertCtrl.create({

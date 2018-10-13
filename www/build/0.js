@@ -1,13 +1,13 @@
 webpackJsonp([0],{
 
-/***/ 746:
+/***/ 747:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TrendPageModule", function() { return TrendPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__trend__ = __webpack_require__(750);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -44,10 +44,10 @@ var TrendPageModule = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TrendPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_api__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__poperprofile_poperprofile__ = __webpack_require__(95);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(20);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -85,43 +85,36 @@ var TrendPage = /** @class */ (function () {
         this.storage.get('user').then(function (user) {
             _this.user = user;
         });
-        /*this.api.get('trend/poped')
-            .subscribe(
-                (data) => {
-                    this.popeds= [];
-                    let body: any;
-                    body = JSON.parse(data.text());
-                    for(let i=0; i<body.length;i++){
-                        this.popeds[i]=body[i];
-                    }
-                    console.log(this.popeds);
-                },
-                (err) => {
-                },
-                () => {
-                    //this.goToHome();
-                }
-            );*/
-        /*this.api.get('trend/poper')
-            .subscribe(
-                (data) => {
-                    this.popers= [];
-                    let body: any;
-                    body = JSON.parse(data.text());
-                    for(let i=0; i<body.length;i++){
-                        this.popers[i]=body[i];
-                    }
-                    console.log(this.popers);
-                },
-                (err) => {
-                },
-                () => {
-                    //this.goToHome();
-                }
-            );*/
+        this.api.get('trend/poped')
+            .subscribe(function (data) {
+            _this.popeds = [];
+            var body;
+            body = JSON.parse(data.text());
+            for (var i = 0; i < body.length; i++) {
+                _this.popeds[i] = body[i];
+            }
+            console.log(_this.popeds);
+        }, function (err) {
+        }, function () {
+            //this.goToHome();
+        });
+        this.api.get('trend/poper')
+            .subscribe(function (data) {
+            _this.popers = [];
+            var body;
+            body = JSON.parse(data.text());
+            for (var i = 0; i < body.length; i++) {
+                _this.popers[i] = body[i];
+            }
+            console.log(_this.popers);
+        }, function (err) {
+        }, function () {
+            //this.goToHome();
+        });
         loading.dismiss();
     }
     TrendPage.prototype.goToHisProfile = function (userId) {
+        var _this = this;
         var data;
         data = {};
         var loading = this.loadingCtrl.create({
@@ -130,24 +123,17 @@ var TrendPage = /** @class */ (function () {
             dismissOnPageChange: true
         });
         loading.present();
-        /*this.api.post('getUserWithPop/' + userId + '/' + this.user.id, data)
-            .subscribe(
-                (data) => {
-                    let body: any;
-                    body = JSON.parse(data.text());
-
-                    this.prepareModal(body);
-
-                    loading.dismiss();
-
-                },
-                (err) => {
-                    loading.dismiss();
-                },
-                () => {
-                    //this.goToHome();
-                }
-            );*/
+        this.api.post('getUserWithPop/' + userId + '/' + this.user.id, data)
+            .subscribe(function (data) {
+            var body;
+            body = JSON.parse(data.text());
+            _this.prepareModal(body);
+            loading.dismiss();
+        }, function (err) {
+            loading.dismiss();
+        }, function () {
+            //this.goToHome();
+        });
     };
     TrendPage.prototype.prepareModal = function (user) {
         var profileModal = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3__poperprofile_poperprofile__["a" /* PoperProfilePage */], { userProfile: user });
