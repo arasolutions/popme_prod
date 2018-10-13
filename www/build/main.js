@@ -1476,7 +1476,7 @@ var LoginPage = /** @class */ (function () {
             .catch(function (error) {
             alert('Point 5');
             console.log(error.error);
-            alert(error.error);
+            alert(error);
         });
     };
     LoginPage.prototype.checkLoginFb = function () {
