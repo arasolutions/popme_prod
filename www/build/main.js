@@ -1471,11 +1471,11 @@ var LoginPage = /** @class */ (function () {
         this.api.post('test', data, {})
             .then(function (data) {
             alert('Point 4');
-            var body;
-            alert('Point 5');
         })
             .catch(function (error) {
+            alert('Point 5');
             console.log(error.error);
+            alert(error.error);
         });
     };
     LoginPage.prototype.checkLoginFb = function () {
