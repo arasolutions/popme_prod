@@ -191,9 +191,6 @@ var Api = /** @class */ (function () {
     };
     Api.prototype.post = function (endpoint, body, reqOpts) {
         body.token = this.apiToken;
-        alert(this.apiToken);
-        alert(body);
-        alert(body.token);
         return this.http.post(this.url + '/' + endpoint, body, reqOpts);
     };
     Api.prototype.put = function (endpoint, body, reqOpts) {
@@ -302,7 +299,9 @@ var LoginClassicPage = /** @class */ (function () {
         this.api.post('connectUser', data)
             .then(function (data) {
             var body;
-            body = JSON.parse(data.data);
+            body = data.data;
+            alert('OK');
+            alert(body);
             if (body.error) {
                 _this.showAlertBadAccount(body.message);
             }
