@@ -336,7 +336,7 @@ var Api = /** @class */ (function () {
     };
     Api.prototype.post = function (endpoint, body, reqOpts) {
         body.token = this.apiToken;
-        return this.http.post(this.url + '/' + endpoint, JSON.stringify(body), reqOpts);
+        return this.http.post(this.url + '/' + endpoint, body, reqOpts);
     };
     Api.prototype.put = function (endpoint, body, reqOpts) {
         return this.http.put(this.url + '/' + endpoint, body, reqOpts);
