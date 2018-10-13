@@ -191,6 +191,9 @@ var Api = /** @class */ (function () {
     };
     Api.prototype.post = function (endpoint, body, reqOpts) {
         body.token = this.apiToken;
+        alert(this.apiToken);
+        alert(body);
+        alert(body.token);
         return this.http.post(this.url + '/' + endpoint, body, reqOpts);
     };
     Api.prototype.put = function (endpoint, body, reqOpts) {
@@ -207,9 +210,10 @@ var Api = /** @class */ (function () {
     };
     Api = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_http__["a" /* HTTP */]) === "function" && _a || Object])
     ], Api);
     return Api;
+    var _a;
 }());
 
 //# sourceMappingURL=api.js.map
