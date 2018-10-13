@@ -28,7 +28,6 @@
     <preference name="Orientation" value="portrait" />
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarStyle" value="lightcontent" />
-	<preference name="CordovaWebViewEngine" value="CDVUIWebViewEngine" />
 	<platform name="android">
 		<icon qualifier="ldpi" src="res/icons/android/drawable-ldpi-icon.png" />
 		<icon qualifier="mdpi" src="res/icons/android/drawable-mdpi-icon.png" />
