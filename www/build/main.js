@@ -1606,34 +1606,21 @@ var LoginPage = /** @class */ (function () {
             .catch(function (e) { return console.log('Error logging into Facebook', e); });
     };
     LoginPage.prototype.test = function () {
-        var _this = this;
         var data;
         data = {};
         data.id = 123;
-        //data.user = this.user;
-        data.password = 'facebook';
-        // Get user infos from the API
-        // Get the connected user details
-        data.usualName = 'facebook';
-        data.email = 'facebook';
         alert('Point 3');
         this.api.post('test', data)
             .subscribe(function (data) {
             alert('Point 4');
             var body;
             body = JSON.parse(data.text());
-            _this.storage.set('configurations', body);
             alert('Point 5');
-            // On redirige l'utilisateur vers sa page si il est authentifié
-            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__profile_profile__["a" /* ProfilePage */]);
         }, function (err) {
             alert('6');
             alert(err);
-            _this.storageProvider.clearConnexionStorage();
-            _this.navCtrl.setRoot(LoginPage_1);
         }, function () {
             alert('7');
-            //this.goToHome();
         });
     };
     LoginPage.prototype.checkLoginFb = function () {
