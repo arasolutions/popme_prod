@@ -1471,6 +1471,7 @@ var LoginPage = /** @class */ (function () {
         this.api.post('test', data, {})
             .then(function (top) {
             alert('Point 4');
+            alert(top.data);
         })
             .catch(function (error) {
             alert('Point 5');
