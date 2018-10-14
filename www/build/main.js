@@ -1574,6 +1574,8 @@ var LoginPage = /** @class */ (function () {
                         _this.storage.set('configurations', body);
                         alert(body);
                         // On redirige l'utilisateur vers sa page si il est authentifié
+                        _this.storage.set('isConnected', true);
+                        _this.storage.set('user', body);
                         _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__loading_loading__["a" /* LoadingPage */]);
                     }, function (err) {
                         alert('6');
