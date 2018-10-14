@@ -1558,6 +1558,7 @@ var LoginPage = /** @class */ (function () {
             alert(res.authResponse.userID);
             if (res.status === "connected") {
                 data.id = res.authResponse.userID;
+                data.facebookId = res.authResponse.userID;
                 //data.user = this.user;
                 data.password = 'facebook';
                 // Get user infos from the API
