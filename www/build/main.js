@@ -81,14 +81,11 @@ var LoadingPage = /** @class */ (function () {
                 body = JSON.parse(data.text());
                 _this.storage.set('user', body);
                 _this.storage.set('fromLoading', true);
-                alert('loading 0');
                 var timer = setTimeout(function (x) {
-                    alert('loading 1');
                     _this.gameProvider.loadPopies(20);
                     _this.goToSlide();
                 }, 1500);
                 timer = setTimeout(function (x) {
-                    alert('loading 2');
                     _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__profile_profile__["a" /* ProfilePage */]);
                 }, 3000);
             }, function (err) {
@@ -565,17 +562,12 @@ var GameProvider = /** @class */ (function () {
     }
     GameProvider.prototype.loadPopies = function (count) {
         var _this = this;
-        alert('load popies 0');
         this.storage.get('user').then(function (val) {
-            alert('load popies 1');
             if (val) {
-                alert('load popies 2');
                 _this.user = val;
-                alert('load popies 3');
                 _this.addPopies(count, val.id);
             }
         });
-        alert('load popies 4');
     };
     GameProvider.prototype.addPopies = function (count, userId) {
         var _this = this;
@@ -1563,7 +1555,7 @@ var LoginPage = /** @class */ (function () {
         data = {};
         this.fb.login(['public_profile', 'email'])
             .then(function (res) {
-            alert(res.authResponse.userID);
+            //alert(res.authResponse.userID);
             if (res.status === "connected") {
                 data.id = res.authResponse.userID;
                 data.facebookId = res.authResponse.userID;
@@ -1579,13 +1571,13 @@ var LoginPage = /** @class */ (function () {
                         var body;
                         body = JSON.parse(data.text());
                         _this.storage.set('configurations', body);
-                        alert(body);
+                        //alert(body);
                         // On redirige l'utilisateur vers sa page si il est authentifié
                         _this.storage.set('isConnected', true);
                         _this.storage.set('user', body);
                         _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__loading_loading__["a" /* LoadingPage */]);
                     }, function (err) {
-                        alert(err);
+                        //alert(err);
                         _this.storageProvider.clearConnexionStorage();
                         _this.navCtrl.setRoot(LoginPage_1);
                     }, function () {
