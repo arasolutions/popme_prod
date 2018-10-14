@@ -565,12 +565,17 @@ var GameProvider = /** @class */ (function () {
     }
     GameProvider.prototype.loadPopies = function (count) {
         var _this = this;
+        alert('load popies 0');
         this.storage.get('user').then(function (val) {
+            alert('load popies 1');
             if (val) {
+                alert('load popies 2');
                 _this.user = val;
+                alert('load popies 3');
                 _this.addPopies(count, val.id);
             }
         });
+        alert('load popies 4');
     };
     GameProvider.prototype.addPopies = function (count, userId) {
         var _this = this;
@@ -632,10 +637,10 @@ var GameProvider = /** @class */ (function () {
     };
     GameProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__api_api__["a" /* Api */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _b || Object])
     ], GameProvider);
     return GameProvider;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=game.js.map
