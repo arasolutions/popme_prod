@@ -81,14 +81,18 @@ var LoadingPage = /** @class */ (function () {
                 body = JSON.parse(data.text());
                 _this.storage.set('user', body);
                 _this.storage.set('fromLoading', true);
+                alert('loading 0');
                 var timer = setTimeout(function (x) {
+                    alert('loading 1');
                     _this.gameProvider.loadPopies(20);
                     _this.goToSlide();
                 }, 1500);
                 timer = setTimeout(function (x) {
+                    alert('loading 2');
                     _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_8__profile_profile__["a" /* ProfilePage */]);
                 }, 3000);
             }, function (err) {
+                alert('erreur loading');
                 _this.storageProvider.clearConnexionStorage();
                 _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_7__login_login__["a" /* LoginPage */]);
             }, function () {
@@ -1554,7 +1558,6 @@ var LoginPage = /** @class */ (function () {
         data = {};
         this.fb.login(['public_profile', 'email'])
             .then(function (res) {
-            alert('Point 0');
             alert(res.authResponse.userID);
             if (res.status === "connected") {
                 data.id = res.authResponse.userID;
@@ -1568,7 +1571,6 @@ var LoginPage = /** @class */ (function () {
                     data.email = userFB.email;
                     _this.api.post('connectFacebookUser', data)
                         .subscribe(function (data) {
-                        alert('Point 4');
                         var body;
                         body = JSON.parse(data.text());
                         _this.storage.set('configurations', body);
@@ -1578,12 +1580,10 @@ var LoginPage = /** @class */ (function () {
                         _this.storage.set('user', body);
                         _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_6__loading_loading__["a" /* LoadingPage */]);
                     }, function (err) {
-                        alert('6');
                         alert(err);
                         _this.storageProvider.clearConnexionStorage();
                         _this.navCtrl.setRoot(LoginPage_1);
                     }, function () {
-                        alert('7');
                         //this.goToHome();
                     });
                 });
