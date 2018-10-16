@@ -80,7 +80,7 @@
 		<splash height="960" platform="ios" src="res/screens/ios/Default@2x~iphone.png" width="640" />
 		<splash height="480" platform="ios" src="res/screens/ios/Default~iphone.png" width="320" />
 	</platform>
-    <plugin name="cordova-plugin-admob-free" spec="0.17.0" />
+    <!--<plugin name="cordova-plugin-admob-free" spec="0.17.0" />
     <plugin name="cordova-plugin-device" spec="2.0.2" />
     <plugin name="cordova-plugin-globalization" spec="1.11.0" />
     <!-- <plugin name="cordova-plugin-google-analytics" spec="1.8.3" /> -->
@@ -99,5 +99,6 @@
     </plugin> 
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
     <plugin name="cordova-plugin-x-socialsharing" spec="5.4.1" />
-    <plugin name="cordova-plugin-advanced-http" spec="2.0.1" />-->
+    <plugin name="cordova-plugin-advanced-http" spec="2.0.1" />
+    <plugin name="com-sarriaroman-photoviewer" spec="^1.1.18" />-->
 </widget>
