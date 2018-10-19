@@ -60535,6 +60535,26 @@ ion-row.no-padder ion-col {
   margin-top: 10%;
 }
 
+.pd0 {
+  padding: 0px;
+}
+
+.pd1 {
+  padding: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
 .card-custom {
   background-color: white;
   border-radius: 6px;
@@ -62521,6 +62541,10 @@ page-profile .profile-image .popy-label {
   font-size: 0.8em;
 }
 
+page-profile .color-yellow {
+  color: #F1C40F;
+}
+
 page-profile .big-thumb {
   width: 128px;
   display: inline-block;
@@ -62613,6 +62637,64 @@ page-profile .profile-card {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
+page-relative-rank .float-right {
+  float: right;
+}
+
+page-relative-rank .float-right img {
+  width: 15px;
+}
+
+page-relative-rank .row {
+  border-bottom: solid 1px #CCC;
+}
+
+page-relative-rank ion-segment-button ion-icon {
+  font-size: 13px;
+}
+
 page-register .login {
   margin-top: 10%;
+}
+
+page-trend .color0 {
+  color: #ffd700;
+}
+
+page-trend .color1 {
+  color: #c0c0c0;
+}
+
+page-trend .color2 {
+  color: #cd7f32;
+}
+
+page-trend .subtitle {
+  width: 100%;
+  border-bottom: solid 2px #CCC;
+  color: #CCC;
+  padding: 10px 0 5px 10px;
+  font-weight: bold;
+}
+
+page-trend .card-background-page ion-card {
+  position: relative;
+  text-align: center;
+}
+
+page-trend .card-background-page .card-title {
+  position: absolute;
+  top: 36%;
+  font-size: 2em;
+  width: 100%;
+  font-weight: 700;
+  color: #fff;
+}
+
+page-trend .card-background-page .card-subtitle {
+  font-size: 1em;
+  position: absolute;
+  top: 52%;
+  width: 100%;
+  color: #fff;
 }
