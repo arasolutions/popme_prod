@@ -61943,7 +61943,7 @@ page-first-step2 .big-thumb {
 }
 
 page-loading .background-screensplash {
-  background-image: url("./assets/img/logo.png");
+  background-image: url("../../assets/img/logo_title.png");
   background-size: 30%;
   background-repeat: no-repeat;
   background-position: center;
@@ -61951,14 +61951,14 @@ page-loading .background-screensplash {
 
 page-loading .loading-desc {
   position: absolute;
-  top: 60%;
+  top: 70%;
   text-align: center;
   width: 100%;
 }
 
 page-loading .loading-count {
   position: absolute;
-  top: 65%;
+  top: 75%;
   text-align: center;
   width: 100%;
 }
