@@ -61863,7 +61863,7 @@ html [segment], html segment {
   height: 128px;
   text-align: center;
   background-color: white;
-  background-image: url(https://www.popme.app/assets/images/unknown.png);
+  background-image: url(assets/images/unknown.png);
   background-size: 160px;
   margin: 20px auto 0 auto;
   background-repeat: no-repeat;
@@ -61943,7 +61943,7 @@ page-first-step2 .big-thumb {
 }
 
 page-loading .background-screensplash {
-  background-image: url("../../assets/img/logo_title.png");
+  background-image: url("assets/img/logo_title.png");
   background-size: 30%;
   background-repeat: no-repeat;
   background-position: center;
@@ -62655,6 +62655,17 @@ page-relative-rank ion-segment-button ion-icon {
 
 page-register .login {
   margin-top: 10%;
+}
+
+page-register .register img {
+  width: 20%;
+}
+
+page-register .close-buttons {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 30px;
 }
 
 page-trend .color0 {
