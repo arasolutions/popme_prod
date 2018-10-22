@@ -61943,7 +61943,7 @@ page-first-step2 .big-thumb {
 }
 
 page-loading .background-screensplash {
-  background-image: url(assets/img/logo_title.png);
+  background-image: url(../assets/img/logo_title.png);
   background-size: 30%;
   background-repeat: no-repeat;
   background-position: center;
