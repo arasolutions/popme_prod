@@ -62686,12 +62686,12 @@ page-trend .background-color0 {
 }
 
 page-trend .background-color1 {
-  width: calc(90% - 32px);
+  width: calc(80% - 32px);
   background-color: #c0c0c0;
 }
 
 page-trend .background-color2 {
-  width: calc(80% - 32px);
+  width: calc(60% - 32px);
   background-color: #cd7f32;
 }
 
@@ -62766,13 +62766,13 @@ page-trend .trophy ion-icon {
   vertical-align: middle;
 }
 
-page-trend .infos-trend {
-  height: 32px;
-  line-height: 32px;
+page-trend .infos-trend > div {
+  height: 30px;
+  line-height: 30px;
   margin: auto;
 }
 
-page-trend .infos-trend .usual-name {
+page-trend .usual-name {
   font-size: 1.3em;
   font-weight: bold;
 }
@@ -62806,7 +62806,7 @@ page-trend img.account-image {
     right: 100%;
   }
   to {
-    right: 10%;
+    right: 20%;
   }
 }
 
@@ -62815,7 +62815,7 @@ page-trend img.account-image {
     right: 100%;
   }
   to {
-    right: 10%;
+    right: 20%;
   }
 }
 
@@ -62824,7 +62824,7 @@ page-trend img.account-image {
     right: 100%;
   }
   to {
-    right: 20%;
+    right: 40%;
   }
 }
 
@@ -62833,7 +62833,7 @@ page-trend img.account-image {
     right: 100%;
   }
   to {
-    right: 20%;
+    right: 40%;
   }
 }
 
@@ -62846,6 +62846,7 @@ page-trend .animate-ease-0 {
   animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
+  right: 120%;
 }
 
 page-trend .animate-ease-1 {
@@ -62859,6 +62860,7 @@ page-trend .animate-ease-1 {
   animation-fill-mode: forwards;
   -webkit-animation-delay: 0.5s;
   animation-delay: 0.5s;
+  right: 120%;
 }
 
 page-trend .animate-ease-2 {
@@ -62872,4 +62874,5 @@ page-trend .animate-ease-2 {
   animation-fill-mode: forwards;
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
+  right: 120%;
 }
