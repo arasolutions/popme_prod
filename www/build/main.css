@@ -60535,12 +60535,24 @@ ion-row.no-padder ion-col {
   margin-top: 10%;
 }
 
+.mb5 {
+  margin-bottom: 5%;
+}
+
+.mb10 {
+  margin-bottom: 10%;
+}
+
 .pd0 {
   padding: 0px;
 }
 
 .pd1 {
   padding: 1rem;
+}
+
+.border-none {
+  border: 0px !important;
 }
 
 .text-center {
@@ -60571,6 +60583,10 @@ ion-row.no-padder ion-col {
 .div-img.img-square {
   height: 0px;
   padding-bottom: 100%;
+}
+
+.color-white {
+  color: #FFF;
 }
 
 .no-scroll {
@@ -60612,6 +60628,11 @@ div.button-blank {
 
 div.button-blank button {
   background-color: transparent;
+  color: white;
+}
+
+.toolbar-background {
+  background-color: #2C2C2C;
   color: white;
 }
 
@@ -62385,6 +62406,14 @@ page-poperprofile .profile-images-edit .div-img {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
+page-poperprofile .pop-title {
+  text-align: center;
+  margin-left: -10%;
+  font-size: 2rem;
+  width: 100%;
+  padding-top: 4%;
+}
+
 page-poperprofile .profile-image {
   position: relative;
   width: calc(100% / 2 - 10px);
@@ -62461,6 +62490,16 @@ page-poperprofile .stamp {
   -webkit-transform: rotate(-15deg);
   transform: rotate(-15deg);
   opacity: 1;
+  letter-spacing: 3px;
+}
+
+page-poperprofile .stamp.stamp-like {
+  right: initial;
+  left: 10px;
+  color: #22e4a8;
+  border-color: #22e4a8;
+  -webkit-transform: rotate(-15deg);
+  transform: rotate(-15deg);
   letter-spacing: 3px;
 }
 
@@ -62651,6 +62690,30 @@ page-relative-rank .row {
 
 page-relative-rank ion-segment-button ion-icon {
   font-size: 13px;
+}
+
+page-relative-rank .button-classement {
+  border-radius: 4px;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #488aff;
+  font-size: 1.2rem;
+  color: #488aff;
+  background-color: transparent;
+}
+
+page-relative-rank .button-classement-activated {
+  border-radius: 4px;
+  margin-right: 0;
+  color: #fff;
+  background-color: #488aff;
+  opacity: 1;
+  -webkit-transition: 100ms all linear;
+  transition: 100ms all linear;
 }
 
 page-register .login {
