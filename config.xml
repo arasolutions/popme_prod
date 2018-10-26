@@ -102,4 +102,5 @@
     <plugin name="cordova-plugin-advanced-http" spec="2.0.1" />
     <plugin name="com-sarriaroman-photoviewer" spec="1.1.18" />
     <plugin name="cordova-plugin-geolocation" spec="4.0.1" />
+    <plugin name="com.darktalker.cordova.screenshot" spec="0.1.6" />
 </widget>
