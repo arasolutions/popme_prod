@@ -60586,7 +60586,7 @@ ion-row.no-padder ion-col {
 }
 
 .color-white {
-  color: #FFF;
+  color: #FFF !important;
 }
 
 .no-scroll {
@@ -62716,6 +62716,22 @@ page-relative-rank .button-classement-activated {
   transition: 100ms all linear;
 }
 
+page-relative-rank .table-label {
+  font-weight: bold;
+}
+
+page-relative-rank .color-trophy1 {
+  color: #ffd700;
+}
+
+page-relative-rank .color-trophy2 {
+  color: #c0c0c0;
+}
+
+page-relative-rank .color-trophy3 {
+  color: #cd7f32;
+}
+
 page-register .login {
   margin-top: 10%;
 }
@@ -62729,6 +62745,10 @@ page-register .close-buttons {
   right: 20px;
   top: 10px;
   font-size: 30px;
+}
+
+page-settings .settings-account-image img {
+  width: 25vw;
 }
 
 page-trend .color0 {
