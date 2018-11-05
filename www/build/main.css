@@ -62523,18 +62523,18 @@ page-poperprofile .profile-card {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-.popover {
+popover {
   background-color: #2C2C2C;
 }
 
-.popover .content {
+popover .content {
   border: solid 2px #f1c40f;
   border-radius: 10px;
   padding: 10px;
   color: white;
 }
 
-.popover .content button {
+popover .content button {
   text-align: center;
 }
 
@@ -62680,6 +62680,14 @@ page-profile .profile-card {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
+page-rankpopover .close-buttons {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  font-size: 30px;
+  color: #FFF;
+}
+
 page-relative-rank .float-right {
   float: right;
 }
@@ -62722,6 +62730,11 @@ page-relative-rank .button-classement-activated {
 
 page-relative-rank .table-label {
   font-weight: bold;
+}
+
+page-relative-rank .table-title {
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 page-relative-rank .color-trophy1 {
