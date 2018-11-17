@@ -65570,6 +65570,10 @@ div.button-blank button {
   color: white;
 }
 
+.margin-auto {
+  margin: auto;
+}
+
 /* CSS Helper ver 1.1.1 */
 /* FLEX from Google Polymer 0.5.2 */
 html [layout][horizontal], html [layout][vertical] {
@@ -66813,6 +66817,137 @@ html [segment], html segment {
   min-width: 0;
 }
 
+page-clan .swipe-bg {
+  background: #fff;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f6f7fb));
+  background-image: linear-gradient(#fff, #f6f7fb);
+}
+
+page-clan .close-buttons {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  font-size: 30px;
+  color: #FFF;
+}
+
+page-clan .button-muted {
+  border-radius: 999em;
+  font-size: 14px;
+  font-weight: 700;
+  width: 48px;
+  height: 48px;
+  background-color: #f4f4f4;
+  color: #d1d1d1;
+}
+
+page-clan .button-primary {
+  border-radius: 999em;
+  font-size: 14px;
+  font-weight: 700;
+  width: 48px;
+  height: 48px;
+  background-color: #f0c30e;
+  color: #555555;
+}
+
+page-clan .clan-title {
+  text-align: center;
+  margin-left: -10%;
+  font-size: 2rem;
+  width: 100%;
+  padding-top: 4%;
+}
+
+page-clan img.clanprofile-user-image {
+  width: 60px;
+}
+
+page-clan div.clan-action {
+  background-color: #FEFEFE;
+  margin-bottom: 10px;
+}
+
+page-clan div.clan-action ion-col {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 15px;
+}
+
+page-clan div.clan-profile {
+  padding: 10px;
+  background-color: #FEFEFE;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+page-clan div.clan-profile .image {
+  width: 160px;
+  float: left;
+}
+
+page-clan div.clan-profile .description {
+  width: calc( 100% - 160px);
+  float: right;
+  text-align: center;
+}
+
+page-clan div.clan-profile img {
+  width: 140px;
+}
+
+page-clan .clan-profile-name {
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px 0;
+  border-bottom: solid 1px #CCC;
+}
+
+page-clan .clan-profile-description {
+  font-size: 15px;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+page-clan .clan-profile-action {
+  float: right;
+}
+
+page-clan .clan-profile-created {
+  font-size: 10px;
+}
+
+page-clan .clanprofile-user-action {
+  font-size: 2.5rem;
+}
+
+page-clan .clanprofile-user-name {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+page-clan .clanprofile-user-description {
+  font-size: 13px;
+  color: #999;
+}
+
+page-clan .list-user {
+  clear: both;
+  background-color: #FEFEFE;
+  margin-bottom: 10px;
+}
+
+page-clanParameters .close-buttons {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  font-size: 30px;
+  color: #FFF;
+}
+
 .profile-image {
   width: 128px;
   height: 128px;
@@ -67090,11 +67225,14 @@ page-play .swipe-container {
   z-index: 1;
   border-radius: 100vw;
   padding-right: 10px;
-  width: 65vw;
+  width: 70vw;
 }
 
 .poper-card-text .poper-card-usualname {
   line-height: 40px;
+  font-size: 18px;
+  overflow-wrap: initial;
+  width: calc( 100vw - 30vw);
 }
 
 .poper-card-text .poper-card-button {
