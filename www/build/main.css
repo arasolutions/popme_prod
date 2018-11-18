@@ -66833,6 +66833,10 @@ html [segment], html segment {
   min-width: 0;
 }
 
+page-auto-complete .toolbar .searchbar-ios .searchbar-input {
+  background: #FFF;
+}
+
 page-clan .swipe-bg {
   background: #fff;
   background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#f6f7fb));
