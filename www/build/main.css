@@ -65523,6 +65523,10 @@ ion-row.no-padder ion-col {
   color: #FFF !important;
 }
 
+.color-yellow {
+  color: #f0c30e !important;
+}
+
 .no-scroll {
   overflow: hidden;
 }
@@ -65572,6 +65576,18 @@ div.button-blank button {
 
 .margin-auto {
   margin: auto;
+}
+
+.toggle-ios.toggle-checked .toggle-icon {
+  background-color: #f0c30e;
+}
+
+.close-buttons {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  font-size: 30px;
+  color: #f0c30e;
 }
 
 /* CSS Helper ver 1.1.1 */
@@ -66828,7 +66844,7 @@ page-clan .close-buttons {
   right: 20px;
   top: 5px;
   font-size: 30px;
-  color: #FFF;
+  color: #f0c30e;
 }
 
 page-clan .button-muted {
@@ -66938,6 +66954,10 @@ page-clan .list-user {
   clear: both;
   background-color: #FEFEFE;
   margin-bottom: 10px;
+}
+
+page-clan .row {
+  border-bottom: solid 1px #CCC;
 }
 
 page-clanParameters .close-buttons {
@@ -67766,6 +67786,54 @@ page-relative-rank .float-right {
 
 page-relative-rank .float-right img {
   width: 15px;
+}
+
+page-relative-rank .close-buttons {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  font-size: 30px;
+  color: #FFF;
+}
+
+page-relative-rank .button-muted {
+  border-radius: 999em;
+  font-size: 14px;
+  font-weight: 700;
+  width: 48px;
+  height: 48px;
+  background-color: #f4f4f4;
+  color: #d1d1d1;
+}
+
+page-relative-rank .button-primary {
+  border-radius: 999em;
+  font-size: 14px;
+  font-weight: 700;
+  width: 48px;
+  height: 48px;
+  background-color: #f0c30e;
+  color: #555555;
+}
+
+page-relative-rank .button-muted-small {
+  border-radius: 999em;
+  font-size: 14px;
+  font-weight: 700;
+  width: 32px;
+  height: 32px;
+  background-color: #f4f4f4;
+  color: #d1d1d1;
+}
+
+page-relative-rank .button-primary-small {
+  border-radius: 999em;
+  font-size: 14px;
+  font-weight: 700;
+  width: 32px;
+  height: 32px;
+  background-color: #f0c30e;
+  color: #555555;
 }
 
 page-relative-rank .row {
