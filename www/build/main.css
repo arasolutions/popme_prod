@@ -66964,6 +66964,19 @@ page-clan .row {
   border-bottom: solid 1px #CCC;
 }
 
+.hidden-button {
+  display: none;
+}
+
+.list-clans-name {
+  font-weight: bold;
+}
+
+.list-clans-users {
+  float: right;
+  text-align: right;
+}
+
 page-clanParameters .close-buttons {
   position: absolute;
   right: 20px;
@@ -67906,6 +67919,13 @@ page-relative-rank .segment-ios .segment-button {
   border-color: #f0c30e;
   color: #555555;
   background-color: transparent;
+}
+
+page-relative-rank .city, page-relative-rank .country, page-relative-rank .clan {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #333;
 }
 
 page-register .login {
