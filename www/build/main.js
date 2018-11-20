@@ -749,12 +749,10 @@ var RelativeRankPage = /** @class */ (function () {
     }
     RelativeRankPage.prototype.setDisplayMenu = function (menu) {
         this.displayMenu = menu;
-        this.onDisplayMenuChange();
+        this.onDisplayMenuChange(menu);
     };
     RelativeRankPage.prototype.ionViewWillEnter = function () {
         this.getAllWorld(false);
-        this.isVisibleRankingClan = false;
-        this.isVisibleListeClan = false;
     };
     RelativeRankPage.prototype.getAllWorld = function (personalized) {
         var _this = this;
@@ -803,8 +801,28 @@ var RelativeRankPage = /** @class */ (function () {
                 _this.isDefaultRanking = false;
             }
         });
-        this.storage.get('defaultClan').then(function (clan) {
-            _this.goToRankingClan(clan);
+        this.storage.get('user').then(function (user) {
+            var data;
+            data = {};
+            data.userId = user.id;
+            _this.api.post('clans/get', data)
+                .subscribe(function (data) {
+                var body;
+                body = JSON.parse(data.text());
+                _this.clans = body;
+                for (var id in _this.clans) {
+                    console.log("Chargement du classement du n° " + _this.clans[id].id); // "0", "1", "2",
+                    _this.goToRankingClan(_this.clans[id].id, id);
+                }
+                if (body.error) {
+                    console.log("ko");
+                }
+                else {
+                    console.log("ok");
+                }
+            }, function (err) {
+            }, function () {
+            });
         });
     };
     RelativeRankPage.prototype.getInfosClan = function (clanId) {
@@ -851,47 +869,27 @@ var RelativeRankPage = /** @class */ (function () {
         }, function () {
         });
     };
-    RelativeRankPage.prototype.listClans = function () {
-        var _this = this;
-        this.isVisibleListeClan = true;
-        this.isVisibleRankingClan = false;
-        var data;
-        data = {};
-        data.userId = this.user.id;
-        var loading = this.loadingCtrl.create({
-            spinner: 'crescent',
-            content: 'Chargement...',
-            dismissOnPageChange: true
-        });
-        loading.present();
-        this.api.post('clans/get', data)
-            .subscribe(function (data) {
-            var body;
-            body = JSON.parse(data.text());
-            _this.clans = body;
-            console.log("Clans");
-            console.log(body);
-            if (body.error) {
-                loading.dismiss();
-                console.log("ko");
-            }
-            else {
-                loading.dismiss();
-                console.log("ok");
-            }
-        }, function (err) {
-            loading.dismiss();
-        }, function () {
-        });
-    };
-    RelativeRankPage.prototype.onDisplayMenuChange = function () {
+    RelativeRankPage.prototype.onDisplayMenuChange = function (rankChosen) {
         var _this = this;
         this.storage.get('defaultRanking').then(function (rank) {
-            if (_this.displayMenu == rank) {
-                _this.isDefaultRanking = true;
+            if (_this.displayMenu == 4) {
+                // Clan
+                console.log(rank);
+                console.log(rankChosen);
+                if (rank == rankChosen) {
+                    _this.isDefaultRanking = true;
+                }
+                else {
+                    _this.isDefaultRanking = false;
+                }
             }
             else {
-                _this.isDefaultRanking = false;
+                if (_this.displayMenu == rank) {
+                    _this.isDefaultRanking = true;
+                }
+                else {
+                    _this.isDefaultRanking = false;
+                }
             }
         });
     };
@@ -903,59 +901,27 @@ var RelativeRankPage = /** @class */ (function () {
             this.isDefaultRanking = false;
         }
     };
-    RelativeRankPage.prototype.setDefaultClan = function (clanId) {
-        console.log(this.isDefaultClan);
-        if (this.isDefaultClan == true) {
-            this.storage.set('defaultClan', clanId);
-            this.isDefaultClan = true;
-            console.log('change ok');
-        }
-        else {
-            this.storage.remove('defaultClan');
-            this.isDefaultClan = false;
-            console.log('change ko');
-        }
-    };
-    RelativeRankPage.prototype.goToRankingClan = function (clanId) {
+    RelativeRankPage.prototype.goToRankingClan = function (clanId, index) {
         var _this = this;
-        this.isVisibleListeClan = false;
         if (clanId != null) {
             var data = void 0;
             data = {};
             data.userId = this.user.id;
             data.clanId = clanId;
-            this.storage.get('defaultClan').then(function (clan) {
-                if (clanId == clan) {
-                    _this.isDefaultClan = true;
-                }
-                else {
-                    _this.isDefaultClan = false;
-                }
-            });
-            var loading_1 = this.loadingCtrl.create({
-                spinner: 'crescent',
-                content: 'Chargement...',
-                dismissOnPageChange: true
-            });
-            loading_1.present();
             this.api.post('ranking/clan', data)
                 .subscribe(function (data) {
                 var body;
                 body = JSON.parse(data.text());
-                _this.rankingClan = body;
-                _this.isVisibleRankingClan = true;
+                _this.clans[index].ranking = body.clan;
                 console.log(body);
-                _this.getInfosClan(_this.rankingClan.id);
+                _this.getInfosClan(clanId);
                 if (body.error) {
-                    loading_1.dismiss();
                     console.log("ko");
                 }
                 else {
-                    loading_1.dismiss();
                     console.log("ok");
                 }
             }, function (err) {
-                loading_1.dismiss();
             }, function () {
             });
         }
@@ -1010,7 +976,8 @@ var RelativeRankPage = /** @class */ (function () {
                 _this.displayMenu = 1;
             }
         });
-        console.log('ionViewDidLoad RelativeRankPage');
+        console.log('ionViewDidEnter RelativeRankPage');
+        console.log(this.clans);
     };
     RelativeRankPage.prototype.ionViewDidLoad = function () {
         //this.rankType = 'world';
@@ -1023,18 +990,12 @@ var RelativeRankPage = /** @class */ (function () {
     };
     RelativeRankPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-relative-rank',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\rank\relativeRank.html"*/'<ion-header>\n\n\n\n  <ion-navbar class="bg-popme">\n\n    <ion-title><span class="color-white">Classements</span></ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content class="swipe-bg" no-bounce padding-left padding-right>\n\n\n\n  <div [ngSwitch]="displayMenu">\n\n    <div layout vertical class="mt5">\n\n      <div flex three class="bg-white">\n\n        <ion-grid>\n\n          <ion-row class="border-none">\n\n            <ion-col col-3 class="text-center b-r b-light">\n\n              <button ion-button icon-only color="light" [class]="displayMenu == 1 ?\'button-primary\':\'button-muted\'" (click)="setDisplayMenu(1)">\n\n                <ion-icon name="globe"></ion-icon>\n\n              </button>\n\n              <div class="text-muted text-xs l-s-1x m-t-xs">Monde</div>\n\n            </ion-col>\n\n            <ion-col col-3 class="text-center b-r b-light">\n\n              <button ion-button icon-only color="light" [class]="displayMenu == 2 ?\'button-primary\':\'button-muted\'" (click)="setDisplayMenu(2)">\n\n                <ion-icon name="flag"></ion-icon>\n\n              </button>\n\n              <div class="text-muted text-xs l-s-1x m-t-xs">\n\n                <div *ngIf="userPlace.country == null">Pays</div>\n\n                <div class="city" *ngIf="userPlace.country != null">{{userPlace.country}}</div>\n\n              </div>\n\n            </ion-col>\n\n            <ion-col col-3 class="text-center b-r b-light">\n\n              <button ion-button icon-only color="light" [class]="displayMenu == 3 ?\'button-primary\':\'button-muted\'" (click)="setDisplayMenu(3)">\n\n                <ion-icon name="pin"></ion-icon>\n\n              </button>\n\n              <div class="text-muted text-xs l-s-1x m-t-xs">\n\n                <div *ngIf="userPlace.city == null">Ville</div>\n\n                <div class="city" *ngIf="userPlace.city != null">{{userPlace.city}}</div>\n\n              </div>\n\n            </ion-col>\n\n            <ion-col col-3 class="text-center b-light">\n\n              <button ion-button icon-only color="light" [class]="displayMenu == 4 ?\'button-primary\':\'button-muted\'" (click)="setDisplayMenu(4)">\n\n                <ion-icon name="people"></ion-icon>\n\n              </button>\n\n              <div class="text-muted text-xs l-s-1x m-t-xs">Clan</div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-grid>\n\n      </div>\n\n    </div>\n\n\n\n    <div *ngIf="isRanks()" [ngSwitch]="displayMenu">\n\n      <ion-row *ngIf="displayMenu == 1 || ((displayMenu == 2 || displayMenu == 3) && userPlace.placeId != null)" class="mb5 border-none">\n\n        <ion-col auto>\n\n          <div class=\'text-center\'>\n\n            <button ion-button icon-only color="light" [class]="typeRank == 2 ?\'button-primary-small\':\'button-muted-small\'" (click)="getAllWorld(false)">\n\n              <ion-icon name="person"></ion-icon>\n\n            </button>\n\n            <div class="text-muted text-xs l-s-1x m-t-xs">Classement personnalisé</div>\n\n          </div>\n\n        </ion-col>\n\n        <ion-col auto>\n\n          <div class=\'text-center\'>\n\n            <button ion-button icon-only color="light" [class]="typeRank == 1 ?\'button-primary-small\':\'button-muted-small\'" (click)="getAllWorld(true)">\n\n              <ion-icon name="list"></ion-icon>\n\n            </button>\n\n            <div class="text-muted text-xs l-s-1x m-t-xs">Classement complet</div>\n\n          </div>\n\n        </ion-col>\n\n      </ion-row>\n\n      <div *ngIf="displayMenu == 1 || ((displayMenu == 2 || displayMenu == 3) && userPlace.placeId != null)">\n\n        <ion-row class="text-right border-none mt5">\n\n          <ion-label>Classement par défaut</ion-label>\n\n          <ion-toggle [(ngModel)]="isDefaultRanking" (ionChange)="setDefaultRanking(displayMenu)"></ion-toggle>\n\n        </ion-row>\n\n        <ion-row  *ngIf="displayMenu != 4" class="table-label">\n\n          <ion-col>#</ion-col>\n\n          <ion-col>Pseudo</ion-col>\n\n          <ion-col style="text-align:right;">Score</ion-col>\n\n        </ion-row>\n\n      </div>\n\n      <div *ngIf="(displayMenu == 2 || displayMenu == 3) && userPlace.placeId == null" class="text-center">\n\n        <button ion-button round color="muted" outline (click)="goTo(\'SettingsPage\')">Ajouter mon adresse</button>\n\n      </div>\n\n      <ion-list *ngSwitchCase="1">\n\n        <ion-row *ngFor="let rank of ranks.world; let i = index" [style.background-color]="rank.isUser ? \'#DDD\' : \'\'" (click)="goToHisProfile(rank.id)">\n\n          <ion-col col-3>{{ rank.rank }}</ion-col>\n\n          <ion-col col-6><span *ngIf="rank.rank < 4" [class]="\'color-trophy\'+rank.rank"><ion-icon name="trophy" ></ion-icon></span> {{ rank.usualName }}</ion-col>\n\n          <ion-col col-3>\n\n            <div class=\'float-right\'>{{ rank.score }}\n\n              <img src="./assets/img/logo.png" />\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-list>\n\n      <ion-list *ngSwitchCase="2">\n\n        <ion-row *ngFor="let rank of ranks.country; let i = index" [style.background-color]="rank.isUser ? \'#DDD\' : \'\'" (click)="goToHisProfile(rank.id)">\n\n          <ion-col col-3>{{ rank.rank }}.</ion-col>\n\n          <ion-col col-6>{{ rank.usualName }}</ion-col>\n\n          <ion-col col-3>\n\n            <div class=\'float-right\'>{{ rank.score }}\n\n              <img src="./assets/img/logo.png" />\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-list>\n\n      <ion-list *ngSwitchCase="3">\n\n        <ion-row *ngFor="let rank of ranks.city; let i = index" [style.background-color]="rank.isUser ? \'#DDD\' : \'\'" (click)="goToHisProfile(rank.id)">\n\n          <ion-col col-3>{{ rank.rank }}.</ion-col>\n\n          <ion-col col-6>{{ rank.usualName }}</ion-col>\n\n          <ion-col col-3>\n\n            <div class=\'float-right\'>{{ rank.score }}\n\n              <img src="./assets/img/logo.png" />\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-list>\n\n      <ion-list *ngSwitchCase="4">\n\n          <ion-row class="text-right border-none">\n\n            <div class=\'text-center\'>\n\n              <button class="button-classement" (click)="listClans()">Lister mes clans</button>\n\n            </div>\n\n            <ion-label *ngIf="isVisibleRankingClan == true">Clan par défaut</ion-label>\n\n            <ion-toggle *ngIf="isVisibleRankingClan == true" [(ngModel)]="isDefaultClan" (ionChange)="setDefaultClan(rankingClan.id)"></ion-toggle>\n\n          </ion-row>\n\n          <div *ngIf="isVisibleListeClan == true">\n\n            <div class="wrapper-xs padder-sm">\n\n              <div *ngIf="clans?.length > 0">\n\n                <ion-row class="row-full" align-items-center *ngFor="let clan of clans; let i = index" (click)="goToRankingClan(clan.id)">\n\n                  <ion-col col-4>\n\n                    <img [src]="clan.image" class="rounded thumb-md" alt="">\n\n                  </ion-col>\n\n                  <ion-col col-8>{{ clan.name }}</ion-col>\n\n                </ion-row>\n\n              </div>\n\n            </div>\n\n          </div>\n\n          <div *ngIf="isVisibleRankingClan == true">\n\n            <ion-row class="text-center table-title">\n\n              <ion-col col-4>\n\n                <img [src]="clan.image" class="rounded thumb-md" alt="" *ngIf="clan.image != null">\n\n              </ion-col>\n\n              <ion-col col-8 class="mt5">{{ clan.name }}</ion-col>\n\n            </ion-row>\n\n            <ion-row class="table-label">\n\n              <ion-col>#</ion-col>\n\n              <ion-col>Pseudo</ion-col>\n\n              <ion-col style="text-align:right;">Score</ion-col>\n\n            </ion-row>\n\n            <ion-row *ngFor="let rankClan of rankingClan.clan" (click)="goToHisProfile(rankClan.id)">\n\n              <ion-col>{{ rankClan.rank }}</ion-col>\n\n              <ion-col>{{ rankClan.usualName }}</ion-col>\n\n              <ion-col>\n\n                <div class=\'float-right\'>{{ rankClan.score }}\n\n                  <img src="./assets/img/logo.png" />\n\n                </div>\n\n              </ion-col>\n\n            </ion-row>\n\n          </div>\n\n        <div *ngIf="true" class="text-center mt10">\n\n          Tu n\'as pas de clan ?<br/>\n\n          <button ion-button round color="muted" outline (click)="goTo(\'ClanPage\')">Rejoindre un clan</button>        \n\n        </div>\n\n      </ion-list>\n\n    </div>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\rank\relativeRank.html"*/,
+            selector: 'page-relative-rank',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\rank\relativeRank.html"*/'<ion-header>\n\n\n\n  <ion-navbar class="bg-popme">\n\n    <ion-title><span class="color-white">Classements</span></ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n<ion-content class="swipe-bg" no-bounce padding-left padding-right>\n\n\n\n  <div [ngSwitch]="displayMenu">\n\n    <div layout vertical class="mt5">\n\n      <div flex three class="bg-white">\n\n        <ion-row class="border-none">\n\n          <ion-scroll scrollX="true" class="list-clan">\n\n            <div [class]="displayMenu == 1 ?\'text-center b-light list-clan-item selected\':\'text-center b-light list-clan-item\'">\n\n              <button ion-button icon-only color="light" [class]="displayMenu == 1 ?\'button-primary\':\'button-muted\'" (click)="setDisplayMenu(1)">\n\n                <ion-icon name="globe"></ion-icon>\n\n              </button>\n\n              <div class="text-muted text-xs l-s-1x m-t-xs">Monde</div>\n\n            </div>\n\n            <div [class]="displayMenu == 2 ?\'text-center b-light list-clan-item selected\':\'text-center b-light list-clan-item\'">\n\n              <button ion-button icon-only color="light" [class]="displayMenu == 2 ?\'button-primary\':\'button-muted\'" (click)="setDisplayMenu(2)">\n\n                <ion-icon name="flag"></ion-icon>\n\n              </button>\n\n              <div class="text-muted text-xs l-s-1x m-t-xs">\n\n                <div *ngIf="userPlace.country == null">Pays</div>\n\n                <div class="city" *ngIf="userPlace.country != null">{{userPlace.country}}</div>\n\n              </div>\n\n            </div>\n\n            <div [class]="displayMenu == 3 ?\'text-center b-light list-clan-item selected\':\'text-center b-light list-clan-item\'">\n\n              <button ion-button icon-only color="light"  [class]="displayMenu == 3 ?\'button-primary\':\'button-muted\'" (click)="setDisplayMenu(3)">\n\n                <ion-icon name="pin"></ion-icon>\n\n              </button>\n\n              <div class="text-muted text-xs l-s-1x m-t-xs">\n\n                <div *ngIf="userPlace.city == null">Ville</div>\n\n                <div class="city" *ngIf="userPlace.city != null">{{userPlace.city}}</div>\n\n              </div>\n\n            </div>\n\n            <ng-container  *ngIf="clans?.length == 0">\n\n              <div class="text-center b-light list-clan-item">\n\n                <button ion-button icon-only color="light" [class]="displayMenu == 4 ?\'button-primary\':\'button-muted\'" (click)="setDisplayMenu(4)">\n\n                  <ion-icon name="people"></ion-icon>\n\n                </button>\n\n                <div class="text-muted text-xs l-s-1x m-t-xs">\n\n                  <div>Clan</div>\n\n                </div>\n\n              </div>\n\n            </ng-container>\n\n            <ng-container *ngIf="clans?.length > 0">\n\n              <div [class]="displayMenu == clan.id ?\'text-center b-light list-clan-item selected\':\'text-center b-light list-clan-item\'" *ngFor="let clan of clans; let i = index">\n\n                <img src="{{ clan.image }}" class="rounded box-shadow" *ngIf="clan.image != null" (click)="setDisplayMenu(clan.id)"/>\n\n                <img src="./assets/img/clan_default_image.png" class="rounded box-shadow" alt="" *ngIf="clan.image == null" (click)="setDisplayMenu(clan.id)">\n\n                <div class="text-muted text-xs l-s-1x m-t-xs">\n\n                  <div class="clan"> {{clan.name}}\n\n                  </div>\n\n                </div>\n\n              </div>\n\n            </ng-container>\n\n          </ion-scroll>\n\n        </ion-row>\n\n      </div>\n\n    </div>\n\n\n\n    <div *ngIf="isRanks()" [ngSwitch]="displayMenu">\n\n      <ion-row *ngIf="displayMenu == 1 || ((displayMenu == 2 || displayMenu == 3) && userPlace.placeId != null)" class="mb5 border-none">\n\n        <ion-col auto>\n\n          <div class=\'text-center\'>\n\n            <button ion-button icon-only color="light" [class]="typeRank == 2 ?\'button-primary-small\':\'button-muted-small\'" (click)="getAllWorld(false)">\n\n              <ion-icon name="person"></ion-icon>\n\n            </button>\n\n            <div class="text-muted text-xs l-s-1x m-t-xs">Classement personnalisé</div>\n\n          </div>\n\n        </ion-col>\n\n        <ion-col auto>\n\n          <div class=\'text-center\'>\n\n            <button ion-button icon-only color="light" [class]="typeRank == 1 ?\'button-primary-small\':\'button-muted-small\'" (click)="getAllWorld(true)">\n\n              <ion-icon name="list"></ion-icon>\n\n            </button>\n\n            <div class="text-muted text-xs l-s-1x m-t-xs">Classement complet</div>\n\n          </div>\n\n        </ion-col>\n\n      </ion-row>\n\n        <ion-row class="text-right border-none mt5">\n\n          <ion-label>Classement par défaut</ion-label>\n\n          <ion-toggle [(ngModel)]="isDefaultRanking" (ionChange)="setDefaultRanking(displayMenu)"></ion-toggle>\n\n        </ion-row>  \n\n        <ion-row  *ngIf="displayMenu != 4" class="table-label">\n\n          <ion-col>#</ion-col>\n\n          <ion-col>Pseudo</ion-col>\n\n          <ion-col style="text-align:right;">Score</ion-col>\n\n        </ion-row>\n\n      <div *ngIf="(displayMenu == 2 || displayMenu == 3) && userPlace.placeId == null" class="text-center">\n\n        <button ion-button round color="muted" outline (click)="goTo(\'SettingsPage\')">Ajouter mon adresse</button>\n\n      </div>\n\n      <ion-list *ngSwitchCase="1">\n\n        <ion-row *ngFor="let rank of ranks.world; let i = index" [style.background-color]="rank.isUser ? \'#DDD\' : \'\'" (click)="goToHisProfile(rank.id)">\n\n          <ion-col col-3>{{ rank.rank }}</ion-col>\n\n          <ion-col col-6><span *ngIf="rank.rank < 4" [class]="\'color-trophy\'+rank.rank"><ion-icon name="trophy" ></ion-icon></span> {{ rank.usualName }}</ion-col>\n\n          <ion-col col-3>\n\n            <div class=\'float-right\'>{{ rank.score }}\n\n              <img src="./assets/img/logo.png" />\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-list>\n\n      <ion-list *ngSwitchCase="2">\n\n        <ion-row *ngFor="let rank of ranks.country; let i = index" [style.background-color]="rank.isUser ? \'#DDD\' : \'\'" (click)="goToHisProfile(rank.id)">\n\n          <ion-col col-3>{{ rank.rank }}.</ion-col>\n\n          <ion-col col-6>{{ rank.usualName }}</ion-col>\n\n          <ion-col col-3>\n\n            <div class=\'float-right\'>{{ rank.score }}\n\n              <img src="./assets/img/logo.png" />\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-list>\n\n      <ion-list *ngSwitchCase="3">\n\n        <ion-row *ngFor="let rank of ranks.city; let i = index" [style.background-color]="rank.isUser ? \'#DDD\' : \'\'" (click)="goToHisProfile(rank.id)">\n\n          <ion-col col-3>{{ rank.rank }}.</ion-col>\n\n          <ion-col col-6>{{ rank.usualName }}</ion-col>\n\n          <ion-col col-3>\n\n            <div class=\'float-right\'>{{ rank.score }}\n\n              <img src="./assets/img/logo.png" />\n\n            </div>\n\n          </ion-col>\n\n        </ion-row>\n\n      </ion-list>\n\n      <ng-container *ngFor="let clan of clans; let i = index">\n\n        <ion-list *ngSwitchCase="clan.id" >\n\n          <div>\n\n            <ion-row *ngFor="let rankClan of clan.ranking" (click)="goToHisProfile(clan.id)">\n\n              <ion-col>{{ rankClan.rank }}</ion-col>\n\n              <ion-col>{{ rankClan.usualName }}</ion-col>\n\n              <ion-col>\n\n                <div class=\'float-right\'>{{ rankClan.score }}\n\n                  <img src="./assets/img/logo.png" />\n\n                </div>\n\n              </ion-col>\n\n            </ion-row>\n\n          </div>\n\n          <div *ngIf="clans?.length == 0" class="text-center mt10">\n\n            Tu n\'as pas de clan ?<br/>\n\n            <button ion-button round color="muted" outline (click)="goTo(\'ClanPage\')">Rejoindre un clan</button>        \n\n          </div>\n\n        </ion-list>\n\n      </ng-container>\n\n    </div>\n\n  </div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\rank\relativeRank.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["d" /* StorageProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["d" /* StorageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["d" /* StorageProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _h || Object])
     ], RelativeRankPage);
     return RelativeRankPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
 }());
 
 //# sourceMappingURL=relativeRank.js.map
@@ -1156,28 +1117,28 @@ var map = {
 		356
 	],
 	"../pages/poperprofile/poperprofile.module": [
-		358
+		357
 	],
 	"../pages/profile/popover.module": [
-		357
+		358
 	],
 	"../pages/profile/profile.module": [
 		359
 	],
 	"../pages/rank/rankpopover.module": [
-		361
-	],
-	"../pages/rank/relativeRank.module": [
 		360
 	],
-	"../pages/register/register.module": [
-		362
-	],
-	"../pages/settings/settings.module": [
+	"../pages/rank/relativeRank.module": [
 		363
 	],
-	"../pages/trend/trend.module": [
+	"../pages/register/register.module": [
+		361
+	],
+	"../pages/settings/settings.module": [
 		364
+	],
+	"../pages/trend/trend.module": [
+		362
 	]
 };
 function webpackAsyncContext(req) {
@@ -3685,6 +3646,44 @@ var PlayPageModule = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoperProfilePageModule", function() { return PoperProfilePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__poperprofile__ = __webpack_require__(55);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var PoperProfilePageModule = /** @class */ (function () {
+    function PoperProfilePageModule() {
+    }
+    PoperProfilePageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__poperprofile__["a" /* PoperProfilePage */]
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__poperprofile__["a" /* PoperProfilePage */]),
+            ],
+        })
+    ], PoperProfilePageModule);
+    return PoperProfilePageModule;
+}());
+
+//# sourceMappingURL=poperprofile.module.js.map
+
+/***/ }),
+
+/***/ 358:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PopoverPageModule", function() { return PopoverPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
@@ -3718,44 +3717,6 @@ var PopoverPageModule = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=popover.module.js.map
-
-/***/ }),
-
-/***/ 358:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PoperProfilePageModule", function() { return PoperProfilePageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__poperprofile__ = __webpack_require__(55);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var PoperProfilePageModule = /** @class */ (function () {
-    function PoperProfilePageModule() {
-    }
-    PoperProfilePageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__poperprofile__["a" /* PoperProfilePage */]
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__poperprofile__["a" /* PoperProfilePage */]),
-            ],
-        })
-    ], PoperProfilePageModule);
-    return PoperProfilePageModule;
-}());
-
-//# sourceMappingURL=poperprofile.module.js.map
 
 /***/ }),
 
@@ -3805,44 +3766,6 @@ var ProfilePageModule = /** @class */ (function () {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RelativeRankPageModule", function() { return RelativeRankPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__relativeRank__ = __webpack_require__(154);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var RelativeRankPageModule = /** @class */ (function () {
-    function RelativeRankPageModule() {
-    }
-    RelativeRankPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__relativeRank__["a" /* RelativeRankPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__relativeRank__["a" /* RelativeRankPage */]),
-            ],
-        })
-    ], RelativeRankPageModule);
-    return RelativeRankPageModule;
-}());
-
-//# sourceMappingURL=relativeRank.module.js.map
-
-/***/ }),
-
-/***/ 361:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RankpopoverPageModule", function() { return RankpopoverPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
@@ -3879,7 +3802,7 @@ var RankpopoverPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 362:
+/***/ 361:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3917,45 +3840,7 @@ var RegisterPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 363:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsPageModule", function() { return SettingsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings__ = __webpack_require__(341);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-
-
-
-var SettingsPageModule = /** @class */ (function () {
-    function SettingsPageModule() {
-    }
-    SettingsPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__settings__["a" /* SettingsPage */],
-            ],
-            imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__settings__["a" /* SettingsPage */]),
-            ],
-        })
-    ], SettingsPageModule);
-    return SettingsPageModule;
-}());
-
-//# sourceMappingURL=settings.module.js.map
-
-/***/ }),
-
-/***/ 364:
+/***/ 362:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3990,6 +3875,82 @@ var TrendPageModule = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=trend.module.js.map
+
+/***/ }),
+
+/***/ 363:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RelativeRankPageModule", function() { return RelativeRankPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__relativeRank__ = __webpack_require__(154);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var RelativeRankPageModule = /** @class */ (function () {
+    function RelativeRankPageModule() {
+    }
+    RelativeRankPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__relativeRank__["a" /* RelativeRankPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__relativeRank__["a" /* RelativeRankPage */]),
+            ],
+        })
+    ], RelativeRankPageModule);
+    return RelativeRankPageModule;
+}());
+
+//# sourceMappingURL=relativeRank.module.js.map
+
+/***/ }),
+
+/***/ 364:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SettingsPageModule", function() { return SettingsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__settings__ = __webpack_require__(341);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var SettingsPageModule = /** @class */ (function () {
+    function SettingsPageModule() {
+    }
+    SettingsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__settings__["a" /* SettingsPage */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__settings__["a" /* SettingsPage */]),
+            ],
+        })
+    ], SettingsPageModule);
+    return SettingsPageModule;
+}());
+
+//# sourceMappingURL=settings.module.js.map
 
 /***/ }),
 
@@ -4123,14 +4084,14 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/loginClassic.module#LoginClassicPageModule', name: 'LoginClassicPage', segment: 'loginClassic', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/play/play.module#PlayPageModule', name: 'PlayPage', segment: 'play', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/profile/popover.module#PopoverPageModule', name: 'PopoverPage', segment: 'popover', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/poperprofile/poperprofile.module#PoperProfilePageModule', name: 'PoperProfilePage', segment: 'poperprofile', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/profile/popover.module#PopoverPageModule', name: 'PopoverPage', segment: 'popover', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/rank/relativeRank.module#RelativeRankPageModule', name: 'RelativeRankPage', segment: 'relativeRank', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/rank/rankpopover.module#RankpopoverPageModule', name: 'RankpopoverPage', segment: 'rankpopover', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/register/register.module#RegisterPageModule', name: 'RegisterPage', segment: 'register', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/trend/trend.module#TrendPageModule', name: 'TrendPage', segment: 'trend', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/trend/trend.module#TrendPageModule', name: 'TrendPage', segment: 'trend', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/rank/relativeRank.module#RelativeRankPageModule', name: 'RelativeRankPage', segment: 'relativeRank', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* HttpModule */],
@@ -5795,15 +5756,15 @@ var MyApp = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login_module__ = __webpack_require__(354);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__login_loginClassic_module__ = __webpack_require__(355);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__play_play_module__ = __webpack_require__(356);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__poperprofile_poperprofile_module__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__poperprofile_poperprofile_module__ = __webpack_require__(357);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__profile_profile_module__ = __webpack_require__(359);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__profile_popover_module__ = __webpack_require__(357);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__register_register_module__ = __webpack_require__(362);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__settings_settings_module__ = __webpack_require__(363);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__trend_trend_module__ = __webpack_require__(364);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__rank_relativeRank_module__ = __webpack_require__(360);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__profile_popover_module__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__register_register_module__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__settings_settings_module__ = __webpack_require__(364);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__trend_trend_module__ = __webpack_require__(362);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__rank_relativeRank_module__ = __webpack_require__(363);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__autoComplete_autoComplete_module__ = __webpack_require__(233);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__rank_rankpopover_module__ = __webpack_require__(361);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__rank_rankpopover_module__ = __webpack_require__(360);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__clan_clan_module__ = __webpack_require__(235);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__clan_clanprofile_module__ = __webpack_require__(347);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__clan_clanParameters_module__ = __webpack_require__(348);

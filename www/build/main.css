@@ -67928,6 +67928,44 @@ page-relative-rank .city, page-relative-rank .country, page-relative-rank .clan 
   color: #333;
 }
 
+page-relative-rank ion-scroll.list-clan {
+  white-space: nowrap;
+  height: 80px;
+  width: 100%;
+}
+
+page-relative-rank ion-scroll.list-clan div.list-clan-item {
+  width: 70px;
+  float: left;
+}
+
+page-relative-rank ion-scroll.list-clan div.list-clan-item.selected {
+  border-bottom: solid 5px #ebbf0e;
+  padding-bottom: 5px;
+}
+
+page-relative-rank div.list-clan {
+  float: left;
+  text-align: center;
+  width: 60px;
+  margin: 0 10px;
+}
+
+page-relative-rank div.list-clan-item img {
+  text-align: center;
+  width: 46px;
+}
+
+page-relative-rank ion-scroll.list-clan .scroll-content {
+  padding-left: 0 !important;
+}
+
+page-relative-rank .scroll-zoom-wrapper {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
 page-register .login {
   margin-top: 10%;
 }
