@@ -67698,13 +67698,13 @@ page-profile .color-yellow {
 }
 
 page-profile .big-thumb {
-  width: 128px;
+  width: 100px;
   display: inline-block;
 }
 
 page-profile .profile-picture {
   width: 40%;
-  padding: 15px 0 15px 15px;
+  padding: 15px 0 15px 0;
   float: left;
 }
 
@@ -67787,6 +67787,17 @@ page-profile .profile-card {
   box-shadow: black aliceblue;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+page-profile .profile-actions {
+  clear: both;
+  border-top: solid 1px #DDD;
+}
+
+page-profile .profile-actions ion-col {
+  text-align: center;
+  color: #ccc;
+  font-size: 20px;
 }
 
 page-rankpopover .close-buttons {
@@ -67983,6 +67994,20 @@ page-register .close-buttons {
 
 page-settings .settings-account-image img {
   width: 25vw;
+}
+
+page-settings .btn-edit {
+  position: relative;
+  right: 30px;
+  bottom: 10px;
+  background-color: #f1c40f;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+}
+
+page-settings .btn-edit ion-icon {
+  color: white;
 }
 
 page-trend .color0 {
