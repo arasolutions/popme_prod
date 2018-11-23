@@ -472,6 +472,8 @@ var LoadingPage = /** @class */ (function () {
     };
     LoadingPage.prototype.loadingInfos = function () {
         var _this = this;
+        this.storage.set('firstLaunchProfile', true);
+        this.storage.set('firstLaunchTrend', true);
         this.storageProvider.loadConfigurations();
         this.storage.get(__WEBPACK_IMPORTED_MODULE_7__app_app_settings__["a" /* appSettings */].STORAGE_ATTRIBUTES.USER).then(function (user) {
             var data;
@@ -521,28 +523,16 @@ var LoadingPage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('slides'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Slides */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Slides */]) === "function" && _a || Object)
     ], LoadingPage.prototype, "slides", void 0);
     LoadingPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-loading',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\loading\loading.html"*/'\n\n<ion-content text-center class="background-screensplash" class="bg-popme">\n\n	<ion-slides #slides class="background-screensplash">\n\n		<ion-slide>\n\n			<div layout vertical>\n\n				<div flex class="loading">\n\n					<div class="loading-desc">Chargement des constantes </div>\n\n					<div class="loading-count">1/3 </div>\n\n				</div>\n\n			</div>\n\n		</ion-slide>\n\n		<ion-slide>\n\n			<div layout vertical>\n\n				<div flex class="loading">\n\n					<div class="loading-desc">Chargement du profil </div>\n\n					<div class="loading-count">2/3 </div>\n\n				</div>\n\n			</div>\n\n		</ion-slide>\n\n		<ion-slide>\n\n			<div layout vertical>\n\n				<div flex class="loading">\n\n					<div class="loading-desc">Terminé </div>\n\n					<div class="loading-count">3/3 </div>\n\n				</div>\n\n			</div>\n\n		</ion-slide>\n\n	</ion-slides>\n\n</ion-content>'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\loading\loading.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["e" /* Users */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["d" /* StorageProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* GameProvider */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__["a" /* Camera */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["e" /* Users */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["e" /* Users */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["d" /* StorageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["d" /* StorageProvider */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* GameProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["b" /* GameProvider */]) === "function" && _q || Object])
     ], LoadingPage);
     return LoadingPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
 }());
 
 //# sourceMappingURL=loading.js.map
@@ -2991,6 +2981,7 @@ var SettingsPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__poperprofile_poperprofile__ = __webpack_require__(55);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__rank_relativeRank__ = __webpack_require__(155);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_photo_viewer__ = __webpack_require__(137);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3007,6 +2998,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the TrendPage page.
  *
@@ -3014,7 +3006,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var TrendPage = /** @class */ (function () {
-    function TrendPage(navCtrl, navParams, loadingCtrl, api, modalCtrl, storage, platform) {
+    function TrendPage(navCtrl, navParams, loadingCtrl, api, modalCtrl, storage, platform, photoViewer) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -3023,6 +3015,7 @@ var TrendPage = /** @class */ (function () {
         this.modalCtrl = modalCtrl;
         this.storage = storage;
         this.platform = platform;
+        this.photoViewer = photoViewer;
         this.platform.ready().then(function () {
             _this.storage.get('isConnected').then(function (val) {
                 if (!val) {
@@ -3127,13 +3120,17 @@ var TrendPage = /** @class */ (function () {
             direction: direction
         });
     };
+    TrendPage.prototype.viewImg = function () {
+        this.photoViewer.show(this.firstPopy.image, 'Popy', { share: true });
+    };
     TrendPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-trend',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\trend\trend.html"*/'<ion-header>\n\n    <div class="bg-popme" layout horizontal justified>\n\n     <button ion-button color="muted" clear icon-only (click)="goTo(\'ProfilePage\',\'back\')">\n\n      <ion-icon name=\'contact\'></ion-icon>\n\n  </button>\n\n  <button ion-button color="muted" clear icon-only (click)="goTo(\'PlayPage\',\'back\')">\n\n      <ion-icon name=\'images\'></ion-icon>\n\n  </button>\n\n  <button ion-button color="muted" clear icon-only (click)="goTo(\'LogPage\',\'back\')">\n\n      <ion-icon name=\'eye\'></ion-icon>\n\n  </button>\n\n  <button ion-button color="danger" clear icon-only>\n\n      <ion-icon name=\'apps\'></ion-icon>\n\n  </button>\n\n</div>\n\n</ion-header>\n\n<ion-content padding>\n\n\n\n    <div class="wrapper-xs padder">\n\n        <div ion-text color="danger" class="font-bold">\n\n            Tendances\n\n        </div>\n\n    </div>\n\n\n\n    <div full class="subtitle">Les plus popés de la semaine</div>\n\n    <div class="wrapper-xs padder-sm">\n\n        <div *ngIf="popeds?.length > 0">\n\n            <ion-row align-items-center *ngFor="let poped of popeds; let i = index">\n\n                <ion-col col-12 class="text-center" (click)="goToHisProfile(poped.user.id)">\n\n                    <div [class]="\'animate-ease-\'+i">\n\n                        <div class="account-image">\n\n                            <img class="rounded thumb-md account-image border-image-color{{i}}" src="{{poped.user.accountImage}}">\n\n                            <div [class]="\'background-color\'+i">\n\n                                <div class="trophy"><ion-icon name="trophy"></ion-icon></div>\n\n                                <div class="infos-trend">\n\n                                    <div class="usual-name">{{poped.user.usualName}}</div>\n\n                                    <div>{{poped.score}} pops</div>\n\n                                </div>\n\n                            </div>\n\n                        </div>\n\n                    </div>\n\n                </ion-col>\n\n            </ion-row>\n\n        </div>\n\n    </div>\n\n\n\n    <div full class="subtitle">Les plus grands popers de la semaine</div>\n\n    <div class="wrapper-xs padder-sm">\n\n        <div *ngIf="popers?.length > 0">\n\n            <ion-row align-items-center *ngFor="let poper of popers; let i = index">\n\n                <ion-col col-12 class="text-center" (click)="goToHisProfile(poper.user.id)">\n\n                    <div [class]="\'animate-ease-\'+i">\n\n                        <div class="account-image">\n\n                            <img class="rounded thumb-md account-image border-image-color{{i}}" src="{{poper.user.accountImage}}">\n\n                            <div [class]="\'background-color\'+i">\n\n                                <div class="trophy"><ion-icon name="trophy"></ion-icon></div>\n\n                                <div class="infos-trend">\n\n                                    <div class="usual-name">{{poper.user.usualName}}</div>\n\n                                    <div>{{poper.score}} pops</div>\n\n                                </div>\n\n                            </div>\n\n                        </div>\n\n                    </div>\n\n                </ion-col>\n\n            </ion-row>\n\n        </div>\n\n    </div>\n\n\n\n    <div full class="subtitle">La photo de la semaine</div>\n\n    <div class="card-background-page">\n\n        <ion-card (click)="prepareModalRanking(1)">\n\n            <img *ngIf="isReadyFirstPopy()" src="{{firstPopy.image}}" class="div-img h-full r-3x"/>\n\n        </ion-card>\n\n    </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\trend\trend.html"*/,
+            selector: 'page-trend',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\trend\trend.html"*/'<ion-header>\n\n    <div class="bg-popme" layout horizontal justified>\n\n     <button ion-button color="muted" clear icon-only (click)="goTo(\'ProfilePage\',\'back\')">\n\n      <ion-icon name=\'contact\'></ion-icon>\n\n  </button>\n\n  <button ion-button color="muted" clear icon-only (click)="goTo(\'PlayPage\',\'back\')">\n\n      <ion-icon name=\'images\'></ion-icon>\n\n  </button>\n\n  <button ion-button color="muted" clear icon-only (click)="goTo(\'LogPage\',\'back\')">\n\n      <ion-icon name=\'eye\'></ion-icon>\n\n  </button>\n\n  <button ion-button color="danger" clear icon-only>\n\n      <ion-icon name=\'apps\'></ion-icon>\n\n  </button>\n\n</div>\n\n</ion-header>\n\n<ion-content padding>\n\n\n\n    <div class="wrapper-xs padder">\n\n        <div ion-text color="danger" class="font-bold">\n\n            Tendances\n\n        </div>\n\n    </div>\n\n\n\n    <div full class="subtitle">Les plus popés de la semaine</div>\n\n    <div class="wrapper-xs padder-sm">\n\n        <div *ngIf="popeds?.length > 0">\n\n            <ion-row align-items-center *ngFor="let poped of popeds; let i = index">\n\n                <ion-col col-12 class="text-center" (click)="goToHisProfile(poped.user.id)">\n\n                    <div [class]="\'animate-ease-\'+i">\n\n                        <div class="account-image">\n\n                            <img class="rounded thumb-md account-image border-image-color{{i}}" src="{{poped.user.accountImage}}">\n\n                            <div [class]="\'background-color\'+i">\n\n                                <div class="trophy"><ion-icon name="trophy"></ion-icon></div>\n\n                                <div class="infos-trend">\n\n                                    <div class="usual-name">{{poped.user.usualName}}</div>\n\n                                    <div>{{poped.score}} pops</div>\n\n                                </div>\n\n                            </div>\n\n                        </div>\n\n                    </div>\n\n                </ion-col>\n\n            </ion-row>\n\n        </div>\n\n    </div>\n\n\n\n    <div full class="subtitle">Les plus grands popers de la semaine</div>\n\n    <div class="wrapper-xs padder-sm">\n\n        <div *ngIf="popers?.length > 0">\n\n            <ion-row align-items-center *ngFor="let poper of popers; let i = index">\n\n                <ion-col col-12 class="text-center" (click)="goToHisProfile(poper.user.id)">\n\n                    <div [class]="\'animate-ease-\'+i">\n\n                        <div class="account-image">\n\n                            <img class="rounded thumb-md account-image border-image-color{{i}}" src="{{poper.user.accountImage}}">\n\n                            <div [class]="\'background-color\'+i">\n\n                                <div class="trophy"><ion-icon name="trophy"></ion-icon></div>\n\n                                <div class="infos-trend">\n\n                                    <div class="usual-name">{{poper.user.usualName}}</div>\n\n                                    <div>{{poper.score}} pops</div>\n\n                                </div>\n\n                            </div>\n\n                        </div>\n\n                    </div>\n\n                </ion-col>\n\n            </ion-row>\n\n        </div>\n\n    </div>\n\n\n\n    <div full class="subtitle">La photo de la semaine</div>\n\n    <div class="card-background-page">\n\n        <ion-card  (click)="viewImg()">\n\n            <img *ngIf="isReadyFirstPopy()" src="{{firstPopy.image}}" class="div-img h-full r-3x"/>\n\n        </ion-card>\n\n    </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\trend\trend.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */], __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* Api */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_api_api__["a" /* Api */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_photo_viewer__["a" /* PhotoViewer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_photo_viewer__["a" /* PhotoViewer */]) === "function" && _h || Object])
     ], TrendPage);
     return TrendPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h;
 }());
 
 //# sourceMappingURL=trend.js.map
@@ -4276,7 +4273,7 @@ var ClanPage = /** @class */ (function () {
         data.userId = this.user.id;
         var loading = this.loadingCtrl.create({
             spinner: 'crescent',
-            content: 'Inscription...',
+            content: 'Chargement...',
             dismissOnPageChange: true
         });
         loading.present();
@@ -4318,7 +4315,7 @@ var ClanPage = /** @class */ (function () {
         }
         var loading = this.loadingCtrl.create({
             spinner: 'crescent',
-            content: 'Inscription...',
+            content: 'Chargement...',
             dismissOnPageChange: true
         });
         loading.present();
@@ -4411,17 +4408,10 @@ var ClanPage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-clan',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\clan\clan.html"*/'<ion-header>\n\n\n\n    <ion-navbar>\n\n        <ion-title><span class="color-white">Clan</span></ion-title>\n\n        <div class="close-buttons"  (click)="goTo(\'ProfilePage\')">\n\n            <ion-icon name="close"></ion-icon>\n\n        </div>\n\n    </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content class="swipe-bg" no-bounce>\n\n    <div [ngSwitch]="displayMenu">\n\n        <div layout vertical class="mt5">\n\n            <div flex three class="bg-white">\n\n                <div>\n\n                    <ion-grid>\n\n                        <ion-row>\n\n                            <ion-col col-4 class="text-center b-r b-light">\n\n                                <button ion-button icon-only color="light" [class]="displayMenu == 1 ?\'button-primary\':\'button-muted\'" (click)="setDisplayMenu(1)">\n\n                                    <ion-icon name="md-list"></ion-icon>\n\n                                </button>\n\n                                <div class="text-muted text-xs l-s-1x m-t-xs">Lister mes clans</div>\n\n                            </ion-col>\n\n                            <ion-col col-4 class="text-center b-r b-light">\n\n                                <button ion-button icon-only color="light" [class]="displayMenu == 2 ?\'button-primary\':\'button-muted\'" (click)="setDisplayMenu(2)">\n\n                                    <ion-icon name="person-add"></ion-icon>\n\n                                </button>\n\n                                <div class="text-muted text-xs l-s-1x m-t-xs">Rejoindre un clan</div>\n\n                            </ion-col>\n\n                            <ion-col col-4 class="text-center b-r b-light">\n\n                                <button ion-button icon-only color="light" [class]="displayMenu == 3 ?\'button-primary\':\'button-muted\'" (click)="setDisplayMenu(3)">\n\n                                    <ion-icon name="add"></ion-icon>\n\n                                </button>\n\n                                <div class="text-muted text-xs l-s-1x m-t-xs">Créer un clan</div>\n\n                            </ion-col>\n\n                        </ion-row>\n\n                    </ion-grid>\n\n                </div>\n\n            </div>\n\n        </div>\n\n        <div *ngSwitchCase="\'1\'">\n\n            <div class="wrapper-xs padder">\n\n                <div ion-text color="danger" class="font-bold mt10 mb5">\n\n                    Mes clans ({{ clans?.length }})\n\n                </div>\n\n            </div>\n\n            <div class="wrapper-xs padder-sm">\n\n                <div *ngIf="clans?.length > 0">\n\n                    <ion-row class="row-full" align-items-center *ngFor="let clan of clans; let i = index"(click)="goToClanProfile(clan.id)">\n\n                        <ion-col col-auto>\n\n                            <img [src]="clan.image" class="rounded thumb-md" alt="" *ngIf="clan.image != null">\n\n                            <img src="./assets/img/clan_default_image.png" class="rounded thumb-md" alt="" *ngIf="clan.image == null">\n\n                      </ion-col>\n\n                      <ion-col class="list-clans-name">{{ clan.name }}</ion-col>\n\n                      <ion-col class="list-clans-users" >{{ clan.nbrUser }} membre(s)</ion-col>\n\n                  </ion-row>\n\n              </div>\n\n          </div>\n\n      </div>\n\n      <div *ngSwitchCase="\'2\'">\n\n        <div class="wrapper-xs padder">\n\n            <div ion-text color="danger" class="font-bold mt10 mb5">\n\n                Rejoindre un clan\n\n            </div>\n\n        </div>\n\n        <div class="wrapper-xs padder-sm text-center">\n\n            <ion-list class="w-full login">\n\n                <ion-item>\n\n                    <ion-input type="password" placeholder="Mot de passe" [(ngModel)]="password"></ion-input>\n\n                </ion-item>\n\n            </ion-list>\n\n            <button ion-button round color="muted" outline (click)="joinClan()">Rejoindre</button>\n\n        </div>\n\n    </div>\n\n    <div *ngSwitchCase="\'3\'">\n\n        <div class="wrapper-xs padder">\n\n            <div ion-text color="danger" class="font-bold mt10 mb5">\n\n                Créer un groupe\n\n            </div>\n\n        </div>\n\n        <div class="wrapper-xs padder-sm text-center">\n\n            <ion-list class="w-full login">\n\n                <ion-item>\n\n                    <ion-input type="name" placeholder="Nom du clan" [(ngModel)]="clanName"></ion-input>\n\n                </ion-item>\n\n                <ion-item>\n\n                    <div class="big-thumb text-center settings-account-image" (click)="openPhotoPicker()">\n\n                        <div>\n\n                            <p>Image du clan</p>\n\n                        </div>\n\n                        <img [src]="clanImage" class="rounded box-shadow" alt="" *ngIf="clanImage != null">\n\n                    </div>\n\n                </ion-item>\n\n            </ion-list>\n\n            <button ion-button round color="muted" outline (click)="createClan()">Créer</button>\n\n        </div>\n\n    </div>\n\n</div>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\clan\clan.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__["a" /* Camera */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__["a" /* Camera */]) === "function" && _j || Object])
     ], ClanPage);
     return ClanPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=clan.js.map
@@ -4717,7 +4707,10 @@ var ProfilePage = /** @class */ (function () {
                         });
                     }
                     else {
-                        _this.loadUserInfo(userStorage.id);
+                        _this.storage.get('firstLaunchProfile').then(function (val) {
+                            _this.storage.remove('firstLaunchProfile');
+                            _this.loadUserInfo(userStorage.id, val);
+                        });
                     }
                 });
             }
@@ -4771,7 +4764,7 @@ var ProfilePage = /** @class */ (function () {
         data.clanId = clanId;
         var loading = this.loadingCtrl.create({
             spinner: 'crescent',
-            content: 'Inscription...',
+            content: 'Chargement...',
             dismissOnPageChange: true
         });
         loading.present();
@@ -4803,39 +4796,48 @@ var ProfilePage = /** @class */ (function () {
             .then(function (res) { return alert(res.value); })
             .catch(function (e) { return alert(e); });
     };
-    ProfilePage.prototype.loadUserInfo = function (idUser) {
+    ProfilePage.prototype.loadUserInfo = function (idUser, force) {
         var _this = this;
-        var loading = this.loadingCtrl.create({
-            spinner: 'crescent',
-            content: 'Chargement de données ...',
-            dismissOnPageChange: true
+        if (force === void 0) { force = false; }
+        this.storage.get('user').then(function (userStorage) {
+            if (userStorage && !force) {
+                _this.user = userStorage;
+                _this.getRank(_this.user);
+            }
+            else {
+                var loading = _this.loadingCtrl.create({
+                    spinner: 'crescent',
+                    content: 'Chargement de données ...',
+                    dismissOnPageChange: true
+                });
+                loading.present();
+                var data = void 0;
+                data = {};
+                _this.api.post('getUser/' + idUser, data)
+                    .subscribe(function (data) {
+                    var body;
+                    body = JSON.parse(data.text());
+                    _this.user = body;
+                    _this.getRank(_this.user);
+                    _this.storage.set('user', body);
+                    _this.storage.get('configurations').then(function (configurations) {
+                        _this.maxTime = +configurations['BLOCK_ADD_POPY_DURATION'].value - (_this.user.dateServer - _this.user.lastPopup);
+                        if (_this.maxTime > 0) {
+                            _this.hidevalue = false;
+                            _this.remainingTime = _this.determineTimeText();
+                        }
+                        _this.startTimer();
+                    });
+                }, function (err) {
+                    _this.storage.remove('user');
+                    _this.storage.remove('isConnected');
+                    _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
+                }, function () {
+                    //this.goToHome();
+                });
+                loading.dismiss();
+            }
         });
-        loading.present();
-        var data;
-        data = {};
-        this.api.post('getUser/' + idUser, data)
-            .subscribe(function (data) {
-            var body;
-            body = JSON.parse(data.text());
-            _this.user = body;
-            _this.getRank(_this.user);
-            _this.storage.set('user', body);
-            _this.storage.get('configurations').then(function (configurations) {
-                _this.maxTime = +configurations['BLOCK_ADD_POPY_DURATION'].value - (_this.user.dateServer - _this.user.lastPopup);
-                if (_this.maxTime > 0) {
-                    _this.hidevalue = false;
-                    _this.remainingTime = _this.determineTimeText();
-                }
-                _this.startTimer();
-            });
-        }, function (err) {
-            _this.storage.remove('user');
-            _this.storage.remove('isConnected');
-            _this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_5__login_login__["a" /* LoginPage */]);
-        }, function () {
-            //this.goToHome();
-        });
-        loading.dismiss();
     };
     ProfilePage.prototype.startTimer = function () {
         var _this = this;
@@ -4891,7 +4893,7 @@ var ProfilePage = /** @class */ (function () {
         this.storage.get('user').then(function (val) {
             if (val) {
                 clearTimeout(_this.timerNextPopy);
-                _this.loadUserInfo(val.id);
+                _this.loadUserInfo(val.id, true);
                 _this.storage.get('configurations').then(function (configurations) {
                     _this.maxTime = +configurations['BLOCK_ADD_POPY_DURATION'].value - (_this.user.dateServer - _this.user.lastPopup);
                     _this.startTimer();
@@ -5113,7 +5115,7 @@ var ProfilePage = /** @class */ (function () {
     };
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-profile',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\profile\profile.html"*/'<ion-header>\n\n  <div class="bg-popme" layout horizontal justified>\n\n  	<button ion-button color="danger" clear icon-only>\n\n      <ion-icon name=\'contact\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'PlayPage\',\'forward\')">\n\n      <ion-icon name=\'images\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'LogPage\',\'forward\')">\n\n      <ion-icon name=\'eye\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'TrendPage\',\'forward\')">\n\n      <ion-icon name=\'apps\'></ion-icon>\n\n    </button>\n\n  </div>\n\n</ion-header>\n\n<ion-content class="bg-custom">\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n\n    <ion-refresher-content\n\n    pullingIcon="arrow-dropdown"\n\n    refreshingSpinner="crescent">\n\n  </ion-refresher-content>\n\n</ion-refresher>\n\n<div layout vertical class="profile-header">\n\n  <div flex>\n\n    <div class="score" id="profile-header-score" (click)="presentPopoverScore($event)">\n\n      <div class="text-center">\n\n        <ion-icon name="podium" class="color-yellow"></ion-icon>\n\n        <span class="text">{{ user.actual_score }}</span>\n\n      </div>\n\n    </div>\n\n    <div class="rank">\n\n      <div class="text-center">\n\n        <img src="./assets/img/logo-white.png" />\n\n        <span class="text" *ngIf="isClasse()">{{ rank.number }}<sup>{{ rank.text }}</sup></span>\n\n        <span class="text mini" *ngIf="!isClasse()">{{ user.rank }}</span>\n\n      </div>\n\n    </div>\n\n    <div class="next-add">\n\n      <div class="text-center" *ngIf="!hidevalue">\n\n        <ion-icon name="time"></ion-icon>\n\n        <span class="text">{{ remainingTime }}</span>\n\n      </div>\n\n      <div class="text-center" *ngIf="hidevalue" (click)="openPhotoPicker(3)">\n\n        <ion-icon name="md-add-circle" color="danger"></ion-icon>\n\n        <span class="text">Ajouter</span>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</div>\n\n\n\n<div layout vertical>\n\n  <div class="bg-white">\n\n    <div>\n\n      <div class="profile-picture">\n\n        <div class="text-center">\n\n          <div class="big-thumb float-left">\n\n            <img [src]="user.account_image" class="rounded box-shadow" alt="" *ngIf="user.account_image != null">\n\n          </div>\n\n        </div>\n\n      </div>\n\n      \n\n      <div class="profile-info">\n\n        <div class="text-center">\n\n          <div class="text-2x">{{ user.usual_name }}</div>\n\n          <div class="">{{ user.description }}</div>\n\n          <button ion-button round color="muted" small outline (click)="goTo(\'SettingsPage\',\'forward\')"><ion-icon name="settings"></ion-icon>&nbsp;Modifier mes infos</button>\n\n        </div>\n\n      </div>\n\n    </div>\n\n    <div class="profile-actions">\n\n      <ion-row>\n\n        <ion-col col-4 (click)="shareViaSMS()">\n\n         <ion-icon name="md-share"></ion-icon>\n\n        </ion-col>\n\n        <ion-col col-4 (click)="goTo(\'RelativeRankPage\',\'forward\')">\n\n          <ion-icon name="podium" ></ion-icon>\n\n        </ion-col>\n\n        <ion-col col-4 (click)="goTo(\'ClanPage\',\'forward\')">\n\n          <ion-icon name="people"></ion-icon>\n\n        </ion-col>\n\n      </ion-row>\n\n    </div>\n\n  </div>\n\n</div>\n\n\n\n<div class="profile-images-edit">\n\n  <div class="profile-image" *ngFor="let image of user.popies; let i = index">\n\n    <div class="popy-label" *ngIf="user.popies[i].image != \'\'">{{user.popies[i].pop_count}}</div>\n\n    <div [style.backgroundImage]="\'url(\' + user.popies[i].image + \')\'" class="div-img img-square r-3x" (click)="viewImg(i)"></div>\n\n    <button ion-button icon-only clear class="btn-edit" (click)="removeImage(i)" *ngIf="user.popies[i].image != \'\'">\n\n      <ion-icon name="md-close" color="danger"></ion-icon>\n\n    </button>\n\n    <button ion-button icon-only clear class="btn-edit" *ngIf="maxTime <= 0 && user.popies[i].image == \'\'" (click)="openPhotoPicker(i)">\n\n      <ion-icon name="md-add-circle" color="danger"></ion-icon>\n\n    </button>\n\n  </div>\n\n</div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\profile\profile.html"*/,
+            selector: 'page-profile',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\profile\profile.html"*/'<ion-header>\n\n  <div class="bg-popme" layout horizontal justified>\n\n  	<button ion-button color="danger" clear icon-only>\n\n      <ion-icon name=\'contact\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'PlayPage\',\'forward\')">\n\n      <ion-icon name=\'images\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'LogPage\',\'forward\')">\n\n      <ion-icon name=\'eye\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goTo(\'TrendPage\',\'forward\')">\n\n      <ion-icon name=\'apps\'></ion-icon>\n\n    </button>\n\n  </div>\n\n</ion-header>\n\n<ion-content class="bg-custom">\n\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n\n    <ion-refresher-content\n\n    pullingIcon="arrow-dropdown"\n\n    refreshingSpinner="crescent">\n\n  </ion-refresher-content>\n\n</ion-refresher>\n\n<div layout vertical class="profile-header">\n\n  <div flex>\n\n    <div class="score" id="profile-header-score" (click)="presentPopoverScore($event)">\n\n      <div class="text-center">\n\n        <ion-icon name="podium" class="color-yellow"></ion-icon>\n\n        <span class="text">{{ user.actual_score }}</span>\n\n      </div>\n\n    </div>\n\n    <div class="rank">\n\n      <div class="text-center">\n\n        <img src="./assets/img/logo-white.png" />\n\n        <span class="text" *ngIf="isClasse()">{{ rank.number }}<sup>{{ rank.text }}</sup></span>\n\n        <span class="text mini" *ngIf="!isClasse()">{{ user.rank }}</span>\n\n      </div>\n\n    </div>\n\n    <div class="next-add">\n\n      <div class="text-center" *ngIf="!hidevalue">\n\n        <ion-icon name="time"></ion-icon>\n\n        <span class="text">{{ remainingTime }}</span>\n\n      </div>\n\n      <div class="text-center" *ngIf="hidevalue" (click)="openPhotoPicker(3)">\n\n        <ion-icon name="md-add-circle" color="danger"></ion-icon>\n\n        <span class="text">Ajouter</span>\n\n      </div>\n\n    </div>\n\n  </div>\n\n</div>\n\n\n\n<div layout vertical>\n\n  <div class="bg-white">\n\n    <div>\n\n      <div class="profile-picture">\n\n        <div class="text-center">\n\n          <div class="big-thumb float-left">\n\n            <img [src]="user.account_image" class="rounded box-shadow" alt="" *ngIf="user.account_image != null">\n\n          </div>\n\n        </div>\n\n      </div>\n\n      \n\n      <div class="profile-info">\n\n        <div class="text-center">\n\n          <div class="text-2x">{{ user.usual_name }}</div>\n\n          <div class="">{{ user.description }}</div>\n\n          <button ion-button round color="muted" small outline (click)="goTo(\'SettingsPage\',\'forward\')"><ion-icon name="settings"></ion-icon>&nbsp;Modifier mes infos</button>\n\n        </div>\n\n      </div>\n\n    </div>\n\n    <div class="profile-actions">\n\n      <ion-row>\n\n        <ion-col col-4 (click)="shareViaSMS()">\n\n         <ion-icon class="color-yellow" name="md-share"></ion-icon>\n\n        </ion-col>\n\n        <ion-col col-4 (click)="goTo(\'RelativeRankPage\',\'forward\')">\n\n          <ion-icon class="color-yellow" name="podium" ></ion-icon>\n\n        </ion-col>\n\n        <ion-col col-4 (click)="goTo(\'ClanPage\',\'forward\')">\n\n          <ion-icon class="color-yellow" name="people"></ion-icon>\n\n        </ion-col>\n\n      </ion-row>\n\n    </div>\n\n  </div>\n\n</div>\n\n\n\n<div class="profile-images-edit">\n\n  <div class="profile-image" *ngFor="let image of user.popies; let i = index">\n\n    <div class="popy-label" *ngIf="user.popies[i].image != \'\'">{{user.popies[i].pop_count}}</div>\n\n    <div [style.backgroundImage]="\'url(\' + user.popies[i].image + \')\'" class="div-img img-square r-3x" (click)="viewImg(i)"></div>\n\n    <button ion-button icon-only clear class="btn-edit" (click)="removeImage(i)" *ngIf="user.popies[i].image != \'\'">\n\n      <ion-icon name="md-close" color="danger"></ion-icon>\n\n    </button>\n\n    <button ion-button icon-only clear class="btn-edit" *ngIf="maxTime <= 0 && user.popies[i].image == \'\'" (click)="openPhotoPicker(i)">\n\n      <ion-icon name="md-add-circle" color="danger"></ion-icon>\n\n    </button>\n\n  </div>\n\n</div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\profile\profile.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_globalization__["a" /* Globalization */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_globalization__["a" /* Globalization */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* PopoverController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* PopoverController */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_9__ionic_native_social_sharing__["a" /* SocialSharing */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_9__ionic_native_social_sharing__["a" /* SocialSharing */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_10__ionic_native_photo_viewer__["a" /* PhotoViewer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__ionic_native_photo_viewer__["a" /* PhotoViewer */]) === "function" && _q || Object, typeof (_r = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _r || Object, typeof (_s = typeof __WEBPACK_IMPORTED_MODULE_11__ionic_native_screenshot__["a" /* Screenshot */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__ionic_native_screenshot__["a" /* Screenshot */]) === "function" && _s || Object])
     ], ProfilePage);
@@ -5228,7 +5230,7 @@ var PoperProfilePage = /** @class */ (function () {
     };
     PoperProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-poperprofile',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\poperprofile\poperprofile.html"*/'<ion-header>\n\n	<div class="bg-popme" layout horizontal justified>\n\n		<button left ion-button color="muted" clear icon-only (click)="back()">\n\n			<ion-icon name=\'arrow-dropleft-circle\'></ion-icon>\n\n		</button>\n\n		<div class="pop-title">\n\n		{{ userProfile.usual_name }}\n\n		</div>\n\n	</div>\n\n</ion-header>\n\n<ion-content class="bg-custom">\n\n	<div layout vertical>\n\n		<div class="bg-white profile-card">\n\n			<div>\n\n				<div class="profile-picture">\n\n					<div class="text-center">\n\n						<div class="big-thumb float-left">\n\n							<img [src]="userProfile.account_image" class="rounded box-shadow" alt="">\n\n						</div>\n\n					</div>\n\n				</div>\n\n				<div class="profile-info">\n\n					<div class="text-center">\n\n						<div class="big-thumb">\n\n							<div class="text-2x">{{ userProfile.usual_name }}</div>\n\n							<div class="">{{ userProfile.description }}</div>\n\n						</div>\n\n						<div layout vertical>\n\n							<div flex class="ranking">\n\n								<div class="wrapper">\n\n									<img src="./assets/img/logo.png">\n\n									<span class="ranking-number">{{ userRank.world.number }}</span><span class="ranking-text"><sup>{{ userRank.world.text }}</sup></span>\n\n								</div>\n\n							</div>\n\n						</div>\n\n					</div>\n\n				</div>\n\n			</div>\n\n		</div>\n\n	</div>\n\n\n\n	<div class="profile-images-edit">\n\n		<div class="profile-image" *ngFor="let image of userProfile.popies; let i = index">\n\n			<div [style.display]="userProfile.popies[i].popped ? \'block\' : \'none\'" class="stamp" color="danger">Déjà popé</div>\n\n			<div [style.backgroundImage]="\'url(\' + userProfile.popies[i].image + \')\'" class="div-img img-square r-3x" (click)="viewImg(i)"></div>\n\n			<button ion-button icon-only clear class="btn-edit-like" *ngIf="userProfile.popies[i].image != \'\' && !userProfile.popies[i].popped" (click)="like(i)">\n\n				<ion-icon name="thumbs-up" color="like"></ion-icon>\n\n			</button>\n\n			<button ion-button icon-only clear class="btn-edit-dislike" *ngIf="userProfile.popies[i].image != \'\' && !userProfile.popies[i].popped" (click)="dislike(i)">\n\n				<ion-icon name="thumbs-down" color="dislike"></ion-icon>\n\n			</button>\n\n		</div>\n\n	</div>\n\n</ion-content>'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\poperprofile\poperprofile.html"*/,
+            selector: 'page-poperprofile',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\poperprofile\poperprofile.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title><span class="color-white">{{ userProfile.usual_name }}</span></ion-title>\n\n        <div class="close-buttons"  (click)="back()">\n\n            <ion-icon name="close"></ion-icon>\n\n        </div>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content class="bg-custom">\n\n    <div layout vertical>\n\n        <div class="bg-white">\n\n            <div>\n\n                <div class="profile-picture">\n\n                    <div class="text-center">\n\n                        <div class="big-thumb float-left">\n\n                            <img [src]="userProfile.account_image" class="rounded box-shadow" alt="">\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n                <div class="profile-info">\n\n                    <div class="text-center">\n\n                        <div class="big-thumb">\n\n                            <div class="text-2x">{{ userProfile.usual_name }}</div>\n\n                            <div class="">{{ userProfile.description }}</div>\n\n                        </div>\n\n                        <div layout vertical>\n\n                            <div flex class="ranking">\n\n                                <div class="wrapper">\n\n                                    <img src="./assets/img/logo.png">\n\n                                    <span class="ranking-number">{{ userRank.world.number }}</span><span class="ranking-text"><sup>{{ userRank.world.text }}</sup></span>\n\n                                </div>\n\n                            </div>\n\n                        </div>\n\n                    </div>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n\n\n    <div class="profile-images-edit">\n\n        <div class="profile-image" *ngFor="let image of userProfile.popies; let i = index">\n\n            <div [style.display]="userProfile.popies[i].popped ? \'block\' : \'none\'" class="stamp" color="danger">Déjà popé</div>\n\n            <div [style.backgroundImage]="\'url(\' + userProfile.popies[i].image + \')\'" class="div-img img-square r-3x" (click)="viewImg(i)"></div>\n\n            <button ion-button icon-only clear class="btn-edit-like" *ngIf="userProfile.popies[i].image != \'\' && !userProfile.popies[i].popped" (click)="like(i)">\n\n                <ion-icon name="thumbs-up" color="like"></ion-icon>\n\n            </button>\n\n            <button ion-button icon-only clear class="btn-edit-dislike" *ngIf="userProfile.popies[i].image != \'\' && !userProfile.popies[i].popped" (click)="dislike(i)">\n\n                <ion-icon name="thumbs-down" color="dislike"></ion-icon>\n\n            </button>\n\n        </div>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\poperprofile\poperprofile.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */],

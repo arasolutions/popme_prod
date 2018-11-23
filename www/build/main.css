@@ -67515,6 +67515,14 @@ page-poperprofile .profile-images-edit .div-img {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
+page-poperprofile .close-buttons {
+  position: absolute;
+  right: 20px;
+  top: 5px;
+  font-size: 30px;
+  color: #f0c30e;
+}
+
 page-poperprofile .pop-title {
   text-align: center;
   margin-left: -10%;
