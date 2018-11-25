@@ -1477,6 +1477,7 @@ var ClanPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__profile_profile__ = __webpack_require__(52);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__clan_clan__ = __webpack_require__(435);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_social_sharing__ = __webpack_require__(137);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_screenshot__ = __webpack_require__(245);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1494,8 +1495,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var ClanProfilePage = /** @class */ (function () {
-    function ClanProfilePage(navCtrl, navParams, storage, api, modalCtrl, loadingCtrl, viewCtrl, alertCtrl, actionSheetCtrl, socialSharing, platform) {
+    function ClanProfilePage(navCtrl, navParams, storage, api, modalCtrl, loadingCtrl, viewCtrl, alertCtrl, actionSheetCtrl, socialSharing, platform, screenshot) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -1508,6 +1510,7 @@ var ClanProfilePage = /** @class */ (function () {
         this.actionSheetCtrl = actionSheetCtrl;
         this.socialSharing = socialSharing;
         this.platform = platform;
+        this.screenshot = screenshot;
         this.clan = {};
         this.storage.get('user').then(function (user) {
             _this.user = user;
@@ -1668,22 +1671,50 @@ var ClanProfilePage = /** @class */ (function () {
         });
         alert.present();
     };
-    ClanProfilePage.prototype.sharePassword = function () {
-        var _this = this;
-        this.platform.ready().then(function () {
+    /*sharePassword(){
+
+        this.platform.ready().then(() => {
+
             var options = {
                 message: 'Rejoins mon clan . Rendez-vous sur Popme !',
-                subject: '',
-                files: '',
-                url: 'test',
-                chooserTitle: 'Mot de passe' // Android only
-            };
-            _this.socialSharing.shareWithOptions(options)
-                .then(function () {
-                //this.showSuccessShareMsg();
-            })
-                .catch(function (err) {
-                //this.showErrorShareMsg(err);
+                        subject: '', // fi. for email
+                        files: '', // an array of filenames either locally or remotely
+                        url: 'test',
+                        chooserTitle: 'Mot de passe' // Android only
+                    }
+
+                    this.socialSharing.shareWithOptions(options)
+                    .then(() => {
+                            //this.showSuccessShareMsg();
+                        })
+                    .catch((err) => {
+                            //this.showErrorShareMsg(err);
+                        });
+
+
+                });
+    }*/
+    ClanProfilePage.prototype.shareViaSMS = function () {
+        var _this = this;
+        this.platform.ready().then(function () {
+            // Take a screenshot and get temporary file URI
+            _this.screenshot.URI(100)
+                .then(function (res) {
+                var options = {
+                    message: 'test',
+                    subject: '',
+                    files: [res.URI],
+                    url: 'test',
+                    chooserTitle: 'test' // Android only
+                };
+                _this.socialSharing.shareWithOptions(options)
+                    .then(function () {
+                    //this.showSuccessShareMsg();
+                })
+                    .catch(function (err) {
+                    //this.showErrorShareMsg(err);
+                });
+            }, function (err) {
             });
         });
     };
@@ -1691,10 +1722,10 @@ var ClanProfilePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-clan',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\clan\clanprofile.html"*/'<ion-header>\n\n    <ion-navbar>\n\n        <ion-title><span class="color-white">{{ clan.name }}</span></ion-title>\n\n        <div class="close-buttons" (click)="back()">\n\n            <ion-icon name="close"></ion-icon>\n\n        </div>\n\n    </ion-navbar>\n\n</ion-header>\n\n<ion-content class="bg-custom">\n\n    <div class="clan-profile padder">\n\n        <div class="image">\n\n            <img src="{{ clan.image }}" class="rounded box-shadow" *ngIf="clan.image != null"/>\n\n            <img src="./assets/img/clan_default_image.png" class="rounded box-shadow" alt="" *ngIf="clan.image == null">\n\n        </div>\n\n        <div class="description">\n\n            <div class="clan-profile-name">{{ clan.name}}</div>\n\n            <div class="clan-profile-description">{{ clan.description}}</div>\n\n            <div class="clan-profile-created">\n\n                créé le {{ clan.createdAt }}\n\n            </div>\n\n            <div class="clan-profile-action">\n\n                <div *ngIf="isUserAdmin">\n\n                    <ion-icon name="settings" (click)="goToEditClan(clan.id)"></ion-icon>\n\n                </div>\n\n            </div>\n\n        </div>\n\n    </div>\n\n    <ion-list class="list-user">\n\n        <div class="wrapper-xs">\n\n            <div ion-text color="danger" class="font-bold mt5 mb5 padder">\n\n                Membres ({{ clan.userClans?.length }})\n\n            </div>\n\n        </div>\n\n        <ion-row *ngFor="let user of clan.userClans; let i = index" class="padder">\n\n            <ion-col class="clanprofile-user-image" col-auto>\n\n                <img src="{{ user.image }}" class="rounded box-shadow clanprofile-user-image" />\n\n            </ion-col>\n\n            <ion-col class="margin-auto">\n\n                <span class="clanprofile-user-name">{{ user.usualName }}</span><br/>\n\n                <span class="clanprofile-user-description">{{ user.description }}</span>\n\n            </ion-col>\n\n            <ion-col class="margin-auto float-right" col-auto>\n\n                <ion-badge *ngIf="user.role == \'ROLE_CREATEUR\'" item-end>Créateur</ion-badge>\n\n                <ion-badge *ngIf="user.role == \'ROLE_ADMIN\'" item-end>Admin</ion-badge>\n\n                <ion-badge *ngIf="user.role == \'ROLE_USER\'" color="secondary" item-end>Utilisateur</ion-badge>\n\n            </ion-col>\n\n            <ion-col class="clanprofile-user-action margin-auto" col-auto>\n\n                <div *ngIf="isUserAdmin() && isNotMe(user.id)">\n\n                    <ion-icon name="more" (click)="showActions(user.id, clan.id, user.role)"></ion-icon>\n\n                </div>\n\n            </ion-col>\n\n        </ion-row>\n\n    </ion-list>\n\n    <div class="clan-action" ion-text color="primary">\n\n        <ion-row (click)="sharePassword()" class="padder">\n\n            <ion-col class="clanprofile-user-image" col-auto><ion-icon name="share-alt"></ion-icon></ion-col>\n\n            <ion-col class="margin-auto">\n\n                Partager le mot de passe\n\n            </ion-col>\n\n        </ion-row>\n\n    </div>\n\n    <div class="clan-action" ion-text color="dislike">\n\n        <ion-row (click)="showActionsClanQuit()" class="padder">\n\n            <ion-col class="clanprofile-user-image" col-auto><ion-icon name="exit"></ion-icon></ion-col>\n\n            <ion-col class="margin-auto">\n\n                Quitter ce groupe\n\n            </ion-col>\n\n        </ion-row>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\clan\clanprofile.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_social_sharing__["a" /* SocialSharing */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_social_sharing__["a" /* SocialSharing */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _l || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* ViewController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_social_sharing__["a" /* SocialSharing */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_social_sharing__["a" /* SocialSharing */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* Platform */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_screenshot__["a" /* Screenshot */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_screenshot__["a" /* Screenshot */]) === "function" && _m || Object])
     ], ClanProfilePage);
     return ClanProfilePage;
-    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 }());
 
 //# sourceMappingURL=clanprofile.js.map
