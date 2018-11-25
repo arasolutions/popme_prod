@@ -1703,7 +1703,7 @@ var ClanProfilePage = /** @class */ (function () {
                 var options = {
                     message: 'Rejoins mon clan. Rendez-vous sur Popme !',
                     subject: '',
-                    files: '',
+                    files: [],
                     url: 'test',
                     chooserTitle: 'test' // Android only
                 };
