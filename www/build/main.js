@@ -1674,7 +1674,7 @@ var ClanProfilePage = /** @class */ (function () {
             var options = {
                 message: 'Rejoins mon clan ' + clan.name + ' avec le mot de passe suivant : ' + clan.passCode + '. Rendez-vous sur Popme !',
                 subject: '',
-                files: [],
+                files: [clan.image],
                 url: 'test',
                 chooserTitle: 'Mot de passe' // Android only
             };
