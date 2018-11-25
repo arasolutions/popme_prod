@@ -1672,7 +1672,7 @@ var ClanProfilePage = /** @class */ (function () {
         var _this = this;
         this.platform.ready().then(function () {
             var options = {
-                message: 'Rejoins mon clan ' + name + ' avec le mot de passe suivant : ' + password + '. Rendez-vous sur Popme !',
+                message: 'Rejoins mon clan . Rendez-vous sur Popme !',
                 subject: '',
                 files: '',
                 url: 'test',
