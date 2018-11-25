@@ -66977,7 +66977,7 @@ page-clan .row {
   text-align: right;
 }
 
-page-clanParameters .close-buttons {
+page-clanEdit .close-buttons {
   position: absolute;
   right: 20px;
   top: 5px;
@@ -66990,7 +66990,7 @@ page-clanParameters .close-buttons {
   height: 128px;
   text-align: center;
   background-color: white;
-  background-image: url(assets/images/unknown.png);
+  /*background-image: url(assets/images/unknown.png);*/
   background-size: 160px;
   margin: 20px auto 0 auto;
   background-repeat: no-repeat;
