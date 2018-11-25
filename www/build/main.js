@@ -1694,7 +1694,7 @@ var ClanProfilePage = /** @class */ (function () {
 
                 });
     }*/
-    ClanProfilePage.prototype.shareViaSMS = function () {
+    ClanProfilePage.prototype.sharePassword = function () {
         var _this = this;
         this.platform.ready().then(function () {
             // Take a screenshot and get temporary file URI
