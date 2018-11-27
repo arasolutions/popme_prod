@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="com.arasolutions.popme" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>POPME</name>
-    <description>POPME app</description>
+    <name>Popme</name>
+    <description>Popme app</description>
     <author email="contact@ara-solutions.com" href="http://www.ara-solutions.com">Ara-solutions.com</author>
     <content src="index.html" />
     <access origin="*" />
@@ -35,18 +35,6 @@
 		<icon qualifier="xhdpi" src="res/icons/android/drawable-xhdpi-icon.png" />
 		<icon qualifier="xxhdpi" src="res/icons/android/drawable-xxhdpi-icon.png" />
 		<icon qualifier="xxxhdpi" src="res/icons/android/drawable-xxxhdpi-icon.png" />
-		<splash qualifier="land-ldpi" src="res/screens/android/drawable-land-ldpi-screen.png" />
-		<splash qualifier="land-mdpi" src="res/screens/android/drawable-land-mdpi-screen.png" />
-		<splash qualifier="land-hdpi" src="res/screens/android/drawable-land-hdpi-screen.png" />
-		<splash qualifier="land-xhdpi" src="res/screens/android/drawable-land-xhdpi-screen.png" />
-		<splash qualifier="land-xxhdpi" src="res/screens/android/drawable-land-xxhdpi-screen.png" />
-		<splash qualifier="land-xxxhdpi" src="res/screens/android/drawable-land-xxxhdpi-screen.png" />
-		<splash qualifier="port-ldpi" src="res/screens/android/drawable-port-ldpi-screen.png" />
-		<splash qualifier="port-mdpi" src="res/screens/android/drawable-port-mdpi-screen.png" />
-		<splash qualifier="port-hdpi" src="res/screens/android/drawable-port-hdpi-screen.png" />
-		<splash qualifier="port-xhdpi" src="res/screens/android/drawable-port-xhdpi-screen.png" />
-		<splash qualifier="port-xxhdpi" src="res/screens/android/drawable-port-xxhdpi-screen.png" />
-		<splash qualifier="port-xxxhdpi" src="res/screens/android/drawable-port-xxxhdpi-screen.png" />
 		<config-file parent="/resources" target="./res/values/strings.xml">
 			<string name="fb_app_id">504120356667672</string>
 			<string name="fb_app_name">Popme</string>
