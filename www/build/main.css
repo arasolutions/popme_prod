@@ -68029,6 +68029,22 @@ page-register .close-buttons {
   font-size: 30px;
 }
 
+page-register .input-info {
+  text-align: right;
+  color: #CC0000;
+  min-height: 15px;
+  font-size: 12px;
+}
+
+page-register .input-with-info > .item-inner {
+  border-bottom: 0 !important;
+}
+
+page-register .input-info > .item-inner ion-label {
+  margin-top: -2px;
+  margin-bottom: 4px;
+}
+
 page-settings .settings-account-image img {
   width: 25vw;
 }
