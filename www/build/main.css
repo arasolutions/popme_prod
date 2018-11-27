@@ -66932,10 +66932,6 @@ page-clan .clan-profile-description {
   padding: 10px 0;
 }
 
-page-clan .clan-profile-action {
-  float: right;
-}
-
 page-clan .clan-profile-created {
   font-size: 10px;
 }
@@ -66983,6 +66979,39 @@ page-clanEdit .close-buttons {
   top: 5px;
   font-size: 30px;
   color: #FFF;
+}
+
+page-clanEdit .settings-clan-image img {
+  width: 25vw;
+}
+
+page-clanEdit .btn-edit {
+  position: relative;
+  right: 30px;
+  bottom: 10px;
+  background-color: #f1c40f;
+  border-radius: 100%;
+  width: 30px;
+  height: 30px;
+}
+
+page-clanEdit .btn-edit ion-icon {
+  color: white;
+}
+
+page-clanEdit div.clan-action {
+  background-color: #FEFEFE;
+  margin-bottom: 10px;
+}
+
+page-clanEdit div.clan-action ion-col {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-size: 15px;
+}
+
+page-clanEdit .row {
+  border-bottom: solid 1px #CCC;
 }
 
 .profile-image {
