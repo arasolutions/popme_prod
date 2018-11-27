@@ -92,6 +92,8 @@
 			<string>need photo library access to save pictures there</string>
 		</edit-config>
 	</platform>
+	<icon src="res/icons/android/drawable-xhdpi-icon.png" />
+	<splash src="res/screens/android/drawable-port-xhdpi-screen.png" />
     <plugin name="cordova-plugin-admob-free" spec="0.17.0" />
     <plugin name="cordova-plugin-device" spec="2.0.2" />
     <plugin name="cordova-plugin-globalization" spec="1.11.0" />
