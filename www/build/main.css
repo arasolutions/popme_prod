@@ -67763,6 +67763,13 @@ page-profile .ranking img {
   width: 20%;
 }
 
+page-profile .profile-header-rank-img {
+  vertical-align: middle;
+  height: 30px;
+  width: 30px;
+  margin-bottom: 4px;
+}
+
 page-profile .profile-header {
   height: 40px;
   background-color: #F1C40F;
@@ -67812,10 +67819,6 @@ page-profile .profile-header .next-add .text {
 
 page-profile .profile-header .next-add ion-icon {
   color: #F1C40F;
-}
-
-page-profile .profile-header img {
-  width: 20px;
 }
 
 page-profile .profile-card {
