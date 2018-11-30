@@ -65435,6 +65435,7 @@ ion-navbar.toolbar {
 ion-app {
   margin-top: env(safe-area-inset-top);
   margin-bottom: env(safe-area-inset-bottom);
+  background-color: #2C2C2C;
 }
 
 .btn-default {
