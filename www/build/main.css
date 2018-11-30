@@ -65432,11 +65432,8 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
-body {
-  padding-top: constant(safe-area-inset-top);
-  /* iOS 11.0 */
+.toolbar-ios {
   padding-top: env(safe-area-inset-top);
-  /* iOS 11.2 */
 }
 
 .btn-default {
