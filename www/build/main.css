@@ -67113,14 +67113,15 @@ page-loading .background-screensplash {
 
 page-loading .loading-desc {
   position: absolute;
-  top: 70%;
+  top: 62%;
   text-align: center;
   width: 100%;
+  height: 70px;
 }
 
 page-loading .loading-count {
   position: absolute;
-  top: 75%;
+  top: 80%;
   text-align: center;
   width: 100%;
 }
