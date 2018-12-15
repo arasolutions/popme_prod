@@ -4607,6 +4607,7 @@ var ProfilePage = /** @class */ (function () {
         });
     }
     ProfilePage.prototype.getPush = function () {
+        alert('point 1');
         var options = {
             android: {
                 senderID: '607517360971'
@@ -4617,7 +4618,9 @@ var ProfilePage = /** @class */ (function () {
                 sound: 'false'
             }
         };
+        alert('point 2');
         var pushObject = this.push.init(options);
+        alert('point 3');
         //pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification)) ;
         pushObject.on('notification').subscribe(function (notification) {
             console.log('Received a notification', notification);
