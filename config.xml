@@ -131,4 +131,7 @@
         <variable name="DEEPLINK_HOST" value="popme.app" />
         <variable name="ANDROID_PATH_PREFIX" value="/" />
     </plugin>
+    <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2">
+        <variable name="SENDER_ID" value="607517360971" />
+    </plugin>
 </widget>
