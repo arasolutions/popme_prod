@@ -51,7 +51,7 @@
 			<string name="fb_app_id">504120356667672</string>
 			<string name="fb_app_name">Popme</string>
 		</config-file>
-		<resource-file src="google-services.json" target="./resources/android/google-services.json" />
+		<resource-file src="google-services.json" target="google-services.json" />
 	</platform>
 	<platform name="ios">
         <icon height="57" src="resources/ios/icon/icon.png" width="57" />
