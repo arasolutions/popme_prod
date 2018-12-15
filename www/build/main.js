@@ -4607,36 +4607,91 @@ var ProfilePage = /** @class */ (function () {
         });
     }
     ProfilePage.prototype.getPush = function () {
-        alert('point 1');
+        var _this = this;
+        alert('coucou');
         var options = {
             android: {
                 senderID: '607517360971'
             },
             ios: {
                 alert: 'true',
-                badge: true,
-                sound: 'false'
-            }
+                badge: false,
+                sound: 'true'
+            },
+            windows: {}
         };
-        alert('point 2');
         var pushObject = this.push.init(options);
-        alert('point 3');
-        //pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification)) ;
-        pushObject.on('notification').subscribe(function (notification) {
-            console.log('Received a notification', notification);
-            alert('point 4');
-            alert(notification);
+        pushObject.on('registration').subscribe(function (data) {
+            alert('device token -> ' + data.registrationId);
+            //TODO - send device token to server
         });
-        pushObject.on('registration').subscribe(function (registration) {
-            console.log('Device registered', registration);
-            alert('point 5');
-            alert(registration);
+        pushObject.on('notification').subscribe(function (data) {
+            alert('message -> ' + data.message);
+            //if user using app and push notification comes
+            if (data.additionalData.foreground) {
+                // if application open, show popup
+                var confirmAlert = _this.alertCtrl.create({
+                    title: 'New Notification',
+                    message: data.message,
+                    buttons: [{
+                            text: 'Ignore',
+                            role: 'cancel'
+                        }, {
+                            text: 'View',
+                            handler: function () {
+                                //TODO: Your logic here
+                                _this.nav.push(DetailsPage, { message: data.message });
+                            }
+                        }]
+                });
+                confirmAlert.present();
+            }
+            else {
+                //if user NOT using app and push notification comes
+                //TODO: Your logic on click of push notification directly
+                _this.nav.push(DetailsPage, { message: data.message });
+                console.log('Push notification clicked');
+            }
         });
-        pushObject.on('error').subscribe(function (error) {
-            console.error('Error with Push plugin', error);
-            alert('point 6');
-            alert(error);
-        });
+        pushObject.on('error').subscribe(function (error) { return console.error('Error with Push plugin' + error); });
+        /*alert('point 1');
+    
+          const options: PushOptions = {
+              android: {
+                senderID: '607517360971'
+              },
+              ios: {
+                  alert: 'true',
+                  badge: true,
+                  sound: 'false'
+              }
+          };
+          alert('point 2');
+          const pushObject: PushObject = this.push.init(options);
+          alert('point 3');
+    
+          //pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification)) ;
+    
+          pushObject.on('notification').subscribe((notification: any) =>
+          {
+              console.log('Received a notification', notification);
+              alert('point 4');
+              alert(notification);
+          });
+    
+          pushObject.on('registration').subscribe((registration: any) =>
+          {
+              console.log('Device registered', registration);
+              alert('point 5');
+              alert(registration);
+          });
+    
+          pushObject.on('error').subscribe(error =>
+          {
+              console.error('Error with Push plugin', error);
+              alert('point 6');
+              alert(error);
+          });*/
     };
     ProfilePage.prototype.ionViewDidEnter = function () {
         this.rank = this.rankProvider.getModel();
