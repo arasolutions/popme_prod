@@ -4622,21 +4622,19 @@ var ProfilePage = /** @class */ (function () {
         var pushObject = this.push.init(options);
         alert('point 3');
         //pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification)) ;
-        pushObject.on('registration').then(function (data) {
-            // data.registrationId
-            alert('point 4');
-            alert(data);
-        });
         pushObject.on('notification').subscribe(function (notification) {
             console.log('Received a notification', notification);
+            alert('point 4');
             alert(notification);
         });
         pushObject.on('registration').subscribe(function (registration) {
             console.log('Device registered', registration);
+            alert('point 5');
             alert(registration);
         });
         pushObject.on('error').subscribe(function (error) {
             console.error('Error with Push plugin', error);
+            alert('point 6');
             alert(error);
         });
     };
