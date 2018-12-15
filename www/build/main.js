@@ -4622,6 +4622,10 @@ var ProfilePage = /** @class */ (function () {
         var pushObject = this.push.init(options);
         alert('point 3');
         //pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification)) ;
+        pushObject.on('registration', function (data) {
+            // data.registrationId
+            alert(registration);
+        });
         pushObject.on('notification').subscribe(function (notification) {
             console.log('Received a notification', notification);
             alert(notification);
@@ -4632,7 +4636,7 @@ var ProfilePage = /** @class */ (function () {
         });
         pushObject.on('error').subscribe(function (error) {
             console.error('Error with Push plugin', error);
-            alert(registration);
+            alert(error);
         });
     };
     ProfilePage.prototype.ionViewDidEnter = function () {
