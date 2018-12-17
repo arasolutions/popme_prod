@@ -98,6 +98,7 @@
 		<edit-config target="NSPhotoLibraryAddUsageDescription" file="*-Info.plist" mode="merge">
 			<string>need photo library access to save pictures there</string>
 		</edit-config>
+		<resource-file src="GoogleService-Info.plist" />
 	</platform>
     <!-- <plugin name="cordova-plugin-admob-free" spec="0.17.0" /> -->
     <plugin name="cordova-plugin-device" spec="2.0.2" />
@@ -136,7 +137,6 @@
         <variable name="SENDER_ID" value="607517360971" />
     </plugin>
     <plugin name="phonegap-plugin-push" spec="^2.2.3">
-        <variable name="FCM_VERSION" value="11.6.2" />
         <variable name="SENDER_ID" value="607517360971" />
     </plugin>
 </widget>
