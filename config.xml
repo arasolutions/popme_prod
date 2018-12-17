@@ -137,5 +137,6 @@
     </plugin>
     <plugin name="phonegap-plugin-push" spec="^2.1.3">
         <variable name="FCM_VERSION" value="11.6.2" />
+        <variable name="SENDER_ID" value="607517360971" />
     </plugin>
 </widget>
