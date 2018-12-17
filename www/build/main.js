@@ -4609,102 +4609,53 @@ var ProfilePage = /** @class */ (function () {
         });
     }
     ProfilePage.prototype.getPush = function () {
-        var _this = this;
         alert('point1aaa');
         if (this.platform.ready()) {
             alert('point2');
-            alert('coucou');
+            // to check if we have permission
+            this.push.hasPermission()
+                .then(function (res) {
+                if (res.isEnabled) {
+                    alert('We have permission to send push notifications');
+                }
+                else {
+                    alert('We do not have permission to send push notifications');
+                }
+            });
+            // Create a channel (Android O and above). You'll need to provide the id, description and importance properties.
+            this.push.createChannel({
+                id: "testchannel1",
+                description: "My first test channel",
+                // The importance property goes from 1 = Lowest, 2 = Low, 3 = Normal, 4 = High and 5 = Highest.
+                importance: 3
+            }).then(function () { return console.log('Channel created'); });
+            alert('point3');
+            // Delete a channel (Android O and above)
+            this.push.deleteChannel('testchannel1').then(function () { return console.log('Channel deleted'); });
+            alert('point4');
+            // Return a list of currently configured channels
+            this.push.listChannels().then(function (channels) { return console.log('List of channels', channels); });
+            alert('point5');
+            // to initialize push notifications
             var options = {
                 android: {
                     senderID: '607517360971'
                 },
                 ios: {
                     alert: 'true',
-                    badge: false,
-                    sound: 'true'
+                    badge: true,
+                    sound: 'false'
                 },
-                windows: {}
+                windows: {},
+                browser: {
+                    pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+                }
             };
+            alert('point6');
             var pushObject = this.push.init(options);
-            alert('point3');
-            pushObject.on('registration').subscribe(function (data) {
-                alert('point33');
-                alert('device token -> ' + data.registrationId);
-                //TODO - send device token to server
-            });
-            alert('point4');
-            pushObject.on('notification').subscribe(function (data) {
-                alert('point44');
-                alert('message -> ' + data.message);
-                //if user using app and push notification comes
-                if (data.additionalData.foreground) {
-                    // if application open, show popup
-                    var confirmAlert = _this.alertCtrl.create({
-                        title: 'New Notification',
-                        message: data.message,
-                        buttons: [{
-                                text: 'Ignore',
-                                role: 'cancel'
-                            }, {
-                                text: 'View',
-                                handler: function () {
-                                    //TODO: Your logic here
-                                    //this.nav.push(DetailsPage, { message: data.message });
-                                }
-                            }]
-                    });
-                    confirmAlert.present();
-                }
-                else {
-                    //if user NOT using app and push notification comes
-                    //TODO: Your logic on click of push notification directly
-                    //this.nav.push(DetailsPage, { message: data.message });
-                    console.log('Push notification clicked');
-                }
-            });
-            pushObject.on('notification').subscribe(function (notification) { return alert('Received a notification'); });
-            pushObject.on('registration').subscribe(function (registration) { return alert('Received a registration'); });
-            alert('point5');
-            /*pushObject.on('error').subscribe(error => console.error('Error with Push plugin' + error));
-  
-            /*alert('point 1');
-  
-              const options: PushOptions = {
-                  android: {
-                    senderID: '607517360971'
-                  },
-                  ios: {
-                      alert: 'true',
-                      badge: true,
-                      sound: 'false'
-                  }
-              };
-              alert('point 2');
-              const pushObject: PushObject = this.push.init(options);
-              alert('point 3');
-  
-              //pushObject.on('notification').subscribe((notification: any) => console.log('Received a notification', notification)) ;
-  
-              pushObject.on('notification').subscribe((notification: any) =>
-              {
-                  console.log('Received a notification', notification);
-                  alert('point 4');
-                  alert(notification);
-              });
-  
-              pushObject.on('registration').subscribe((registration: any) =>
-              {
-                  console.log('Device registered', registration);
-                  alert('point 5');
-                  alert(registration);
-              });
-  
-              pushObject.on('error').subscribe(error =>
-              {
-                  console.error('Error with Push plugin', error);
-                  alert('point 6');
-                  alert(error);
-              });*/
+            pushObject.on('notification').subscribe(function (notification) { return console.log('Received a notification', notification); });
+            pushObject.on('registration').subscribe(function (registration) { return console.log('Device registered', registration); });
+            pushObject.on('error').subscribe(function (error) { return console.error('Error with Push plugin', error); });
         }
     };
     ProfilePage.prototype.ionViewDidEnter = function () {
