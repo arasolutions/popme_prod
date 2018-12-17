@@ -4610,7 +4610,7 @@ var ProfilePage = /** @class */ (function () {
     }
     ProfilePage.prototype.getPush = function () {
         var _this = this;
-        alert('point1');
+        alert('point1aaa');
         if (this.platform.ready()) {
             alert('point2');
             alert('coucou');
@@ -4628,11 +4628,13 @@ var ProfilePage = /** @class */ (function () {
             var pushObject = this.push.init(options);
             alert('point3');
             pushObject.on('registration').subscribe(function (data) {
+                alert('point33');
                 alert('device token -> ' + data.registrationId);
                 //TODO - send device token to server
             });
             alert('point4');
             pushObject.on('notification').subscribe(function (data) {
+                alert('point44');
                 alert('message -> ' + data.message);
                 //if user using app and push notification comes
                 if (data.additionalData.foreground) {
@@ -4660,8 +4662,11 @@ var ProfilePage = /** @class */ (function () {
                     console.log('Push notification clicked');
                 }
             });
+            pushObject.on('notification').subscribe(function (notification) { return alert('Received a notification'); });
+            pushObject.on('registration').subscribe(function (registration) { return alert('Received a registration'); });
             alert('point5');
-            pushObject.on('error').subscribe(function (error) { return console.error('Error with Push plugin' + error); });
+            /*pushObject.on('error').subscribe(error => console.error('Error with Push plugin' + error));
+  
             /*alert('point 1');
   
               const options: PushOptions = {
