@@ -4611,7 +4611,7 @@ var ProfilePage = /** @class */ (function () {
     ProfilePage.prototype.getPush = function () {
         var _this = this;
         alert('point1');
-        if (!this.platform.ready()) {
+        if (this.platform.ready()) {
             alert('point2');
             alert('coucou');
             var options = {
