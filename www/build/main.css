@@ -67540,6 +67540,14 @@ page-play .swipe-container {
   }
 }
 
+.no-cards {
+  color: #333;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 80vh;
+  margin: auto;
+}
+
 page-poperprofile .profile-images-edit {
   padding: 5px;
 }
@@ -67676,11 +67684,8 @@ page-poperprofile .profile-card {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
-popover {
+popover ion-content.popover {
   background-color: #2C2C2C;
-}
-
-popover .content {
   border: solid 2px #f1c40f;
   border-radius: 10px;
   padding: 10px;
@@ -67689,6 +67694,14 @@ popover .content {
 
 popover .content button {
   text-align: center;
+  border-radius: 50px;
+  width: 100px;
+  background-color: #f1c40f;
+  font-weight: bold;
+}
+
+.popover-arrow:after {
+  background-color: #f1c40f !important;
 }
 
 page-profile .profile-images-edit {
@@ -68280,4 +68293,44 @@ page-trend .animate-ease-2 {
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
   right: 120%;
+}
+
+tutoriel {
+  width: calc(100% - 20px) !important;
+  height: 30% !important;
+  bottom: 10px;
+  margin: 0 10px;
+  left: unset !important;
+  top: unset !important;
+}
+
+tutoriel .tutoriel-content {
+  background-color: #2C2C2C;
+  border: solid 2px #f1c40f;
+  border-radius: 10px;
+  color: white;
+  background-image: url(/assets/img/icon_grey.png);
+  background-size: 150px;
+  background-repeat: no-repeat;
+  background-position-x: calc(100% + 40px);
+  background-position-y: top;
+}
+
+tutoriel .tutoriel-content .scroll-content {
+  padding: 10px;
+}
+
+tutoriel div.step-level {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 20px 5px 0;
+}
+
+tutoriel div.step-level > div {
+  width: 50%;
+}
+
+tutoriel .pass-text {
+  color: grey;
 }
