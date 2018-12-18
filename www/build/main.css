@@ -68295,13 +68295,21 @@ page-trend .animate-ease-2 {
   right: 120%;
 }
 
-tutoriel {
+tutoriel .tutoriel-bottom {
   width: calc(100% - 20px) !important;
   height: 30% !important;
   bottom: 10px;
   margin: 0 10px;
   left: unset !important;
   top: unset !important;
+}
+
+tutoriel .tutoriel-top {
+  width: calc(100% - 20px) !important;
+  height: 30% !important;
+  top: 60px !important;
+  margin: 0 10px;
+  left: unset !important;
 }
 
 tutoriel .tutoriel-content {
@@ -68333,4 +68341,9 @@ tutoriel div.step-level > div {
 
 tutoriel .pass-text {
   color: grey;
+}
+
+tutoriel .title {
+  font-weight: bold;
+  font-size: 1.1em;
 }
