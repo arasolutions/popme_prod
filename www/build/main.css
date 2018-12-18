@@ -66849,14 +66849,6 @@ page-clan .swipe-bg {
   background-image: linear-gradient(#fff, #f6f7fb);
 }
 
-page-clan .close-buttons {
-  position: absolute;
-  right: 20px;
-  top: 5px;
-  font-size: 30px;
-  color: #f0c30e;
-}
-
 page-clan .button-muted {
   border-radius: 999em;
   font-size: 14px;
@@ -67160,6 +67152,13 @@ page-log .log-date-header {
 
 page-log .row-full {
   width: 100%;
+}
+
+page-log .unknown {
+  color: #333;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 15px;
 }
 
 page-login button[small] {
@@ -67619,7 +67618,7 @@ page-poperprofile .profile-image .popy-label {
 }
 
 page-poperprofile .big-thumb {
-  width: 128px;
+  width: 100px;
   display: inline-block;
 }
 
@@ -67682,6 +67681,10 @@ page-poperprofile .profile-card {
   box-shadow: black aliceblue;
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+page-poperprofile .non-classe {
+  font-size: 1.6rem;
 }
 
 popover ion-content.popover {
@@ -67874,14 +67877,6 @@ page-relative-rank .float-right {
 
 page-relative-rank .float-right img {
   width: 15px;
-}
-
-page-relative-rank .close-buttons {
-  position: absolute;
-  right: 20px;
-  top: 5px;
-  font-size: 30px;
-  color: #FFF;
 }
 
 page-relative-rank .button-muted {
@@ -68295,6 +68290,10 @@ page-trend .animate-ease-2 {
   right: 120%;
 }
 
+tutoriel .tutoriel-overlay {
+  background-color: transparent;
+}
+
 tutoriel .tutoriel-bottom {
   width: calc(100% - 20px) !important;
   height: 30% !important;
@@ -68346,4 +68345,5 @@ tutoriel .pass-text {
 tutoriel .title {
   font-weight: bold;
   font-size: 1.1em;
+  margin-top: 0;
 }
