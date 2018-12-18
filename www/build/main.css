@@ -68309,7 +68309,7 @@ tutoriel .tutoriel-content {
   border: solid 2px #f1c40f;
   border-radius: 10px;
   color: white;
-  background-image: url(/assets/img/icon_grey.png);
+  background-image: url(../assets/img/icon_grey.png);
   background-size: 150px;
   background-repeat: no-repeat;
   background-position-x: calc(100% + 40px);
