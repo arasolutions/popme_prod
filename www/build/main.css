@@ -67987,7 +67987,7 @@ page-relative-rank .segment-ios .segment-button {
   background-color: transparent;
 }
 
-page-relative-rank .city, page-relative-rank .country, page-relative-rank .clan {
+page-relative-rank .world, page-relative-rank .city, page-relative-rank .country, page-relative-rank .clan {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -68030,6 +68030,20 @@ page-relative-rank .scroll-zoom-wrapper {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+}
+
+page-relative-rank .rank-profile-img {
+  float: left;
+  width: 20px;
+}
+
+page-relative-rank .rank-profile-div {
+  float: left;
+  padding-left: 5px;
+}
+
+page-relative-rank .mt-4 {
+  margin-top: 4px;
 }
 
 page-register .login {
