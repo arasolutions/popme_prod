@@ -68352,6 +68352,11 @@ tutoriel div.step-level > div {
   width: 50%;
 }
 
+tutoriel .pass {
+  position: absolute;
+  bottom: 10px;
+}
+
 tutoriel .pass-text {
   color: grey;
 }
@@ -68360,4 +68365,17 @@ tutoriel .title {
   font-weight: bold;
   font-size: 1.1em;
   margin-top: 0;
+}
+
+tutoriel button {
+  border-radius: 50px !important;
+  background-color: #f1c40f !important;
+  font-weight: bold !important;
+  color: #333 !important;
+}
+
+tutoriel button ion-icon {
+  color: #333;
+  font-weight: bold;
+  padding-left: 5px;
 }
