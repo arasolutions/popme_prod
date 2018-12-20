@@ -65432,10 +65432,17 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+@font-face {
+  font-family: 'Lato-Regular';
+  src: url("../assets/fonts/Lato-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
 ion-app {
   margin-top: env(safe-area-inset-top);
   margin-bottom: env(safe-area-inset-bottom);
   background-color: #2C2C2C;
+  font-family: 'Lato-Regular' !important;
 }
 
 .btn-default {
@@ -68339,6 +68346,15 @@ tutoriel .tutoriel-content {
 
 tutoriel .tutoriel-content .scroll-content {
   padding: 10px;
+}
+
+tutoriel .tutoriel-content ul {
+  margin-top: -6px;
+  margin-left: -10px;
+}
+
+tutoriel .tutoriel-content li {
+  list-style: none;
 }
 
 tutoriel div.step-level {
