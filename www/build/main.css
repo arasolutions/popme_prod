@@ -67019,7 +67019,7 @@ page-clanEdit .row {
   border-bottom: solid 1px #CCC;
 }
 
-.profile-image {
+page-first .profile-image {
   width: 128px;
   height: 128px;
   text-align: center;
@@ -67031,19 +67031,52 @@ page-clanEdit .row {
   background-position: top;
 }
 
-.first-step-1-change-photo {
+page-first .first-step-1-change-photo {
   margin: 10px auto 20px auto;
   font-weight: bold;
   font-size: 1.2rem;
 }
 
-.description-example {
+page-first .description-example {
   text-align: left;
   margin-top: 4px;
 }
 
-.description-example ul {
+page-first .description-example ul {
   margin-top: 5px;
+}
+
+page-first div.step-level {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 20px 5px 0;
+}
+
+page-first div.step-level > div {
+  width: 50%;
+}
+
+page-first .pass {
+  position: absolute;
+  bottom: 10px;
+}
+
+page-first .pass-text {
+  color: grey;
+}
+
+page-first button {
+  border-radius: 50px !important;
+  background-color: #f1c40f !important;
+  font-weight: bold !important;
+  color: #333 !important;
+}
+
+page-first button ion-icon {
+  color: #333;
+  font-weight: bold;
+  padding-left: 5px;
 }
 
 page-first-step2 .profile-images-edit {
@@ -67101,6 +67134,32 @@ page-first-step2 .big-thumb {
     width: 160px;
     margin-top: 36px;
   }
+}
+
+page-first-step2 button.valider {
+  border-radius: 50px !important;
+  background-color: #f1c40f !important;
+  font-weight: bold !important;
+  color: #333 !important;
+}
+
+page-first-step2 button.valider ion-icon {
+  color: #333;
+  font-weight: bold;
+  padding-left: 5px;
+}
+
+page-first-step3 button {
+  border-radius: 50px !important;
+  background-color: #f1c40f !important;
+  font-weight: bold !important;
+  color: #333 !important;
+}
+
+page-first-step3 button ion-icon {
+  color: #333;
+  font-weight: bold;
+  padding-left: 5px;
 }
 
 page-loading .background-screensplash {
@@ -68100,6 +68159,10 @@ page-settings .btn-edit {
 
 page-settings .btn-edit ion-icon {
   color: white;
+}
+
+page-settings ion-list a {
+  text-decoration: none;
 }
 
 page-trend .color0 {
