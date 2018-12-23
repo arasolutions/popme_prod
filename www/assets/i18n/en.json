@@ -1,0 +1,155 @@
+{
+  "APP": {
+    "VERSION": "1.0.1"
+  },
+  "BUTTON": {
+    "ADD": "Add",
+    "CONNECTION": "Connect",
+    "JOIN": "Join",
+    "SKIP": "Skip",
+    "QUIT": "Quit"
+  },
+  "PAGE": {
+    "CLAN": {
+      "TITLE": "Clan",
+      "MY_CLAN": "My clans",
+      "JOIN_CLAN": "Join a clan",
+      "CREATE_CLAN": "Create a clan",
+      "NO_CLAN": "You do not have a clan yet"
+    },
+    "LOADING": {
+      "PROFIL": "Loading your profile",
+      "PHOTOS": "Loading your photos"
+    },
+    "LOG": {
+      "ACTIVITY": "Activity",
+      "FILTER_ACTIVITY": "Activity",
+      "FILTER_SEARCH": "Search",
+      "PAGE.LOG.NO_RESULT_TITLE": "Pity",
+      "NO_RESULT_DESCRIPTION": "Nobody has popped yet",
+      "POPED": "you popped"
+    },
+    "LOGIN": {
+      "BAD_ACCOUNT" : "Your account and / or password are not valid",
+      "CONNEXION_FACEBOOK": "Facebook login",
+      "CONNEXION_CLASSIQUE": "Classic connection",
+      "REGISTER": "Register",
+      "TUTORIAL1": "Create your profile <br /> and send your best photos",
+      "TUTORIAL2": "Pop if you like <br /> or pass the photos",
+      "TUTORIAL3": "Become the most popular <br /> and crush your friends!"
+    },
+    "LOGIN_CLASSIQUE": {
+      "CONNECTION": "Connection",
+      "REINIT_PASSWORD": "Reset my password"
+    },
+    "PLAY": {
+      "SEE_PROFIL": "Open his profile",
+      "NO_PHOTOS": "There are no more photos"
+    },
+    "PROFILE": {
+      "EDIT_INFOS": "Edit my account"
+    },
+    "RANKING": {
+      "TITLE": "Rankings",
+      "MENU_WORLD": "World",
+      "MENU_COUNTRY": "Country",
+      "MENU_CITY": "City",
+      "FULL_RANKING": "Full ranking",
+      "DEFAULT_RANKING": "Default ranking",
+      "PSEUDO": "Pseudo",
+      "SCORE": "Score",
+      "NO_ADDRESS": "Did not you fill in your address?",
+      "NO_CLAN": "Do not you have a clan?",
+      "JOIN_CLAN": "Join a clan"
+    },
+    "REGISTER": {
+      "TITLE": "Welcome to PopMe, with only 4 photos, become more pop than your friends. To create your profile, just fill in the following information:"
+    },
+    "SETTINGS": {
+      "TITLE": "Setting",
+      "SLOGAN": "Become the most popular",
+      "ACCOUNT": {
+        "DELETE": "Sign out",
+        "SIGN_OUT": "Delete my account"
+      },
+      "CONTACT": {
+        "TITLE": "Contact us",
+        "LABEL_HELP": "Help and assistance"
+      },
+      "NOTICES": {
+        "TITLE": "Legal Notice",
+        "LABEL_PRIVACY_POLICY": "Privacy policy",
+        "LABEL_CONDITIONS_OF_USE": "Conditions of use"
+      },
+      "INFORMATIONS": {
+        "TITLE": "My informations",
+        "LABEL_DESCRIPTION": "Description",
+        "LABEL_LOCATION": "Location",
+        "LABEL_LOCATION_DESCRIPTION": "My current address",
+        "LABEL_BIRTHDAY": "Birth date",
+        "LABEL_SEX": "Sex",
+        "LABEL_SEX_OPTION1": "Women",
+        "LABEL_SEX_OPTION2": "Men",
+        "LABEL_SEX_OPTION3": "Other"
+      },
+      "SETTING": {
+        "TITLE": "My informations",
+        "LABEL_LANGUAGE": "Language",
+        "LABEL_LANGUAGE_OPTION1": "French",
+        "LABEL_LANGUAGE_OPTION2": "English"
+      }
+    },
+    "TREND": {
+      "TITLE": "Trends",
+      "BEST_POPED": "The most populated of the week",
+      "BEST_POPER": "The biggest popers of the week",
+      "BEST_PHOTO": "The photo of the week"
+    }
+  },
+  "TUTORIAL": {
+    "1": {
+      "TITLE": "Hello new poper!",
+      "TEXT1": "I will quickly introduce you how to become the most popular !"
+    },
+    "2": {
+      "TITLE": "That's your profile",
+      "TEXT1": "There is :",
+      "TEXT2": "Your score",
+      "TEXT3": "Your ranking",
+      "TEXT4": "The time you have to wait before putting a new picture"
+    },
+    "3": {
+      "TITLE": "That's the game page !",
+      "TEXT1": "You may like or dislike the popies of other players",
+      "TEXT2": "So what do you think of this popy ?"
+    },
+    "4": {
+      "TITLE": "Great",
+      "TEXT1": "Let's move on ..",
+      "TEXT2": "Ah, I think someone popped your picture :)"
+    },
+    "5": {
+      "TITLE": "Someone liked your picture",
+      "TEXT1": "What if we went to see his profile ?",
+      "TEXT2": "View Profile"
+    },
+    "6": {
+      "TITLE": "Here is his profile",
+      "TEXT1": "You can see these popies and write them right away",
+      "TEXT2": "I'm popping"
+    },
+    "7": {
+      "TITLE": "Very good !",
+      "TEXT1": "Now, let's go back to your profile, your score has evolved !"
+    },
+    "8": {
+      "TITLE": "Back to your profile",
+      "TEXT1": "Refresh your screen, and you will see your score evolved ..."
+    },
+    "9": {
+      "TITLE": "It's over",
+      "TEXT1": "You can now become the most flexible !",
+      "TEXT2": "Good luck !"
+    }
+  }
+}
