@@ -65514,6 +65514,14 @@ ion-row.no-padder ion-col {
   text-align: left;
 }
 
+.upper {
+  text-transform: uppercase;
+}
+
+.lower {
+  text-transform: lowercase;
+}
+
 .card-custom {
   background-color: white;
   border-radius: 6px;
