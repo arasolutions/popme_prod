@@ -6782,7 +6782,7 @@ var ProfilePage = /** @class */ (function () {
                             var options = {
                                 sourceType: 0,
                                 quality: 50,
-                                destinationType: _this.camera.DestinationType.NATIVE_URI,
+                                destinationType: _this.camera.DestinationType.FILE_URI,
                                 encodingType: _this.camera.EncodingType.JPEG,
                                 mediaType: _this.camera.MediaType.PICTURE,
                                 correctOrientation: true
@@ -6792,7 +6792,7 @@ var ProfilePage = /** @class */ (function () {
                                 _this.crop.crop(imageData, { quality: 75 })
                                     .then(function (newPath) {
                                     _this.base64.encodeFile(newPath.toString()).then(function (base64File) {
-                                        console.log(base64File);
+                                        //console.log(base64File);
                                         alert('test1');
                                         //let base64Image = 'data:image/jpeg;base64,' + base64File;
                                         _this.user.popies[index].image = base64File;
