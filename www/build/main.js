@@ -6795,7 +6795,9 @@ var ProfilePage = /** @class */ (function () {
                                     _this.base64.encodeFile(newPath).then(function (base64File) {
                                         //console.log(base64File);
                                         alert('test1');
+                                        alert(base64File);
                                         var base64Image = 'data:image/jpeg;base64,' + base64File;
+                                        alert(base64Image);
                                         _this.user.popies[index].image = base64Image;
                                         alert('test2');
                                         var data;
