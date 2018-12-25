@@ -6792,45 +6792,46 @@ var ProfilePage = /** @class */ (function () {
                                 _this.crop.crop(imageData, { quality: 75 })
                                     .then(function (newPath) {
                                     alert('aaaaabb');
-                                    _this.base64.encodeFile(newPath).then(function (base64File) {
-                                        //console.log(base64File);
-                                        alert('test1');
-                                        alert(base64File);
-                                        var base64Image = 'data:image/jpeg;base64,' + base64File;
-                                        alert(base64Image);
-                                        _this.user.popies[index].image = base64Image;
-                                        alert('test2');
-                                        var data;
-                                        data = {};
-                                        data.popy = base64Image;
-                                        // TODO TEST HERE
-                                        //this.presentPopoverPreview(imageData);
-                                        var loading = _this.loadingCtrl.create({
-                                            spinner: 'crescent',
-                                            content: 'Chargement ...',
-                                            dismissOnPageChange: true
-                                        });
-                                        loading.present();
-                                        _this.api.post('addPopy/' + _this.user.id, data)
-                                            .subscribe(function (data) {
-                                            var body;
-                                            body = JSON.parse(data.text());
-                                            if (body.error) {
-                                                loading.dismiss();
-                                                _this.doAlert(body.message.text);
-                                            }
-                                            else {
-                                                loading.dismiss();
-                                                _this.loadUserInfo(_this.user.id);
-                                            }
-                                        }, function (err) {
-                                            loading.dismiss();
-                                            _this.doAlert(err.message);
-                                        }, function () {
-                                        });
-                                    }).catch(function () {
-                                        alert('Error reading file');
+                                    //this.base64.encodeFile(newPath).then((base64File: string) => {
+                                    //console.log(base64File);
+                                    alert('test1');
+                                    alert(newPath);
+                                    alert(newPath.replace(/^file:\/\//, ''));
+                                    var base64Image = 'data:image/jpeg;base64,' + newPath.replace(/^file:\/\//, '');
+                                    alert(base64Image);
+                                    _this.user.popies[index].image = base64Image;
+                                    alert('test2');
+                                    var data;
+                                    data = {};
+                                    data.popy = base64Image;
+                                    // TODO TEST HERE
+                                    //this.presentPopoverPreview(imageData);
+                                    var loading = _this.loadingCtrl.create({
+                                        spinner: 'crescent',
+                                        content: 'Chargement ...',
+                                        dismissOnPageChange: true
                                     });
+                                    loading.present();
+                                    _this.api.post('addPopy/' + _this.user.id, data)
+                                        .subscribe(function (data) {
+                                        var body;
+                                        body = JSON.parse(data.text());
+                                        if (body.error) {
+                                            loading.dismiss();
+                                            _this.doAlert(body.message.text);
+                                        }
+                                        else {
+                                            loading.dismiss();
+                                            _this.loadUserInfo(_this.user.id);
+                                        }
+                                    }, function (err) {
+                                        loading.dismiss();
+                                        _this.doAlert(err.message);
+                                    }, function () {
+                                    });
+                                    /*}).catch(() => {
+                                        alert('Error reading file');
+                                    });*/
                                 }, function (error) {
                                     console.log("CROP ERROR -> " + JSON.stringify(error));
                                     alert("CROP ERROR: " + JSON.stringify(error));
