@@ -6785,11 +6785,12 @@ var ProfilePage = /** @class */ (function () {
                                 // CROP
                                 _this.crop.crop(imageData, { quality: 75 })
                                     .then(function (newPath) {
-                                    var base64Image = 'data:image/jpeg;base64,' + newPath;
-                                    _this.user.popies[index].image = base64Image;
+                                    //let base64Image = 'data:image/jpeg;base64,' + newPath;
+                                    //this.user.popies[index].image = base64Image;
+                                    _this.user.popies[index].image = newPath;
                                     var data;
                                     data = {};
-                                    data.popy = base64Image;
+                                    data.popy = newPath;
                                     // TODO TEST HERE
                                     //this.presentPopoverPreview(imageData);
                                     var loading = _this.loadingCtrl.create({
