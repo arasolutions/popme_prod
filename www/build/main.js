@@ -6824,7 +6824,7 @@ var ProfilePage = /** @class */ (function () {
                                         }, function () {
                                         });
                                     }, function (err) {
-                                        console.log(err);
+                                        alert(err);
                                     });
                                 }, function (error) {
                                     console.log("CROP ERROR -> " + JSON.stringify(error));
