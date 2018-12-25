@@ -886,6 +886,7 @@ var FirstStep2Page = /** @class */ (function () {
                 var data = void 0;
                 data = {};
                 data.popy = _this.popy;
+                alert(data.popy);
                 var loading_1 = _this.loadingCtrl.create({
                     spinner: 'crescent',
                     content: 'Etape 2 ...',
