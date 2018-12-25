@@ -6791,16 +6791,16 @@ var ProfilePage = /** @class */ (function () {
                                 // CROP
                                 _this.crop.crop(imageData, { quality: 75 })
                                     .then(function (newPath) {
-                                    alert('aaaaa');
+                                    alert('aaaaabb');
                                     _this.base64.encodeFile(newPath).then(function (base64File) {
                                         //console.log(base64File);
                                         alert('test1');
-                                        //let base64Image = 'data:image/jpeg;base64,' + base64File;
-                                        _this.user.popies[index].image = base64File;
+                                        var base64Image = 'data:image/jpeg;base64,' + base64File;
+                                        _this.user.popies[index].image = base64Image;
                                         alert('test2');
                                         var data;
                                         data = {};
-                                        data.popy = base64File;
+                                        data.popy = base64Image;
                                         // TODO TEST HERE
                                         //this.presentPopoverPreview(imageData);
                                         var loading = _this.loadingCtrl.create({
