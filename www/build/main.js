@@ -870,7 +870,7 @@ var FirstStep2Page = /** @class */ (function () {
             }
             else {
                 _this.popyUrl = 'url(' + _this.userProvider.getPopies()[0].image + ')';
-                _this.popy = _this.userProvider.getPopies()[0].image;
+                //this.popy = this.userProvider.getPopies()[0].image;
             }
         });
     }
@@ -886,7 +886,6 @@ var FirstStep2Page = /** @class */ (function () {
                 var data = void 0;
                 data = {};
                 data.popy = _this.popy;
-                alert(data.popy);
                 var loading_1 = _this.loadingCtrl.create({
                     spinner: 'crescent',
                     content: 'Etape 2 ...',
