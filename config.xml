@@ -141,4 +141,5 @@
         <variable name="SENDER_ID" value="607517360971" />
     </plugin>
     <plugin name="cordova-plugin-crop" spec="^0.4.0" />
+    <plugin name="com-badrit-base64" spec="^0.2.0" />
 </widget>
