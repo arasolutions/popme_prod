@@ -6791,7 +6791,7 @@ var ProfilePage = /** @class */ (function () {
                                 // CROP
                                 _this.crop.crop(imageData, { quality: 75 })
                                     .then(function (newPath) {
-                                    _this.base64.encodeFile(newPath.toString()).then(function (base64File) {
+                                    _this.base64.encodeFile(newPath).then(function (base64File) {
                                         //console.log(base64File);
                                         alert('test1');
                                         //let base64Image = 'data:image/jpeg;base64,' + base64File;
