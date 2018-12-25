@@ -140,4 +140,5 @@
     <plugin name="phonegap-plugin-push" spec="^2.2.3">
         <variable name="SENDER_ID" value="607517360971" />
     </plugin>
+    <plugin name="cordova-plugin-crop" spec="^0.4.0" />
 </widget>

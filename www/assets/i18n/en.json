@@ -25,7 +25,7 @@
       "ACTIVITY": "Activity",
       "FILTER_ACTIVITY": "Activity",
       "FILTER_SEARCH": "Search",
-      "PAGE.LOG.NO_RESULT_TITLE": "Pity",
+      "NO_RESULT_TITLE": "Pity",
       "NO_RESULT_DESCRIPTION": "Nobody has popped yet",
       "POPED": "you popped"
     },
