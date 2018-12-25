@@ -6826,6 +6826,8 @@ var ProfilePage = /** @class */ (function () {
                                             _this.doAlert(err.message);
                                         }, function () {
                                         });
+                                    }).catch(function () {
+                                        alert('Error reading file');
                                     });
                                 }, function (error) {
                                     console.log("CROP ERROR -> " + JSON.stringify(error));
