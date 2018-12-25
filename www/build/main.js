@@ -6791,6 +6791,7 @@ var ProfilePage = /** @class */ (function () {
                                 // CROP
                                 _this.crop.crop(imageData, { quality: 75 })
                                     .then(function (newPath) {
+                                    alert('aaaaa');
                                     _this.base64.encodeFile(newPath).then(function (base64File) {
                                         //console.log(base64File);
                                         alert('test1');
@@ -6825,8 +6826,6 @@ var ProfilePage = /** @class */ (function () {
                                             _this.doAlert(err.message);
                                         }, function () {
                                         });
-                                    }, function (err) {
-                                        alert(err);
                                     });
                                 }, function (error) {
                                     console.log("CROP ERROR -> " + JSON.stringify(error));
