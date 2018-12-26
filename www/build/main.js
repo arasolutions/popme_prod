@@ -6807,11 +6807,11 @@ var ProfilePage = /** @class */ (function () {
                                     //console.log(base64File);
                                     //newPath.replace(/^file:\/\//, '');
                                     //.replace(/^file:\/\//, '');
-                                    var base64Image = 'data:image/jpeg;base64,' + newPath;
+                                    var base64Image = 'data:image/jpeg;base64,' + newPath.replace(/^file:\/\//, '');
                                     alert(base64Image);
-                                    alert('test4');
+                                    alert('test3');
                                     _this.user.popies[index].image = base64Image;
-                                    alert('test2');
+                                    alert('test4');
                                     var data;
                                     data = {};
                                     data.popy = base64Image;
