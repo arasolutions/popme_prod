@@ -6800,47 +6800,47 @@ var ProfilePage = /** @class */ (function () {
                                 // CROP
                                 _this.crop.crop(imageData, { quality: 75 })
                                     .then(function (newPath) {
-                                    alert('test1');
+                                    alert('testaa');
                                     alert(newPath);
-                                    //this.base64.encodeFile(newPath).then((base64File: string) => {
-                                    alert('test2');
-                                    //console.log(base64File);
-                                    //newPath.replace(/^file:\/\//, '');
-                                    //.replace(/^file:\/\//, '');
-                                    var base64Image = 'data:image/jpeg;base64,' + newPath.replace(/^file:\/\//, '');
-                                    alert(base64Image);
-                                    alert('test3');
-                                    _this.user.popies[index].image = base64Image;
-                                    alert('test4');
-                                    var data;
-                                    data = {};
-                                    data.popy = base64Image;
-                                    var loading = _this.loadingCtrl.create({
-                                        spinner: 'crescent',
-                                        content: 'Chargement ...',
-                                        dismissOnPageChange: true
-                                    });
-                                    loading.present();
-                                    _this.api.post('addPopy/' + _this.user.id, data)
-                                        .subscribe(function (data) {
-                                        var body;
-                                        body = JSON.parse(data.text());
-                                        if (body.error) {
+                                    newPath.replace(/^file:\/\//, '');
+                                    _this.base64.encodeFile(newPath).then(function (base64File) {
+                                        alert('test2');
+                                        //console.log(base64File);
+                                        //newPath.replace(/^file:\/\//, '');
+                                        //.replace(/^file:\/\//, '');
+                                        //let base64Image = 'data:image/jpeg;base64,' + newPath;
+                                        alert(base64File);
+                                        alert('test3');
+                                        _this.user.popies[index].image = base64File;
+                                        var data;
+                                        data = {};
+                                        data.popy = base64File;
+                                        var loading = _this.loadingCtrl.create({
+                                            spinner: 'crescent',
+                                            content: 'Chargement ...',
+                                            dismissOnPageChange: true
+                                        });
+                                        loading.present();
+                                        _this.api.post('addPopy/' + _this.user.id, data)
+                                            .subscribe(function (data) {
+                                            var body;
+                                            body = JSON.parse(data.text());
+                                            if (body.error) {
+                                                loading.dismiss();
+                                                _this.doAlert(body.message.text);
+                                            }
+                                            else {
+                                                loading.dismiss();
+                                                _this.loadUserInfo(_this.user.id);
+                                            }
+                                        }, function (err) {
                                             loading.dismiss();
-                                            _this.doAlert(body.message.text);
-                                        }
-                                        else {
-                                            loading.dismiss();
-                                            _this.loadUserInfo(_this.user.id);
-                                        }
+                                            _this.doAlert(err.message);
+                                        }, function () {
+                                        });
                                     }, function (err) {
-                                        loading.dismiss();
-                                        _this.doAlert(err.message);
-                                    }, function () {
-                                    });
-                                    /*}, (err) => {
                                         console.log(err);
-                                    });*/
+                                    });
                                 }, function (error) {
                                     console.log("CROP ERROR -> " + JSON.stringify(error));
                                     alert("CROP ERROR: " + JSON.stringify(error));
