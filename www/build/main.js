@@ -6799,22 +6799,23 @@ var ProfilePage = /** @class */ (function () {
                             _this.camera.getPicture(options).then(function (imageData) {
                                 // CROP
                                 alert(imageData);
-                                _this.crop.crop(imageData, { quality: 75 })
+                                var base64Image = 'data:image/jpeg;base64,' + imageData;
+                                _this.crop.crop(base64Image, { quality: 75 })
                                     .then(function (newPath) {
                                     //this.base64.encodeFile(newPath).then((base64File: string) => {
                                     //console.log(base64File);
                                     alert(newPath);
-                                    newPath.replace(/^file:\/\//, '');
+                                    //newPath.replace(/^file:\/\//, '');
                                     //.replace(/^file:\/\//, '');
-                                    alert(newPath);
-                                    var base64Image = 'data:image/jpeg;base64,' + newPath;
+                                    //alert(newPath);
+                                    //let base64Image = 'data:image/jpeg;base64,' + newPath;
                                     alert('test1');
-                                    alert(base64Image);
-                                    _this.user.popies[index].image = base64Image;
+                                    //alert(base64Image);
+                                    _this.user.popies[index].image = newPath;
                                     alert('test2');
                                     var data;
                                     data = {};
-                                    data.popy = base64Image;
+                                    data.popy = newPath;
                                     var loading = _this.loadingCtrl.create({
                                         spinner: 'crescent',
                                         content: 'Chargement ...',
