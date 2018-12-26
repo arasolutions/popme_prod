@@ -6791,31 +6791,29 @@ var ProfilePage = /** @class */ (function () {
                             var options = {
                                 sourceType: 0,
                                 quality: 50,
-                                destinationType: _this.camera.DestinationType.DATA_URL,
+                                destinationType: _this.camera.DestinationType.FILE_URI,
                                 encodingType: _this.camera.EncodingType.JPEG,
                                 mediaType: _this.camera.MediaType.PICTURE,
                                 correctOrientation: true
                             };
                             _this.camera.getPicture(options).then(function (imageData) {
                                 // CROP
-                                alert(imageData);
-                                var base64Image = 'data:image/jpeg;base64,' + imageData;
-                                _this.crop.crop(base64Image, { quality: 75 })
+                                _this.crop.crop(imageData, { quality: 75 })
                                     .then(function (newPath) {
                                     //this.base64.encodeFile(newPath).then((base64File: string) => {
                                     //console.log(base64File);
                                     alert(newPath);
-                                    //newPath.replace(/^file:\/\//, '');
+                                    newPath.replace(/^file:\/\//, '');
                                     //.replace(/^file:\/\//, '');
-                                    //alert(newPath);
-                                    //let base64Image = 'data:image/jpeg;base64,' + newPath;
+                                    alert(newPath);
+                                    var base64Image = 'data:image/jpeg;base64,' + newPath;
                                     alert('test1');
-                                    //alert(base64Image);
-                                    _this.user.popies[index].image = newPath;
+                                    alert(base64Image);
+                                    _this.user.popies[index].image = base64Image;
                                     alert('test2');
                                     var data;
                                     data = {};
-                                    data.popy = newPath;
+                                    data.popy = base64Image;
                                     var loading = _this.loadingCtrl.create({
                                         spinner: 'crescent',
                                         content: 'Chargement ...',
@@ -6865,7 +6863,8 @@ var ProfilePage = /** @class */ (function () {
                             _this.camera.getPicture(options).then(function (imageData) {
                                 // imageData is either a base64 encoded string or a file URI
                                 // If it's base64 (DATA_URL):
-                                var base64Image = 'data:image/jpeg;base64,' + imageData;
+                                //let base64Image = 'data:image/jpeg;base64,' + imageData;
+                                var base64Image = imageData;
                                 _this.user.popies[index].image = base64Image;
                                 var data;
                                 data = {};
