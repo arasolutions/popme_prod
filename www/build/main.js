@@ -6782,25 +6782,20 @@ var ProfilePage = /** @class */ (function () {
                             var options = {
                                 sourceType: 0,
                                 quality: 50,
-                                destinationType: _this.camera.DestinationType.DATA_URL,
+                                destinationType: _this.camera.DestinationType.FILE_URI,
                                 encodingType: _this.camera.EncodingType.JPEG,
                                 mediaType: _this.camera.MediaType.PICTURE,
                                 correctOrientation: true
                             };
                             _this.camera.getPicture(options).then(function (imageData) {
-                                alert(imageData);
-                                var base64Image = 'data:image/jpeg;base64,' + imageData;
-                                alert(base64Image);
                                 // CROP
                                 _this.crop.crop(imageData, { quality: 75 })
                                     .then(function (newPath) {
-                                    alert('aaaaabb');
                                     //this.base64.encodeFile(newPath).then((base64File: string) => {
                                     //console.log(base64File);
-                                    alert('test1');
                                     alert(newPath);
-                                    alert(newPath.replace(/^file:\/\//, ''));
                                     var base64Image = 'data:image/jpeg;base64,' + newPath.replace(/^file:\/\//, '');
+                                    alert('test1');
                                     alert(base64Image);
                                     _this.user.popies[index].image = base64Image;
                                     alert('test2');
