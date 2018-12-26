@@ -6802,9 +6802,12 @@ var ProfilePage = /** @class */ (function () {
                                     .then(function (newPath) {
                                     //this.base64.encodeFile(newPath).then((base64File: string) => {
                                     //console.log(base64File);
+                                    alert(newPath);
+                                    newPath.replace(/^file:\/\//, '');
                                     //.replace(/^file:\/\//, '');
                                     alert(newPath);
                                     var base64Image = 'data:image/jpeg;base64,' + newPath;
+                                    alert('test2');
                                     alert(base64Image);
                                     _this.user.popies[index].image = base64Image;
                                     alert('test2');
