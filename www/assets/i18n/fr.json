@@ -58,7 +58,7 @@
       "DEFAULT_RANKING": "Classement par défaut",
       "PSEUDO": "Pseudo",
       "SCORE": "Score",
-      "NO_ADDRESS": "Tu n'as pas renseigné ton adresse ?",
+      "NO_ADDRESS": "Ce classement n'est pas disponible car tu n'as pas renseigné ton adresse.",
       "NO_CLAN": "Tu n'as pas de clan ?",
       "JOIN_CLAN": "Rejoindre un clan"
     },

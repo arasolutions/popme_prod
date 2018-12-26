@@ -58,7 +58,7 @@
       "DEFAULT_RANKING": "Default ranking",
       "PSEUDO": "Pseudo",
       "SCORE": "Score",
-      "NO_ADDRESS": "Did not you fill in your address?",
+      "NO_ADDRESS": "This ranking is not available because you did not fill in your address.",
       "NO_CLAN": "Do not you have a clan?",
       "JOIN_CLAN": "Join a clan"
     },
