@@ -6827,6 +6827,7 @@ var ProfilePage = /** @class */ (function () {
                                             loading.dismiss();
                                             _this.loadUserInfo(_this.user.id);
                                             alert('test6');
+                                            alert(body.message.text);
                                         }
                                     }, function (err) {
                                         loading.dismiss();
