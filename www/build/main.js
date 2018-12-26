@@ -6802,7 +6802,7 @@ var ProfilePage = /** @class */ (function () {
                                     .then(function (newPath) {
                                     alert('testaa');
                                     alert(newPath);
-                                    newPath.replace(/^file:\/\//, '');
+                                    //newPath.replace(/^file:\/\//, '');
                                     _this.base64.encodeFile(newPath).then(function (base64File) {
                                         alert('test2');
                                         //console.log(base64File);
@@ -6839,12 +6839,13 @@ var ProfilePage = /** @class */ (function () {
                                         }, function () {
                                         });
                                     }, function (err) {
-                                        console.log(err);
+                                        alert(err);
                                     });
                                 }, function (error) {
                                     console.log("CROP ERROR -> " + JSON.stringify(error));
                                     alert("CROP ERROR: " + JSON.stringify(error));
                                 });
+                                alert('fin test');
                             }, function (err) {
                                 // Handle error
                             });
