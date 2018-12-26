@@ -69,8 +69,8 @@
       "TITLE": "Setting",
       "SLOGAN": "Become the most popular",
       "ACCOUNT": {
-        "DELETE": "Sign out",
-        "SIGN_OUT": "Delete my account"
+        "DELETE": "Delete my account",
+        "SIGN_OUT": "Sign out"
       },
       "CONTACT": {
         "TITLE": "Contact us",

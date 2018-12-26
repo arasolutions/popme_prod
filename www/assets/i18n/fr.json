@@ -69,8 +69,8 @@
       "TITLE": "Réglage",
       "SLOGAN": "Devenez le plus populaire",
       "ACCOUNT": {
-        "DELETE": "Déconnexion",
-        "SIGN_OUT": "Supprimer mon compte"
+        "DELETE": "Supprimer mon compte",
+        "SIGN_OUT": "Déconnexion"
       },
       "CONTACT": {
         "TITLE": "Nous contacter",
