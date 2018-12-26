@@ -6798,12 +6798,7 @@ var ProfilePage = /** @class */ (function () {
                                 allowEdit: true
                             };
                             _this.camera.getPicture(options).then(function (imageData) {
-                                // CROP
-                                alert('testa');
-                                //this.crop.crop(imageData, {quality: 75}).then(newPath => {
-                                alert('testaa');
                                 var base64Image = 'data:image/jpeg;base64,' + imageData;
-                                alert('test3');
                                 _this.user.popies[index].image = base64Image;
                                 var data;
                                 data = {};
@@ -6816,32 +6811,21 @@ var ProfilePage = /** @class */ (function () {
                                 loading.present();
                                 _this.api.post('addPopy/' + _this.user.id, data)
                                     .subscribe(function (data) {
-                                    alert('test4');
                                     var body;
                                     body = JSON.parse(data.text());
                                     if (body.error) {
                                         loading.dismiss();
                                         _this.doAlert(body.message.text);
-                                        alert('test5');
                                     }
                                     else {
                                         loading.dismiss();
-                                        _this.loadUserInfo(_this.user.id);
-                                        alert('test6');
-                                        alert(body.message.text);
+                                        _this.loadUserInfo(_this.userProvider.getId(), true);
                                     }
                                 }, function (err) {
                                     loading.dismiss();
                                     _this.doAlert(err.message);
-                                    alert('test7');
                                 }, function () {
                                 });
-                                /*},
-                                error => {
-                                    console.log("CROP ERROR -> " + JSON.stringify(error));
-                                    alert("CROP ERROR: " + JSON.stringify(error));
-                                }
-                            );*/
                             }, function (err) {
                             });
                         }
@@ -6881,7 +6865,7 @@ var ProfilePage = /** @class */ (function () {
                                     }
                                     else {
                                         loading.dismiss();
-                                        _this.loadUserInfo(_this.user.id);
+                                        _this.loadUserInfo(_this.userProvider.getId(), true);
                                     }
                                 }, function (err) {
                                     loading.dismiss();
