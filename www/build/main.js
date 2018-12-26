@@ -6791,7 +6791,7 @@ var ProfilePage = /** @class */ (function () {
                             var options = {
                                 sourceType: 0,
                                 quality: 50,
-                                destinationType: _this.camera.DestinationType.FILE_URI,
+                                destinationType: _this.camera.DestinationType.DATA_URL,
                                 encodingType: _this.camera.EncodingType.JPEG,
                                 mediaType: _this.camera.MediaType.PICTURE,
                                 correctOrientation: true,
