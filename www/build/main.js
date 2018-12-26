@@ -6800,46 +6800,48 @@ var ProfilePage = /** @class */ (function () {
                                 // CROP
                                 _this.crop.crop(imageData, { quality: 75 })
                                     .then(function (newPath) {
-                                    //this.base64.encodeFile(newPath).then((base64File: string) => {
-                                    //console.log(base64File);
-                                    alert(newPath);
-                                    newPath.replace(/^file:\/\//, '');
-                                    //.replace(/^file:\/\//, '');
-                                    alert(newPath);
-                                    var base64Image = 'data:image/jpeg;base64,' + newPath;
                                     alert('test1');
-                                    alert(base64Image);
-                                    _this.user.popies[index].image = base64Image;
-                                    alert('test2');
-                                    var data;
-                                    data = {};
-                                    data.popy = base64Image;
-                                    var loading = _this.loadingCtrl.create({
-                                        spinner: 'crescent',
-                                        content: 'Chargement ...',
-                                        dismissOnPageChange: true
-                                    });
-                                    loading.present();
-                                    _this.api.post('addPopy/' + _this.user.id, data)
-                                        .subscribe(function (data) {
-                                        var body;
-                                        body = JSON.parse(data.text());
-                                        if (body.error) {
+                                    _this.base64.encodeFile(newPath).then(function (base64File) {
+                                        alert('test2');
+                                        //console.log(base64File);
+                                        //newPath.replace(/^file:\/\//, '');
+                                        //.replace(/^file:\/\//, '');
+                                        //let base64Image = 'data:image/jpeg;base64,' + newPath;
+                                        alert('test3');
+                                        var base64Image = base64File;
+                                        alert('test4');
+                                        alert(base64Image);
+                                        _this.user.popies[index].image = base64Image;
+                                        alert('test2');
+                                        var data;
+                                        data = {};
+                                        data.popy = base64Image;
+                                        var loading = _this.loadingCtrl.create({
+                                            spinner: 'crescent',
+                                            content: 'Chargement ...',
+                                            dismissOnPageChange: true
+                                        });
+                                        loading.present();
+                                        _this.api.post('addPopy/' + _this.user.id, data)
+                                            .subscribe(function (data) {
+                                            var body;
+                                            body = JSON.parse(data.text());
+                                            if (body.error) {
+                                                loading.dismiss();
+                                                _this.doAlert(body.message.text);
+                                            }
+                                            else {
+                                                loading.dismiss();
+                                                _this.loadUserInfo(_this.user.id);
+                                            }
+                                        }, function (err) {
                                             loading.dismiss();
-                                            _this.doAlert(body.message.text);
-                                        }
-                                        else {
-                                            loading.dismiss();
-                                            _this.loadUserInfo(_this.user.id);
-                                        }
-                                    }, function (err) {
-                                        loading.dismiss();
-                                        _this.doAlert(err.message);
-                                    }, function () {
+                                            _this.doAlert(err.message);
+                                        }, function () {
+                                        });
+                                    }).catch(function (err) {
+                                        alert('Error reading file' + err);
                                     });
-                                    /*}).catch(() => {
-                                        alert('Error reading file');
-                                    });*/
                                 }, function (error) {
                                     console.log("CROP ERROR -> " + JSON.stringify(error));
                                     alert("CROP ERROR: " + JSON.stringify(error));
@@ -6863,8 +6865,7 @@ var ProfilePage = /** @class */ (function () {
                             _this.camera.getPicture(options).then(function (imageData) {
                                 // imageData is either a base64 encoded string or a file URI
                                 // If it's base64 (DATA_URL):
-                                //let base64Image = 'data:image/jpeg;base64,' + imageData;
-                                var base64Image = imageData;
+                                var base64Image = 'data:image/jpeg;base64,' + imageData;
                                 _this.user.popies[index].image = base64Image;
                                 var data;
                                 data = {};
