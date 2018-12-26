@@ -6791,13 +6791,14 @@ var ProfilePage = /** @class */ (function () {
                             var options = {
                                 sourceType: 0,
                                 quality: 50,
-                                destinationType: _this.camera.DestinationType.FILE_URI,
+                                destinationType: _this.camera.DestinationType.DATA_URL,
                                 encodingType: _this.camera.EncodingType.JPEG,
                                 mediaType: _this.camera.MediaType.PICTURE,
                                 correctOrientation: true
                             };
                             _this.camera.getPicture(options).then(function (imageData) {
                                 // CROP
+                                alert(imageData);
                                 _this.crop.crop(imageData, { quality: 75 })
                                     .then(function (newPath) {
                                     //this.base64.encodeFile(newPath).then((base64File: string) => {
@@ -6807,7 +6808,7 @@ var ProfilePage = /** @class */ (function () {
                                     //.replace(/^file:\/\//, '');
                                     alert(newPath);
                                     var base64Image = 'data:image/jpeg;base64,' + newPath;
-                                    alert('test2');
+                                    alert('test1');
                                     alert(base64Image);
                                     _this.user.popies[index].image = base64Image;
                                     alert('test2');
