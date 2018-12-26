@@ -6794,51 +6794,54 @@ var ProfilePage = /** @class */ (function () {
                                 destinationType: _this.camera.DestinationType.FILE_URI,
                                 encodingType: _this.camera.EncodingType.JPEG,
                                 mediaType: _this.camera.MediaType.PICTURE,
-                                correctOrientation: true
+                                correctOrientation: true,
+                                allowEdit: true
                             };
                             _this.camera.getPicture(options).then(function (imageData) {
                                 // CROP
                                 alert('testa');
-                                _this.crop.crop(imageData, { quality: 75 }).then(function (newPath) {
-                                    alert('testaa');
-                                    var base64Image = 'data:image/jpeg;base64,' + newPath;
-                                    alert('test3');
-                                    _this.user.popies[index].image = base64Image;
-                                    var data;
-                                    data = {};
-                                    data.popy = base64Image;
-                                    var loading = _this.loadingCtrl.create({
-                                        spinner: 'crescent',
-                                        content: 'Chargement ...',
-                                        dismissOnPageChange: true
-                                    });
-                                    loading.present();
-                                    _this.api.post('addPopy/' + _this.user.id, data)
-                                        .subscribe(function (data) {
-                                        alert('test4');
-                                        var body;
-                                        body = JSON.parse(data.text());
-                                        if (body.error) {
-                                            loading.dismiss();
-                                            _this.doAlert(body.message.text);
-                                            alert('test5');
-                                        }
-                                        else {
-                                            loading.dismiss();
-                                            _this.loadUserInfo(_this.user.id);
-                                            alert('test6');
-                                            alert(body.message.text);
-                                        }
-                                    }, function (err) {
+                                //this.crop.crop(imageData, {quality: 75}).then(newPath => {
+                                alert('testaa');
+                                var base64Image = 'data:image/jpeg;base64,' + imageData;
+                                alert('test3');
+                                _this.user.popies[index].image = base64Image;
+                                var data;
+                                data = {};
+                                data.popy = base64Image;
+                                var loading = _this.loadingCtrl.create({
+                                    spinner: 'crescent',
+                                    content: 'Chargement ...',
+                                    dismissOnPageChange: true
+                                });
+                                loading.present();
+                                _this.api.post('addPopy/' + _this.user.id, data)
+                                    .subscribe(function (data) {
+                                    alert('test4');
+                                    var body;
+                                    body = JSON.parse(data.text());
+                                    if (body.error) {
                                         loading.dismiss();
-                                        _this.doAlert(err.message);
-                                        alert('test7');
-                                    }, function () {
-                                    });
-                                }, function (error) {
+                                        _this.doAlert(body.message.text);
+                                        alert('test5');
+                                    }
+                                    else {
+                                        loading.dismiss();
+                                        _this.loadUserInfo(_this.user.id);
+                                        alert('test6');
+                                        alert(body.message.text);
+                                    }
+                                }, function (err) {
+                                    loading.dismiss();
+                                    _this.doAlert(err.message);
+                                    alert('test7');
+                                }, function () {
+                                });
+                                /*},
+                                error => {
                                     console.log("CROP ERROR -> " + JSON.stringify(error));
                                     alert("CROP ERROR: " + JSON.stringify(error));
-                                });
+                                }
+                            );*/
                             }, function (err) {
                             });
                         }
