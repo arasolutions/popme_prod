@@ -4050,7 +4050,7 @@ var LoginPage = /** @class */ (function () {
         var _this = this;
         var data;
         data = {};
-        this.fb.login(['public_profile', 'email'])
+        this.fb.login(['public_profile', 'email', 'user_gender'])
             .then(function (res) {
             //alert(res.authResponse.userID);
             if (res.status === "connected") {
