@@ -67031,83 +67031,23 @@ page-clanEdit .row {
   border-bottom: solid 1px #CCC;
 }
 
-page-first .profile-image {
-  width: 128px;
-  height: 128px;
-  text-align: center;
-  background-color: white;
-  /*background-image: url(assets/images/unknown.png);*/
-  background-size: 160px;
-  margin: 20px auto 0 auto;
-  background-repeat: no-repeat;
-  background-position: top;
-}
-
-page-first .first-step-1-change-photo {
-  margin: 10px auto 20px auto;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-page-first .description-example {
-  text-align: left;
-  margin-top: 4px;
-}
-
-page-first .description-example ul {
-  margin-top: 5px;
-}
-
-page-first div.step-level {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  padding: 0 20px 5px 0;
-}
-
-page-first div.step-level > div {
-  width: 50%;
-}
-
-page-first .pass {
-  position: absolute;
-  bottom: 10px;
-}
-
-page-first .pass-text {
-  color: grey;
-}
-
-page-first button {
-  border-radius: 50px !important;
-  background-color: #f1c40f !important;
-  font-weight: bold !important;
-  color: #333 !important;
-}
-
-page-first button ion-icon {
-  color: #333;
-  font-weight: bold;
-  padding-left: 5px;
-}
-
-page-first-step2 .profile-images-edit {
+page-first-step .profile-images-edit {
   padding: 5px;
 }
 
-page-first-step2 .profile-images-edit .div-img {
+page-first-step .profile-images-edit .div-img {
   padding-bottom: 99%;
   background-image: url(https://www.popme.app/assets/images/popy_default.png);
 }
 
-page-first-step2 .profile-image {
+page-first-step .profile-image-popy {
   position: relative;
   width: calc(100% / 2 - 10px);
   margin: 5px auto;
   height: calc(100% / 2 - 10px);
 }
 
-page-first-step2 .profile-image .btn-edit {
+page-first-step .profile-image-popy .btn-edit {
   position: absolute;
   right: -8px;
   bottom: -8px;
@@ -67119,7 +67059,7 @@ page-first-step2 .profile-image .btn-edit {
   border-radius: 999em;
 }
 
-page-first-step2 .profile-image .popy-label {
+page-first-step .profile-image-popy .popy-label {
   position: absolute;
   bottom: 5px;
   left: 5px;
@@ -67130,45 +67070,61 @@ page-first-step2 .profile-image .popy-label {
   font-size: 0.8em;
 }
 
-page-first-step2 .big-thumb {
+page-first-step .profile-image-user {
   width: 128px;
-  display: inline-block;
+  height: 128px;
+  text-align: center;
+  background-color: white;
+  /*background-image: url(assets/images/unknown.png);*/
+  background-size: 160px;
+  margin: 20px auto 0 auto;
+  background-repeat: no-repeat;
+  background-position: top;
 }
 
-@media screen and (max-width: 320px) {
-  page-first-step2 .big-thumb {
-    width: 128px;
-  }
-}
-
-@media screen and (min-width: 321px) {
-  page-first-step2 .big-thumb {
-    width: 160px;
-    margin-top: 36px;
-  }
-}
-
-page-first-step2 button.valider {
-  border-radius: 50px !important;
-  background-color: #f1c40f !important;
-  font-weight: bold !important;
-  color: #333 !important;
-}
-
-page-first-step2 button.valider ion-icon {
-  color: #333;
+page-first-step .first-step-1-change-photo {
+  margin: 10px auto 20px auto;
   font-weight: bold;
-  padding-left: 5px;
+  font-size: 1.2rem;
 }
 
-page-first-step3 button {
+page-first-step .description-example {
+  text-align: left;
+  margin-top: 4px;
+}
+
+page-first-step .description-example ul {
+  margin-top: 5px;
+}
+
+page-first-step div.step-level {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0 20px 5px 0;
+}
+
+page-first-step div.step-level > div {
+  width: 50%;
+}
+
+page-first-step .pass {
+  position: absolute;
+  bottom: 10px;
+}
+
+page-first-step .pass-text {
+  color: grey;
+}
+
+page-first-step button {
   border-radius: 50px !important;
   background-color: #f1c40f !important;
   font-weight: bold !important;
   color: #333 !important;
 }
 
-page-first-step3 button ion-icon {
+page-first-step button ion-icon {
   color: #333;
   font-weight: bold;
   padding-left: 5px;
