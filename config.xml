@@ -133,10 +133,8 @@
         <variable name="DEEPLINK_HOST" value="popme.app" />
         <variable name="ANDROID_PATH_PREFIX" value="/" />
     </plugin>
-    <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2">
-        <variable name="SENDER_ID" value="607517360971" />
-    </plugin>
-    <plugin name="phonegap-plugin-push" spec="^2.2.3">
-        <variable name="SENDER_ID" value="607517360971" />
+    <plugin name="cordova-plugin-firebase" spec="https://github.com/Pliciweb/cordova-plugin-firebase.git">
+        <variable name="APP_GOOGLE_API_ID" value="1:607517360971:android:2ebddbddc4dbf104" />
+        <variable name="APP_GOOGLE_API_KEY" value="AIzaSyADLSC-gv_P2U4FO-N6Zs8VTO0XF2IVqOw" />
     </plugin>
 </widget>
