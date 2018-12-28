@@ -67117,14 +67117,14 @@ page-first-step .pass-text {
   color: grey;
 }
 
-page-first-step button.valid-button {
+page-first-step button {
   border-radius: 50px !important;
   background-color: #f1c40f !important;
   font-weight: bold !important;
   color: #333 !important;
 }
 
-page-first-step button.valid-button ion-icon {
+page-first-step button ion-icon {
   color: #333;
   font-weight: bold;
   padding-left: 5px;
