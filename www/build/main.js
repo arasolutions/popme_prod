@@ -6759,6 +6759,7 @@ var ProfilePage = /** @class */ (function () {
                 });
                 //this.storage.set('launchTutoriel', true);
                 _this.storage.get('launchTutoriel').then(function (val) {
+                    alert(val);
                     if (val) {
                         _this.tutoriel.setTutoriel();
                         if (tutoriel.getCurrentStep() == 0) {
