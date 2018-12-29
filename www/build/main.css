@@ -65615,6 +65615,14 @@ div.button-blank button {
   color: #f0c30e;
 }
 
+.popme-version {
+  position: absolute;
+  text-align: right;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.8em;
+}
+
 /* CSS Helper ver 1.1.1 */
 /* FLEX from Google Polymer 0.5.2 */
 html [layout][horizontal], html [layout][vertical] {
