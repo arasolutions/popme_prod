@@ -1,11 +1,13 @@
 {
   "APP": {
-    "VERSION": "1.0.1"
+    "VERSION": "1.0.3"
   },
   "BUTTON": {
     "ADD": "Ajouter",
     "CONNECTION": "Se connecter",
+    "FINISH": "Terminer",
     "JOIN": "Rejoindre",
+    "NEXT": "Suivant",
     "SKIP": "Passer",
     "QUIT": "Quitter"
   },
@@ -67,7 +69,7 @@
       "TITLE": "Bienvenue sur PopMe, avec seulement 4 photos, devient plus pop que tes amis. Pour créer ton profil, il te suffit de renseigner les informations suivantes :"
     },
     "SETTINGS": {
-      "TITLE": "Réglage",
+      "TITLE": "Mes informations",
       "SLOGAN": "Devenez le plus populaire",
       "ACCOUNT": {
         "DELETE": "Supprimer mon compte",
@@ -109,19 +111,20 @@
   },
   "TUTORIAL": {
     "1": {
-      "TITLE": "Bonjour jeune poper !",
-      "TEXT1": "Je vais te présenter rapidement comment devenir le plus populaire !"
+      "TITLE": "Bonjour nouveau poper !",
+      "TEXT1": "Je vais te présenter l'application à partir de ce tutoriel et te montrer le chemin pour devenir le plus populaire.",
+      "TEXT2": "Tu peux ignorer ce tutoriel à tout moment en cliquant sur le bouton 'Passer'."
     },
     "2": {
-      "TITLE": "Ca, c'est ton profil",
-      "TEXT1": "Il y a :",
+      "TITLE": "Bienvenue sur la page de ton profil",
+      "TEXT1": "Tu y trouveras :",
       "TEXT2": "Ton score",
       "TEXT3": "Ton classement",
-      "TEXT4": "Le temps qu'il te reste à attendre avant de mettre une nouvelle photo"
+      "TEXT4": "Le temps qu'il te reste à attendre avant d'ajouter une nouvelle photo"
     },
     "3": {
       "TITLE": "Ca, c'est la page de jeu !",
-      "TEXT1": "Tu peux aimer ou ne pas aimer les popies des autres joueurs",
+      "TEXT1": "Tu peux aimer ou ne pas aimer les popies des autres joueurs en swipant les photos à droite ou à gauche ou à partir des boutons en bas de la page",
       "TEXT2": "Alors que penses-tu de cette popy ?"
     },
     "4": {
@@ -130,9 +133,9 @@
       "TEXT2": "Ah, je crois que quelqu'un a popé ta photo :)"
     },
     "5": {
-      "TITLE": "Quelqu'un a aimé ta photo",
-      "TEXT1": "Et si nous allions voir son profil ?",
-      "TEXT2": "Voir le profil"
+      "TITLE": "Quelqu'un a popé ta photo !",
+      "TEXT1": "Tu peux cliquer sur la photo du poper pour ouvrir son profil.",
+      "TEXT2": "Retourne sur ton profil et recharge ta page !"
     },
     "6": {
       "TITLE": "Voici son profil",
@@ -144,8 +147,9 @@
       "TEXT1": "Maintenant, retournons sur ton profil, ton score a évolué !"
     },
     "8": {
-      "TITLE": "De retour sur ton profil",
-      "TEXT1": "Rafraichis ton écran, et tu verras ton score évolué..."
+      "TITLE": "Voilà, c'est terminé",
+      "TEXT1": "Rafraichis ton écran en faisant un swipe vers le bas de la page, et tu verras ton score évolué...",
+      "TEXT2": "Tu peux maintenant devenir le plus pouplaire !"
     },
     "9": {
       "TITLE": "Voilà, c'est terminé",

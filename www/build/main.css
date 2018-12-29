@@ -65615,6 +65615,14 @@ div.button-blank button {
   color: #f0c30e;
 }
 
+.popme-version {
+  position: absolute;
+  text-align: right;
+  bottom: 10px;
+  right: 10px;
+  font-size: 0.8em;
+}
+
 /* CSS Helper ver 1.1.1 */
 /* FLEX from Google Polymer 0.5.2 */
 html [layout][horizontal], html [layout][vertical] {
@@ -68363,6 +68371,10 @@ tutoriel .tutoriel-top {
   left: unset !important;
 }
 
+tutoriel .tutoriel-big {
+  height: 60% !important;
+}
+
 tutoriel .tutoriel-content {
   background-color: #2C2C2C;
   border: solid 2px #f1c40f;
@@ -68425,4 +68437,20 @@ tutoriel button ion-icon {
   color: #333;
   font-weight: bold;
   padding-left: 5px;
+}
+
+tutoriel .button-action {
+  border-radius: 999em;
+  -webkit-box-shadow: 0 4px 9px 0 rgba(213, 218, 224, 0.3);
+  box-shadow: 0 4px 9px 0 rgba(213, 218, 224, 0.3);
+  font-size: 24px;
+  background-color: #FFF !important;
+}
+
+tutoriel .button-like {
+  color: #22e4a8 !important;
+}
+
+tutoriel .button-dislike {
+  color: #f95266 !important;
 }

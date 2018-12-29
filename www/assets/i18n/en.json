@@ -1,11 +1,13 @@
 {
   "APP": {
-    "VERSION": "1.0.1"
+    "VERSION": "1.0.3"
   },
   "BUTTON": {
     "ADD": "Add",
     "CONNECTION": "Connect",
+    "FINISH": "Finish",
     "JOIN": "Join",
+    "NEXT": "Next",
     "SKIP": "Skip",
     "QUIT": "Quit"
   },
@@ -110,10 +112,11 @@
   "TUTORIAL": {
     "1": {
       "TITLE": "Hello new poper!",
-      "TEXT1": "I will quickly introduce you how to become the most popular !"
+      "TEXT1": "I'll introduce the application from this tutorial and show you the way to become the most popular.",
+      "TEXT2": "You can ignore this tutorial at any time by clicking on the 'Skip' button."
     },
     "2": {
-      "TITLE": "That's your profile",
+      "TITLE": "Welcome to your profile page",
       "TEXT1": "There is :",
       "TEXT2": "Your score",
       "TEXT3": "Your ranking",
@@ -121,7 +124,7 @@
     },
     "3": {
       "TITLE": "That's the game page !",
-      "TEXT1": "You may like or dislike the popies of other players",
+      "TEXT1": "You may like or dislike the popies of other players by swiping the pictures to the right or left or from the buttons at the bottom of the page",
       "TEXT2": "So what do you think of this popy ?"
     },
     "4": {
@@ -131,8 +134,8 @@
     },
     "5": {
       "TITLE": "Someone liked your picture",
-      "TEXT1": "What if we went to see his profile ?",
-      "TEXT2": "View Profile"
+      "TEXT1": "You can click on the photo of the poper to open his profile.",
+      "TEXT2": "Go back to your profile and reload your page !"
     },
     "6": {
       "TITLE": "Here is his profile",
@@ -145,10 +148,11 @@
     },
     "8": {
       "TITLE": "Back to your profile",
-      "TEXT1": "Refresh your screen, and you will see your score evolved ..."
+      "TEXT1": "Refresh your screen with a swipe towards the bottom of the page, and you will see your score evolved ...",
+      "TEXT2": "You can now become the most lame !"
     },
     "9": {
-      "TITLE": "It's over",
+      "TITLE": "It's finish",
       "TEXT1": "You can now become the most flexible !",
       "TEXT2": "Good luck !"
     }
