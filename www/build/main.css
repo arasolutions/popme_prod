@@ -67755,7 +67755,7 @@ page-profile .profile-images-edit {
 
 page-profile .profile-images-edit .div-img {
   padding-bottom: 99%;
-  background-color: #e0dfe5;
+  background-image: url(https://www.popme.app/assets/images/popy_default.png);
   -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
 }
