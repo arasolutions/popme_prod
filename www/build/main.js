@@ -370,8 +370,9 @@ var LoadingPage = /** @class */ (function () {
                     data = {};
                     data.user = user.id;
                     data.uid = val;
-                    alert(_this.platform.platforms().toString());
-                    data.platform = _this.platform.platforms().toString();
+                    if (_this.platform.platforms()) {
+                        data.platform = _this.platform.platforms().toString();
+                    }
                     _this.api.post('updateUid', data)
                         .subscribe(function (data) {
                         //let body: any;
