@@ -363,24 +363,28 @@ var LoadingPage = /** @class */ (function () {
     // Save the token to firestore
     LoadingPage.prototype.saveTokenInApi = function (user) {
         var _this = this;
-        this.storage.get('uid').then(function (val) {
-            if (val) {
-                var data = void 0;
-                data = {};
-                data.user = user.id;
-                data.uid = val;
-                _this.api.post('updateUid', data)
-                    .subscribe(function (data) {
-                    //let body: any;
-                    //body = JSON.parse(data.text());
-                    return false;
-                }, function (err) {
-                }, function () {
-                    //this.goToHome();
-                });
-            }
+        this.platform.ready().then(function () {
+            _this.storage.get('uid').then(function (val) {
+                if (val) {
+                    var data = void 0;
+                    data = {};
+                    data.user = user.id;
+                    data.uid = val;
+                    alert(_this.platform.platforms().toString());
+                    data.platform = _this.platform.platforms().toString();
+                    _this.api.post('updateUid', data)
+                        .subscribe(function (data) {
+                        //let body: any;
+                        //body = JSON.parse(data.text());
+                        return false;
+                    }, function (err) {
+                    }, function () {
+                        //this.goToHome();
+                    });
+                }
+            });
+            return false;
         });
-        return false;
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('slides'),
