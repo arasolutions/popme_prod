@@ -2833,6 +2833,22 @@ var SettingsPage = /** @class */ (function () {
             // data.coords.longitude
         });
     }
+    SettingsPage.prototype.setNotificationResume = function () {
+        if (this.isNotificationResume) {
+            this.user.notificationResume = '1';
+        }
+        else {
+            this.user.notificationResume = '0';
+        }
+    };
+    SettingsPage.prototype.setNotificationPictureUpdate = function () {
+        if (this.isNotificationPictureUpdate) {
+            this.user.notificationPictureUpdate = '1';
+        }
+        else {
+            this.user.notificationPictureUpdate = '0';
+        }
+    };
     SettingsPage.prototype.ionViewDidLeave = function () {
         var _this = this;
         var data;
@@ -2840,6 +2856,8 @@ var SettingsPage = /** @class */ (function () {
         data = this.user;
         data.birthday = new Date(this.dateB);
         data.place = this.location;
+        data.notificationPictureUpdate = this.user.notificationPictureUpdate;
+        data.notificationResume = this.user.notificationResume;
         if (this.accountImage) {
             data.accountImage = this.accountImage;
         }
@@ -2973,6 +2991,7 @@ var SettingsPage = /** @class */ (function () {
             _this.rank = _this.user.rank;
             _this.userProvider.setUser(body);
             _this.user = _this.userProvider.getUser();
+            console.log(_this.user);
             console.log(_this.userProvider.getBirthday());
             console.log(_this.userProvider.getBirthday().date);
             _this.dateB = new Date(_this.userProvider.getBirthday().date);
@@ -2980,6 +2999,24 @@ var SettingsPage = /** @class */ (function () {
             var curr_month = _this.dateB.getMonth() < 9 ? '0' + (_this.dateB.getMonth() + 1) : _this.dateB.getMonth() + 1; //Months are zero based
             var curr_year = _this.dateB.getFullYear();
             _this.dateB = curr_year + "-" + curr_month + "-" + curr_date;
+            console.log(_this.user);
+            // Notifications
+            if (_this.user.notificationResume == '1') {
+                _this.isNotificationResume = true;
+            }
+            else {
+                _this.isNotificationResume = false;
+            }
+            console.log(_this.isNotificationResume);
+            console.log(_this.user.notificationResume);
+            if (_this.user.notificationPictureUpdate == '1') {
+                _this.isNotificationPictureUpdate = true;
+            }
+            else {
+                _this.isNotificationPictureUpdate = false;
+            }
+            console.log(_this.isNotificationPictureUpdate);
+            console.log(_this.user.notificationPictureUpdate);
         }, function (err) {
             _this.storage.remove('user');
             _this.storage.remove('isConnected');
@@ -3055,27 +3092,12 @@ var SettingsPage = /** @class */ (function () {
     };
     SettingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-settings',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\settings\settings.html"*/'<!--\n\n  Generated template for the SettingsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title><span class="color-white">{{ \'PAGE.SETTINGS.TITLE\' | translate }}</span></ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content class="bg-custom">\n\n  <ion-card class="card-custom text-center wrapper">\n\n    <div class="text-xl font-bold">\n\n      <div class="thumb-sm">\n\n        <img src="assets/img/logo.png" alt="">\n\n      </div>\n\n      Popme\n\n    </div>\n\n    <div color="muted" ion-text>\n\n      {{ \'PAGE.SETTINGS.SLOGAN\' | translate }}\n\n    </div>\n\n  </ion-card>\n\n\n\n  <ion-list>\n\n    <ion-list-header class="upper">\n\n      {{ \'PAGE.SETTINGS.INFORMATIONS.TITLE\' | translate }}\n\n    </ion-list-header>\n\n    <ion-item>\n\n      <div class="big-thumb text-center settings-account-image">\n\n        <img [src]="user.account_image" class="rounded box-shadow" alt="" *ngIf="user.account_image != null">\n\n        <button clear class="btn-edit" (click)="openPhotoPicker(i)">\n\n          <ion-icon name="md-create"></ion-icon>\n\n        </button>\n\n      </div>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>{{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_DESCRIPTION\' | translate }}</ion-label>\n\n      <ion-input type="text" placeholder="Description" [(ngModel)]="user.description"></ion-input>\n\n    </ion-item>\n\n    <button ion-item (click)="showAddressModal()">\n\n      {{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_LOCATION\' | translate }}\n\n      <ion-note item-end>\n\n        {{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_LOCATION_DESCRIPTION\' | translate }}\n\n        <br>\n\n        <span class="text-xs">{{ location.city }}, {{ location.country }}</span>\n\n      </ion-note>\n\n    </button>\n\n    <ion-item>\n\n      <ion-label>{{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_BIRTHDAY\' | translate }}</ion-label>\n\n      <ion-datetime displayFormat="DD/MM/YYYY" cancelText="Annuler" doneText="OK" [(ngModel)]="dateB"></ion-datetime>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>{{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_SEX\' | translate }}</ion-label>\n\n      <ion-select [(ngModel)]="user.sexe" cancelText="Annuler">\n\n        <ion-option value="f">{{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_SEX_OPTION1\' | translate }}</ion-option>\n\n        <ion-option value="h">{{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_SEX_OPTION2\' | translate }}</ion-option>\n\n        <ion-option value="a">{{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_SEX_OPTION3\' | translate }}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <!--\n\n  <ion-list>\n\n    <ion-list-header>\n\n      NOTIFICATIONS\n\n    </ion-list-header>\n\n    <ion-item>\n\n      <ion-label>Nouveaux pops</ion-label>\n\n      <ion-toggle color="danger" checked="true"></ion-toggle>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>Slot photo disponible</ion-label>\n\n      <ion-toggle color="danger" checked="true"></ion-toggle>\n\n    </ion-item>\n\n  </ion-list>-->\n\n\n\n  <ion-list no-lines>\n\n    <ion-list-header>\n\n      {{ \'PAGE.SETTINGS.SETTING.TITLE\' | translate }}\n\n    </ion-list-header>\n\n    <ion-item>\n\n      <ion-label>{{ \'PAGE.SETTINGS.SETTING.LABEL_LANGUAGE\' | translate }}</ion-label>\n\n      <ion-select [(ngModel)]="lang" cancelText="Annuler">\n\n        <ion-option value="fr">{{ \'PAGE.SETTINGS.SETTING.LABEL_LANGUAGE_OPTION1\' | translate }}</ion-option>\n\n        <ion-option value="en">{{ \'PAGE.SETTINGS.SETTING.LABEL_LANGUAGE_OPTION2\' | translate }}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <ion-list no-lines>\n\n    <ion-list-header>\n\n      {{ \'PAGE.SETTINGS.CONTACT.TITLE\' | translate }}\n\n    </ion-list-header>\n\n    <button ion-item>\n\n      {{ \'PAGE.SETTINGS.CONTACT.LABEL_HELP\' | translate }}\n\n    </button>\n\n  </ion-list>\n\n\n\n  <ion-list no-lines>\n\n    <ion-list-header>\n\n      {{ \'PAGE.SETTINGS.NOTICES.TITLE\' | translate }}\n\n    </ion-list-header>\n\n    <button ion-item>\n\n      {{ \'PAGE.SETTINGS.NOTICES.LABEL_PRIVACY_POLICY\' | translate }}\n\n    </button>\n\n    <a href="https://www.popme.app/conditions-generales-utilisation" target="_blank">\n\n      <button ion-item>\n\n        {{ \'PAGE.SETTINGS.NOTICES.LABEL_CONDITIONS_OF_USE\' | translate }}\n\n      </button>\n\n    </a>\n\n  </ion-list>\n\n\n\n  <ion-list no-lines>\n\n    <ion-item text-center class="m-b-sm" (click)="logout()">\n\n      {{ \'PAGE.SETTINGS.ACCOUNT.SIGN_OUT\' | translate }}\n\n    </ion-item>\n\n    <div class="text-center m-b">\n\n      <div class="thumb-sm">\n\n        <img src="assets/img/logo.png" alt="">\n\n      </div>\n\n      <br/><br/>\n\n      <div>Version {{ \'APP.VERSION\' | translate }}</div>\n\n    </div>\n\n    <ion-item text-center (click)="deleteAccount()">\n\n      {{ \'PAGE.SETTINGS.ACCOUNT.DELETE\' | translate }}\n\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\settings\settings.html"*/,
+            selector: 'page-settings',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\settings\settings.html"*/'<!--\n\n  Generated template for the SettingsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title><span class="color-white">{{ \'PAGE.SETTINGS.TITLE\' | translate }}</span></ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content class="bg-custom">\n\n  <ion-card class="card-custom text-center wrapper">\n\n    <div class="text-xl font-bold">\n\n      <div class="thumb-sm">\n\n        <img src="assets/img/logo.png" alt="">\n\n      </div>\n\n      Popme\n\n    </div>\n\n    <div color="muted" ion-text>\n\n      {{ \'PAGE.SETTINGS.SLOGAN\' | translate }}\n\n    </div>\n\n  </ion-card>\n\n\n\n  <ion-list>\n\n    <ion-list-header class="upper">\n\n      {{ \'PAGE.SETTINGS.INFORMATIONS.TITLE\' | translate }}\n\n    </ion-list-header>\n\n    <ion-item>\n\n      <div class="big-thumb text-center settings-account-image">\n\n        <img [src]="user.account_image" class="rounded box-shadow" alt="" *ngIf="user.account_image != null">\n\n        <button clear class="btn-edit" (click)="openPhotoPicker(i)">\n\n          <ion-icon name="md-create"></ion-icon>\n\n        </button>\n\n      </div>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>{{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_DESCRIPTION\' | translate }}</ion-label>\n\n      <ion-input type="text" placeholder="Description" [(ngModel)]="user.description"></ion-input>\n\n    </ion-item>\n\n    <button ion-item (click)="showAddressModal()">\n\n      {{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_LOCATION\' | translate }}\n\n      <ion-note item-end>\n\n        {{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_LOCATION_DESCRIPTION\' | translate }}\n\n        <br>\n\n        <span class="text-xs">{{ location.city }}, {{ location.country }}</span>\n\n      </ion-note>\n\n    </button>\n\n    <ion-item>\n\n      <ion-label>{{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_BIRTHDAY\' | translate }}</ion-label>\n\n      <ion-datetime displayFormat="DD/MM/YYYY" cancelText="Annuler" doneText="OK" [(ngModel)]="dateB"></ion-datetime>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>{{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_SEX\' | translate }}</ion-label>\n\n      <ion-select [(ngModel)]="user.sexe" cancelText="Annuler">\n\n        <ion-option value="f">{{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_SEX_OPTION1\' | translate }}</ion-option>\n\n        <ion-option value="h">{{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_SEX_OPTION2\' | translate }}</ion-option>\n\n        <ion-option value="a">{{ \'PAGE.SETTINGS.INFORMATIONS.LABEL_SEX_OPTION3\' | translate }}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <ion-list no-lines>\n\n    <ion-list-header>\n\n      {{ \'PAGE.SETTINGS.SETTING.TITLE\' | translate }}\n\n    </ion-list-header>\n\n    <ion-item>\n\n      <ion-label>{{ \'PAGE.SETTINGS.SETTING.LABEL_LANGUAGE\' | translate }}</ion-label>\n\n      <ion-select [(ngModel)]="lang" cancelText="Annuler">\n\n        <ion-option value="fr">{{ \'PAGE.SETTINGS.SETTING.LABEL_LANGUAGE_OPTION1\' | translate }}</ion-option>\n\n        <ion-option value="en">{{ \'PAGE.SETTINGS.SETTING.LABEL_LANGUAGE_OPTION2\' | translate }}</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <ion-list>\n\n    <ion-list-header>\n\n      NOTIFICATIONS\n\n    </ion-list-header>\n\n    <ion-item>\n\n      <ion-label>Nouveaux pops</ion-label>\n\n      <ion-toggle color="danger" [(ngModel)]="isNotificationResume" (ionChange)="setNotificationResume()"></ion-toggle>\n\n    </ion-item>\n\n    <ion-item>\n\n      <ion-label>Slot photo disponible</ion-label>\n\n      <ion-toggle color="danger"  [(ngModel)]="isNotificationPictureUpdate" (ionChange)="setNotificationPictureUpdate()"></ion-toggle>\n\n    </ion-item>\n\n  </ion-list>\n\n\n\n  <ion-list no-lines>\n\n    <ion-list-header>\n\n      {{ \'PAGE.SETTINGS.CONTACT.TITLE\' | translate }}\n\n    </ion-list-header>\n\n    <button ion-item>\n\n      {{ \'PAGE.SETTINGS.CONTACT.LABEL_HELP\' | translate }}\n\n    </button>\n\n  </ion-list>\n\n\n\n  <ion-list no-lines>\n\n    <ion-list-header>\n\n      {{ \'PAGE.SETTINGS.NOTICES.TITLE\' | translate }}\n\n    </ion-list-header>\n\n    <button ion-item>\n\n      {{ \'PAGE.SETTINGS.NOTICES.LABEL_PRIVACY_POLICY\' | translate }}\n\n    </button>\n\n    <a href="https://www.popme.app/conditions-generales-utilisation" target="_blank">\n\n      <button ion-item>\n\n        {{ \'PAGE.SETTINGS.NOTICES.LABEL_CONDITIONS_OF_USE\' | translate }}\n\n      </button>\n\n    </a>\n\n  </ion-list>\n\n\n\n  <ion-list no-lines>\n\n    <ion-item text-center class="m-b-sm" (click)="logout()">\n\n      {{ \'PAGE.SETTINGS.ACCOUNT.SIGN_OUT\' | translate }}\n\n    </ion-item>\n\n    <div class="text-center m-b">\n\n      <div class="thumb-sm">\n\n        <img src="assets/img/logo.png" alt="">\n\n      </div>\n\n      <br/><br/>\n\n      <div>Version {{ \'APP.VERSION\' | translate }}</div>\n\n    </div>\n\n    <ion-item text-center (click)="deleteAccount()">\n\n      {{ \'PAGE.SETTINGS.ACCOUNT.DELETE\' | translate }}\n\n    </ion-item>\n\n  </ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\settings\settings.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_facebook__["a" /* Facebook */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_providers__["h" /* StorageProvider */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_native_geolocation__["a" /* Geolocation */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_providers__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_providers__["k" /* Users */],
-            __WEBPACK_IMPORTED_MODULE_8__ngx_translate_core__["c" /* TranslateService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_facebook__["a" /* Facebook */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_facebook__["a" /* Facebook */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_providers__["h" /* StorageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_providers__["h" /* StorageProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* ModalController */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_4__providers_providers__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_providers__["a" /* Api */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */]) === "function" && _q || Object, typeof (_r = typeof __WEBPACK_IMPORTED_MODULE_4__providers_providers__["k" /* Users */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_providers__["k" /* Users */]) === "function" && _r || Object, typeof (_s = typeof __WEBPACK_IMPORTED_MODULE_8__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ngx_translate_core__["c" /* TranslateService */]) === "function" && _s || Object])
     ], SettingsPage);
     return SettingsPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s;
 }());
 
 //# sourceMappingURL=settings.js.map
@@ -7958,6 +7980,8 @@ var Users = /** @class */ (function () {
         this.usual_name = user.usual_name;
         this.enabled_detail = user.enabled_detail;
         this.type_connexion = user.type_connexion;
+        this.notificationResume = user.notificationResume;
+        this.notificationPictureUpdate = user.notificationPictureUpdate;
         // Préchargement des images
         var imageAccount = new Image();
         imageAccount.src = this.account_image;
@@ -7982,11 +8006,10 @@ var Users = /** @class */ (function () {
     };
     Users = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__api_api__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_3__storage_storage__["a" /* StorageProvider */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__api_api__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__api_api__["a" /* Api */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__storage_storage__["a" /* StorageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__storage_storage__["a" /* StorageProvider */]) === "function" && _c || Object])
     ], Users);
     return Users;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=users.js.map
