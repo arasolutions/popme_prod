@@ -65494,6 +65494,10 @@ ion-row.no-padder ion-col {
   margin-bottom: 10%;
 }
 
+.mb20 {
+  margin-bottom: 20px;
+}
+
 .pd0 {
   padding: 0px;
 }
