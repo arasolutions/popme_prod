@@ -65498,6 +65498,10 @@ ion-row.no-padder ion-col {
   margin-bottom: 20px;
 }
 
+.padding-tb-10 {
+  padding: 10px 0;
+}
+
 .pd0 {
   padding: 0px;
 }
@@ -65934,7 +65938,7 @@ html [segment], html segment {
   filter: none;
 }
 
-.bg-gd-dk, .card-stack .card-item .card-caption {
+.bg-gd-dk, page-play .card-stack .card-item .card-caption {
   background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(40, 50, 60, 0)), to(rgba(40, 50, 60, 0.5)));
   background-image: linear-gradient(to bottom, rgba(40, 50, 60, 0) 10%, rgba(40, 50, 60, 0.5) 100%);
   background-repeat: repeat-x;
@@ -67317,11 +67321,13 @@ page-play .swipe-bg {
 }
 
 page-play .swipe-container {
-  height: 100%;
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  height: calc(100% + (var(--safe-area-inset-top) + var(--safe-area-inset-bottom)));
   padding-bottom: 84px;
 }
 
-.poper-card-image {
+page-play .poper-card-image {
   position: relative;
   width: 70px;
   height: 70px;
@@ -67333,7 +67339,7 @@ page-play .swipe-container {
   z-index: 2;
 }
 
-.poper-card-text {
+page-play .poper-card-text {
   padding-left: 80px;
   line-height: 70px;
   height: 70px;
@@ -67346,14 +67352,14 @@ page-play .swipe-container {
   width: 70vw;
 }
 
-.poper-card-text .poper-card-usualname {
+page-play .poper-card-text .poper-card-usualname {
   line-height: 40px;
   font-size: 18px;
   overflow-wrap: initial;
   width: calc( 100vw - 30vw);
 }
 
-.poper-card-text .poper-card-button {
+page-play .poper-card-text .poper-card-button {
   line-height: 20px;
   background-color: transparent;
   color: #CCC;
@@ -67361,12 +67367,12 @@ page-play .swipe-container {
   font-weight: normal;
 }
 
-.card-stack {
+page-play .card-stack {
   height: 100%;
   position: relative;
 }
 
-.card-stack .card-item {
+page-play .card-stack .card-item {
   position: absolute;
   left: 0;
   top: 0;
@@ -67377,7 +67383,7 @@ page-play .swipe-container {
   box-shadow: 0 2px 10px 0 rgba(146, 154, 160, 0.77);
 }
 
-.card-stack .card-item .card-caption {
+page-play .card-stack .card-item .card-caption {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -67387,7 +67393,7 @@ page-play .swipe-container {
   border-radius: 0 0 6px 6px;
 }
 
-.card-stack .stamp {
+page-play .card-stack .stamp {
   position: absolute;
   top: 20px;
   right: 10px;
@@ -67404,7 +67410,7 @@ page-play .swipe-container {
   opacity: 0;
 }
 
-.card-stack .stamp.stamp-like {
+page-play .card-stack .stamp.stamp-like {
   right: initial;
   left: 10px;
   color: #22e4a8;
@@ -67414,7 +67420,7 @@ page-play .swipe-container {
   letter-spacing: 3px;
 }
 
-.bottom-actions {
+page-play .bottom-actions {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -67423,54 +67429,54 @@ page-play .swipe-container {
   padding: 12px;
 }
 
-.bottom-actions button {
+page-play .bottom-actions button {
   border-radius: 999em;
   -webkit-box-shadow: 0 4px 9px 0 rgba(213, 218, 224, 0.3);
   box-shadow: 0 4px 9px 0 rgba(213, 218, 224, 0.3);
   font-size: 24px;
 }
 
-.bottom-actions button ion-icon {
+page-play .bottom-actions button ion-icon {
   font-weight: 700;
 }
 
-.bottom-actions button:nth-child(2n) {
+page-play .bottom-actions button:nth-child(2n) {
   width: 60px;
   height: 60px;
 }
 
-.bottom-actions button:nth-child(2n+1) {
+page-play .bottom-actions button:nth-child(2n+1) {
   width: 48px;
   height: 48px;
 }
 
-.bottom-actions button.button-revert {
+page-play .bottom-actions button.button-revert {
   color: #ffc30a;
 }
 
-.bottom-actions button.button-dislike {
+page-play .bottom-actions button.button-dislike {
   color: #f95266;
 }
 
-.bottom-actions button.button-star {
+page-play .bottom-actions button.button-star {
   color: #16a9ef;
 }
 
-.bottom-actions button.button-like {
+page-play .bottom-actions button.button-like {
   color: #22e4a8;
 }
 
-.bottom-actions button.button-superlike {
+page-play .bottom-actions button.button-superlike {
   color: #9e4dda;
 }
 
-.ripple-container {
+page-play .ripple-container {
   position: relative;
   width: 96px;
   height: 96px;
 }
 
-.ripple-trigger {
+page-play .ripple-trigger {
   position: absolute;
   z-index: 9;
   -webkit-transition: -webkit-transform 250ms ease-out;
@@ -67481,12 +67487,12 @@ page-play .swipe-container {
   animation: beating 2s infinite ease-out;
 }
 
-.ripple-trigger:active {
+page-play .ripple-trigger:active {
   -webkit-transform: scale3d(1.2, 1.2, 1);
   transform: scale3d(1.2, 1.2, 1);
 }
 
-.ripple-1, .ripple-2 {
+page-play .ripple-1, page-play .ripple-2 {
   position: absolute;
   z-index: 1;
   top: 2px;
@@ -67500,7 +67506,7 @@ page-play .swipe-container {
   animation: rippling 2s infinite ease-out;
 }
 
-.ripple-2 {
+page-play .ripple-2 {
   -webkit-animation-delay: 350ms;
   animation-delay: 350ms;
 }
@@ -67585,7 +67591,7 @@ page-play .swipe-container {
   }
 }
 
-.no-cards {
+page-play .no-cards {
   color: #333;
   font-weight: bold;
   font-size: 20px;
@@ -68192,7 +68198,18 @@ page-trend .subtitle {
   font-weight: bold;
 }
 
+page-trend .card-background-page {
+  padding-top: 10px;
+}
+
 page-trend .card-background-page ion-card {
+  height: 100vw;
+  position: relative;
+  text-align: center;
+}
+
+page-trend .card-background-page ion-card {
+  height: 100vw;
   position: relative;
   text-align: center;
 }
@@ -68212,6 +68229,38 @@ page-trend .card-background-page .card-subtitle {
   top: 52%;
   width: 100%;
   color: #fff;
+}
+
+page-trend .trend-popy {
+  height: 100vw;
+  background-position: center;
+  background-size: 100%;
+  border-radius: 5px;
+  position: relative;
+}
+
+page-trend .btn-edit-like {
+  position: absolute;
+  right: -8px;
+  bottom: -8px;
+  background-color: #f0eff5;
+  font-size: 12px;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  border-radius: 999em;
+}
+
+page-trend .btn-edit-dislike {
+  position: absolute;
+  left: -8px;
+  bottom: -8px;
+  background-color: #f0eff5;
+  font-size: 12px;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  border-radius: 999em;
 }
 
 page-trend div.account-image {
@@ -68255,9 +68304,7 @@ page-trend .usual-name {
 }
 
 page-trend img.account-image {
-  float: right;
-  position: relative;
-  z-index: 5;
+  float: left;
 }
 
 @-webkit-keyframes account-image-0 {
@@ -68314,6 +68361,18 @@ page-trend img.account-image {
   }
 }
 
+page-trend .border-bottom-usualname-0 {
+  border-bottom: solid 3px #ffd700;
+}
+
+page-trend .border-bottom-usualname-1 {
+  border-bottom: solid 3px #c0c0c0;
+}
+
+page-trend .border-bottom-usualname-2 {
+  border-bottom: solid 3px #cd7f32;
+}
+
 page-trend .animate-ease-0 {
   position: relative;
   height: 100%;
@@ -68352,6 +68411,103 @@ page-trend .animate-ease-2 {
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
   right: 120%;
+}
+
+page-trend .button-muted {
+  border-radius: 999em;
+  font-size: 14px;
+  font-weight: 700;
+  width: 48px;
+  height: 48px;
+  background-color: #f4f4f4;
+  color: #d1d1d1;
+}
+
+page-trend .button-primary {
+  border-radius: 999em;
+  font-size: 14px;
+  font-weight: 700;
+  width: 48px;
+  height: 48px;
+  background-color: #f0c30e;
+  color: #555555;
+}
+
+page-trend .card-caption {
+  position: absolute;
+  bottom: 5px;
+  left: 30px;
+  right: 0;
+  margin: auto;
+}
+
+page-trend .poper-card-image {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: solid 3px white;
+  background-position: center;
+  background-size: 70px;
+  background-repeat: no-repeat;
+  z-index: 2;
+}
+
+page-trend .poper-card-text {
+  padding-left: 55px;
+  line-height: 50px;
+  height: 50px;
+  background-color: white;
+  color: black;
+  margin-left: -50px;
+  z-index: 1;
+  border-radius: 100vw;
+  padding-right: 10px;
+  width: 250px;
+}
+
+page-trend .poper-card-text .poper-card-usualname {
+  line-height: 32px;
+  font-size: 15px;
+  overflow-wrap: initial;
+  width: calc( 100vw - 30vw);
+}
+
+page-trend .poper-card-text .poper-card-button {
+  line-height: 12px;
+  font-size: 12px;
+  background-color: transparent;
+  color: #CCC;
+  font-weight: normal;
+}
+
+page-trend .stamp {
+  position: absolute;
+  background-color: white;
+  font-size: 7px;
+  padding: 3px;
+  top: 15px;
+  left: 5px;
+  color: #f0c30e;
+  border: 3px solid #f0c30e;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  text-transform: uppercase;
+  -webkit-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  opacity: 1;
+  letter-spacing: 3px;
+}
+
+page-trend .stamp.stamp-like {
+  right: initial;
+  left: 10px;
+  color: #22e4a8;
+  border-color: #22e4a8;
+  -webkit-transform: rotate(-15deg);
+  transform: rotate(-15deg);
+  letter-spacing: 3px;
 }
 
 tutoriel .tutoriel-overlay {
