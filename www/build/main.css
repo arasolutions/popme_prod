@@ -67863,6 +67863,24 @@ page-profile .profile-header-rank-img {
   margin-bottom: 4px;
 }
 
+page-profile .popy-stand-by-text {
+  position: absolute;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(60, 60, 60, 0.8);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 30px 10px;
+  font-size: 18px;
+}
+
 page-profile .profile-header {
   height: 40px;
   background-color: #F1C40F;
