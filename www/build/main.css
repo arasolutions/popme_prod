@@ -67421,8 +67421,10 @@ page-play .card-stack .stamp.stamp-like {
 }
 
 page-play .bottom-actions {
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
   position: absolute;
-  bottom: 0;
+  bottom: var(--safe-area-inset-bottom);
   left: 0;
   right: 0;
   height: 84px;
