@@ -270,7 +270,7 @@ var LoadingPage = /** @class */ (function () {
             _this.ga.trackEvent('Loading', 'Lancement');
         })
             .catch(function (e) { return console.log('Error starting GoogleAnalytics', e); });
-        this.api.setLang(this.translate.getDefaultLang());
+        //this.translate.initTranslate();
     }
     LoadingPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -385,32 +385,16 @@ var LoadingPage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('slides'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Slides */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* Slides */]) === "function" && _a || Object)
     ], LoadingPage.prototype, "slides", void 0);
     LoadingPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-loading',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\loading\loading.html"*/'<ion-content text-center class="bg-popme background-screensplash" >\n\n	<div layout vertical>\n\n		<div flex class="loading">\n\n			<div class="loading-desc">\n\n				<ion-slides slides #slides class="">\n\n					<ion-slide>\n\n						<div class="loading-desc">{{ \'PAGE.LOADING.PROFIL\' | translate }}</div>\n\n					</ion-slide>\n\n					<ion-slide>\n\n						<div class="loading-desc">{{ \'PAGE.LOADING.PHOTOS\' | translate }}</div>\n\n					</ion-slide>\n\n				</ion-slides>\n\n			</div>\n\n			<div *ngIf="progressBar == 1">\n\n				<div class="loading-count"><ion-icon class="color-yellow" name="radio-button-on"></ion-icon>  <ion-icon name="radio-button-on"></ion-icon></div>\n\n			</div>\n\n			<div *ngIf="progressBar == 2">\n\n				<div class="loading-count"><ion-icon class="color-yellow" name="radio-button-on"></ion-icon>  <ion-icon class="color-yellow" name="radio-button-on"></ion-icon></div>\n\n			</div>\n\n		</div>\n\n	</div>\n\n</ion-content>'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\loading\loading.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["k" /* Users */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["h" /* StorageProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["d" /* GameProvider */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["f" /* Rank */],
-            __WEBPACK_IMPORTED_MODULE_8__ionic_native_google_analytics__["a" /* GoogleAnalytics */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["i" /* Translate */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["p" /* ViewController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_native_camera__["a" /* Camera */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* LoadingController */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["k" /* Users */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["k" /* Users */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["h" /* StorageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["h" /* StorageProvider */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["d" /* GameProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["d" /* GameProvider */]) === "function" && _q || Object, typeof (_r = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["f" /* Rank */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["f" /* Rank */]) === "function" && _r || Object, typeof (_s = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_google_analytics__["a" /* GoogleAnalytics */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_google_analytics__["a" /* GoogleAnalytics */]) === "function" && _s || Object, typeof (_t = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */]) === "function" && _t || Object, typeof (_u = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["i" /* Translate */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["i" /* Translate */]) === "function" && _u || Object])
     ], LoadingPage);
     return LoadingPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u;
 }());
 
 //# sourceMappingURL=loading.js.map
@@ -7478,6 +7462,7 @@ var PoperProfilePage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Translate; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(10);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7489,6 +7474,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /*
   Generated class for the GaProvider provider.
 
@@ -7496,8 +7482,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
   and Angular DI.
 */
 var Translate = /** @class */ (function () {
-    function Translate(translate) {
+    function Translate(translate, storage) {
         this.translate = translate;
+        this.storage = storage;
         console.log('Provider : Translate');
         translate.setDefaultLang('en');
     }
@@ -7510,11 +7497,33 @@ var Translate = /** @class */ (function () {
     Translate.prototype.getNumber = function (objet) {
         return objet;
     };
+    Translate.prototype.initTranslate = function () {
+        var _this = this;
+        this.storage.get('defaultLang').then(function (value) {
+            if (value) {
+                _this.translate.use = value;
+                _this.translate.setDefaultLang(value);
+                console.log('test');
+                console.log(value);
+            }
+            else {
+                if (_this.translate.getBrowserLang() !== undefined) {
+                    _this.translate.use(_this.translate.getBrowserLang());
+                    _this.translate.setDefaultLang(_this.translate.getBrowserLang());
+                }
+                else {
+                    _this.translate.use('en'); // Set your language here
+                    _this.translate.setDefaultLang('en');
+                }
+            }
+        });
+    };
     Translate = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ngx_translate_core__["c" /* TranslateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _b || Object])
     ], Translate);
     return Translate;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=translate.js.map
@@ -7967,10 +7976,9 @@ var RankpopoverPage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(406);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__ = __webpack_require__(408);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_deeplinks__ = __webpack_require__(409);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__ = __webpack_require__(14);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_pages__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_providers__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_pages__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_providers__ = __webpack_require__(18);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7989,13 +7997,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen, keyboard, deeplinks, translate, storage, fcm) {
         var _this = this;
         this.translate = translate;
         this.storage = storage;
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_8__pages_pages__["e" /* LoadingPage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_7__pages_pages__["e" /* LoadingPage */];
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -8011,45 +8018,20 @@ var MyApp = /** @class */ (function () {
             }, function (nomatch) {
                 console.log('KO ' + nomatch);
             });
+            _this.translate.initTranslate();
         });
-        this.initTranslate();
     }
-    MyApp.prototype.initTranslate = function () {
-        var _this = this;
-        this.storage.get('defaultLang').then(function (value) {
-            if (value) {
-                _this.translate.use = value;
-                _this.translate.setDefaultLang(value);
-            }
-            else {
-                if (_this.translate.getBrowserLang() !== undefined) {
-                    _this.translate.use(_this.translate.getBrowserLang());
-                    _this.translate.setDefaultLang(_this.translate.getBrowserLang());
-                }
-                else {
-                    _this.translate.use('en'); // Set your language here
-                    _this.translate.setDefaultLang('en');
-                }
-            }
-        });
-    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Nav */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "navChild", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Apps\popme\popme\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_native_deeplinks__["a" /* Deeplinks */],
-            __WEBPACK_IMPORTED_MODULE_6__ngx_translate_core__["c" /* TranslateService */],
-            __WEBPACK_IMPORTED_MODULE_7__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_9__providers_providers__["c" /* Fcm */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_keyboard__["a" /* Keyboard */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_native_deeplinks__["a" /* Deeplinks */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_native_deeplinks__["a" /* Deeplinks */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_8__providers_providers__["i" /* Translate */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__providers_providers__["i" /* Translate */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_8__providers_providers__["c" /* Fcm */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__providers_providers__["c" /* Fcm */]) === "function" && _j || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j;
 }());
 
 //# sourceMappingURL=app.component.js.map
