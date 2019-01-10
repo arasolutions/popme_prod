@@ -67898,6 +67898,11 @@ page-profile .popy-stand-by-text {
   font-size: 18px;
 }
 
+page-profile .big-icon {
+  font-size: 3.2em;
+  font-weight: bold;
+}
+
 page-profile .profile-header {
   height: 40px;
   background-color: #F1C40F;
