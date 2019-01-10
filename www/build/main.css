@@ -66940,6 +66940,7 @@ page-clan div.clan-profile {
 page-clan div.clan-profile .image {
   width: 160px;
   float: left;
+  position: relative;
 }
 
 page-clan div.clan-profile .description {
@@ -66991,6 +66992,21 @@ page-clan .list-user {
 
 page-clan .row {
   border-bottom: solid 1px #CCC;
+}
+
+page-clan .default-rank {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 41px;
+  height: 40px;
+  background-color: #f0eff5;
+  border-radius: 50%;
+  display: grid;
+}
+
+page-clan .default-rank > div {
+  margin: auto;
 }
 
 .hidden-button {
