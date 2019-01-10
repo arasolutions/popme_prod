@@ -67017,6 +67017,13 @@ page-clan .default-rank > div {
   font-weight: bold;
 }
 
+.list-clans-name > div {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 10px;
+  color: grey;
+}
+
 .list-clans-users {
   float: right;
   text-align: right;
