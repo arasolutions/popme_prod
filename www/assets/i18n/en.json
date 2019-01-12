@@ -3,13 +3,27 @@
     "VERSION": "1.0.3"
   },
   "BUTTON": {
+    "ACTIONS": "Actions",
     "ADD": "Add",
+    "BAN": "Ban",
+    "CANCEL": "Cancel",
     "CONNECTION": "Connect",
+    "DELETE": "Delete",
+    "DOWNGRADE": "Downgrade",
     "FINISH": "Finish",
+    "KICK": "Kick",
     "JOIN": "Join",
+    "LOADING": "Loading",
+    "LOADING_CREATE_CLAN": "Créating clan ...",
+    "LOADING_EDIT_CLAN": "Editing clan ...",
+    "LOADING_DATA": "Datas loading ...",
     "NEXT": "Next",
     "SKIP": "Skip",
+    "UPGRADE": "Upgrade",
     "QUIT": "Quit"
+  },
+  "ERROR": {
+    "CONNECTION": "Connection error"
   },
   "PAGE": {
     "CLAN": {
@@ -17,7 +31,11 @@
       "MY_CLAN": "My clans",
       "JOIN_CLAN": "Join a clan",
       "CREATE_CLAN": "Create a clan",
-      "NO_CLAN": "You do not have a clan yet"
+      "CREATE_CLAN_MESSAGE": "Your clan is created",
+      "DELETE_CLAN": "Delete clan",
+      "DELETE_CLAN_ALERT": "Are you sure ?",
+      "NO_CLAN": "You do not have a clan yet",
+      "LEAVE_CLAN": "Leave clan"
     },
     "LOADING": {
       "PROFIL": "Loading your profile",
@@ -35,6 +53,7 @@
       "BAD_ACCOUNT" : "Your account and / or password are not valid",
       "CONNEXION_FACEBOOK": "Facebook login",
       "CONNEXION_CLASSIQUE": "Classic connection",
+      "PASSWORD": "Password",
       "REGISTER": "Register",
       "TUTORIAL1": "Create your profile <br /> and send your best photos",
       "TUTORIAL2": "Pop if you like <br /> or pass the photos",
