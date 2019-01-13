@@ -83,7 +83,25 @@
       "REPORT_PHOTOS_NO_REASON": "Pas de raison"
     },
     "PROFILE": {
-      "EDIT_INFOS": "Modifier mes infos"
+      "EDIT_INFOS": "Modifier mes infos",
+	  "POPOVER": {
+		  "GENERAL1": "Ca c'est ton score total !",
+		  "GENERAL2": "A chaque fois que quelqu'un aimera une de tes photos, ce score évoluera.",
+		  "GENERAL3": "A toi de partager tes photos et faire monter ton score pour devenir le plus populaire !",
+		  "GENERAL4": "J'ai compris",
+		  "POPPED": "Déjà popée",
+		  "PASSED": "Passée",
+		  "RANK1": "Ca c'est ton classement !",
+		  "RANK2": "Tu peux choisir quel classement par défaut tu souhaites voir sur ton profil",
+		  "RANK3": "Classements",
+		  "SCORE1": "Ca c'est ton score total !",
+		  "SCORE2": "A chaque fois que quelqu'un aimera une de tes photos, ce score évoluera.",
+		  "SCORE3": "A toi de partager tes photos et faire monter ton score pour devenir le plus populaire !",
+		  "SCORE4": "J'ai compris",
+		  "TIME2": "J'ai compris",
+		  "TIME1": "Ca c'est le temps d'attent avant d'ajouter une nouvelle popy",
+		  "TIME2": "J'ai compris"
+		}
     },
     "RANKING": {
       "TITLE": "Classements",
@@ -120,6 +138,11 @@
         "TITLE": "Mentions legales",
         "LABEL_PRIVACY_POLICY": "Politique de confidentialité",
         "LABEL_CONDITIONS_OF_USE": "Conditions d'utilisations"
+      },
+      "NOTIFICATIONS": {
+        "TITLE": "Notifications",
+        "NEW_POP": "Nouveaux pops",
+        "SLOT_PICTURE": "Slot photo disponible"
       },
       "INFORMATIONS": {
         "TITLE": "Mes informations",

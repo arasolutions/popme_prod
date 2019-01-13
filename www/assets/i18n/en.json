@@ -11,19 +11,26 @@
     "DELETE": "Delete",
     "DOWNGRADE": "Downgrade",
     "FINISH": "Finish",
-    "KICK": "Kick",
     "JOIN": "Join",
+    "KICK": "Kick",
     "LOADING": "Loading",
     "LOADING_CREATE_CLAN": "Créating clan ...",
     "LOADING_EDIT_CLAN": "Editing clan ...",
+    "LOADING_CARDS": "Cards loading ...",
     "LOADING_DATA": "Datas loading ...",
+    "LOADING_DELETE": "Deleting ...",
+    "LOADING_DELETE_ACCOUNT": "Deleting your account ...",
     "NEXT": "Next",
+    "NO": "No",
+    "REGISTER": "Register...",
     "SKIP": "Skip",
     "UPGRADE": "Upgrade",
-    "QUIT": "Quit"
+    "QUIT": "Quit",
+    "YES": "Yes"
   },
   "ERROR": {
-    "CONNECTION": "Connection error"
+    "CONNECTION": "Connection error",
+    "NO_CONNECTION": "Connection doesn't work. Try to connect !"
   },
   "PAGE": {
     "CLAN": {
@@ -53,7 +60,12 @@
       "BAD_ACCOUNT" : "Your account and / or password are not valid",
       "CONNEXION_FACEBOOK": "Facebook login",
       "CONNEXION_CLASSIQUE": "Classic connection",
+      "DELETED_ACCOUNT" : "Account deleted...\n If you want to enabled, go to www.popme.app",
       "PASSWORD": "Password",
+      "PASSWORD_REINIT_PROGRESS_SUBTITLE": "You will recieved a link to enabled",
+      "PASSWORD_REINIT_PROGRESS_TITLE": "Reinitializing",
+      "PASSWORD_REINIT_SUBTITLE": "Regsiter you email to reinit password",
+      "PASSWORD_REINIT_TITLE": "Email empty",
       "REGISTER": "Register",
       "TUTORIAL1": "Create your profile <br /> and send your best photos",
       "TUTORIAL2": "Pop if you like <br /> or pass the photos",
@@ -65,10 +77,31 @@
     },
     "PLAY": {
       "SEE_PROFIL": "Open his profile",
-      "NO_PHOTOS": "There are no more photos"
+      "NO_PHOTOS": "There are no more pictures",
+      "REPORT_PHOTOS": "Report a picture",
+      "REPORT_PHOTOS_BAD_CONTENT": "Bad content",
+      "REPORT_PHOTOS_NO_REASON": "No reason"
     },
     "PROFILE": {
-      "EDIT_INFOS": "Edit my account"
+      "EDIT_INFOS": "Edit my account",
+      "POPOVER": {
+        "GENERAL1": "This is your score !",
+        "GENERAL2": "Whenever someone likes his pictures, this score will evolve.",
+        "GENERAL3": "For you to share your photos and raise your score to become the most popular !",
+        "GENERAL4": "I understood",
+        "POPPED": "Already poped",
+        "PASSED": "Past",
+        "RANK1": "That's your ranking !",
+        "RANK2": "ou can choose which default ranking you want to see on your profile",
+        "RANK3": "Rankings",
+        "SCORE1": "This is your score !",
+        "SCORE2": "Whenever someone likes his pictures, this score will evolve.",
+        "SCORE3": "For you to share your photos and raise your score to become the most popular !",
+        "SCORE4": "I understood",
+        "TIME2": "I understood",
+        "TIME1": "It's time to wait before adding a new popy",
+        "TIME2": "I understood"
+      }
     },
     "RANKING": {
       "TITLE": "Rankings",
@@ -92,7 +125,10 @@
       "SLOGAN": "Become the most popular",
       "ACCOUNT": {
         "DELETE": "Delete my account",
-        "SIGN_OUT": "Sign out"
+        "SIGN_OUT": "Sign out",
+        "DELETE_CONFIRM": ""Do you want to delete your account? All your data will be lost.",
+        "DELETE_TITLE": "Delete",
+        "SIGN_OUT": "Logout"
       },
       "CONTACT": {
         "TITLE": "Contact us",
@@ -102,6 +138,11 @@
         "TITLE": "Legal Notice",
         "LABEL_PRIVACY_POLICY": "Privacy policy",
         "LABEL_CONDITIONS_OF_USE": "Conditions of use"
+      },
+      "NOTIFICATIONS": {
+        "TITLE": "Notifications",
+        "NEW_POP": "New pops",
+        "SLOT_PICTURE": "Slot picture available"
       },
       "INFORMATIONS": {
         "TITLE": "My informations",
@@ -128,7 +169,30 @@
       "BEST_PHOTO": "The photo of the week"
     }
   },
+  "PLUGIN": {
+    "CAMERA": {
+      "FULL_STOCK": "Your stock of photos is reached (4/4)",
+      "CHOOSE_PICTURE": "Choose a photo",
+      "DELETE_PICTURE": "Delete this photo",
+      "DELETE_PICTURE_ALERT": "Do you really want to delete this photo ?",
+      "PICTURE_CLAN": "Clan image",
+      "PICTURE_PROFILE": "Profile picture",
+      "TAKE_PICTURE": "Take a picture",
+      "MODIFY_ALBUM": "Edit your album"
+    },
+    "SHARE": {
+      "CLAN_MESSAGE_1": "Join my clan ",
+      "CLAN_MESSAGE_2": " with the following password : ",
+      "CLAN_MESSAGE_3": ". Go to Popme!",
+      "MESSAGE": "Look at my Popme profile on ",
+      "TITLE": "Share your profile"
+    }
+  },
   "TUTORIAL": {
+    "BASE": {
+      "TITLE": "Leave the tutorial",
+      "SUBTITLE": "Do you really want to leave the tutorial ?"
+    },
     "1": {
       "TITLE": "Hello new poper!",
       "TEXT1": "I'll introduce the application from this tutorial and show you the way to become the most popular.",
