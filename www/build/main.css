@@ -70700,6 +70700,10 @@ ion-row.no-padder ion-col {
   padding: 10px 0;
 }
 
+.height-50 {
+  height: 50px;
+}
+
 .pd0 {
   padding: 0px;
 }
@@ -72690,6 +72694,20 @@ page-play .bottom-actions button.button-cyan {
   color: #16efef;
 }
 
+page-play .button-refresh {
+  border-radius: 999em;
+  -webkit-box-shadow: 0 4px 9px 0 rgba(213, 218, 224, 0.3);
+  box-shadow: 0 4px 9px 0 rgba(213, 218, 224, 0.3);
+  font-size: 24px;
+  width: 60px;
+  height: 60px;
+}
+
+page-play .button-refresh ion-icon {
+  font-weight: 700;
+  color: #16efef;
+}
+
 page-play .ripple-container {
   position: relative;
   width: 96px;
@@ -73296,18 +73314,18 @@ page-relative-rank .table-title {
 }
 
 page-relative-rank .color-trophy1 {
-  background-image: -webkit-gradient(linear, left top, right top, from(#f0c30e), color-stop(80%, white));
-  background-image: linear-gradient(to right, #f0c30e 0%, white 80%);
+  background-image: -webkit-gradient(linear, left top, right top, from(#f0c30e), color-stop(80%, white)) !important;
+  background-image: linear-gradient(to right, #f0c30e 0%, white 80%) !important;
 }
 
 page-relative-rank .color-trophy2 {
-  background-image: -webkit-gradient(linear, left top, right top, from(#c0c0c0), color-stop(80%, white));
-  background-image: linear-gradient(to right, #c0c0c0 0%, white 80%);
+  background-image: -webkit-gradient(linear, left top, right top, from(#c0c0c0), color-stop(80%, white)) !important;
+  background-image: linear-gradient(to right, #c0c0c0 0%, white 80%) !important;
 }
 
 page-relative-rank .color-trophy3 {
-  background-image: -webkit-gradient(linear, left top, right top, from(#cd7f32), color-stop(80%, white));
-  background-image: linear-gradient(to right, #cd7f32 0%, white 80%);
+  background-image: -webkit-gradient(linear, left top, right top, from(#cd7f32), color-stop(80%, white)) !important;
+  background-image: linear-gradient(to right, #cd7f32 0%, white 80%) !important;
 }
 
 page-relative-rank .segment-ios .segment-button.segment-activated {
@@ -73384,6 +73402,8 @@ page-relative-rank .mt-4 {
 }
 
 page-relative-rank .row-me {
+  background-image: -webkit-gradient(linear, left top, right top, from(#EAEAEA), color-stop(80%, white));
+  background-image: linear-gradient(to right, #EAEAEA 0%, white 80%);
   font-weight: bold;
   padding: 10px 0px 12px 0;
 }

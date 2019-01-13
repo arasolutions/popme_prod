@@ -16,15 +16,21 @@
     "LOADING": "Chargement",
     "LOADING_CREATE_CLAN": "Création du clan ...",
     "LOADING_EDIT_CLAN": "Modification du clan ...",
-    "LOADING_DATA": "Chargement de données ...",
+    "LOADING_CARDS": "Chargement de nouvelles cartes ...",
+    "LOADING_DATA": "Chargement des données ...",
     "LOADING_DELETE": "Suppression ...",
+    "LOADING_DELETE_ACCOUNT": "Supression de ton compte ...",
     "NEXT": "Suivant",
+    "NO": "Non",
+    "REGISTER": "Inscription...",
     "SKIP": "Passer",
     "UPGRADE": "Promouvoir",
-    "QUIT": "Quitter"
+    "QUIT": "Quitter",
+    "YES": "Oui"
   },
   "ERROR": {
-    "CONNECTION": "Erreur de connexion"
+    "CONNECTION": "Erreur de connexion",
+    "NO_CONNECTION": "Impossible de se connecter à internet. Veuillez vérifier votre connexion !"
   },
   "PAGE": {
     "CLAN": {
@@ -54,7 +60,12 @@
       "BAD_ACCOUNT" : "Votre compte et/ou mot de passe ne sont pas valides",
       "CONNEXION_FACEBOOK": "Connexion par Facebook",
       "CONNEXION_CLASSIQUE": "Connexion classique",
+      "DELETED_ACCOUNT" : "Votre compte a été supprimé...\n Si vous voulez le réactiver, merci de nous en faire la demande sur www.popme.app",
       "PASSWORD": "Mot de passe",
+      "PASSWORD_REINIT_PROGRESS_SUBTITLE": "Tu recevras rapidement un lien pour le réinitialiser",
+      "PASSWORD_REINIT_PROGRESS_TITLE": "Réinitialisation en cours",
+      "PASSWORD_REINIT_SUBTITLE": "Inscris ton email pour réinitialiser le mot de passe",
+      "PASSWORD_REINIT_TITLE": "Email vide",
       "REGISTER": "Inscris toi",
       "TUTORIAL1": "Crée ton profil <br /> et envoie tes meilleures photos",
       "TUTORIAL2": "Pop si tu aimes <br /> ou passe les photos",
@@ -66,7 +77,10 @@
     },
     "PLAY": {
       "SEE_PROFIL": "Voir son profil",
-      "NO_PHOTOS": "Il n'y a plus de photos"
+      "NO_PHOTOS": "Il n'y a plus de photos",
+      "REPORT_PHOTOS": "Signaler une photo",
+      "REPORT_PHOTOS_BAD_CONTENT": "Contenu choquant",
+      "REPORT_PHOTOS_NO_REASON": "Pas de raison"
     },
     "PROFILE": {
       "EDIT_INFOS": "Modifier mes infos"
@@ -92,7 +106,10 @@
       "TITLE": "Mes informations",
       "SLOGAN": "Devenez le plus populaire",
       "ACCOUNT": {
+        "CONFIRM": "Souhaitez-vous confirmer ?",
         "DELETE": "Supprimer mon compte",
+        "DELETE_CONFIRM": "Souhaitez-vous supprimer votre compte ? Toutes vos données seront perdues.",
+        "DELETE_TITLE": "Suppression",
         "SIGN_OUT": "Déconnexion"
       },
       "CONTACT": {
@@ -149,6 +166,10 @@
     }
   },
   "TUTORIAL": {
+	"BASE": {
+      "TITLE": "Quitter le tutoriel",
+      "SUBTITLE": "Souhaites-tu vraiment quitter le tutoriel ?"
+    },
     "1": {
       "TITLE": "Bonjour nouveau poper !",
       "TEXT1": "Je vais te présenter l'application à partir de ce tutoriel et te montrer le chemin pour devenir le plus populaire.",
