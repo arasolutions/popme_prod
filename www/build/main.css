@@ -70845,6 +70845,12 @@ div.button-blank button {
   color: grey;
 }
 
+.margin-default {
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  margin-bottom: var(--safe-area-inset-bottom);
+}
+
 /* CSS Helper ver 1.1.1 */
 /* FLEX from Google Polymer 0.5.2 */
 html [layout][horizontal], html [layout][vertical] {
@@ -72212,9 +72218,9 @@ page-clan .default-rank {
   position: absolute;
   top: 0;
   left: 0;
-  width: 41px;
-  height: 40px;
-  background-color: #f0eff5;
+  width: 35px;
+  height: 35px;
+  background-color: #333;
   border-radius: 50%;
   display: grid;
 }
@@ -72993,6 +72999,14 @@ popover ion-content.popover {
   color: white;
 }
 
+popover .rank-name {
+  padding: 5px;
+  text-align: center;
+  background: #f1c40f;
+  color: #2c2c2c;
+  font-weight: bold;
+}
+
 popover .content button {
   text-align: center;
   border-radius: 50px;
@@ -73132,6 +73146,24 @@ page-profile .popy-stand-by-text {
   font-size: 18px;
 }
 
+page-profile .popy-loading-text {
+  position: absolute;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(200, 200, 200, 0.5);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 30px 10px;
+  font-size: 18px;
+}
+
 page-profile .big-icon {
   font-size: 3.2em;
   font-weight: bold;
@@ -73192,6 +73224,21 @@ page-profile .profile-header .next-add .text {
 
 page-profile .profile-header .next-add ion-icon {
   color: #F1C40F;
+}
+
+page-profile .loading {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+page-profile .loading circle {
+  stroke: white;
 }
 
 page-profile .profile-card {
@@ -73905,6 +73952,10 @@ tutoriel button ion-icon {
   color: #333;
   font-weight: bold;
   padding-left: 5px;
+}
+
+tutoriel .step2-logo {
+  width: 1.1em;
 }
 
 tutoriel .button-action {

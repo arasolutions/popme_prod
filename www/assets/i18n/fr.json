@@ -89,7 +89,7 @@
 		  "GENERAL2": "A chaque fois que quelqu'un aimera une de tes photos, ce score évoluera.",
 		  "GENERAL3": "A toi de partager tes photos et faire monter ton score pour devenir le plus populaire !",
 		  "GENERAL4": "J'ai compris",
-		  "POPPED": "Déjà popée",
+		  "POPPED": "Popée",
 		  "PASSED": "Passée",
 		  "RANK1": "Ca c'est ton classement !",
 		  "RANK2": "Tu peux choisir quel classement par défaut tu souhaites voir sur ton profil",
@@ -166,7 +166,9 @@
       "TITLE": "Tendances",
       "BEST_POPED": "Les plus popés de la semaine",
       "BEST_POPER": "Les plus grands popers de la semaine",
-      "BEST_PHOTO": "La photo de la semaine"
+      "BEST_PHOTO": "La photo de la semaine",
+      "POPPED": "Popé",
+      "PASSED": "Passé"
     }
   },
   "PLUGIN": {
@@ -174,7 +176,7 @@
       "FULL_STOCK": "Votre stock de photos est atteint (4/4)",
       "CHOOSE_PICTURE": "Choisir une photo",
       "DELETE_PICTURE": "Supprimer cette photo",
-      "DELETE_PICTURE_ALERT": "Tu veux vraiment supprimer cette photo ?",
+      "DELETE_PICTURE_ALERT": "Tu veux vraiment supprimer cette photo ? <strong>Les points seront conservés dans ton score.</strong>",
       "PICTURE_CLAN": "Image du clan",
       "PICTURE_PROFILE": "Photo de profil",
       "TAKE_PICTURE": "Prendre une photo",
