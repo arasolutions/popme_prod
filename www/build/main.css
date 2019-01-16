@@ -72556,7 +72556,7 @@ page-play .swipe-container {
   --safe-area-inset-top: env(safe-area-inset-top);
   --safe-area-inset-bottom: env(safe-area-inset-bottom);
   height: 100%;
-  padding-bottom: calc(var(--safe-area-inset-bottom) + 84px);
+  padding-bottom: calc(var(--safe-area-inset-top) + var(--safe-area-inset-bottom) + 84px);
 }
 
 page-play .poper-card-image {
