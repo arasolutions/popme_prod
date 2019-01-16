@@ -89,7 +89,7 @@
         "GENERAL2": "Whenever someone likes his pictures, this score will evolve.",
         "GENERAL3": "For you to share your photos and raise your score to become the most popular !",
         "GENERAL4": "I understood",
-        "POPPED": "Already poped",
+        "POPPED": "Poped",
         "PASSED": "Past",
         "RANK1": "That's your ranking !",
         "RANK2": "ou can choose which default ranking you want to see on your profile",
@@ -126,7 +126,7 @@
       "ACCOUNT": {
         "DELETE": "Delete my account",
         "SIGN_OUT": "Sign out",
-        "DELETE_CONFIRM": ""Do you want to delete your account? All your data will be lost.",
+        "DELETE_CONFIRM": "Do you want to delete your account? All your data will be lost.",
         "DELETE_TITLE": "Delete",
         "SIGN_OUT": "Logout"
       },
@@ -166,7 +166,9 @@
       "TITLE": "Trends",
       "BEST_POPED": "The most populated of the week",
       "BEST_POPER": "The biggest popers of the week",
-      "BEST_PHOTO": "The photo of the week"
+      "BEST_PHOTO": "The photo of the week",
+      "POPPED": "Poped",
+      "PASSED": "Past"
     }
   },
   "PLUGIN": {
@@ -174,7 +176,7 @@
       "FULL_STOCK": "Your stock of photos is reached (4/4)",
       "CHOOSE_PICTURE": "Choose a photo",
       "DELETE_PICTURE": "Delete this photo",
-      "DELETE_PICTURE_ALERT": "Do you really want to delete this photo ?",
+      "DELETE_PICTURE_ALERT": "Do you realy want to delete this photo ? <strong>Every points will be kept in your score.</strong>",
       "PICTURE_CLAN": "Clan image",
       "PICTURE_PROFILE": "Profile picture",
       "TAKE_PICTURE": "Take a picture",
