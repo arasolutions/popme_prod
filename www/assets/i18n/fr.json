@@ -67,9 +67,9 @@
       "PASSWORD_REINIT_SUBTITLE": "Inscris ton email pour réinitialiser le mot de passe",
       "PASSWORD_REINIT_TITLE": "Email vide",
       "REGISTER": "Inscris toi",
-      "TUTORIAL1": "Crée ton profil <br /> et envoie tes meilleures photos",
-      "TUTORIAL2": "Pop si tu aimes <br /> ou passe les photos",
-      "TUTORIAL3": "Deviens le plus populaire <br /> et écrase tes amis !"
+      "TUTORIAL1": "Crée ton profil et envoie tes meilleures photos",
+      "TUTORIAL2": "Pop si tu aimes ou passe les photos",
+      "TUTORIAL3": "Deviens le plus populaire et écrase tes amis !"
     },
     "LOGIN_CLASSIQUE": {
       "CONNECTION": "Connexion",

@@ -67,9 +67,9 @@
       "PASSWORD_REINIT_SUBTITLE": "Regsiter you email to reinit password",
       "PASSWORD_REINIT_TITLE": "Email empty",
       "REGISTER": "Register",
-      "TUTORIAL1": "Create your profile <br /> and send your best photos",
-      "TUTORIAL2": "Pop if you like <br /> or pass the photos",
-      "TUTORIAL3": "Become the most popular <br /> and crush your friends!"
+      "TUTORIAL1": "Create your profile and send your best photos",
+      "TUTORIAL2": "Pop if you like or pass the photos",
+      "TUTORIAL3": "Become the most popular and crush your friends!"
     },
     "LOGIN_CLASSIQUE": {
       "CONNECTION": "Connection",
