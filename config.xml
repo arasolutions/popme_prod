@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.arasolutions.popme" version="1.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.arasolutions.popme" version="1.0.6" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Popme</name>
     <description>Popme app</description>
     <author email="contact@ara-solutions.com" href="http://www.ara-solutions.com">Ara-solutions.com</author>
@@ -126,7 +126,7 @@
     <plugin name="com-sarriaroman-photoviewer" spec="1.1.18" />
     <plugin name="cordova-plugin-geolocation" spec="4.0.1" />
     <plugin name="com.darktalker.cordova.screenshot" spec="0.1.6" />
-    <plugin name="cordova-plugin-google-analytics" spec="1.8.3" />
+    <plugin name="cordova-plugin-google-analytics" spec="1.8.6" />
     <plugin name="ionic-plugin-deeplinks" spec="^1.0.17">
         <variable name="URL_SCHEME" value="popme" />
         <variable name="DEEPLINK_SCHEME" value="https" />
