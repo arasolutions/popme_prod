@@ -12,6 +12,7 @@
     "DOWNGRADE": "Downgrade",
     "FINISH": "Finish",
     "JOIN": "Join",
+    "INFORMATIONS": "Information",
     "KICK": "Kick",
     "LOADING": "Loading",
     "LOADING_CREATE_CLAN": "Créating clan ...",
@@ -87,6 +88,7 @@
       "REPORT_ACCOUNT": "Report an account",
       "REPORT_PICTURES": "Inappropriate pictures",
       "REPORT_PHOTOS_NO_REASON": "No reason",
+      "REPORT_ALERT_MESSAGE": "Your report has been taken into account.",
       "POPOVER": {
         "GENERAL1": "This is your score !",
         "GENERAL2": "Whenever someone likes his pictures, this score will evolve.",

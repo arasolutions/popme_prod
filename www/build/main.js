@@ -8635,6 +8635,7 @@ var PoperProfilePage = /** @class */ (function () {
         actionSheet.present();
     };
     PoperProfilePage.prototype.updateReport = function (motif) {
+        var _this = this;
         var data;
         data = {};
         data.userCreated = this.userProvider.getId();
@@ -8648,7 +8649,16 @@ var PoperProfilePage = /** @class */ (function () {
         }, function (err) {
         }, function () {
             //this.goToHome();
+            _this.doAlert(_this.translate.getTranslate('PAGE.PROFILE.REPORT_ALERT_MESSAGE'));
         });
+    };
+    PoperProfilePage.prototype.doAlert = function (message) {
+        var alert = this.alertCtrl.create({
+            title: this.translate.getTranslate('BUTTON.INFORMATIONS'),
+            subTitle: message,
+            buttons: ['Ok']
+        });
+        alert.present();
     };
     PoperProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({

@@ -11,6 +11,7 @@
     "DELETE": "Supprimer",
     "DOWNGRADE": "Rétrograder",
     "FINISH": "Terminer",
+    "INFORMATIONS": "Information",
     "JOIN": "Rejoindre",
     "KICK": "Exclure",
     "LOADING": "Chargement",
@@ -87,6 +88,7 @@
       "REPORT_ACCOUNT": "Signaler un compte",
       "REPORT_PICTURES": "Photos non appropriées",
       "REPORT_PHOTOS_NO_REASON": "Aucune raison",
+      "REPORT_ALERT_MESSAGE": "Votre signalement a été pris en compte.",
 	  "POPOVER": {
 		  "GENERAL1": "Ca c'est ton score total !",
 		  "GENERAL2": "A chaque fois que quelqu'un aimera une de tes photos, ce score évoluera.",
