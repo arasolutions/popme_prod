@@ -118,7 +118,9 @@
       "JOIN_CLAN": "Join a clan"
     },
     "REGISTER": {
-      "TITLE": "Welcome to PopMe, with only 4 photos, become more pop than your friends. To create your profile, just fill in the following information:"
+      "TITLE": "Welcome to PopMe, with only 4 photos, become more pop than your friends. To create your profile, just fill in the following information:",
+      "ACCEPT_CGU": "You must accept the Terms of Use to continue.",
+      "ACCEPT_CGU_MESSAGE": "I accept the Terms of Use"
     },
     "SETTINGS": {
       "TITLE": "Setting",
