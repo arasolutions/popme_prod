@@ -72968,13 +72968,7 @@ page-poperprofile .stamp.stamp-unlike {
 }
 
 page-poperprofile .bottom-actions {
-  --safe-area-inset-top: env(safe-area-inset-top);
-  --safe-area-inset-bottom: env(safe-area-inset-bottom);
-  position: absolute;
-  bottom: var(--safe-area-inset-bottom);
-  left: 0;
-  right: 0;
-  height: calc(84px + var(--safe-area-inset-bottom));
+  margin-top: 10%;
   padding: 12px;
 }
 
