@@ -84,6 +84,9 @@
     },
     "PROFILE": {
       "EDIT_INFOS": "Edit my account",
+      "REPORT_ACCOUNT": "Report an account",
+      "REPORT_PICTURES": "Inappropriate pictures",
+      "REPORT_PHOTOS_NO_REASON": "No reason",
       "POPOVER": {
         "GENERAL1": "This is your score !",
         "GENERAL2": "Whenever someone likes his pictures, this score will evolve.",

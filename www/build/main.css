@@ -72967,6 +72967,34 @@ page-poperprofile .stamp.stamp-unlike {
   border: 3px solid #f0c30e;
 }
 
+page-poperprofile .bottom-actions {
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  position: absolute;
+  bottom: var(--safe-area-inset-bottom);
+  left: 0;
+  right: 0;
+  height: calc(84px + var(--safe-area-inset-bottom));
+  padding: 12px;
+}
+
+page-poperprofile .bottom-actions button {
+  border-radius: 999em;
+  -webkit-box-shadow: 0 4px 9px 0 rgba(213, 218, 224, 0.3);
+  box-shadow: 0 4px 9px 0 rgba(213, 218, 224, 0.3);
+  font-size: 24px;
+  width: 60px;
+  height: 60px;
+}
+
+page-poperprofile .bottom-actions button ion-icon {
+  font-weight: 700;
+}
+
+page-poperprofile .bottom-actions button.button-superlike {
+  color: #9e4dda;
+}
+
 page-poperprofile .ranking-text {
   font-size: 2em;
 }
