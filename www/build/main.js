@@ -6145,7 +6145,7 @@ var LoginPage = /** @class */ (function () {
                 // Get user infos from the API
                 _this.fb.api("/me?fields=name,email", []).then(function (userFB) {
                     // Get the connected user details
-                    data.usualName = userFB.name.split(' ').join('').substr(0, 20);
+                    data.usualName = userFB.name; //.split(' ').join('').substr(0, 20);
                     data.email = userFB.email;
                     _this.api.post('connectFacebookUser', data)
                         .subscribe(function (data) {
@@ -6193,26 +6193,16 @@ var LoginPage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('slides'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["o" /* Slides */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["o" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["o" /* Slides */]) === "function" && _a || Object)
     ], LoginPage.prototype, "slides", void 0);
     LoginPage = LoginPage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-login',template:/*ion-inline-start:"C:\wamp64-v3\www\appli\popme\src\pages\login\login.html"*/'<ion-content padding class="bg-popme">\n\n  <div layout vertical center>\n\n    <ion-slides #slides pager flex>\n\n      <ion-slide *ngFor="let slide of introSlides">\n\n        <h3 class="font-thin" [innerHTML]="slide.title"></h3>\n\n        <img [src]="slide.image">\n\n      </ion-slide>\n\n    </ion-slides>\n\n    <div class="text-center mt5">\n\n      <div>\n\n        <button ion-button round class="btn-tinder-login m-b-sm upper" (click)="loginFB()">{{ \'PAGE.LOGIN.CONNEXION_FACEBOOK\' | translate }}</button>\n\n      </div>\n\n      <div>\n\n        <button ion-button round color="muted" outline class="upper" (click)="prepareModal()">{{ \'PAGE.LOGIN.CONNEXION_CLASSIQUE\' | translate }}</button>\n\n      </div>\n\n      <div class="button-blank">\n\n        <button small outline class="upper" (click)="pushRegister()">{{ \'PAGE.LOGIN.REGISTER\' | translate }}</button>\n\n      </div>\n\n      <div class="popme-version">\n\n        {{ \'APP.VERSION\' | translate }}\n\n      </div>\n\n    </div>\n\n  </div>\n\n</ion-content>'/*ion-inline-end:"C:\wamp64-v3\www\appli\popme\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* App */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_providers__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_1__ionic_native_facebook__["a" /* Facebook */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_providers__["h" /* StorageProvider */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_4__providers_providers__["i" /* Translate */],
-            __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* Platform */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["k" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* App */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__providers_providers__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_providers__["a" /* Api */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* LoadingController */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["b" /* AlertController */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_facebook__["a" /* Facebook */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_facebook__["a" /* Facebook */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_4__providers_providers__["h" /* StorageProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_providers__["h" /* StorageProvider */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["i" /* ModalController */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_4__providers_providers__["i" /* Translate */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_providers__["i" /* Translate */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["m" /* Platform */]) === "function" && _m || Object])
     ], LoginPage);
     return LoginPage;
-    var LoginPage_1;
+    var LoginPage_1, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
 }());
 
 //# sourceMappingURL=login.js.map
