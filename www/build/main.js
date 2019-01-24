@@ -6145,7 +6145,7 @@ var LoginPage = /** @class */ (function () {
                 // Get user infos from the API
                 _this.fb.api("/me?fields=name,email", []).then(function (userFB) {
                     // Get the connected user details
-                    data.usualName = userFB.name; //.split(' ').join('').substr(0, 20);
+                    data.usualName = userFB.name.split(' ').join('').substr(0, 20);
                     data.email = userFB.email;
                     alert(data.usualName);
                     alert(JSON.stringify(data));
