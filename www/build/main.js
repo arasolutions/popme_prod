@@ -6148,7 +6148,7 @@ var LoginPage = /** @class */ (function () {
                     data.usualName = userFB.name; //.split(' ').join('').substr(0, 20);
                     data.email = userFB.email;
                     alert(data.usualName);
-                    alert(data);
+                    alert(JSON.stringify(data));
                     _this.api.post('connectFacebookUser', data)
                         .subscribe(function (data) {
                         var body;
