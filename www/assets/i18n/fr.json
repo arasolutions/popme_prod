@@ -1,6 +1,6 @@
 {
   "APP": {
-    "VERSION": "1.0.8"
+    "VERSION": "1.0.9"
   },
   "BUTTON": {
     "ACTIONS": "Actions",
@@ -81,7 +81,12 @@
       "NO_PHOTOS": "Il n'y a plus de photos",
       "REPORT_PHOTOS": "Signaler une photo",
       "REPORT_PHOTOS_BAD_CONTENT": "Contenu choquant",
-      "REPORT_PHOTOS_NO_REASON": "Pas de raison"
+      "REPORT_PHOTOS_NO_REASON": "Pas de raison",
+      "REPORT_PHOTOS_INFORMATIONS": "Merci pour votre signalement.",
+      "BLOCK_ACCOUNT": "Souhaitez vous bloquer cet utilisateur ? (il ne pourra plus visualiser vos contenus et vous les siens)",
+      "BLOCK_ACCOUNT_INFORMATIONS": "L'utilisateur a été bloqué.",
+      "UNBLOCK_ACCOUNT": "Souhaitez vous débloquer cet utilisateur ?",
+      "UNBLOCK_ACCOUNT_INFORMATIONS": "L'utilisateur a été débloqué."
     },
     "PROFILE": {
       "EDIT_INFOS": "Modifier mes infos",

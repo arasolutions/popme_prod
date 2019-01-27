@@ -1,6 +1,6 @@
 {
   "APP": {
-    "VERSION": "1.0.8"
+    "VERSION": "1.0.9"
   },
   "BUTTON": {
     "ACTIONS": "Actions",
@@ -81,7 +81,12 @@
       "NO_PHOTOS": "There are no more pictures",
       "REPORT_PHOTOS": "Report a picture",
       "REPORT_PHOTOS_BAD_CONTENT": "Bad content",
-      "REPORT_PHOTOS_NO_REASON": "No reason"
+      "REPORT_PHOTOS_NO_REASON": "No reason",
+      "REPORT_PHOTOS_INFORMATIONS": "Thank you for your report.",
+      "BLOCK_ACCOUNT": "Do you want to block this user? (he will not be able to visualize your contents anymore and you have them)",
+      "BLOCK_ACCOUNT_INFORMATIONS": "User has been blocked.",
+      "UNBLOCK_ACCOUNT": "Do you want to unblock this user ?",
+      "UNBLOCK_ACCOUNT_INFORMATIONS": "The user has been unlocked."
     },
     "PROFILE": {
       "EDIT_INFOS": "Edit my account",

@@ -72870,6 +72870,11 @@ page-poperprofile .pop-title {
   padding-top: 4%;
 }
 
+page-poperprofile .block-user {
+  color: red;
+  font-weight: bold;
+}
+
 page-poperprofile .profile-image {
   position: relative;
   width: calc(100% / 2 - 10px);
@@ -72968,8 +72973,11 @@ page-poperprofile .stamp.stamp-unlike {
 }
 
 page-poperprofile .bottom-actions {
-  margin-top: 10%;
+  float: left;
+  margin-top: 2%;
   padding: 12px;
+  text-align: center;
+  width: 100%;
 }
 
 page-poperprofile .bottom-actions button {
@@ -72987,6 +72995,10 @@ page-poperprofile .bottom-actions button ion-icon {
 
 page-poperprofile .bottom-actions button.button-superlike {
   color: #9e4dda;
+}
+
+page-poperprofile .bottom-actions button.button-superunlike {
+  color: #f95266;
 }
 
 page-poperprofile .ranking-text {
