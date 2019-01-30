@@ -1,6 +1,6 @@
 {
   "APP": {
-    "VERSION": "1.0.9"
+    "VERSION": "1.0.10"
   },
   "BUTTON": {
     "ACTIONS": "Actions",
@@ -90,10 +90,10 @@
     },
     "PROFILE": {
       "EDIT_INFOS": "Modifier mes infos",
-      "REPORT_ACCOUNT": "Signaler un compte",
+      "REPORT_ACCOUNT": "Bloquer un compte",
       "REPORT_PICTURES": "Photos non appropriées",
       "REPORT_PHOTOS_NO_REASON": "Aucune raison",
-      "REPORT_ALERT_MESSAGE": "Votre signalement a été pris en compte.",
+      "REPORT_ALERT_MESSAGE": "Le compte est bloqué.",
 	  "POPOVER": {
 		  "GENERAL1": "Ca c'est ton score total !",
 		  "GENERAL2": "A chaque fois que quelqu'un aimera une de tes photos, ce score évoluera.",
