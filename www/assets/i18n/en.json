@@ -139,8 +139,8 @@
       "TITLE": "Setting",
       "SLOGAN": "Become the most popular",
       "ACCOUNT": {
+        "CONFIRM": "Would you like to confirm?",
         "DELETE": "Delete my account",
-        "SIGN_OUT": "Sign out",
         "DELETE_CONFIRM": "Do you want to delete your account? All your data will be lost.",
         "DELETE_TITLE": "Delete",
         "SIGN_OUT": "Logout"
