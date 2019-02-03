@@ -143,6 +143,7 @@
         "DELETE": "Supprimer mon compte",
         "DELETE_CONFIRM": "Souhaitez-vous supprimer votre compte ? Toutes vos données seront perdues.",
         "DELETE_TITLE": "Suppression",
+        "SIGN_OUT_CONFIRM": "Souhaitez-vous vous déconnecter ?",
         "SIGN_OUT": "Déconnexion"
       },
       "CONTACT": {
