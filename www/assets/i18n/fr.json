@@ -95,10 +95,13 @@
       "REPORT_PHOTOS_NO_REASON": "Aucune raison",
       "REPORT_ALERT_MESSAGE": "Le compte est bloqué.",
 	  "POPOVER": {
+          "BLOCKED_ACCOUNT_BY_ME": "Vous avez bloqué cet utilisateur",
+          "BLOCKED_ACCOUNT": "Vous avez été bloqué par cet utilisateur",
 		  "GENERAL1": "Ca c'est ton score total !",
 		  "GENERAL2": "A chaque fois que quelqu'un aimera une de tes photos, ce score évoluera.",
 		  "GENERAL3": "A toi de partager tes photos et faire monter ton score pour devenir le plus populaire !",
 		  "GENERAL4": "J'ai compris",
+          "NO_CLASSEMENT": "Non classé",
 		  "POPPED": "Popée",
 		  "PASSED": "Passée",
 		  "RANK1": "Ca c'est ton classement !",
