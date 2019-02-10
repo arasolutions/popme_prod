@@ -72238,6 +72238,140 @@ page-clan .default-rank > div {
   text-align: right;
 }
 
+page-clanChat .comment-me, page-clanChat .comment-not-me {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 1.1em;
+}
+
+page-clanChat .comment-me .block-message {
+  float: right;
+}
+
+page-clanChat .comment-not-me .block-message {
+  float: left;
+}
+
+page-clanChat .chat-content {
+  background-color: #EDFCF4;
+}
+
+page-clanChat .comment-me .block-message {
+  padding: 6px 10px;
+  /*background: #92bed5;*/
+  background: #68C493;
+  border-radius: 5px;
+  text-align: right;
+  float: right;
+  max-width: 70%;
+}
+
+page-clanChat .comment-not-me .block-message {
+  padding: 6px 10px;
+  /*background: #8d8f7d;*/
+  background: #6499B5;
+  border-radius: 5px;
+  text-align: left;
+  float: left;
+  max-width: 70%;
+}
+
+page-clanChat .comment-not-me .block-message .time, page-clanChat .comment-me .block-message .time {
+  padding: 0;
+  text-align: right;
+  float: right;
+  font-size: .8em;
+  color: #ddd;
+}
+
+page-clanChat .profile-comments .comment-not-me img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 10px;
+  float: left;
+}
+
+page-clanChat .profile-comments .comment-me img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-left: 10px;
+  float: right;
+}
+
+page-clanChat .profile-comments {
+  height: calc(100% - 60px);
+  padding: 0 16px !important;
+}
+
+page-clanChat .profile-comments .scroll-content {
+  padding: 0 16px !important;
+}
+
+page-clanChat .chat {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  height: 50px;
+}
+
+page-clanChat .chat > div {
+  padding: 5px 0 5px 5px;
+}
+
+page-clanChat .chat ion-textarea {
+  background: white;
+  color: #2C2C2C;
+  border: solid 1px #BBB;
+  border-radius: 5px;
+  width: 78%;
+  float: left;
+  height: 40px;
+}
+
+page-clanChat .chat ion-textarea textarea {
+  margin: 5px !important;
+}
+
+page-clanChat .chat button {
+  height: 40px !important;
+  width: 20%;
+  float: right;
+  margin: 0 0.2rem !important;
+}
+
+page-clanChat .comment-date {
+  margin: 10px 0;
+}
+
+page-clanChat .comment-date > ion-col {
+  background: #ddd;
+  color: #2C2C2C;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+page-clanChat .comment-date > ion-col > div {
+  text-align: center;
+}
+
+page-clanChat ion-header.comments > button {
+  position: absolute !important;
+  z-index: 5 !important;
+}
+
+page-clanChat ion-header.comments ion-col {
+  font-size: 1.1em;
+}
+
 page-clanEdit .close-buttons {
   position: absolute;
   right: 20px;
