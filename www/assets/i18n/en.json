@@ -38,10 +38,12 @@
       "TITLE": "Clan",
       "MY_CLAN": "My clans",
       "JOIN_CLAN": "Join a clan",
+      "CREATED": "Created at",
       "CREATE_CLAN": "Create a clan",
       "CREATE_CLAN_MESSAGE": "Your clan is created",
       "DELETE_CLAN": "Delete clan",
       "DELETE_CLAN_ALERT": "Are you sure ?",
+      "MEMBERS": "Members",
       "NO_CLAN": "You do not have a clan yet",
       "LEAVE_CLAN": "Leave clan"
     },
@@ -250,7 +252,7 @@
     "8": {
       "TITLE": "Back to your profile",
       "TEXT1": "Refresh your screen with a swipe towards the bottom of the page, and you will see your score evolved ...",
-      "TEXT2": "You can now become the most lame !"
+      "TEXT2": "You can now become the most popular !"
     },
     "9": {
       "TITLE": "It's finish",

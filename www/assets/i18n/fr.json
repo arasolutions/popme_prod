@@ -38,10 +38,12 @@
       "TITLE": "Clan",
       "MY_CLAN": "Mes clans",
       "JOIN_CLAN": "Rejoindre un clan",
+      "CREATED": "Créé le",
       "CREATE_CLAN": "Créer un clan",
       "CREATE_CLAN_MESSAGE": "Votre clan a été créé",
       "DELETE_CLAN": "Supprimer le clan",
       "DELETE_CLAN_ALERT": "Attention ! Cette demande est irrévocable.",
+      "MEMBERS": "Membres",
       "NO_CLAN": "Tu n'as pas encore de clan",
       "LEAVE_CLAN": "Quitter le clan"
     },
@@ -112,7 +114,7 @@
 		  "SCORE3": "A toi de partager tes photos et faire monter ton score pour devenir le plus populaire !",
 		  "SCORE4": "J'ai compris",
 		  "TIME2": "J'ai compris",
-		  "TIME1": "Ca c'est le temps d'attent avant d'ajouter une nouvelle popy",
+		  "TIME1": "Ca c'est le temps d'attente avant d'ajouter une nouvelle photo",
 		  "TIME2": "J'ai compris"
 		}
     },
@@ -249,8 +251,8 @@
     },
     "8": {
       "TITLE": "Voilà, c'est terminé",
-      "TEXT1": "Rafraichis ton écran en faisant un swipe vers le bas de la page, et tu verras ton score évolué...",
-      "TEXT2": "Tu peux maintenant devenir le plus pouplaire !"
+      "TEXT1": "Rafraichis ton écran en faisant un swipe vers le bas de la page, et tu verras ton score évoluer...",
+      "TEXT2": "Tu peux maintenant devenir le plus populaire !"
     },
     "9": {
       "TITLE": "Voilà, c'est terminé",
