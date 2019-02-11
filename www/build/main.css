@@ -72094,6 +72094,48 @@ html [segment], html segment {
   min-width: 0;
 }
 
+/* GIPHY v1.0.0*/
+.ios .giphy-container {
+  border-top: 1px solid #f5f5f5;
+}
+
+.giphy-container {
+  background-color: white;
+  padding: 6px;
+  height: 118px;
+  padding-bottom: 0;
+}
+
+.giphy-container .scroll-horizontal {
+  white-space: nowrap;
+  height: 112px;
+}
+
+.giphy-container .scroll-horizontal .scroll-item {
+  display: inline-block;
+}
+
+.giphy-container .scroll-horizontal .scroll-item img {
+  border-radius: 6px;
+  margin-right: 6px;
+}
+
+.giphy-container .giphy-loading {
+  padding-top: 38px;
+  width: 100%;
+  text-align: center;
+}
+
+.giphy-close {
+  font-size: 1.6em;
+  padding: 0 8px;
+}
+
+.giphy-component .text-input {
+  padding-left: 12px;
+}
+
+/* end of GIPHY */
 page-auto-complete .toolbar .searchbar-ios .searchbar-input {
   background: #FFF;
 }
@@ -72313,6 +72355,7 @@ page-clanChat .profile-comments {
 
 page-clanChat .profile-comments .scroll-content {
   padding: 0 16px !important;
+  margin-bottom: 0 !important;
 }
 
 page-clanChat .chat {
@@ -72320,7 +72363,7 @@ page-clanChat .chat {
   bottom: 0;
   width: 100%;
   background-color: #f2f2f2;
-  height: 50px;
+  height: 58px;
 }
 
 page-clanChat .chat > div {
@@ -72332,9 +72375,9 @@ page-clanChat .chat ion-textarea {
   color: #2C2C2C;
   border: solid 1px #BBB;
   border-radius: 5px;
-  width: 78%;
+  width: 100%;
   float: left;
-  height: 40px;
+  height: 48px;
 }
 
 page-clanChat .chat ion-textarea textarea {
@@ -72342,8 +72385,8 @@ page-clanChat .chat ion-textarea textarea {
 }
 
 page-clanChat .chat button {
-  height: 40px !important;
-  width: 20%;
+  height: 48px !important;
+  width: 100%;
   float: right;
   margin: 0 0.2rem !important;
 }
