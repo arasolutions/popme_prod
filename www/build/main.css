@@ -72337,7 +72337,7 @@ page-clanChat .profile-comments .comment-not-me img {
   float: left;
 }
 
-page-clanChat .profile-comments .comment-me img {
+page-clanChat .profile-comments .comment-me img.account-image {
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -72363,7 +72363,6 @@ page-clanChat .chat {
   bottom: 0;
   width: 100%;
   background-color: #f2f2f2;
-  height: 58px;
 }
 
 page-clanChat .chat > div {
