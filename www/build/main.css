@@ -72324,9 +72324,19 @@ page-clanChat .comment-not-me .block-message .time, page-clanChat .comment-me .b
   float: right;
   font-size: .8em;
   color: #ddd;
+  width: 100%;
+  padding-top: 3px;
 }
 
-page-clanChat .profile-comments .comment-not-me img {
+page-clanChat .user {
+  text-align: left;
+  font-weight: bold;
+  color: #2C2C2C;
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+page-clanChat .profile-comments .comment-not-me img.account-image {
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -72335,6 +72345,10 @@ page-clanChat .profile-comments .comment-not-me img {
   border-radius: 50%;
   margin-right: 10px;
   float: left;
+}
+
+page-clanChat img.image {
+  width: 100%;
 }
 
 page-clanChat .profile-comments .comment-me img.account-image {
