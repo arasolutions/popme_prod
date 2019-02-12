@@ -70851,6 +70851,54 @@ div.button-blank button {
   margin-bottom: var(--safe-area-inset-bottom);
 }
 
+.align-center-center {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.align-left-center {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+  -webkit-justify-content: left;
+  -ms-flex-pack: left;
+  justify-content: left;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.align-right-center {
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
 /* CSS Helper ver 1.1.1 */
 /* FLEX from Google Polymer 0.5.2 */
 html [layout][horizontal], html [layout][vertical] {
@@ -72271,13 +72319,36 @@ page-clan .default-rank > div {
   margin: auto;
 }
 
-.hidden-button {
+page-clan .hidden-button {
   display: none;
 }
 
-.list-clans-users {
+page-clan .list-clans-users {
   float: right;
   text-align: right;
+}
+
+page-clan .list-header {
+  width: 100%;
+  border-bottom: unset;
+}
+
+page-clan .list-header > div {
+  width: 100%;
+}
+
+page-clan .list-header .members {
+  width: 50%;
+  text-align: left;
+}
+
+page-clan .list-header .chat {
+  width: 50%;
+  text-align: right;
+}
+
+page-clan .chat-button {
+  padding: 0 1rem !important;
 }
 
 page-clanChat .comment-me, page-clanChat .comment-not-me {
@@ -72292,6 +72363,18 @@ page-clanChat .comment-me .block-message {
 
 page-clanChat .comment-not-me .block-message {
   float: left;
+}
+
+page-clanChat .comment-me .trash {
+  opacity: 0;
+  -webkit-transition: 200ms all linear;
+  transition: 200ms all linear;
+}
+
+page-clanChat .comment-me:active .trash {
+  opacity: 1;
+  -webkit-transition: 200ms all linear;
+  transition: 200ms all linear;
 }
 
 page-clanChat .chat-content {
@@ -72332,8 +72415,14 @@ page-clanChat .user {
   text-align: left;
   font-weight: bold;
   color: #2C2C2C;
-  width: 100%;
+  width: 90%;
   padding-bottom: 5px;
+  float: left;
+}
+
+page-clanChat .trash {
+  width: 10%;
+  float: right;
 }
 
 page-clanChat .profile-comments .comment-not-me img.account-image {
@@ -72360,6 +72449,15 @@ page-clanChat .profile-comments .comment-me img.account-image {
   border-radius: 50%;
   margin-left: 10px;
   float: right;
+}
+
+page-clanChat .message {
+  width: 100%;
+  clear: both;
+}
+
+page-clanChat .message-header {
+  font-size: .8em;
 }
 
 page-clanChat .profile-comments {
