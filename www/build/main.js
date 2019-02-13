@@ -5014,18 +5014,14 @@ var TestPage = /** @class */ (function (_super) {
             var body;
             body = JSON.parse(data.text());
             _this.platform.ready().then(function () {
-                // Take a screenshot and get temporary file URI
-                _this.screenshot.URI(100)
-                    .then(function (res) {
-                    _this.facebook.showDialog({
-                        method: 'share',
-                        href: 'https://popme.app/loading',
-                        caption: _this.translate.getTranslate('PLUGIN.SHARE.MESSAGE'),
-                        description: 'description',
-                        picture: [body]
-                    }).then(function () { alert("ok"); }).catch(function () { alert("ko"); });
-                }, function (err) {
-                });
+                var options = {
+                    method: 'share',
+                    href: 'https://popme.app/loading',
+                    caption: _this.translate.getTranslate('PLUGIN.SHARE.MESSAGE'),
+                    description: 'description',
+                    picture: body
+                };
+                _this.facebook.showDialog(options).then(function () { alert("ok"); }).catch(function () { alert("ko"); });
             });
         }, function (err) {
             _this.doAlert(err.message);
