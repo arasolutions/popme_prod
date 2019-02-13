@@ -5015,7 +5015,7 @@ var TestPage = /** @class */ (function (_super) {
             body = JSON.parse(data.text());
             _this.platform.ready().then(function () {
                 var options = {
-                    method: 'share',
+                    method: 'feed',
                     href: 'https://popme.app/loading',
                     caption: _this.translate.getTranslate('PLUGIN.SHARE.MESSAGE'),
                     description: 'description',
