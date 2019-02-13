@@ -4980,24 +4980,21 @@ var TestPage = /** @class */ (function (_super) {
             body = JSON.parse(data.text());
             _this.platform.ready().then(function () {
                 // Take a screenshot and get temporary file URI
-                _this.screenshot.URI(100)
-                    .then(function (res) {
-                    var options = {
-                        message: _this.translate.getTranslate('PLUGIN.SHARE.MESSAGE'),
-                        subject: 'Subject',
-                        files: [body],
-                        url: 'https://popme.app/loading',
-                        chooserTitle: _this.translate.getTranslate('PLUGIN.SHARE.TITLE')
-                    };
-                    _this.socialSharing.shareWithOptions(options)
-                        .then(function () {
-                        //this.showSuccessShareMsg();
-                    })
-                        .catch(function (err) {
-                        //this.showErrorShareMsg(err);
-                    });
-                }, function (err) {
+                var options = {
+                    message: _this.translate.getTranslate('PLUGIN.SHARE.MESSAGE'),
+                    subject: 'Subject',
+                    files: [body.url],
+                    url: 'https://popme.app/loading',
+                    chooserTitle: _this.translate.getTranslate('PLUGIN.SHARE.TITLE')
+                };
+                _this.socialSharing.shareWithOptions(options)
+                    .then(function () {
+                    //this.showSuccessShareMsg();
+                })
+                    .catch(function (err) {
+                    //this.showErrorShareMsg(err);
                 });
+            }, function (err) {
             });
         }, function (err) {
             _this.doAlert(err.message);
