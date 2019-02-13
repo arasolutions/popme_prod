@@ -5043,13 +5043,9 @@ var TestPage = /** @class */ (function (_super) {
             var body;
             body = JSON.parse(data.text());
             _this.platform.ready().then(function () {
-                alert("1");
-                _this.base64.encodeFile(data.url).then(function (base64string) {
-                    console.log(base64string.length);
-                    _this.instagram.share('data:image/png;base64,' + base64string, 'Caption')
-                        .then(function () { return alert('Shared!'); })
-                        .catch(function (error) { return alert(JSON.stringify(error)); });
-                }).catch(function (error) { alert(JSON.stringify(error)); });
+                _this.instagram.share(data.base64, 'Caption')
+                    .then(function () { return alert('Shared!'); })
+                    .catch(function (error) { return alert(JSON.stringify(error)); });
             });
         }, function (err) {
             _this.doAlert(err.message);
