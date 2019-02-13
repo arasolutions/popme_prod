@@ -139,4 +139,5 @@
         <variable name="APP_GOOGLE_API_KEY" value="AIzaSyADLSC-gv_P2U4FO-N6Zs8VTO0XF2IVqOw" />
     </plugin>
     <plugin name="cordova-instagram-plugin" spec="^0.5.7" />
+    <plugin name="com-badrit-base64" spec="^0.2.0" />
 </widget>
