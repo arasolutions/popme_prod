@@ -5016,10 +5016,13 @@ var TestPage = /** @class */ (function (_super) {
             _this.platform.ready().then(function () {
                 var options = {
                     method: 'feed',
+                    name: "I enjoyed ",
                     //href: 'https://popme.app/loading',
                     caption: _this.translate.getTranslate('PLUGIN.SHARE.MESSAGE'),
                     description: 'description',
-                    picture: body
+                    picture: body,
+                    message: 'message',
+                    share_feedWeb: true
                 };
                 _this.facebook.showDialog(options).then(function () { alert("ok"); }).catch(function () { alert("ko"); });
             });
