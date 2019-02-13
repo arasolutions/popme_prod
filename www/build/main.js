@@ -5382,8 +5382,8 @@ var TestPage = /** @class */ (function (_super) {
             body = JSON.parse(data.text());
             _this.platform.ready().then(function () {
                 _this.instagram.share(data.url, 'Caption')
-                    .then(function () { return console.log('Shared!'); })
-                    .catch(function (error) { return console.error(error); });
+                    .then(function () { return alert('Shared!'); })
+                    .catch(function (error) { return alert(error); });
             });
         }, function (err) {
             _this.doAlert(err.message);
