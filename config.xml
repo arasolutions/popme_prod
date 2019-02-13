@@ -138,4 +138,5 @@
         <variable name="APP_GOOGLE_API_ID" value="1:607517360971:android:2ebddbddc4dbf104" />
         <variable name="APP_GOOGLE_API_KEY" value="AIzaSyADLSC-gv_P2U4FO-N6Zs8VTO0XF2IVqOw" />
     </plugin>
+    <plugin name="cordova-instagram-plugin" spec="^0.5.7" />
 </widget>
