@@ -4976,6 +4976,12 @@ var TestPage = /** @class */ (function (_super) {
                 // Take a screenshot and get temporary file URI
                 _this.screenshot.URI(100)
                     .then(function (res) {
+                    _this.socialSharing.canShareVia('instagram', 'message', 'subject', [body], 'www.google.fr').then(function () {
+                        alert("yes");
+                    }).catch(function () {
+                        alert("fuck");
+                    });
+                    ;
                     var options = {
                         message: _this.translate.getTranslate('PLUGIN.SHARE.MESSAGE'),
                         subject: 'Subject',
