@@ -7192,31 +7192,33 @@ var TutorielBase = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_modules__ = __webpack_require__(958);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_camera__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__ionic_native_facebook__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_globalization__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_social_sharing__ = __webpack_require__(124);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_photo_viewer__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_geolocation__ = __webpack_require__(358);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_screenshot__ = __webpack_require__(194);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_google_analytics__ = __webpack_require__(959);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_deeplinks__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__angular_common_http__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ngx_translate_core__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ngx_translate_http_loader__ = __webpack_require__(960);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__angular_http__ = __webpack_require__(123);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_crop__ = __webpack_require__(195);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_base64__ = __webpack_require__(196);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_angularfire2__ = __webpack_require__(962);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28_angularfire2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_28_angularfire2__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_angularfire2_firestore__ = __webpack_require__(374);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_angularfire2_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29_angularfire2_firestore__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ng_elastic__ = __webpack_require__(963);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_ng_elastic___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30_ng_elastic__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__ionic_native_instagram__ = __webpack_require__(966);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__ionic_native_globalization__ = __webpack_require__(100);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__ionic_native_social_sharing__ = __webpack_require__(124);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_photo_viewer__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_geolocation__ = __webpack_require__(358);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_screenshot__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_google_analytics__ = __webpack_require__(959);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_deeplinks__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__angular_common_http__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ngx_translate_core__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ngx_translate_http_loader__ = __webpack_require__(960);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__angular_http__ = __webpack_require__(123);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_crop__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__ionic_native_base64__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_angularfire2__ = __webpack_require__(962);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29_angularfire2___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_29_angularfire2__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_angularfire2_firestore__ = __webpack_require__(374);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30_angularfire2_firestore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_30_angularfire2_firestore__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ng_elastic__ = __webpack_require__(963);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31_ng_elastic___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_31_ng_elastic__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -7272,7 +7274,7 @@ var AppModule = /** @class */ (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_9_angular2_swing__["SwingModule"],
-                __WEBPACK_IMPORTED_MODULE_30_ng_elastic__["ElasticModule"],
+                __WEBPACK_IMPORTED_MODULE_31_ng_elastic__["ElasticModule"],
                 __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["g" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */], {
                     mode: 'ios',
                     backButtonText: '',
@@ -7318,17 +7320,17 @@ var AppModule = /** @class */ (function () {
                     name: '__popmedb'
                     //driverOrder: ['localstorage' ]
                 }),
-                __WEBPACK_IMPORTED_MODULE_22__angular_common_http__["b" /* HttpClientModule */],
-                __WEBPACK_IMPORTED_MODULE_25__angular_http__["b" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_23__ngx_translate_core__["b" /* TranslateModule */].forRoot({
+                __WEBPACK_IMPORTED_MODULE_23__angular_common_http__["b" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_26__angular_http__["b" /* HttpModule */],
+                __WEBPACK_IMPORTED_MODULE_24__ngx_translate_core__["b" /* TranslateModule */].forRoot({
                     loader: {
-                        provide: __WEBPACK_IMPORTED_MODULE_23__ngx_translate_core__["a" /* TranslateLoader */],
+                        provide: __WEBPACK_IMPORTED_MODULE_24__ngx_translate_core__["a" /* TranslateLoader */],
                         useFactory: (HttpLoaderFactory),
-                        deps: [__WEBPACK_IMPORTED_MODULE_22__angular_common_http__["a" /* HttpClient */]]
+                        deps: [__WEBPACK_IMPORTED_MODULE_23__angular_common_http__["a" /* HttpClient */]]
                     }
                 }),
-                __WEBPACK_IMPORTED_MODULE_28_angularfire2__["AngularFireModule"].initializeApp(firebase),
-                __WEBPACK_IMPORTED_MODULE_29_angularfire2_firestore__["AngularFirestoreModule"],
+                __WEBPACK_IMPORTED_MODULE_29_angularfire2__["AngularFireModule"].initializeApp(firebase),
+                __WEBPACK_IMPORTED_MODULE_30_angularfire2_firestore__["AngularFirestoreModule"],
                 __WEBPACK_IMPORTED_MODULE_12__pages_modules__["m" /* PlayPageModule */],
                 __WEBPACK_IMPORTED_MODULE_12__pages_modules__["s" /* ProfilePageModule */],
                 __WEBPACK_IMPORTED_MODULE_12__pages_modules__["f" /* FirstStep1PageModule */],
@@ -7381,19 +7383,20 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_13__ionic_native_camera__["a" /* Camera */],
                 __WEBPACK_IMPORTED_MODULE_11__providers_providers__["l" /* Users */],
                 __WEBPACK_IMPORTED_MODULE_14__ionic_native_facebook__["a" /* Facebook */],
-                __WEBPACK_IMPORTED_MODULE_15__ionic_native_globalization__["a" /* Globalization */],
-                __WEBPACK_IMPORTED_MODULE_16__ionic_native_social_sharing__["a" /* SocialSharing */],
-                __WEBPACK_IMPORTED_MODULE_17__ionic_native_photo_viewer__["a" /* PhotoViewer */],
-                __WEBPACK_IMPORTED_MODULE_18__ionic_native_geolocation__["a" /* Geolocation */],
-                __WEBPACK_IMPORTED_MODULE_19__ionic_native_screenshot__["a" /* Screenshot */],
+                __WEBPACK_IMPORTED_MODULE_15__ionic_native_instagram__["a" /* Instagram */],
+                __WEBPACK_IMPORTED_MODULE_16__ionic_native_globalization__["a" /* Globalization */],
+                __WEBPACK_IMPORTED_MODULE_17__ionic_native_social_sharing__["a" /* SocialSharing */],
+                __WEBPACK_IMPORTED_MODULE_18__ionic_native_photo_viewer__["a" /* PhotoViewer */],
+                __WEBPACK_IMPORTED_MODULE_19__ionic_native_geolocation__["a" /* Geolocation */],
+                __WEBPACK_IMPORTED_MODULE_20__ionic_native_screenshot__["a" /* Screenshot */],
                 __WEBPACK_IMPORTED_MODULE_11__providers_providers__["b" /* Clan */],
                 __WEBPACK_IMPORTED_MODULE_11__providers_providers__["f" /* Rank */],
-                __WEBPACK_IMPORTED_MODULE_20__ionic_native_google_analytics__["a" /* GoogleAnalytics */],
-                __WEBPACK_IMPORTED_MODULE_21__ionic_native_deeplinks__["a" /* Deeplinks */],
+                __WEBPACK_IMPORTED_MODULE_21__ionic_native_google_analytics__["a" /* GoogleAnalytics */],
+                __WEBPACK_IMPORTED_MODULE_22__ionic_native_deeplinks__["a" /* Deeplinks */],
                 __WEBPACK_IMPORTED_MODULE_11__providers_providers__["k" /* Tutoriel */],
                 __WEBPACK_IMPORTED_MODULE_11__providers_providers__["i" /* Translate */],
-                __WEBPACK_IMPORTED_MODULE_26__ionic_native_crop__["a" /* Crop */],
-                __WEBPACK_IMPORTED_MODULE_27__ionic_native_base64__["a" /* Base64 */],
+                __WEBPACK_IMPORTED_MODULE_27__ionic_native_crop__["a" /* Crop */],
+                __WEBPACK_IMPORTED_MODULE_28__ionic_native_base64__["a" /* Base64 */],
                 __WEBPACK_IMPORTED_MODULE_8__ionic_native_firebase__["a" /* Firebase */],
                 __WEBPACK_IMPORTED_MODULE_11__providers_providers__["c" /* Fcm */],
                 __WEBPACK_IMPORTED_MODULE_11__providers_providers__["e" /* PopyTimer */],
@@ -7405,7 +7408,7 @@ var AppModule = /** @class */ (function () {
 }());
 
 function HttpLoaderFactory(http) {
-    return new __WEBPACK_IMPORTED_MODULE_24__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, 'assets/i18n/', '.json');
+    return new __WEBPACK_IMPORTED_MODULE_25__ngx_translate_http_loader__["a" /* TranslateHttpLoader */](http, 'assets/i18n/', '.json');
 }
 //# sourceMappingURL=app.module.js.map
 
