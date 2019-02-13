@@ -73582,6 +73582,44 @@ page-profile .profile-actions ion-col {
   font-size: 20px;
 }
 
+page-profile .share-button {
+  position: unset;
+}
+
+page-profile .share-button > button.fab[mini], page-profile .share-button > button.fab[mini].activated {
+  background-color: white;
+  margin: 0 !important;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+}
+
+page-profile .share-button > button.fab[mini] > .fab-close-icon, page-profile .share-button > button.fab[mini].activated > .fab-close-icon {
+  line-height: 25px !important;
+}
+
+page-profile .fab-close-active .button-inner {
+  opacity: 1;
+  -webkit-transform: unset;
+  transform: unset;
+}
+
+page-profile .fab-close-icon {
+  display: none;
+}
+
+page-profile ion-fab-list {
+  background: #2C2C2D;
+  border: solid 2px #F1C40F;
+  border-radius: 30px;
+  margin: 40px 0;
+  z-index: 4;
+}
+
+page-profile .fab ion-icon {
+  color: #2C2C2C;
+}
+
 page-rankpopover .close-buttons {
   position: absolute;
   right: 20px;
