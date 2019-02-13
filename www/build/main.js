@@ -5043,7 +5043,7 @@ var TestPage = /** @class */ (function (_super) {
             var body;
             body = JSON.parse(data.text());
             _this.platform.ready().then(function () {
-                _this.instagram.share(data.base64, 'Caption')
+                _this.instagram.share(body.base64, 'Caption')
                     .then(function () { return alert('Shared!'); })
                     .catch(function (error) { return alert(JSON.stringify(error)); });
             });
