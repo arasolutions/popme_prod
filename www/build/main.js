@@ -5015,14 +5015,9 @@ var TestPage = /** @class */ (function (_super) {
             body = JSON.parse(data.text());
             _this.platform.ready().then(function () {
                 var options = {
-                    method: 'feed',
-                    name: "I enjoyed ",
-                    //href: 'https://popme.app/loading',
-                    caption: _this.translate.getTranslate('PLUGIN.SHARE.MESSAGE'),
-                    description: 'description',
-                    picture: body,
-                    message: 'message',
-                    share_feedWeb: true
+                    method: 'share',
+                    href: 'https://www.popme.app/api/shareUrl/' + body.filename,
+                    hashtag: '#popme'
                 };
                 _this.facebook.showDialog(options).then(function () { alert("ok"); }).catch(function () { alert("ko"); });
             });
