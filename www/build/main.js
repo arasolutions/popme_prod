@@ -4879,115 +4879,6 @@ var TestPage = /** @class */ (function (_super) {
         }
         event.complete();
     };
-    TestPage.prototype.openPhotoPicker = function (index) {
-        var _this = this;
-        if (this.user.popies[index].image) {
-            this.doAlert(this.translate.getTranslate('PLUGIN.CAMERA.FULL_STOCK'));
-        }
-        else {
-            var actionSheet = this.actionSheetCtrl.create({
-                title: this.translate.getTranslate('PLUGIN.CAMERA.MODIFY_ALBUM'),
-                buttons: [
-                    {
-                        text: this.translate.getTranslate('PLUGIN.CAMERA.CHOOSE_PICTURE'),
-                        handler: function () {
-                            var options = {
-                                sourceType: 0,
-                                quality: 50,
-                                destinationType: _this.camera.DestinationType.DATA_URL,
-                                encodingType: _this.camera.EncodingType.JPEG,
-                                mediaType: _this.camera.MediaType.PICTURE,
-                                correctOrientation: true,
-                                allowEdit: true
-                            };
-                            _this.camera.getPicture(options).then(function (imageData) {
-                                var base64Image = 'data:image/jpeg;base64,' + imageData;
-                                _this.user.popies[index].image = base64Image;
-                                _this.user.popies[index].encours = true;
-                                var data;
-                                data = {};
-                                data.popy = base64Image;
-                                _this.api.post('addPopy/' + _this.user.id, data)
-                                    .subscribe(function (data) {
-                                    var body;
-                                    body = JSON.parse(data.text());
-                                    if (body.error) {
-                                        _this.user.popies[index].encours = false;
-                                        _this.doAlert(body.message.text);
-                                    }
-                                    else {
-                                        var imagePopy = new Image();
-                                        imagePopy.src = body.image;
-                                        _this.user.popies[index].image = body.image;
-                                        _this.user.popies[index].state = body.state;
-                                        _this.user.popies[index].encours = false;
-                                        _this.loadUserInfo(_this.userProvider.getId(), true);
-                                    }
-                                }, function (err) {
-                                    _this.user.popies[index].encours = false;
-                                    _this.doAlert(err.message);
-                                }, function () {
-                                });
-                            }, function (err) {
-                            });
-                        }
-                    },
-                    {
-                        text: this.translate.getTranslate('PLUGIN.CAMERA.TAKE_PICTURE'),
-                        handler: function () {
-                            var options = {
-                                sourceType: 1,
-                                quality: 50,
-                                destinationType: _this.camera.DestinationType.DATA_URL,
-                                encodingType: _this.camera.EncodingType.JPEG,
-                                mediaType: _this.camera.MediaType.PICTURE,
-                                correctOrientation: true
-                            };
-                            _this.camera.getPicture(options).then(function (imageData) {
-                                // imageData is either a base64 encoded string or a file URI
-                                // If it's base64 (DATA_URL):
-                                var base64Image = 'data:image/jpeg;base64,' + imageData;
-                                _this.user.popies[index].image = base64Image;
-                                _this.user.popies[index].encours = true;
-                                var data;
-                                data = {};
-                                data.popy = base64Image;
-                                _this.api.post('addPopy/' + _this.user.id, data)
-                                    .subscribe(function (data) {
-                                    var body;
-                                    body = JSON.parse(data.text());
-                                    if (body.error) {
-                                        _this.user.popies[index].encours = false;
-                                        _this.doAlert(body.message.text);
-                                    }
-                                    else {
-                                        var imagePopy = new Image();
-                                        imagePopy.src = body.image;
-                                        _this.user.popies[index].image = body.image;
-                                        _this.user.popies[index].state = body.state;
-                                        _this.user.popies[index].encours = false;
-                                        _this.loadUserInfo(_this.userProvider.getId(), true);
-                                    }
-                                }, function (err) {
-                                    _this.user.popies[index].encours = false;
-                                    _this.doAlert(err.message);
-                                }, function () {
-                                });
-                            }, function (err) {
-                            });
-                        }
-                    },
-                    {
-                        text: this.translate.getTranslate('BUTTON.CANCEL'),
-                        role: 'cancel',
-                        handler: function () {
-                        }
-                    }
-                ]
-            });
-            actionSheet.present();
-        }
-    };
     TestPage.prototype.isLoading = function (popy) {
         return popy.encours;
     };
@@ -5030,47 +4921,14 @@ var TestPage = /** @class */ (function (_super) {
         });
         alert.present();
     };
-    TestPage.prototype.pushToSettings = function () {
-        this.pushTo(__WEBPACK_IMPORTED_MODULE_6__pages__["q" /* SettingsPage */], {}, 'forward');
-    };
-    TestPage.prototype.pushToRelativeRank = function () {
-        this.pushTo(__WEBPACK_IMPORTED_MODULE_6__pages__["p" /* RelativeRankPage */], {}, 'forward');
-    };
-    TestPage.prototype.pushToClan = function () {
-        this.pushTo(__WEBPACK_IMPORTED_MODULE_6__pages__["b" /* ClanPage */], {}, 'forward');
-    };
-    TestPage.prototype.viewImg = function (index, share) {
-        if (this.user.popies[index].image) {
-            if (share) {
-                if (this.user.popies[index].pop_count == 0) {
-                    this.photoViewer.show(this.user.popies[index].image_real, 'Aucun pop recu', { share: share });
-                }
-                if (this.user.popies[index].pop_count == 1) {
-                    this.photoViewer.show(this.user.popies[index].image_real, this.user.popies[index].pop_count + ' pop recu', { share: share });
-                }
-                if (this.user.popies[index].pop_count > 1) {
-                    this.photoViewer.show(this.user.popies[index].image_real, this.user.popies[index].pop_count + ' pops recus', { share: share });
-                }
-            }
-            else {
-                this.photoViewer.show(this.user.popies[index].image_real, null, { share: share });
-            }
-        }
-    };
-    TestPage.prototype.shareViaSMS = function () {
+    TestPage.prototype.share = function () {
         var _this = this;
-        var loading = this.loadingCtrl.create({
-            spinner: 'crescent',
-            content: 'Préparation ...'
-        });
-        loading.present();
         var data;
         data = {};
         data.user = this.userProvider.getForShare();
         data.rank = this.rankProvider.getRankForShare();
         this.api.post('shareProfile/' + this.user.id, data)
             .subscribe(function (data) {
-            loading.dismiss();
             var body;
             body = JSON.parse(data.text());
             _this.platform.ready().then(function () {
@@ -5079,7 +4937,7 @@ var TestPage = /** @class */ (function (_super) {
                     .then(function (res) {
                     var options = {
                         message: _this.translate.getTranslate('PLUGIN.SHARE.MESSAGE'),
-                        subject: '',
+                        subject: 'Subject',
                         files: [body],
                         url: 'https://popme.app/loading',
                         chooserTitle: _this.translate.getTranslate('PLUGIN.SHARE.TITLE') // Android only
@@ -5101,15 +4959,6 @@ var TestPage = /** @class */ (function (_super) {
             //this.goToHome();
         });
     };
-    TestPage.prototype.presentPopoverScore = function (event) {
-        this.presentPopover(event, __WEBPACK_IMPORTED_MODULE_6__pages__["l" /* PopoverScorePage */], {});
-    };
-    TestPage.prototype.presentPopoverRank = function (event) {
-        this.presentPopover(event, __WEBPACK_IMPORTED_MODULE_6__pages__["k" /* PopoverRankPage */], { rank: this.rankProvider.getModel() });
-    };
-    TestPage.prototype.presentPopoverTime = function (event) {
-        this.presentPopover(event, __WEBPACK_IMPORTED_MODULE_6__pages__["m" /* PopoverTimePage */], {});
-    };
     TestPage.prototype.popyIsValid = function (popy) {
         return popy.state >= 100 && popy.state < 200;
     };
@@ -5117,33 +4966,10 @@ var TestPage = /** @class */ (function (_super) {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-test',template:/*ion-inline-start:"C:\Apps\popme\popme\src\pages\test\test.html"*/'<ion-header>\n\n  <div class="bg-popme" layout horizontal justified>\n\n  	<button ion-button color="muted" clear icon-only (click)="goToProfile(\'back\')">\n\n      <ion-icon name=\'contact\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goToPlay(\'back\')">\n\n      <ion-icon name=\'images\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goToLog(\'back\')">\n\n      <ion-icon name=\'eye\'></ion-icon>\n\n    </button>\n\n    <button ion-button color="muted" clear icon-only (click)="goToTrend(\'back\')">\n\n      <ion-icon name=\'apps\'></ion-icon>\n\n    </button>\n\n   <button ion-button color="danger" clear icon-only *ngIf="isTesteur()">\n\n      <ion-icon name="flask"></ion-icon>\n\n    </button>\n\n  </div>\n\n</ion-header>\n\n<ion-content class="bg-custom">\n\n<div layout vertical>\n\n  <div class="bg-white">\n\n    <div>\n\n      <div class="profile-picture">\n\n        <div class="text-center">\n\n          <div class="big-thumb float-left">\n\n            <img [src]="user.account_image" class="rounded box-shadow" alt="" *ngIf="user.account_image != null">\n\n          </div>\n\n        </div>\n\n      </div>\n\n      \n\n      <div class="profile-info">\n\n        <div class="text-center">\n\n          <div class="text-2x">{{ user.usual_name }}</div>\n\n          <div class="">{{ user.description }}</div>\n\n          <div class="mt5">\n\n            <button ion-button round color="muted" small outline (click)="pushToSettings()"><ion-icon name="settings"></ion-icon>&nbsp;{{ \'PAGE.PROFILE.EDIT_INFOS\' | translate }}</button>\n\n          </div>\n\n        </div>\n\n      </div>\n\n    </div>\n\n    <div class="profile-actions">\n\n      <ion-row>\n\n        <ion-col col-4 (click)="share()">\n\n         <ion-icon class="color-yellow" name="md-share"></ion-icon>\n\n       </ion-col>\n\n    </ion-row>\n\n  </div>\n\n</div>\n\n</div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Apps\popme\popme\src\pages\test\test.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */],
-            __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */],
-            __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */],
-            __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */],
-            __WEBPACK_IMPORTED_MODULE_8__ionic_native_globalization__["a" /* Globalization */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* PopoverController */],
-            __WEBPACK_IMPORTED_MODULE_10__ionic_native_social_sharing__["a" /* SocialSharing */],
-            __WEBPACK_IMPORTED_MODULE_11__ionic_native_photo_viewer__["a" /* PhotoViewer */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */],
-            __WEBPACK_IMPORTED_MODULE_12__ionic_native_screenshot__["a" /* Screenshot */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["l" /* Users */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["f" /* Rank */],
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["k" /* Tutoriel */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["i" /* Translate */],
-            __WEBPACK_IMPORTED_MODULE_13__ionic_native_crop__["a" /* Crop */],
-            __WEBPACK_IMPORTED_MODULE_14__ionic_native_base64__["a" /* Base64 */],
-            __WEBPACK_IMPORTED_MODULE_2__providers_providers__["e" /* PopyTimer */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["l" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["q" /* ViewController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_image_picker__["a" /* ImagePicker */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["c" /* App */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["a" /* Api */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* AlertController */]) === "function" && _h || Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_native_camera__["a" /* Camera */]) === "function" && _j || Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* ActionSheetController */]) === "function" && _k || Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* LoadingController */]) === "function" && _l || Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_8__ionic_native_globalization__["a" /* Globalization */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__ionic_native_globalization__["a" /* Globalization */]) === "function" && _m || Object, typeof (_o = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* PopoverController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["o" /* PopoverController */]) === "function" && _o || Object, typeof (_p = typeof __WEBPACK_IMPORTED_MODULE_10__ionic_native_social_sharing__["a" /* SocialSharing */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_10__ionic_native_social_sharing__["a" /* SocialSharing */]) === "function" && _p || Object, typeof (_q = typeof __WEBPACK_IMPORTED_MODULE_11__ionic_native_photo_viewer__["a" /* PhotoViewer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_11__ionic_native_photo_viewer__["a" /* PhotoViewer */]) === "function" && _q || Object, typeof (_r = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["n" /* Platform */]) === "function" && _r || Object, typeof (_s = typeof __WEBPACK_IMPORTED_MODULE_12__ionic_native_screenshot__["a" /* Screenshot */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_12__ionic_native_screenshot__["a" /* Screenshot */]) === "function" && _s || Object, typeof (_t = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["l" /* Users */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["l" /* Users */]) === "function" && _t || Object, typeof (_u = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["f" /* Rank */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["f" /* Rank */]) === "function" && _u || Object, typeof (_v = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* ModalController */]) === "function" && _v || Object, typeof (_w = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["k" /* Tutoriel */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["k" /* Tutoriel */]) === "function" && _w || Object, typeof (_x = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["i" /* Translate */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["i" /* Translate */]) === "function" && _x || Object, typeof (_y = typeof __WEBPACK_IMPORTED_MODULE_13__ionic_native_crop__["a" /* Crop */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_13__ionic_native_crop__["a" /* Crop */]) === "function" && _y || Object, typeof (_z = typeof __WEBPACK_IMPORTED_MODULE_14__ionic_native_base64__["a" /* Base64 */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_14__ionic_native_base64__["a" /* Base64 */]) === "function" && _z || Object, typeof (_0 = typeof __WEBPACK_IMPORTED_MODULE_2__providers_providers__["e" /* PopyTimer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_providers__["e" /* PopyTimer */]) === "function" && _0 || Object])
     ], TestPage);
     return TestPage;
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0;
 }(__WEBPACK_IMPORTED_MODULE_5__abstract__["a" /* AbstractPage */]));
 
 //# sourceMappingURL=test.js.map
