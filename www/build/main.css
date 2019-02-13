@@ -73828,6 +73828,247 @@ page-settings ion-list a {
   text-decoration: none;
 }
 
+page-test .profile-images-edit {
+  padding: 5px;
+}
+
+page-test .profile-images-edit .div-img {
+  padding-bottom: 99%;
+  background-image: url(https://www.popme.app/assets/images/popy_default.png);
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+page-test .mini {
+  font-size: 15px !important;
+}
+
+page-test .profile-image {
+  position: relative;
+  width: calc(100% / 2 - 10px);
+  height: calc(100% / 2 - 10px);
+  margin: 5px;
+  float: left;
+}
+
+page-test .profile-image .btn-edit {
+  position: absolute;
+  right: -8px;
+  bottom: -8px;
+  background-color: #f0eff5;
+  font-size: 12px;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  border-radius: 999em;
+}
+
+page-test .profile-image .btn-share {
+  position: absolute;
+  left: -8px;
+  bottom: -8px;
+  background-color: #f0eff5;
+  font-size: 12px;
+  font-weight: 700;
+  width: 28px;
+  height: 28px;
+  border-radius: 999em;
+}
+
+page-test .profile-image .popy-label {
+  position: absolute;
+  bottom: 5px;
+  text-align: center;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+page-test .profile-image .popy-label > span {
+  background-color: #2C2C2C;
+  padding: 2px 10px;
+  border-radius: 10px;
+  color: white;
+  font-size: 0.8em;
+}
+
+page-test .profile-image .popy-label > span > img {
+  width: 10px;
+  margin-left: 5px;
+}
+
+page-test .color-yellow {
+  color: #F1C40F;
+}
+
+page-test .big-thumb {
+  width: 100px;
+  display: inline-block;
+}
+
+page-test .profile-picture {
+  width: 40%;
+  padding: 15px 0 15px 0;
+  float: left;
+}
+
+page-test .profile-info {
+  width: 60%;
+  padding: 15px 15px 15px 0;
+  float: right;
+}
+
+page-test .ranking-text {
+  font-size: 2em;
+}
+
+page-test .ranking-number {
+  font-size: 2em;
+}
+
+page-test .ranking img {
+  width: 20%;
+}
+
+page-test .profile-header-rank-img {
+  vertical-align: middle;
+  height: 30px;
+  width: 30px;
+  margin-bottom: 5px;
+}
+
+page-test .popy-stand-by-text {
+  position: absolute;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(60, 60, 60, 0.8);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 30px 10px;
+  font-size: 18px;
+}
+
+page-test .popy-loading-text {
+  position: absolute;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(200, 200, 200, 0.5);
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  padding: 30px 10px;
+  font-size: 18px;
+}
+
+page-test .big-icon {
+  font-size: 3.2em;
+  font-weight: bold;
+}
+
+page-test .profile-header {
+  height: 40px;
+  background-color: #F1C40F;
+}
+
+page-test .profile-header .score {
+  width: 33%;
+  line-height: 36px;
+  background-color: #656565;
+  padding: 2px 10px;
+  color: white;
+  float: left;
+  height: 40px;
+}
+
+page-test .profile-header .score .text {
+  font-size: 1.2em;
+}
+
+page-test .profile-header .score .text img {
+  width: 18px;
+  margin-left: 5px;
+  margin-top: 1px;
+}
+
+page-test .profile-header .rank {
+  width: 34%;
+  line-height: 36px;
+  padding: 2px 10px;
+  color: white;
+  float: left;
+  font-size: 1.2em;
+  height: 40px;
+}
+
+page-test .profile-header .rank .text {
+  font-size: 1.2em;
+}
+
+page-test .profile-header .next-add {
+  width: 33%;
+  line-height: 36px;
+  padding: 2px 10px;
+  color: white;
+  float: right;
+  background-color: #656565;
+  height: 40px;
+}
+
+page-test .profile-header .next-add .text {
+  font-size: 1.2em;
+}
+
+page-test .profile-header .next-add ion-icon {
+  color: #F1C40F;
+}
+
+page-test .loading {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+page-test .loading circle {
+  stroke: white;
+}
+
+page-test .profile-card {
+  border-radius: 4px;
+  margin: 10px 10px 0 10px;
+  box-shadow: black aliceblue;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+page-test .profile-actions {
+  clear: both;
+  border-top: solid 1px #DDD;
+}
+
+page-test .profile-actions ion-col {
+  text-align: center;
+  color: #ccc;
+  font-size: 20px;
+}
+
 page-trend .color0 {
   color: #ffd700;
 }
