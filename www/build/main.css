@@ -72471,8 +72471,10 @@ page-clanChat .profile-comments .scroll-content {
 }
 
 page-clanChat .chat {
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
   position: absolute;
-  bottom: 0;
+  bottom: calc(var(--safe-area-inset-bottom));
   width: 100%;
   background-color: #f2f2f2;
 }
@@ -73592,6 +73594,8 @@ page-profile .share-button > button.fab[mini], page-profile .share-button > butt
   width: 25px;
   height: 25px;
   line-height: 25px;
+  -webkit-box-shadow: unset;
+  box-shadow: unset;
 }
 
 page-profile .share-button > button.fab[mini] > .fab-close-icon, page-profile .share-button > button.fab[mini].activated > .fab-close-icon {
