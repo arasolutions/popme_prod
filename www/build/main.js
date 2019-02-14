@@ -491,8 +491,7 @@ var LoadingPage = /** @class */ (function () {
         this.currentSlide = 0;
         this.progressBar = 1;
         this.translate.initTranslate();
-        alert(this.mdp);
-        alert(this.clan);
+        alert(navCtrl);
     }
     LoadingPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -10112,7 +10111,7 @@ var MyApp = /** @class */ (function () {
                 '/loading': __WEBPACK_IMPORTED_MODULE_7__pages_pages__["e" /* LoadingPage */],
                 '/clan/:mdp': __WEBPACK_IMPORTED_MODULE_7__pages_pages__["e" /* LoadingPage */]
             }).subscribe(function (match) {
-                console.log('OK ' + JSON.stringify(match));
+                alert('OK ' + JSON.stringify(match));
             }, function (nomatch) {
                 console.log('KO ' + nomatch);
             });
