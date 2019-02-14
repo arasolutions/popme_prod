@@ -34,6 +34,13 @@
     "NO_CONNECTION": "Impossible de se connecter à internet. Veuillez vérifier votre connexion !"
   },
   "PAGE": {
+    "CHAT": {
+      "TITLE": "Conversation du clan ",
+      "SEARCHGIF": "Chercher un Gif",
+      "GIF": "GIF",
+      "MESSAGE": "Message",
+      "SEND": "Envoyer"
+    },
     "CLAN": {
       "TITLE": "Clan",
       "MY_CLAN": "Mes clans",

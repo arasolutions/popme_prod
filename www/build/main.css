@@ -72461,7 +72461,9 @@ page-clanChat .message-header {
 }
 
 page-clanChat .profile-comments {
-  height: calc(100% - 60px);
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  height: calc(100% - 60px - var(--safe-area-inset-bottom));
   padding: 0 16px !important;
 }
 
@@ -72526,6 +72528,34 @@ page-clanChat ion-header.comments > button {
 
 page-clanChat ion-header.comments ion-col {
   font-size: 1.1em;
+}
+
+page-clanChat ion-footer > .toolbar {
+  --safe-area-inset-top: env(safe-area-inset-top);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom);
+  height: calc(60px + env(safe-area-inset-bottom));
+}
+
+page-clanChat .button-gif > span {
+  background-color: #7F7F7F;
+  border-radius: 50%;
+  font-size: .8em;
+  width: 40px;
+  height: 40px;
+  color: #f1c40f;
+  font-weight: bold;
+  border: solid 2px #f1c40f;
+}
+
+page-clanChat .send {
+  background: #3779F9 !important;
+  width: 90% !important;
+  font-size: 1em !important;
+  color: white !important;
+}
+
+page-clanChat .send > span {
+  padding: 0 5px;
 }
 
 page-clanEdit .close-buttons {

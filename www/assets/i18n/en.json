@@ -34,6 +34,13 @@
     "NO_CONNECTION": "Connection doesn't work. Try to connect !"
   },
   "PAGE": {
+    "CHAT": {
+      "TITLE": "Talk of clan ",
+      "SEARCHGIF": "Search a Gif",
+      "GIF": "GIF",
+      "MESSAGE": "Message",
+      "SEND": "Send"
+    },
     "CLAN": {
       "TITLE": "Clan",
       "MY_CLAN": "My clans",
