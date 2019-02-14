@@ -7298,7 +7298,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_9_angular2_swing__["SwingModule"],
                 __WEBPACK_IMPORTED_MODULE_31_ng_elastic__["ElasticModule"],
                 __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["h" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_10__app_component__["a" /* MyApp */], {
-                    mode: 'md',
+                    mode: 'ios',
                     backButtonText: '',
                 }, {
                     links: [
