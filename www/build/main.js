@@ -491,7 +491,8 @@ var LoadingPage = /** @class */ (function () {
         this.currentSlide = 0;
         this.progressBar = 1;
         this.translate.initTranslate();
-        alert(navParams.get('clan'));
+        alert(this.mdp);
+        alert(this.clan);
     }
     LoadingPage.prototype.ionViewDidLoad = function () {
         var _this = this;
