@@ -73620,6 +73620,14 @@ page-profile .fab ion-icon {
   color: #2C2C2C;
 }
 
+page-profile .fab.facebook ion-icon {
+  color: #3b5998;
+}
+
+page-profile .fab.instagram ion-icon {
+  color: #3897F0;
+}
+
 page-rankpopover .close-buttons {
   position: absolute;
   right: 20px;
