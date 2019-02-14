@@ -74200,7 +74200,10 @@ page-trend .subtitle {
 }
 
 page-trend .card-background-page {
-  padding-top: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px 1px #C2C2C2;
+  box-shadow: 0px 0px 10px 1px #C2C2C2;
 }
 
 page-trend .card-background-page ion-card {
