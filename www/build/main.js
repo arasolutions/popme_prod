@@ -10140,7 +10140,7 @@ var MyApp = /** @class */ (function () {
                 '/loading': __WEBPACK_IMPORTED_MODULE_7__pages_pages__["e" /* LoadingPage */]
             }).subscribe(function (match) {
                 if (match.$link.host == 'clan') {
-                    alert(JSON.stringify(match.$args));
+                    alert(JSON.stringify(match));
                     //this.navChild.setRoot(LoadingPage, {clan:'12345'}, {});
                     //return;
                 }
