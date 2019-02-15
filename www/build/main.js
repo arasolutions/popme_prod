@@ -10108,8 +10108,7 @@ var MyApp = /** @class */ (function () {
                 fcm.getToken();
             }
             deeplinks.routeWithNavController(_this.navChild, {
-                '/loading': __WEBPACK_IMPORTED_MODULE_7__pages_pages__["e" /* LoadingPage */],
-                '/clan/:mdp': __WEBPACK_IMPORTED_MODULE_7__pages_pages__["e" /* LoadingPage */]
+                '/loading': __WEBPACK_IMPORTED_MODULE_7__pages_pages__["e" /* LoadingPage */]
             }).subscribe(function (match) {
                 if (match.$link.host == 'clan') {
                     _this.navChild.setRoot(__WEBPACK_IMPORTED_MODULE_7__pages_pages__["e" /* LoadingPage */], { clan: '12345' }, {});
