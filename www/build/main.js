@@ -1618,7 +1618,7 @@ var appSettings = {
     API_ENDPOINT: 'https://www.escapegamecity.com/api/',
     SERVER_URL: 'https://www.escapegamecity.com/',
     API_TOKEN: '66CA3297B61DC38B-9925DC75FDE8EC3AFC2B6E5974228-CD625CB234A5FEDC',
-    API_URL: 'http://www.popme.test',
+    API_URL: 'https://www.popme.app',
     API_VERSION: '2.0',
     API_ROUTE: '/api',
     DEBUG: false,
