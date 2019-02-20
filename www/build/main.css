@@ -73672,7 +73672,38 @@ page-profile .fab.facebook ion-icon {
 }
 
 page-profile .fab.instagram ion-icon {
-  color: #3897F0;
+  background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), -webkit-gradient(linear, left top, left bottom, from(#6559ca), color-stop(30%, #bc318f), color-stop(50%, #e33f5f), color-stop(70%, #f77638), to(#fec66d));
+  background: radial-gradient(circle farthest-corner at 35% 90%, #fec564, transparent 50%), radial-gradient(circle farthest-corner at 0 140%, #fec564, transparent 50%), radial-gradient(ellipse farthest-corner at 0 -25%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 20% -50%, #5258cf, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 0, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 60% -20%, #893dc2, transparent 50%), radial-gradient(ellipse farthest-corner at 100% 100%, #d9317a, transparent), linear-gradient(#6559ca, #bc318f 30%, #e33f5f 50%, #f77638 70%, #fec66d 100%);
+  border-radius: .2em;
+  height: 1.1em;
+  position: relative;
+  width: 1em;
+}
+
+page-profile .fab.instagram ion-icon:before, page-profile .fab.instagram ion-icon:after {
+  color: #fff;
+  content: '';
+  display: block;
+  position: absolute;
+  border: .075em solid;
+}
+
+page-profile .fab.instagram ion-icon:before {
+  border-radius: inherit;
+  height: .75em;
+  -webkit-transform: translate(0.125em, 0.125em);
+  transform: translate(0.125em, 0.125em);
+  width: .75em;
+}
+
+page-profile .fab.instagram ion-icon:after {
+  border-radius: 1em;
+  -webkit-box-shadow: .2em -.2em 0 -.16em;
+  box-shadow: .2em -.2em 0 -.16em;
+  height: .4em;
+  -webkit-transform: translate(0.3em, 0.3em);
+  transform: translate(0.3em, 0.3em);
+  width: .4em;
 }
 
 page-rankpopover .close-buttons {

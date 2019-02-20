@@ -171,6 +171,7 @@
       },
       "INFORMATIONS": {
         "TITLE": "Mes informations",
+        "LABEL_USUALNAME": "Pseudo",
         "LABEL_DESCRIPTION": "Description",
         "LABEL_LOCATION": "Location",
         "LABEL_LOCATION_DESCRIPTION": "Mon adresse actuelle",
