@@ -1,6 +1,6 @@
 {
   "APP": {
-    "VERSION": "1.0.10"
+    "VERSION": "1.0.11"
   },
   "BUTTON": {
     "ACTIONS": "Actions",
@@ -47,7 +47,7 @@
       "JOIN_CLAN": "Rejoindre un clan",
       "CREATED": "Créé le",
       "CREATE_CLAN": "Créer un clan",
-      "CREATE_CLAN_MESSAGE": "Votre clan a été créé",
+      "CREATE_CLAN_MESSAGE": "Ton clan a été créé",
       "DELETE_CLAN": "Supprimer le clan",
       "DELETE_CLAN_ALERT": "Attention ! Cette demande est irrévocable.",
       "MEMBERS": "Membres",
@@ -67,10 +67,10 @@
       "POPED": "vous a popé"
     },
     "LOGIN": {
-      "BAD_ACCOUNT" : "Votre compte et/ou mot de passe ne sont pas valides",
+      "BAD_ACCOUNT" : "Ton compte et/ou mot de passe ne sont pas valides",
       "CONNEXION_FACEBOOK": "Connexion par Facebook",
       "CONNEXION_CLASSIQUE": "Connexion classique",
-      "DELETED_ACCOUNT" : "Votre compte a été supprimé...\n Si vous voulez le réactiver, merci de nous en faire la demande sur www.popme.app",
+      "DELETED_ACCOUNT" : "Ton compte a été supprimé...\n Si tu veux le réactiver, merci de nous en faire la demande sur www.popme.app",
       "PASSWORD": "Mot de passe",
       "PASSWORD_REINIT_PROGRESS_SUBTITLE": "Tu recevras rapidement un lien pour le réinitialiser",
       "PASSWORD_REINIT_PROGRESS_TITLE": "Réinitialisation en cours",
@@ -91,7 +91,7 @@
       "REPORT_PHOTOS": "Signaler une photo",
       "REPORT_PHOTOS_BAD_CONTENT": "Contenu choquant",
       "REPORT_PHOTOS_NO_REASON": "Pas de raison",
-      "REPORT_PHOTOS_INFORMATIONS": "Merci pour votre signalement.",
+      "REPORT_PHOTOS_INFORMATIONS": "Merci pour ton signalement.",
       "BLOCK_ACCOUNT": "Souhaitez vous bloquer cet utilisateur ? (il ne pourra plus visualiser vos contenus et vous les siens)",
       "BLOCK_ACCOUNT_INFORMATIONS": "L'utilisateur a été bloqué.",
       "UNBLOCK_ACCOUNT": "Souhaitez vous débloquer cet utilisateur ?",
@@ -150,7 +150,7 @@
       "ACCOUNT": {
         "CONFIRM": "Souhaitez-vous confirmer ?",
         "DELETE": "Supprimer mon compte",
-        "DELETE_CONFIRM": "Souhaitez-vous supprimer votre compte ? Toutes vos données seront perdues.",
+        "DELETE_CONFIRM": "Souhaites-tu supprimer ton compte ? Toutes tes données seront perdues.",
         "DELETE_TITLE": "Suppression",
         "SIGN_OUT_CONFIRM": "Souhaitez-vous vous déconnecter ?",
         "SIGN_OUT": "Déconnexion"
@@ -198,14 +198,14 @@
   },
   "PLUGIN": {
     "CAMERA": {
-      "FULL_STOCK": "Votre stock de photos est atteint (4/4)",
+      "FULL_STOCK": "Ton stock de photos est atteint (4 maximum)",
       "CHOOSE_PICTURE": "Choisir une photo",
       "DELETE_PICTURE": "Supprimer cette photo",
       "DELETE_PICTURE_ALERT": "Tu veux vraiment supprimer cette photo ? <strong>Les points seront conservés dans ton score.</strong>",
       "PICTURE_CLAN": "Image du clan",
       "PICTURE_PROFILE": "Photo de profil",
       "TAKE_PICTURE": "Prendre une photo",
-      "MODIFY_ALBUM": "Modifier votre album"
+      "MODIFY_ALBUM": "Modifier ton album"
     },
     "SHARE": {
       "CLAN_MESSAGE_1": "Rejoins mon clan ",
