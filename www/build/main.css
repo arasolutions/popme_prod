@@ -72571,6 +72571,23 @@ page-clanChat .blank-row {
   height: 44px;
 }
 
+page-clanChat .block-notif {
+  margin-left: -25px;
+  margin-right: -25px;
+}
+
+page-clanChat .block-notif > div {
+  width: 100%;
+  text-align: center;
+  padding: 5px 0;
+  margin: 5px 0;
+  background: #FFE26C;
+  color: #2C2C2C;
+  font-weight: bold;
+  border-top: solid 2px #2C2C2C;
+  border-bottom: solid 2px #2C2C2C;
+}
+
 page-clanEdit .close-buttons {
   position: absolute;
   right: 20px;

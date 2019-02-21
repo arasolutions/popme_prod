@@ -64,7 +64,7 @@
       "FILTER_SEARCH": "Recherche",
       "NO_RESULT_TITLE": "Dommage",
       "NO_RESULT_DESCRIPTION": "Personne n'a encore popé",
-      "POPED": "vous a popé"
+      "POPED": "t'a popé"
     },
     "LOGIN": {
       "BAD_ACCOUNT" : "Ton compte et/ou mot de passe ne sont pas valides",
@@ -92,9 +92,9 @@
       "REPORT_PHOTOS_BAD_CONTENT": "Contenu choquant",
       "REPORT_PHOTOS_NO_REASON": "Pas de raison",
       "REPORT_PHOTOS_INFORMATIONS": "Merci pour ton signalement.",
-      "BLOCK_ACCOUNT": "Souhaitez vous bloquer cet utilisateur ? (il ne pourra plus visualiser vos contenus et vous les siens)",
+      "BLOCK_ACCOUNT": "Souhaites-tu bloquer cet utilisateur ? (il ne pourra plus visualiser ton profil et toi le sien)",
       "BLOCK_ACCOUNT_INFORMATIONS": "L'utilisateur a été bloqué.",
-      "UNBLOCK_ACCOUNT": "Souhaitez vous débloquer cet utilisateur ?",
+      "UNBLOCK_ACCOUNT": "Souhaites-tu débloquer cet utilisateur ?",
       "UNBLOCK_ACCOUNT_INFORMATIONS": "L'utilisateur a été débloqué."
     },
     "PROFILE": {
@@ -104,8 +104,8 @@
       "REPORT_PHOTOS_NO_REASON": "Aucune raison",
       "REPORT_ALERT_MESSAGE": "Le compte est bloqué.",
 	  "POPOVER": {
-          "BLOCKED_ACCOUNT_BY_ME": "Vous avez bloqué cet utilisateur",
-          "BLOCKED_ACCOUNT": "Vous avez été bloqué par cet utilisateur",
+          "BLOCKED_ACCOUNT_BY_ME": "Tu as bloqué cet utilisateur",
+          "BLOCKED_ACCOUNT": "Tu as été bloqué par cet utilisateur",
 		  "GENERAL1": "Ca c'est ton score total !",
 		  "GENERAL2": "A chaque fois que quelqu'un aimera une de tes photos, ce score évoluera.",
 		  "GENERAL3": "A toi de partager tes photos et faire monter ton score pour devenir le plus populaire !",
@@ -148,11 +148,11 @@
       "TITLE": "Mes informations",
       "SLOGAN": "Devenez le plus populaire",
       "ACCOUNT": {
-        "CONFIRM": "Souhaitez-vous confirmer ?",
+        "CONFIRM": "Tu confirmes ?",
         "DELETE": "Supprimer mon compte",
         "DELETE_CONFIRM": "Souhaites-tu supprimer ton compte ? Toutes tes données seront perdues.",
         "DELETE_TITLE": "Suppression",
-        "SIGN_OUT_CONFIRM": "Souhaitez-vous vous déconnecter ?",
+        "SIGN_OUT_CONFIRM": "Souhaitez-tu te déconnecter ?",
         "SIGN_OUT": "Déconnexion"
       },
       "CONTACT": {
