@@ -72498,7 +72498,10 @@ page-clanChat .chat > div {
   padding: 5px 0 5px 5px;
 }
 
-page-clanChat .chat ion-textarea textarea {
+page-clanChat .chat ion-textarea textarea,
+page-clanChat .chat ion-textarea textarea:hover,
+page-clanChat .chat ion-textarea textarea:active,
+page-clanChat .chat ion-textarea textarea:focus {
   background: white !important;
   color: #2C2C2C !important;
   border: solid 1px #BBB !important;
