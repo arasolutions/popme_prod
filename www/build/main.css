@@ -72542,7 +72542,7 @@ page-clanChat ion-header.comments ion-col {
 page-clanChat ion-footer > .toolbar {
   --safe-area-inset-top: env(safe-area-inset-top);
   --safe-area-inset-bottom: env(safe-area-inset-bottom);
-  height: calc(60px + env(safe-area-inset-bottom));
+  height: 60px;
 }
 
 page-clanChat .button-gif > span {
