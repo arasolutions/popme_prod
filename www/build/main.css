@@ -72499,15 +72499,15 @@ page-clanChat .chat > div {
 }
 
 page-clanChat .chat ion-textarea textarea {
-  background: white;
-  color: #2C2C2C;
-  border: solid 1px #BBB;
-  border-radius: 5px;
+  background: white !important;
+  color: #2C2C2C !important;
+  border: solid 1px #BBB !important;
+  border-radius: 5px !important;
   width: 100% !important;
   float: left;
   height: 48px !important;
   resize: none;
-  padding: 5px;
+  padding: 5px !important;
 }
 
 page-clanChat .chat button {
