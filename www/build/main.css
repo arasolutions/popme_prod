@@ -72499,8 +72499,9 @@ page-clanChat .chat > div {
 }
 
 page-clanChat .chat ion-textarea textarea {
-  /*background: white !important;
-		color: #2C2C2C !important;*/
+  -webkit-appearance: none;
+  background: white !important;
+  color: #2C2C2C !important;
   border: solid 1px #BBB !important;
   border-radius: 5px !important;
   width: 100% !important;
@@ -72508,13 +72509,6 @@ page-clanChat .chat ion-textarea textarea {
   height: 48px !important;
   resize: none;
   padding: 5px !important;
-  background-color: red;
-  color: white;
-}
-
-page-clanChat .chat ion-textarea {
-  background-color: green;
-  color: blue;
 }
 
 page-clanChat .chat button {
