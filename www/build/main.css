@@ -72500,7 +72500,7 @@ page-clanChat .chat > div {
 
 page-clanChat .chat ion-textarea {
   position: absolute;
-  bottom: 0;
+  bottom: 2px;
   z-index: 20;
   margin-left: 50px;
   width: calc(100% - 50px - 80px);
@@ -72514,6 +72514,7 @@ page-clanChat .chat ion-textarea textarea {
   border: solid 1px #BBB !important;
   border-radius: 5px !important;
   width: 100% !important;
+  height: 42px !important;
   float: left;
   resize: none;
   padding: 5px !important;
